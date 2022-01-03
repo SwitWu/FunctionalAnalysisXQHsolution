@@ -1,0 +1,328 @@
+\chapter{连续函数空间}
+\thispagestyle{empty}
+
+
+
+\begin{exercise}
+    对任意 $x\in [0,1]$, 设 $f_n(x)=x^n$. 在 $[0,1]$ 上的哪些点处, $(f_n)_{n\geq 1}$ 等度连续?
+\end{exercise}
+
+\begin{solve}
+    因为$(f_n)_{n\geq 1}$在区间$[0,1)$上一致收敛到常值函数$f\equiv0$,
+    所以$(f_n)_{n\geq 1}$在$[0,1)$上等度连续,并且容易看出$(f_n)_{n\geq 1}$在$x=1$处不是等度连续的.
+\end{solve}
+
+
+
+\begin{exercise}
+    设 $K$ 是度量空间, $E$ 是赋范空间, $\left(f_{n}\right)_{n\geq 1}$ 是一列从 $K$ 到 $E$ 的连续函数. 
+    证明若 $(f_{n})_{n\geq 1}$ 在一个点 $x$ 处等度连续, 则对任一收敛到 $x$ 
+    的点列 $(x_{n})_{n\geq 1}$, 都有 $(f_{n}(x)-f_{n}(x_n))_{n\geq 1}$ 收敛到 $0$. 
+    进而证明如果 $(f_{n}(x))_{n\geq 1}$ 在 $E$ 中收敛到 $y$, 
+    那么对任一收敛到 $x$ 的点列 $(x_{n})_{n\geq 1}$, $(f_{n}(x_{n}))_{n\geq 1}$ 也收敛到 $y$.
+
+    取 $f_{n}(x)=\sin(nx)$. 证明 $(f_{n})_{n\geq 1}$ 在 $\FR$ 上每一点都不等度连续.
+\end{exercise}
+
+\begin{proof}
+    (1) 若 $(f_n)_{n\geq 1}$在点$x$处等度连续, 则对 $\forall \varepsilon>0$, $\exists \delta>0$, 
+    使得当 $d(x,y)<\delta$ 时, 对 $\forall n\in\mathbb{N}^*$, $\|f_n(x)-f_n(y)\|<\varepsilon$. 
+    且对任意收敛到 $x$ 的点列 $(x_n)_{n\geq 1}$, 存在正整数$N$, 当$n>N$时, $d(x_n,x)<\delta$, 
+    故此时对任意正整数 $k$, $\|f_k(x)-f_k(x_n)\|<\varepsilon$. 取$k=n$, 
+    得$\|f_n(x)-f_n(x_n)\|<\varepsilon$.
+    
+    综上, 对$\forall \varepsilon>0$, 存在正整数 $N$, 当 $n>N$ 时, $\|f_n(x)-f_n(x_n)\|<\varepsilon$, 
+    这就是说$(f_n(x)-f_n(x_n))_{n\geq 1}$收敛到$0$.
+
+	(2) 由于 $(f_n(x))_{n\geq 1}$ 在 $E$ 中收敛到 $y$, 故对 $\varepsilon>0$, 存在 $N_1\in\mathbb{N}^*$, 
+    当$n>N_1$时, $\|f_n(x)-y\|<\frac{\varepsilon}{2}$, 又根据 (1), 
+    设 $(x_n)_{n\geq 1}$ 收敛于 $x$, 则存在 $N_2\in\mathbb{N}^*$, 使得 $n>N_2$ 时, 
+    $\|f_n(x)-f_n(x_n)\|<\frac{\varepsilon}{2}$. 取 $N=\max\left\{N_1,N_2\right\}$, 当$n>N$时, 
+	\[\|f_n(x_n)-y\|\leq \|f_n(x_n)-f_n(x)\|+\|f_n(x)-y\|\leq\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.\]
+	故 $f_n(x_n)_{n\geq 1}$ 也收敛到 $y$.
+
+	(3) 若 $x=k\pi$, $k\in\FZ$, 则取 $x_n=k\pi+\frac{1}{n}$, 注意到$f_n(k\pi)=\sin(nk\pi)=0$, 
+    故 $\lim\limits_{n\rightarrow\infty}f_n(k\pi)=0$, 而
+    \[\begin{aligned}
+		f_n(x_n)&=\sin(n(k\pi+\frac{1}{n}))\\&=\sin(nk\pi+1)\\
+		&=\sin(nk\pi)\cos1+\cos(nk\pi)\sin1\\&=\cos(nk\pi)\sin1.
+	\end{aligned}\]
+    从而 $|f_n(x_n)|=\sin 1$ 对任意正整数 $n$ 都成立, 
+    因此 $f_n(x_n)$ 在 $n$ 趋于 $\infty$ 时极限不可能为 $0$. 由 (2) 知 $(f_n)_{n\geq 1}$ 在 $x=k\pi$ 处不等度连续. 
+
+    若 $x\not= k\pi$, $k\in\FZ$, 取 $x_n=x+\frac{\pi}{n}$, 从而
+    \[\begin{aligned}
+    \|f_n(x)-f_n(x_n)\|&=|\sin (nx)-\sin(nx+\pi)|\\
+    &=|\sin (nx)-\sin(nx)\cos\pi-\cos(nx)\sin\pi|\\
+                    &=2|\sin nx|.
+    \end{aligned}\]
+
+    下面我们说明当 $x\not=k\pi$ 时, $\lim\limits_{n\rightarrow \infty}\sin nx$不存在. 
+    事实上, 设 $x\not=k\pi$, $k\in\FZ$, 若 $\lim\limits_{n\rightarrow \infty} \sin nx$ 存在, 那么
+    \[\lim\limits_{n\rightarrow \infty} (\sin((n+1)x)-\sin((n-1)x))=0.\]
+    由和差化积, 我们知道 $\sin((n+1)x)-\sin((n-1)x)=2\sin x\cos nx$, 从而
+    \[\lim\limits_{n\rightarrow \infty} \cos nx=0.\]
+    接着注意到 $\cos((n+1)x)=\cos nx\cos x-\sin nx\sin x$, 故
+    \[\lim\limits_{n\rightarrow \infty} \sin nx =0,\]
+    而这与 $\sin^2 nx+\cos^2 nx=1$矛盾! 从而 $\lim\limits_{n\rightarrow \infty} \sin nx$不存在.
+
+    因此当 $n$ 趋近于 $\infty$ 时, $\|f_n(x)-f_n(x_n)\|$ 极限不存在, 
+    由 (1) 知 $(f_n)_{n\geq 1}$ 在 $x\not= k\pi$ 处不等度连续.
+    
+    综上, $(f_n)_{n\geq 1}$ 在 $\mathbb{R}$上每一点都不等度连续. 
+\end{proof}
+
+
+
+
+
+\begin{exercise}
+    设 $K$ 是拓扑空间, $(E,d)$ 是度量空间. 证明: 
+    若 $(f_{n})$ 在 $C(K, E)$ 中依一致范数收敛, 则 $(f_{n})$ 等度连续.
+\end{exercise}
+
+\begin{proof}
+    设$(f_n)_{n\geq 1}$一致收敛到$f$,容易验证$f\in C(K,E)$,则$\forall\varepsilon>0,\exists N>0,s.t.\forall n>N,sup_{x\in K}d(f_n(x),f(x))<\varepsilon/3$,任取$x\in K$,因为$f\in C(K,E)$,所以存在$V\in\mathcal{N}(x)$,使得当$y\in V$时,$d(f(y),f(x))<\varepsilon/3$\\
+    因此对于上述的$\varepsilon,N$,当$n>N$且$y\in V$时,有
+    \[d(f_n(y),f_n(x))\leq d(f_n(y),f(y))+d(f(y),f(x))+d(f(x),f_n(x))<\varepsilon\]
+    从而集合$(f_n)_{n>N}$是等度连续的,而增加有限个元素不改变等度连续性,因此$(f_n)_{n\geq 1}$等度连续.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $K$ 是拓扑空间, $(E, d)$ 是度量空间, $(f_{n})$ 是 $C(K, E)$ 上等度连续序列. 
+    证明所有使得 $(f_{n}(x))$ 是 Cauchy 序列的点 $x$ 构成的集合是 $K$ 中的闭子集.
+\end{exercise}
+
+\begin{proof}
+记所有使得$(f_n(x))$是Cauchy序列的点$x$构成的集合为$B$,要证明$B$为闭集,只需证明其任意收敛序列的极限点仍在其中
+设$(x_k)_{k\geq 1}$是$B$中任意一个收敛的序列,且$x_k\to x$.
+
+因为$f_n\in C(K,E)$,所以$\forall\varepsilon>0,\exists K,\forall k>K,d(f_n(x_k),f_n(x))<\varepsilon$\\
+又$x_k\in B$,所以$(f_n(x_k))_{n\geq 1}$是Cauchy序列,故对于上述$\varepsilon>0,\exists N,\forall m,n>N$,有
+\[d(f_n(x_k),f_m(x_k))<\varepsilon\]
+从而\[d(f_n(x),f_m(x))\leq d(f_n(x),f_n(x_k))+d(f_n(x_k),f_m(x_k))+d(f_m(x_k),f_m(x))<3\varepsilon\]
+这说明$(f_n(x))_{n\geq 1}$是Cauchy序列,故$x\in B$,所以$B$是闭集.
+\end{proof}
+
+
+
+\begin{exercise}
+    考虑函数序列 $(f_{n})$, 这里 $f_{n}(t)=\sin\left(\sqrt{t+4(n\pi)^2}\right)$, $t\in[0,\infty)$.
+
+    (a) 证明 $(f_{n})$ 等度连续并且逐点收敛到 $0$ 函数.
+
+    (b) $C_{b}([0,\infty),\FR)$ 表示 $[0, \infty)$ 上所有有界连续实函数构成的空间, 并赋予范数
+    \[\|f\|_{\infty}=\sup_{t\geq 0}|f(t)|.\]
+    $(f_n)$ 在 $C_b([0,\infty),\FR)$ 中是否相对紧?
+\end{exercise}
+
+\begin{proof}
+    (a) 任意取定 $t_0\geq 0$, 对于 $\forall\varepsilon>0$,
+    取 $\delta=4\pi\varepsilon$, 则当 $t\in B(t_0,\delta)\cap [0,+\infty)$ 时, 对于任意的 $f_n$ 有
+    \begin{align*}
+        |f_n(t)-f_n(t_0)| & =\left|\sin(\sqrt{t+4(n\pi)^2})-\sin(\sqrt{t_0+4(n\pi)^2})\right| \\
+                        & \leq |\sqrt{t+4(n\pi)^2}-\sqrt{t_0+4(n\pi)^2}|\\
+                        & =\frac{|t-t_0|}{\sqrt{t+4(n\pi)^2}+\sqrt{t_0+4(n\pi)^2}}\\
+                        & \leq\frac{|t-t_0|}{4\pi}<\varepsilon.
+    \end{align*}
+    因此 $(f_n)$ 等度连续.
+    对任意的 $t\in [0,\infty)$,因为
+    \[\begin{split}
+    \lim_{n\to\infty}|\sin(\sqrt{t+4(n\pi)^2})-0|&=\lim_{n\to\infty}|\sin(\sqrt{t+4(n\pi)^2})-\sin(2n\pi)|\\
+    &\leq \lim_{n\to\infty}\frac{t}{\sqrt{t+4(n\pi)^2}+2n\pi}\\
+    &\leq \lim_{n\to\infty}\frac{t}{4n\pi}=0.
+    \end{split}\]
+    故 $(f_n)$ 逐点收敛到 $0$ 函数.
+
+    (b) 注意到依范数 $\|\cdot\|_{\infty}$ 下的收敛即为在 $[0,\infty)$ 下的一致收敛,
+    假设 $(f_n)$有依范数 $\|\cdot\|_{\infty}$ 收敛的子列, 则由 (a) 知该子列必一致收敛于 $0$ 函数,
+    然而对于 $\forall n$,
+    \[\|f_n\|_{\infty}=\sup_{t\geq 0}|\sin(\sqrt{t+4(n\pi)^2})|=1.\]
+    故 $(f_n)$ 不存在依范数 $\|\cdot\|_{\infty}$ 收敛的子列, 因此 $(f_n)$ 不是相对紧的.
+\end{proof}
+
+
+
+
+% 7.Proof:(a)对于任意$m\geq 1$,有$K=\bigcup_{x\in K}B(x,1/m)$,因为$K$是紧的,所以存在有限子集$D_m$,使得
+% \[K=\bigcup_{x\in D_m}B(x,1/m)\]
+% 令\[D=\bigcup_{m\geq 1}D_m\]
+% 显然$D$是$K$的可数稠密子集\\
+% (b)因为$D$可数,故可记$D=\{x_1,x_2,\cdots\}$\\
+% $\{f_n(x_1):n\geq 1\}$相对紧:有收敛子列$\{f_{n_{1k}}(x_1):k\geq 1\}$\\
+% $\{f_n(x_2):n\geq 1\}$相对紧:$\{f_{n_{1k}}(x_2):k\geq 1\}$有收敛子列$\{f_{n_{2k}}(x_2):k\geq 1\}$\\
+% $\cdots$\\
+% $\{f_n(x_l):n\geq 1\}$相对紧:$\{f_{n_{(l-1)k}}(x_l):k\geq 1\}$有收敛子列$\{f_{n_{lk}}(x_l):k\geq 1\}$\\
+% $\cdots$\\
+% 如此进行下去,利用对角线法,可挑选出一列$(f_{n_{kk}})_{k\geq 1}$,使得对任意的$x\in D$,$(f_{n_{kk}}(x))_{k\geq 1}$收敛\\
+% (c)对任意$x\in K$,存在$(x_m)\subset D$使得$x_m\to x$,故$\forall\varepsilon>0$,有:
+% \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))\leq d(f_{n_{kk}}(x),f_{n_{kk}}(x_m))+d(f_{n_{kk}}(x_m),f_{n_{qq}}(x_m))+d(f_{n_{qq}}(x_m),f_{n_{qq}}(x))\]由$(f_n)$等度连续及(b)中结论知当指标$m,k,q$都取得足够大时,有
+% \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))<\varepsilon\]因此$(f_{n_{kk}}(x))$是Cauchy序列\\
+% 由$\Delta(f_{n_{kk}},f_{n_{qq}})=sup_{x\in K}d((f_{n_{kk}}(x)),(f_{n_{qq}}(x)))$知$(f_{n_{kk}})$是Cauchy序列,故其在$C(K,E)$中收敛\\\\
+
+
+\setcounter{exer}{9}
+\begin{exercise}
+    设 $(K,d)$ 是紧度量空间. 证明所有从 $K$ 到 $\FR$ 的 Lipschitz 函数构成的集合在 $(C(K,\FR),\|\cdot\|_{\infty})$ 中稠密.
+\end{exercise}
+
+\begin{proof}
+    记所有从 $K$ 到 $\FR$ 的 Lipschitz 函数构成的集合为 $\mathcal{A}$.
+    \begin{itemize}
+    \item $\mathcal{A}$是 $C(K,\FR)$的子代数:
+    容易验证 $\mathcal{A}$ 中元素关于加法和数乘封闭,下面说明关于乘法封闭,
+    任意 $f,g\in\mathcal{A}$, 存在 $\lambda_1>0,\lambda_2>0$ 使得对任意 $x,y\in K$, 有
+    \[|f(x)-f(y)|\leq\lambda_1d(x,y).\]
+    \[|g(x)-g(y)|\leq\lambda_2d(x,y).\]
+    又因为 $K$ 为紧集, 故存在 $M_1,M_2$, 使得对于任意 $x\in K$, 
+    有 $|f(x)|\leq M_1$, $|g(x)|\leq M_2$, 故
+    \[\begin{split}
+    |f(x)g(x)-f(y)g(y)|
+    & =|f(x)g(x)-f(x)g(y)+f(x)g(y)-f(y)g(y)|\\
+    & \leq |f(x)g(x)-f(x)g(y)|+|f(x)g(y)-f(y)g(y)|\\
+    & \leq M_1\lambda_2d(x,y)+M_2\lambda_1d(x,y)\\
+    & =(M_1\lambda_2+M_2\lambda_1)d(x,y).
+    \end{split}\]
+    从而 $\mathcal{A}$ 中元素关于乘法封闭.
+    \item 常值函数 $1\in\mathcal{A}$.
+    \item 任意取定 $y\in K$, 取 $f(x)=d(x,y)\in\mathcal{A}$, 则当 $x\neq y$ 时, $f(x)\neq f(y)$.
+    \end{itemize}
+    由 Stone-Weierstrass 定理知 $\mathcal{A}$ 在 $C(K,\FR)$ 中稠密.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $K_{1}$ 和 $K_{2}$ 都是紧 Hausdorff 空间. 
+    对 $f\in C(K_{1},\FC), g\in C(K_{2},\FC)$ 定义
+    \[
+    f\otimes g(x_1,x_2)=f(x_1) g(x_2), \quad\forall(x_1,x_2)\in K_{1}\times K_{2}.
+    \]
+    并定义集合
+    \[
+    \mathcal{A}=\biggl\{\sum_{\text{有限和}} a_{i}f_{i}\otimes g_{i}: a_{i}\in\FC, f_{i}\in C(K_1,\FC), g_{i}\in C(K_2, \FC)\biggr\}.
+    \]
+    证明 $\mathcal{A}$ 在 $C(K_1\times K_2,\FC)$ 中稠密.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[(i)]
+    \item $K_1\times K_2$是紧的Hausdorff空间
+    \item $\mathcal{A}$是$C(K_1\times K_2,\FC)$的子代数:容易验证$\mathcal{A}$是向量子空间,下证$\mathcal{A}$关于乘法封闭:\\
+    任意$\ell_1,\ell_2\in\mathcal{A}$,记$\ell_1=\sum_{i\in I}a_if_{1i}\otimes g_{1i},\ell_2=\sum_{j\in J}b_jf_{2j}\otimes g_{2j}$,其中$I,J$都为有限指标集,对任意$(x_1,x_2)\in K_1\times K_2$,有\[\begin{split}\ell_1(x_1,x_2)\cdot\ell_2(x_1,x_2)&=\left(\sum_{i\in I}a_if_{1i}(x_1)g_{1i}(x_2)\right)\left(\sum_{j\in J}b_jf_{2j}(x_1)g_{2j}(x_2)\right)\\&=\sum_{i\in I}\sum_{j\in J}a_ib_j(f_{1i}f_{2j})(x_1)\cdot(g_{1i}g_{2j})(x_2)\\&=\sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right)(x_1,x_2)\end{split}\]
+    因此\[\ell_1\cdot\ell_2=\sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right)\]
+    上式仍为有限和,结合$C(K_1,\FC),C(K_2,\FC)$都为代数知$\mathcal{A}$关于乘法封闭
+    \item 常值函数$1\in\mathcal{A}$
+    \item 可分点:设$x=(x_1,x_2),y=(y_1,y_2)\in K_1\times K_2$且$x\neq y$,不妨设$x_1\neq y_1$,因为$K_1$是紧Hausdorff空间,所以由Urysohn引理知存在$f\in C(K_1,[0,1])\subset C(K_1,\FC)$使得$f(x_1)=0,f(y_1)=1$,令$g(x)\equiv1(\forall x\in K_2)$,则
+    \[f\otimes g(x)=f\otimes g(x_1,x_2)=0\]
+    \[f\otimes g(y)=f\otimes g(y_1,y_2)=1\]
+    因此$\mathcal{A}$是可分点的
+    \item $\mathcal{A}$是自伴的
+    \end{enumerate}
+    综上知$\mathcal{A}$在$C(K_1\times K_2,\FR)$中稠密.
+\end{proof}
+
+
+
+\begin{exercise}
+    $[0,1]$ 上所有的偶多项式构成的集合 $\mathcal{Q}$ 是否在 $C([0,1], \FR)$ 上稠密?
+    $[-1,1]$ 上所有的偶多项式构成的集合 $\mathcal{R}$ 是否在 $C([-1,1], \FR)$ 上稠密?
+\end{exercise}
+
+\begin{solve}
+    $\mathcal{Q}$在$C([0,1],\FR)$中稠密,理由:
+    \begin{enumerate}[(i)]
+    \item $\mathcal{Q}$ 是子代数.
+    \item $1\in\mathcal{Q}$.
+    \item $\forall x,y\in [0,1]$, 取 $f(x)=x^2$, 则 $f(x)\neq f(y)$.
+    \end{enumerate}
+    但是 $\mathcal{R}$ 在 $C([-1,1],\FR)$ 中不稠密, 因为 $[-1,1]$ 中的任意一个非零点和其相反数不可分.
+\end{solve}
+
+
+
+\begin{exercise}
+    本习题的目的是证明 Bernstein 定理: 令 $f\in C([0,1], \FK)$, 并设
+    \[
+    B_{n}(f)(x)=\sum_{k=0}^{n} \mathrm{C}_{n}^{k} f\left(\frac{k}{n}\right) x^{k}(1-x)^{n-k}.
+    \]
+    则 $B_{n}$ 在 $[0,1]$ 上一致收敛到 $f$.
+
+    (a) 首先导出对任一正整数 $n$, 有公式
+    \[
+    \sum_{k=0}^{n} \mathrm{C}_{n}^{k} k x^{k}(1-x)^{n-k}=nx \quad\text{和}\quad\sum_{k=0}^{n} \mathrm{C}_{n}^{k} k^2 x^k(1-x)^{n-k}=nx+n(n-1)x.
+    \]
+    并由此证明
+    \[
+    \sum_{k=0}^{n} \mathrm{C}_{n}^{k}(k-nx)^2 x^k (1-x)^{n-k}=nx(1-x).
+    \]
+
+    (b) 对任意 $\varepsilon>0$, 选择适当的 $\delta>0$, 使得
+    \[
+    x, y \in[0,1],|x-y|<\delta \Rightarrow|f(x)-f(y)|<\varepsilon.
+    \]
+    对任意固定的 $x\in [0,1]$, 令 $I=\{k:|x-\frac{k}{n}|<\delta\}$
+    及 $J=\{k:|x-\frac{k}{n}|>\delta\}$. 证明
+    \begin{align*}
+        |f(x)-B_n(f)(x)|<{}
+        & \varepsilon\sum_{k\in I}\mathrm{C}_n^k x^k(1-x)^{n-k} \\
+        & +\frac{2\|f\|_{\infty}}{\delta^2}\sum_{k\in J}\mathrm{C}_n^k \biggl(x-\frac{k}{n}\biggr)^2x^k(1-x)^{n-k}.
+    \end{align*}
+    从而导出
+    \[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta}\frac{x(1-x)}{n}.\]
+
+    (c) 得出结论
+    \[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0.\]
+\end{exercise}
+
+\begin{proof}
+(a)引入二项分布$X\sim B(n,x)$,则:
+\[\sum_{k=0}^nC_n^kkx^k(1-x)^{n-k}=E(X)=nx\]
+\[\sum_{k=0}^nC_n^kk^2x^k(1-x)^{n-k}=E(X^2)=Var(X)+E^2(X)=nx+n(n-1)x^2\]
+\[\mbox{故}\sum_{k=0}^nC_n^k(k-nx)^2x^k(1-x)^{n-k}=nx+n(n-1)x^2-2nx\cdot nx+n^2x^2=nx(1-x)\]
+
+(b)\[\begin{split}
+|f(x)-B_n(f)(x)|&=\left|f(x)-\sum_{k=0}^nC_n^kf\left(\frac{k}{n}\right)x^k(1-x)^{n-k}\right|\\
+&=\left|\sum_{k=0}^nC_n^k\left(f(x)-f\left(\frac{k}{n}\right)\right)x^k(1-x)^{n-k}\right|\\
+&\leq\sum_{k=0}^nC_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k}\\
+&<\varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}+\sum_{k\in J}C_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k}\\
+&\leq\varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}+\frac{2\|f\|_{\infty}}{\delta^2}\sum_{k\in J}C_n^k\left(x-\frac{k}{n}\right)^2x^k(1-x)^{n-k}
+\end{split}\]
+由(a)知$\sum_{k=0}^nC_n^k(x-k/n)^2x^k(1-x)^{n-k}=x(1-x)/n$,故
+\[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}\]
+
+(c)由(b)中所得不等式知:
+\[\begin{split}\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}
+&=\lim_{n\to\infty}\sup\limits_{0\leq x\leq 1}|f(x)-B_n(f)(x)|\\
+&\leq\lim_{n\to\infty}\sup\limits_{0\leq x\leq 1}\left(\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}\right)\\&=\varepsilon\end{split}\]
+由$\varepsilon$的任意性知\[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0\]
+\end{proof}
+
+
+    % 15.\textit{Proof}:\\\\
+    % 16.\textit{Proof}:(a)首先显然$F(x)$是连续的,又因为$\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi}f(\theta)\diff\theta=0$,所以
+    % \[F(x+2\pi)=\int_0^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t+\int_x^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t=F(x)\]
+    % 故$F\in C_{2\pi}$,并且\\
+    % \[\begin{split}\hat{F}(n)&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)e^{-in\theta}\diff\theta\\
+    % &=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\frac{1}{-in}\diff(e^{-in\theta})\\
+    % &=\frac{1}{2\pi}\left(\frac{i}{n}e^{-in\theta}F(\theta)\right)\bigg|_0^{2\pi}-\frac{1}{2\pi}\int_0^{2\pi}\frac{i}{n}e^{-in\theta}f(\theta)\diff\theta\\
+    % &=-\frac{i}{2\pi n}\int_0^{2\pi}e^{-in\theta}f(\theta)\diff\theta\\
+    % &=-\frac{i}{n}\hat{f}(n)=\begin{cases}-\frac{i}{|n|}\hat{f}(|n|)=-\frac{i}{|n|}\frac{a_{|n|}}{2i}=-\frac{a_{|n|}}{2|n|}&n>0\mbox{时}\\\frac{i}{|n|}\hat{f}(-|n|)=\frac{i}{|n|}\left(-\frac{a_{|n|}}{2i}\right)=-\frac{a_{|n|}}{2|n|}&n<0\mbox{时}\end{cases}\\
+    % &=-\frac{a_{|n|}}{2|n|}\end{split}\]
+    % 由上面结果知对任意$n\geq 1$,有\[\begin{split}\frac{a_n}{n}&=-(\hat{F}(n)+\hat{F}(-n))\\&=-\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\left(e^{-in\theta}+e^{in\theta}\right)\diff\theta\\
+    % &=-\frac{1}{\pi}\int_0^{2\pi}F(\theta)\cos(n\theta)\diff\theta\\&=-\frac{1}{\pi}\int_0^{2\pi}\frac{F(\theta)}{n}\diff\sin(n\theta)\\
+    % &=-\frac{F(\theta)\sin(n\theta)}{n\pi}\bigg|_0^{2\pi}+\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\\
+    % &=\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\end{split}\]
+    % 故\[\sum_{n\geq 1}\frac{a_n}{n}=\frac{1}{\pi}\int_0^{2\pi}\sum_{n\geq 1}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\]
+    % 由级数$\sum_{n\geq 1}\frac{\sin(n\theta)}{n}$收敛及$f\in L_{2\pi}^1$知$\sum_{n\geq 1}\frac{a_n}{n}$收敛\\
+    % (b)假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是Fourier级数,则由(a)中结论知级数
+    % \[\sum_{n\geq 2}\frac{1}{n\log n}\mbox{收敛}\]
+    % 显然矛盾,因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$不是Fourier级数\\\\
+    % 17.\textit{Proof}:因为$C_{2\pi}$在$L_{2\pi}^p$中稠密,所以存在函数序列$(f_n)\subset C_{2\pi}$,使得
+    % \[\|f-f_n\|_p\to0(n\to\infty)\]
+    % 不妨设$p\geq 1(0<p<1\mbox{的情形同理可证})$,由Minkowski不等式得
+    % \[\|\tau_a(f)-f\|_p\leq\|\tau_a(f)-\tau_a(f_n)\|_p+\|\tau_a(f_n)-f_n\|_p+\|f_n-f\|_p\]
+    % 由$f_n$是一致连续函数且$\tau_a$是连续变换不难知:
+    % \[\lim_{a\to0}\|\tau_a(f)-f\|_p=0\]

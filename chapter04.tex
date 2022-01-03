@@ -1,0 +1,985 @@
+% !TeX root = main.tex
+% !TeX program = xelatex
+\setcounter{chapter}{3}
+\chapter{Hilbert空间}
+
+
+
+\begin{exercise}
+    设 $u:H\to K$ 是两个实内积空间之间的映射, 且有
+    \[\|u(x)-u(y)\|=\|x-y\|,\quad\forall x,y\in H\;(\text{也就是说}, u\text{\ 是一个等距映射}).\]
+    证明 $u-u(0)$ 是线性的.
+\end{exercise}
+
+\begin{proof}
+记 $v=u-u(0)$, 则 $v(0)=0$, $\|v(x)-v(y)\|=\|x-y\|$ $(\forall x,y\in H)$,
+即 $v$ 保距离(特别地, $v$ 还保范数), 将上式平方得 
+\[\|v(x)\|^2+\|v(y)\|^2-2\langle v(x),v(y)\rangle=\|x\|^2+\|y\|^2-2\langle x,y\rangle.\]
+故
+\[\langle v(x),v(y)\rangle=\langle x,y\rangle.\]
+因此 $v$ 保内积,下面证明 $v$ 是线性的:
+\begin{itemize}
+\item $v(x+y)=v(x)+v(y)$ $(\forall x,y\in H)$:
+\begin{align*}
+    &\langle v(x+y)-v(x)-v(y),v(x+y)-v(x)-v(y)\rangle\\
+    &=\|v(x+y)\|^2+\|v(x)\|^2+\|v(y)\|^2-2\langle v(x+y),v(x)\rangle-2\langle v(x+y),v(y)\rangle+2\langle v(x),v(y)\rangle\\
+    &=\|x+y\|^2+\|x\|^2+\|y\|^2-2\langle x+y,x\rangle-2\langle x+y,y\rangle+2\langle x,y\rangle\\
+    &=\|x+y\|^2+\|x\|^2+\|y\|^2-2\|x+y\|^2+2\langle x,y\rangle\\
+    &=0\\
+    &\Rightarrow v(x+y)=v(x)+v(y).
+\end{align*}
+\item $v(\lambda x)=\lambda v(x)$ $(\forall\lambda\in\mathbb{R},x\in H)$:
+\begin{align*}
+    &\langle v(\lambda x)-\lambda v(x),v(\lambda x)-\lambda v(x)\rangle\\
+    &=\|v(\lambda x)\|^2+\lambda^2\|v(x)\|^2-2\lambda\langle v(\lambda x),v(x)\rangle\\
+    &=\|\lambda x\|^2+\lambda^2\|x\|^2-2\lambda\langle\lambda x,x\rangle\\
+    &=0\\&\Rightarrow v(\lambda x)=\lambda v(x).
+\end{align*}    
+\end{itemize}
+根据上面两点知 $v$ 是线性的.
+\end{proof}
+
+\begin{remark}
+保距离+保原点 $\rightarrow$ 保内积.
+\end{remark}
+
+
+
+
+\begin{exercise}
+    设 $A$ 是 $\ell_2$ 的子集, 其元素 $x=(x_n)_{n\geq 1}$ 满足 $|x_n|\leq\frac{1}{n}$, $n\geq 1$. 证明 $A$ 是紧集.
+\end{exercise}
+
+\begin{proof}
+我们证明 $A$ 序列紧, 即证$A$中任意序列有收敛子列, 任取$A$中的序列$(x^{(m)})_{m\geq 1}$, 记
+\[x^{(m)}=\left(x^{(m)}_1,x^{(m)}_2,\cdots,x^{(m)}_n,\cdots\right)\quad m=1,2,\cdots.\]
+
+$\left(x_1^{(m)}\right)_{m\geq 1}$为有界序列,有收敛子列$\left(x_1^{(m_k^1)}\right)_{k\geq 1}$;
+
+$\left(x_2^{(m_k^1)}\right)_{k\geq 1}$为有界序列,有收敛子列$\left(x_2^{(m_k^2)}\right)_{k\geq 1}$;
+
+$\cdots\cdots$
+
+$\left(x_n^{(m_k^{n-1})}\right)_{k\geq 1}$为有界序列,有收敛子列$\left(x_n^{(m_k^n)}\right)_{k\geq 1}$;
+
+$\cdots\cdots$
+
+根据对角线法选取指标列 $\left(m_k^k\right)_{k\geq 1}$, 
+由此得到 $(x^{(m)})_{m\geq 1}$ 的子列 $(x^{(m_k^k)})_{k\geq 1}$, 
+不妨将其简记为 $(x^{(m_k)})_{k\geq 1}$, 其每一个坐标分量都是收敛的, 
+记 $(x^{(m_k)})_{k\geq 1}$ 依坐标收敛于 $x=(x_n)$, 且有 $|x_n|\leq\frac{1}{n}$, 
+故 $x=(x_n)\in\ell_2$, 
+下面证明 $(x^{(m_k)})_{k\geq 1}$ 依 $\ell_2$ 范数收敛到$x$: 
+事实上, 对于每个$k\geq 1$, 都有 $|x_n^{(m_k)}|\leq\frac{1}{n}$, 故
+\[|x_n^{(m_k)}-x_n|\leq\frac{2}{n}.\]
+那么, 对任意 $\varepsilon>0$, 存在 $N\geq 1$, 使得
+\[\sum_{n=N+1}^{\infty}|x_n^{(m_k)}-x_n|^2\leq\sum_{n=N+1}^{\infty}\frac{4}{n^2}<\varepsilon.\]
+另一方面, 因为$(x^{(m_k)})_{k\geq 1}$ 依坐标收敛于$x=(x_n)$, 故存在$k_0\geq 1$, 使得当 $k\geq k_0$时, 有
+\[\sum_{n=1}^N|x_n^{(m_k)}-x_n|^2\leq\sum_{n=1}^N\frac{\varepsilon}{N}=\varepsilon.\]
+因此
+\[\|x^{(m_k)}-x\|_{\ell_2}=\left(\sum_{n=1}^{\infty}|x_n^{(m_k)}-x_n|^2\right)^{\frac{1}{2}}<(2\varepsilon)^{\frac{1}{2}}.\]
+即说明$(x^{(m_k)})_{k\geq 1}$依$\ell_2$范数收敛到$x$, 故$A$是紧集.
+\end{proof}
+
+\begin{remark}
+从证明过程可以看出题目条件中的控制项 $\frac{1}{n}$ 可以换成任意 $(a_n)$, 只要其满足 $\sum_{n=1}^{\infty}a_n^2$ 收敛即可.
+\end{remark}
+
+
+
+
+\begin{exercise}
+设 $E$ 和 $F$ 是内积空间 $H$ 的两个向量子空间. 证明存在常数 $\alpha\geq 0$ 使得
+\[|\innerp{x}{y}|=\alpha\|x\|\|y\|,\quad\forall x\in E,\forall y\in F\]
+的充分必要条件是或者 $\dim E=\dim F=1$, 或者 $\alpha=0$ (即 $E$ 与 $F$ 正交).
+\end{exercise}
+
+\begin{proof}
+($\Leftarrow$)
+充分性显然.
+
+\necessary
+已知存在 $\alpha\geq 0$, 使得 
+$|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
+当 $\alpha=0$时, 显然 $E$ 与 $F$ 正交;
+当 $\alpha>0$时, 需证  $\dim E=\dim F=1$, 
+反证法, 当 $\FK=\FR$ 时, 假设 $\dim F\geq 2$, 取 $F$ 中
+两个不共线的单位向量 $e_1,e_2$, 取 $E$ 中一个单位向量 $e$,
+则 $\innerp{e}{e_1}=\innerp{e}{e_2}=\alpha$, 且
+\[\innerp{e}{e_1+e_2}=2\alpha=\alpha\|e_1+e_2\|,\]
+因此 $\|e_1+e_2\|=\|e_1\|+\|e_2\|$, 于是 $e_1$ 与 $e_2$ 共线, 矛盾.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $E$ 和 $F$ 是内积空间 $H$ 的两个向量子空间.
+    假设 $E$ 和 $F$ 都不等于集合 $\{0\}$.
+    定义 $E$ 和 $F$ 之间的夹角 $\theta$ 为
+    \[\cos\theta=\sup\left\{\frac{|\innerp{x}{y}|}{\|x\|\|y\|}:x\in E, y\in F\right\},\quad\theta\in\left[0,\frac{\pi}{2}\right].\]
+    证明: $\theta>0$ 当且仅当存在一个常数 $c>0$, 使得
+    \[\|x+y\|^2\geq c(\|x\|^2+\|y\|^2),\quad\forall x\in E, y\in F.\]
+\end{exercise}
+
+\begin{proof}
+    \necessary
+    记 $m=\cos\theta$, 则 $\theta>0\iff 0\leq m<1$. 由夹角的定义知
+    \[|\innerp{x}{y}|\leq m\|x\|\|y\|\leq\frac{m}{2}(\|x\|^2+\|y\|^2),\]
+    故
+    \begin{align*}
+        \|x+y\|^2
+        &=\|x\|^2+\|y\|^2+2\Re\innerp{x}{y}\geq \|x\|^2+\|y\|^2-2|\innerp{x}{y}| \\
+        &\geq \|x\|^2+\|y\|^2-m\left(\|x\|^2+\|y\|^2\right) \\
+        &=(1-m)\left(\|x\|^2+\|y\|^2\right).
+    \end{align*}
+    在上式中取 $c=1-m>0$ 即得所证.
+
+    \sufficient
+    注意到
+    \begin{align*}
+        \cos\theta
+        & =\sup\biggl\{\frac{|\innerp{x}{y}|}{\|x\|\|y\|}\colon x\in E,y\in F\biggr\} \\
+        & =\sup\{|\innerp{x}{y}|\colon \|x\|=\|y\|=1,x\in E,y\in F\}.
+    \end{align*}
+    故只需证 $\sup\{|\innerp{x}{y}|\colon \|x\|=\|y\|=1,x\in E,y\in F\}<1$.
+
+    对任意 $x\in E$, $y\in F$, 且 $\|x\|=\|y\|=1$, 由条件 $\|x+y\|^2\geq c(\|x\|^2+\|y\|^2)$
+    (不妨设 $0<c<1$) 得 $\Re\innerp{x}{y}\geq c-1$.
+    当 $\|x\|=1$ 时, 亦有 $\|-x\|=1$, 故
+    \[\Re\innerp{x}{y}=-\Re\innerp{-x}{y}\leq 1-c.\]
+    因此
+    \begin{align*}
+        |\innerp{x}{y}|
+        & =\sgn\innerp{x}{y}\cdot\innerp{x}{y} \\
+        & =\innerp{\sgn\innerp{x}{y}\cdot x}{y}\quad(\text{real number})\\
+        & =\Re\innerp{\sgn\innerp{x}{y}\cdot x}{y} \\
+        & \leq 1-c.
+    \end{align*}
+    从而 $\sup\{|\innerp{x}{y}|\colon \|x\|=\|y\|=1,x\in E,y\in F\}\leq 1-c<1$, 由此即得 $\theta>0$.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间, $(A_n)$ 是 $H$ 中递减的闭凸非空子集列. 
+    任取 $x\in H$, 令 $d_n(x)=d(x,A_n)$ 且 $d(x)=\lim_{n\to\infty}d_n(x)$.
+    \begin{enumerate}[(a)]
+    \item 证明: 若对某一个 $x\in H$, 有 $d(x)<\infty$, 
+    则对所有的 $x\in H$, $d(x)<\infty$. 我们在下面假设该命题成立, 
+    并用 $A(x,\varepsilon,n)$ 表示中心在 $x$、半径为 $d(x)+\varepsilon$ 的闭球与 $A_n$ 的交集, 
+    即 $A(x,\varepsilon,n)=A_n\cap\overline{B}(x,d(x)+\varepsilon)$.
+    \item 证明
+    \[\lim_{\varepsilon\to 0,n\to\infty}\diam(A(x,\varepsilon,n))=0.\]
+    \item 证明所有 $A_n$ 的交集 $A$ 非空并且 $d(x)=d(x,A)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)假设存在 $x_0\in H,s.t.d(x_0)<\infty$, 记$y_n=P_{A_n}(x_0)$, 则
+\[d_n(x_0)=d(x_0,A_n)=d(x_0,y_n)<\infty\]
+故 $\forall x\in H$
+\[d_n(x)=d(x,A_n)\leq d(x,y_n)\leq d(x,x_0)+d(x_0,y_n)<\infty\]
+因此 $d(x)<\infty(\forall x\in H)$.
+
+(b)仍记 $y_n=P_{A_n}(x)$, 则 $d_n(x)=d(x,y_n)\leq d(x)$, 因此$y_n\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$. 由于$d_n(x)=d(x,y_n)\leq d(x)<\infty$, 故对于$\forall\varepsilon>0,\exists N(\varepsilon),s.t.\forall n\geq N(\varepsilon),d(x)<d_n(x)+\varepsilon$. 因此对$\forall z,w\in A_n\cap\overline{B}(x,d(x)+\varepsilon),\forall n\geq N(\varepsilon)$, 有:
+\[d_n(x)\leq d(x,z)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon\]
+\[d_n(x)\leq d(x,w)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon\]
+由 $A_n$ 及 $\overline{B}(x,d(x)+\varepsilon)$ 均为凸集知 $\frac{z+w}{2}\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$, 从而:
+\[d_n(x)\leq d\left(x,\frac{z+w}{2}\right)\]
+结合以上三式并根据平行四边形公式得:
+\[\begin{split}
+d_n(x)^2+\frac{1}{4}\|z-w\|^2
+&\leq\left\|x-\frac{z+w}{2}\right\|^2+\left\|\frac{z-w}{2}\right\|^2\\
+&=2\left(\left\|\frac{x-z}{2}\right\|^2+\left\|\frac{x-w}{2}\right\|^2\right)\\
+&\leq (d_n(x)+2\varepsilon)^2\end{split}\]
+即
+\[\|z-w\|^2\leq 16\varepsilon(d_n(x)+\varepsilon)\]
+对所有的 $z,w\in A(x,\varepsilon,n)$ 取上确界得:
+\[\diam A(x,\varepsilon,n)\leq 16\varepsilon(d_n(x)+\varepsilon)(n\geq N(\varepsilon))\]
+从而
+\[\lim\limits_{\varepsilon\to 0,n\to\infty}\diam A(x,\varepsilon,n)=0\]
+
+(c)取 $H$ 中集列 $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$, 则
+\begin{itemize}
+\item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$是单调递减的闭集列
+\item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$非空
+\item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$(在(b)中取$\varepsilon=1/n$知此式成立)
+\end{itemize}
+因为 $H$ 是完备的, 所以
+\[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right)\text{是单点集}\]
+又 $\left(A(x,\frac{1}{n},n)\right)\subset A_n$, 故$A=\bigcap_{n\geq 1}A_n$非空.
+
+下证$d(x)=d(x,A)$:
+
+因为 $d_n(x)=d(x,A_n)\leq d(x,A)$, 所以$d(x)\leq d(x,A)$, 假设$d(x)<d(x,A)$, 则存在$\delta,s.t.d(x,A_n)\leq d(x)<\delta<d(x,A)$, 同理可知:
+\[\bigcap_{n\geq 1}A\left(x,\frac{\delta-d(x)}{n},n\right)=\bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,d(x)+\frac{\delta-d(x)}{n}\right)\right)\text{是单点集}\]
+故
+\[\bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,\delta\right)\right)=A\cap\overline{B}(x,\delta)\text{非空}\]
+但事实是
+\[A\cap\overline{B}(x,\delta)=\emptyset\]
+故假设不成立, 即得$d(x)=d(x,A)$.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $H$ 是内积空间, $x_n,x\in H$. 并假设
+    \[\lim_{n\to\infty}\|x_n\|=\|x\|\quad\text{且}\quad \lim_{n\to\infty}\innerp{y}{x_n}=\innerp{y}{x}, \forall y\in H.\]
+    证明 $\lim_{n\to\infty} \|x_n-x\|=0$.
+\end{exercise}
+
+\begin{proof}
+    因 $\lim_{n\to\infty}\|x_n\|=\|x\|$,
+    所以 $\lim_{n\to\infty}\langle x_n,x_n\rangle=\langle x,x\rangle\cdots(1)$
+
+    因为 $\lim_{n\to\infty}\langle y,x_n\rangle=\langle y,x\rangle$,
+    所以 $\lim_{n\to\infty}\langle x,x_n\rangle=\langle x,x\rangle\cdots(2)$
+
+    两式相减得 $\lim_{n\to\infty}\langle x_n-x,x_n\rangle=0$,
+    另外由第二式可得 $\lim_{n\to\infty}\langle x_n-x,x\rangle=0$.
+
+    故
+    \begin{align*}
+        \lim_{n\to\infty}\|x_n-x\|^2
+        & =\lim_{n\to\infty}\langle x_n-x,x_n-x\rangle\\
+        & =\lim_{n\to\infty}\langle x_n-x,x_n\rangle-\lim_{n\to\infty}\langle x_n-x,x\rangle\\
+        & =0-0=0.
+    \end{align*}
+    从而 $\lim_{n\to\infty}\|x_n-x\|=0$.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $(x_n)$ 是 Hilbert 空间 $H$ 中的有界序列. 证明存在
+    $(x_n)$ 的子序列 $(x_{n_k})$ 及 $x\in H$, 使得对任意 $y\in H$, 有
+    $\lim_k\innerp{y}{x_{n_k}}=\innerp{y}{x}$.
+\end{exercise}
+
+\begin{proof}
+(本题考查对角线选择法和Riesz表示定理)设$\|x_n\|\leq M(\forall n\in\mathbb{N^{*}})$,故对任意$m,n\in \mathbb{N^{*}},|\langle x_m,x_n\rangle|\leq\|x_m\|\cdot\|x_n\|\leq M^2$,考虑下面的一族有界内积序列
+\[\begin{array}{ccccc}
+\langle x_1,x_1\rangle&\langle x_1,x_2\rangle&\cdots&\langle x_1,x_n\rangle&\cdots\\
+\langle x_2,x_1\rangle&\langle x_2,x_2\rangle&\cdots&\langle x_2,x_n\rangle&\cdots\\
+\vdots&\vdots&\vdots&\vdots\\
+\langle x_m,x_1\rangle&\langle x_m,x_2\rangle&\cdots&\langle x_m,x_n\rangle&\cdots\\
+\vdots&\vdots&\vdots&\vdots\\
+\end{array}\]
+
+第一行序列$(\langle x_1,x_n\rangle)_{n\geq 1}$存在收敛子列$(\langle x_1,x_{n_k^1}\rangle)_{k\geq 1}$
+
+第二行子列$(\langle x_2,x_{n_k^1}\rangle)_{k\geq 1}$存在收敛子列$(\langle x_2,x_{n_k^2}\rangle)_{k\geq 1}$
+
+$\cdots\cdots$
+
+第$m$行子列$(\langle x_m,x_{n_k^{m-1}}\rangle)_{k\geq 1}$
+存在收敛子列$(\langle x_m,x_{n_k^m}\rangle)_{k\geq 1}$
+ 
+依此下来, 并运用对角线选择法取出 $(x_n)$ 的子列 $(x_{n_k^k})_{k\geq 1}$,
+不妨将其简记为 $(x_{n_k})_{k\geq 1}$.
+
+设 $E=span((x_n)_{n\geq 1})$, 
+则任意 $y\in E,(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+进一步容易验证对 $\forall y\in\overline{E},(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+最后任意 $y\in H$, 由正交分解定理得 $y=y_1+y_2,y_1\in\overline{E},y_2\in E^{\perp}$, 故
+\[\langle y,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle+\langle y_2,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle.\]
+因此对任意 $y\in H,\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 存在, 而且
+\[\left|\lim_{k\to\infty}\langle y,x_{n_k}\rangle\right|\leq\limsup_{k\to\infty}|\langle y,x_{n_k}\rangle|\leq M\|y\|.\]
+因此 $y\mapsto\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 是连续线性泛函, 
+由 Riesz 表示定理知存在 $x\in H$ 使得 $\lim_{k\to\infty}\langle y,x_{n_k}\rangle=\langle y,x\rangle(\forall y\in H)$.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $A$ 和 $B$ 都是 Hilbert 空间 $H$ 的非空闭凸子集,
+    并设它们其中一个有界. 证明存在 $a\in A$ 和 $b\in B$,
+    使得 $d(a,b)=d(A,B)$, 这里
+    \[d(A,B)=\inf\{d(x,y)\mid x\in A, y\in B\}.\]
+\end{exercise}
+
+\begin{proof}
+    不妨设$A$有界, 由距离的定义知对任意 $n\geq1,\exists x_n\in A$ 使得
+    \[d(x_n,B)<d(A,B)+\frac{1}{n}.\]
+    因为 $(x_n)_{n\geq1}$ 是有界序列, 故由上一题结论知存在
+    $a\in H$ 及$(x_n)_{n\geq 1}$ 的子列 (不妨仍记为 $(x_n)_{n\geq 1}$) 使得
+    \[\lim_{n\to\infty}\innerp{x_n}{y}=\innerp{a}{y},\quad\forall y\in H.\]
+    下面证明 $a\in A$, 由投影的性质知
+    \begin{align*}
+        \|a-P_A(a)\|^2
+        &=\langle a-P_A(a),a-P_A(a)\rangle\\
+        &=\lim_{n\to\infty}\langle a-P_A(a),x_n-P_A(a)\rangle\quad(\text{注意到虚部的极限为}\ 0)\\
+        &=\lim_{n\to\infty}\Re\innerp{a-P_A(a)}{x_n-P_A(a)}\leq 0.
+    \end{align*}
+    故 $a=P_A(a)$, 从而 $a\in A$, 又
+    \[\begin{split}
+    \|x_n-P_B(x_n)\|^2=
+    &\|x_n-a+a-P_B(a)+P_B(a)-P_B(x_n)\|^2\\
+    =&\|a-P_B(a)\|^2+\|x_n-a+P_B(a)-P_B(x_n)\|^2\\
+    &+2\langle a-P_B(a),x_n-a\rangle+2\langle a-P_B(a),P_B(a)-P_B(x_n)\rangle\\
+    \geq
+    &\|a-P_B(a)\|^2+2\langle a-P_B(a),x_n-a\rangle\end{split}\]
+    故
+    \[\begin{split}
+    (d(A,B))^2
+    &\leq \|a-P_B(a)\|^2\leq\|x_n-P_B(x_n)\|^2-2\langle a-P_B(a),x_n-a\rangle\\
+    &<\left(d(A,B)+\frac{1}{n}\right)^2-2\langle a-P_B(a),x_n-a\rangle\to(d(A,B))^2(n\to\infty)\end{split}\]
+    因此 $\|a-P_B(a)\|=d(A,B)$, 记 $b=P_B(a)\in B$, 即得 $d(a,b)=d(A,B)$.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    将上一习题中的条件换成 $A$ 和 $B$ 无界, 但假设 $\|x\|$
+    和 $\|y\|$ 都趋向 $\infty$ 时, 必有 $d(x,y)$ 趋向 $\infty$.
+    证明结论仍然成立. 在 $\FR^2$ 中用反例说明若条件不符合假设时, 结论不成立.
+\end{exercise}
+
+\begin{proof}
+反例: 取 $\mathbb{R}^2$ 中的区域 $A=\{(x,y)\mid xy\leq-1,x<0\}$,
+$B=\{(x,y)|xy\geq1,x>0\}$, 
+则 $d(A,B)=0$, 但是不存在 $a\in A,b\in B$ 使得 $d(a,b)=0$.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    (a) 设 $H$ 是 Hilbert 空间, $D_{n}=\{-1,1\}^{n}$. 证明
+    \[
+    \frac{1}{2^{n}} \sum_{(\varepsilon_{k}) \in D_{n}}\left\|\varepsilon_{1} x_{1}+\cdots+\varepsilon_{n} x_{n}\right\|^{2}=\left\|x_{1}\right\|^{2}+\cdots+\left\|x_{n}\right\|^{2}, \quad \forall x_1,\cdots,x_n \in H.
+    \]
+
+    (b) 设 $(X,\|\cdot\|)$ 是 Banach 空间, 并假设有一个 $X$ 上的内积范数 $|\cdot|$ 
+    等价于 $\|\cdot\|$. 证明存在正常数 $a$ 和 $b$, 使得
+    \[
+    a\sum_{k=1}^{n}\left\|x_{k}\right\|^{2}\leq\frac{1}{2^{n}} \sum_{\left(\varepsilon_{k}\right) \in D_{n}}\left\|\sum_{k=1}^{n} \varepsilon_{k} x_{k}\right\|^{2} \leq b \sum_{k=1}^{n}\left\|x_{k}\right\|^{2}, \quad \forall x_{1}, \cdots, x_{n} \in X.
+    \]
+
+    (c) 设 $1 \leq p \neq 2 \leq \infty$, 证明空间 $c_{0}, \ell_{p}$ 和 $L_{p}(0,1)$ 没有等价的内积范数.
+\end{exercise}
+
+\begin{proof}
+    (a) 原等式等价于
+    \[\sum_{(\varepsilon_k)\in D_n}\|\varepsilon_1x_1+\cdots+\varepsilon_nx_n\|^2=2^n\left(\|x_1\|^2+\cdots+\|x_n\|^2\right).\]
+    上式左边
+    \begin{align*}
+        \mathrm{RHS}
+        &=\sum_{(\varepsilon_k)\in D_n}\innerp{\sum_{i=1}^n\varepsilon_ix_i}{\sum_{i=1}^n\varepsilon_ix_i} \\
+        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\sum_{j=1}^n \varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\varepsilon_i^2\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        &=2^n\sum_{i=1}^n \|x_i\|^2+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j}.
+    \end{align*}
+    观察最后一项中 $\innerp{x_i}{x_j}$ 的系数:
+    $\varepsilon_i=\varepsilon_j=1$ 有 $2^{n-2}$ 项,
+    $\varepsilon_i=\varepsilon_j=-1$ 有 $2^{n-2}$ 项,
+    $\varepsilon_i=1$, $\varepsilon_j=-1$ 有 $2^{n-2}$ 项,
+    $\varepsilon_i=-1$, $\varepsilon_j=1$ 有 $2^{n-2}$ 项,
+    因此 
+    \[\innerp{x_i}{x_j}\text{\ 的系数\ }=2\cdot 2^{n-2}-2\cdot 2^{n-2}=0.\]
+    于是即证所需.
+
+    (b) 由于 $|\cdot|$ 等价于 $\|\cdot\|$, 故存在正常数 $C_1$ 和 $C_2$
+    使得 $C_1\|\cdot\|\leq |\cdot|\leq C_2\|\cdot\|$. 由 (a) 知
+    \[\frac{1}{2^n}\sum_{(\varepsilon_k)\in D_n}\left|\sum_{k=1}^n \varepsilon_kx_k\right|^2=\sum_{k=1}^n |x_k|^2.\]
+    故
+    \[\sum_{k=1}^n C_2^2\|x_k\|^2\geq\sum_{k=1}^n |x_k|^2=\frac{1}{2^n}\sum_{(\varepsilon_k)\in D_n}\left|\sum_{k=1}^n \varepsilon_kx_k\right|^2\geq\frac{1}{2^n}\sum_{(\varepsilon_k)\in D_n}C_1^2\left\|\sum_{k=1}^n \varepsilon_kx_k\right\|^2,\]
+    因此
+    \[\frac{1}{2^n}\sum_{(\varepsilon_k)\in D_n}\left\|\sum_{k=1}^n \varepsilon_kx_k\right\|^2\leq\left(\frac{C_2}{C_1}\right)^2\sum_{k=1}^n \|x_k\|^2.\]
+    故取 $b=\left(\frac{c_2}{c_1}\right)^2$ 即得
+    \[\frac{1}{2^n}\sum_{(\varepsilon_k)\in D_n}\left\|\sum_{k=1}^n \varepsilon_kx_k\right\|^2\leq b\sum_{k=1}^n \|x_k\|^2.\]
+    同理取 $a=\left(\frac{C_1}{C_2}\right)^2$ 可得左半边不等式.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $\left(C_{n}\right)$ 是 Hilbert 空间 $H$ 中的一个递增的非空闭凸子集列, $C$ 是所有 $C_n$ 的并集的闭包. 证明
+    \[
+    P_{C}(x)=\lim_{n\to\infty} P_{C_n}(x), \quad \forall x \in H.
+    \]
+\end{exercise}
+
+\begin{proof}
+    首先容易验证 $C$ 是闭凸集, 从而 $P_C(x)$ 是有定义的, 
+    接下来证明 $P_C(x)=\lim_{n\to\infty}P_{C_n}(x)$ $(\forall x\in H)$, 分几步进行:
+
+    $d(x,C)=\lim_{n\to\infty}d(x,C_n)$:
+    因为对于每个 $n$, $d(x,C)\leq d(x,C_n)$,
+    故 $d(x,C)\leq \lim_{n\to\infty}d(x,C_n)$,
+    假设 $d(x,C)<\lim_{n\to\infty}d(x,C_n)$,
+    则存在 $y\in C$, 使得 $d(x,y)<\lim_{n\to\infty}d(x,C_n)$,
+    不妨设 $y\in\bigcup_{n=1}^{\infty}C_n$, 也就是说存在 $n_0$ 使得 $y\in C_{n_0}$,
+    从而 $d(x,y)\geq d(x,C_{n_0})\geq\lim_{n\to\infty}d(x,C_n)$, 矛盾, 故 $d(x,C)=\lim_{n\to\infty}d(x,C_n)$.
+    
+    $(P_{C_n}(x))_{n\geq 1}$收敛:
+    因为 $(d(x,C_n))_{n\geq 1}$ 单调递减趋于 $d(x,C)$,
+    故对 $\forall\varepsilon>0$, 存在 $N\geq 1$,
+    使得当 $n>N$ 时, $d(x,C_n)<d(x,C)+\varepsilon$,
+    故 $\forall m,n>N$, 有
+    \begin{align*}
+        4(d(x,C)+\varepsilon)^2
+        &\geq 2(\|x-P_{C_n}(x)\|^2+\|x-P_{C_m}(x)\|^2) \\
+        &=4\left\|x-\frac{P_{C_n}(x)+P_{C_m}(x)}{2}\right\|^2+\|P_{C_n}(x)-P_{C_m}(x)\|^2 \\
+        &\geq 4d(x,C)^2+\|P_{C_n}(x)-P_{C_m}(x)\|^2.
+    \end{align*}
+    由上式知 $(P_{C_n}(x))_{n\geq 1}$ 是 Cauchy 序列, 
+    由 $C$ 的完备性知其在 $C$ 中收敛, 记为 $\lim_{n\to\infty}P_{C_n}(x)=y\in C$.
+    
+    $y=P_C(x)$: 
+    对于任意 $\forall\varepsilon>0$,
+    存在 $N\geq 1$, 使得对 $\forall n>N$,
+    有 $d(y,P_{C_n}(x))<\varepsilon$, $d(x,C_n)<d(x,C)+\varepsilon$, 故
+    \[d(x,y)\leq d(y,P_{C_n}(x))+d(x,C_n)<d(x,C)+2\varepsilon,\] 
+    由 $\varepsilon$ 的任意性知 $d(x,y)\leq d(x,C)$, 又因为 $y\in C$, 
+    故 $d(x,y)=d(x,C)$, 由投影的唯一性知 $y=P_C(x)$, 证毕.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $H$ 是内积空间. $(x_{1}, \cdots, x_{n})$ 是 $H$ 中的任一向量组,
+    称矩阵 $(\innerp{x_i}{x_j})_{1\leq i,j\leq n}$ 
+    的行列式为向量组 $\left(x_{1},\cdots, x_{n}\right)$ 的 Gram 行列式, 记作 $G(x_{1},\cdots,x_{n})$.
+    
+    (a) 证明 $G(x_{1},\cdots,x_{n})\geq 0$; 
+    且 $G\left(x_{1},\cdots,x_{n}\right)>0$ 当且仅当向量组 $\left(x_{1}, \cdots, x_{n}\right)$ 线性独立.
+    
+    (b) 假设向量组 $\left(x_{1},\cdots,x_{n}\right)$ 线性独立. 
+    令 $E=\operatorname{span}\left(x_{1},\cdots, x_{n}\right)$. 证明
+    \[
+        d(x, E)^{2}=\frac{G\left(x, x_{1}, x_{2}, \cdots, x_{n}\right)}{G\left(x_{1}, x_{2}, \cdots, x_{n}\right)}, \quad \forall x\in H.
+    \]
+\end{exercise}
+
+\begin{proof}
+    (参考《高等代数与解析几何》 陈志杰习题 6.3.13 及 6.4.6)
+
+    (a) 设 $W=\operatorname{span}\{x_1,\cdots,x_n\}$ 且 $\dim W=k$,
+    取 $W$ 的规范正交基 $(e_i)_{1\leq i\leq k}$. 由于
+    \[x_i=\sum_{m=1}^k \innerp{x_i}{e_m}e_m,\quad x_j=\sum_{k=1}^m \innerp{x_j}{e_m}e_m,\]
+    故
+    \begin{align*}
+        \innerp{x_i}{x_j}
+        &=\innerp{\sum_{m=1}^k \innerp{x_i}{e_m}e_m}{\sum_{m=1}^k \innerp{x_j}{e_m}e_m} \\
+        &=\sum_{m=1}^k \innerp{x_i}{e_m}\innerp{x_j}{e_m}=\sum_{k=1}^m \innerp{x_i}{e_m}\overline{\innerp{e_m}{x_j}}.
+    \end{align*}
+    记
+    \[M=\begin{pmatrix}
+        \innerp{x_1}{e_1} & \cdots & \innerp{x_1}{e_k} \\
+        \vdots            &        & \vdots            \\
+        \innerp{x_n}{e_1} & \cdots & \innerp{x_n}{e_k}
+    \end{pmatrix}_{n\times k}.\]
+    则
+    \[M^\T
+    =\begin{pmatrix}
+        \overline{\innerp{e_1}{x_1}} & \cdots & \overline{\innerp{e_1}{x_n}} \\
+        \vdots & & \vdots \\
+        \overline{\innerp{e_k}{x_1}} & \cdots & \overline{\innerp{e_k}{x_n}} 
+    \end{pmatrix}_{k\times n},\]
+    且 $(\innerp{x_i}{x_j})_{1\leq i,j\leq n}=MM^\T$, 从而 $G(x_1,\cdots,x_n)=\det(MM^\T)$.
+
+    若 $k<n$, 则 $\rank(M)\leq k<n$, 故 $\rank(\innerp{x_i}{x_j})<n$, 故 $|G(x_1,\cdots,x_n)|=0$.
+
+    若 $k=n$, 则 $x_1,\cdots, x_n$ 线性无关,
+    即关于 $\lambda_1,\cdots,\lambda_n$ 的方程
+    \[\lambda_1 x_1+\cdots+\lambda_nx_n=0\]
+    只有零解. 考虑关于 $\lambda_1,\cdots,\lambda_n$ 的齐次线性方程组
+    \[\begin{cases}
+        \lambda_1\innerp{x_1}{e_1}+\cdots+\lambda_n\innerp{x_n}{e_1}=0 \\
+        \cdots \\
+        \lambda_1\innerp{x_1}{e_n}+\cdots+\lambda_n\innerp{x_n}{e_n}=0.
+    \end{cases}\]
+    上述方程组的系数矩阵即为 $M^\T$, 将上述方程组的第 $i$ ($1\leq i\leq n$) 个方程乘以 $e_i$ 并求和即得
+    \[\lambda_1x_1+\cdots+\lambda_nx_n=0,\]
+    于是 $\lambda_1=\cdots=\lambda_n=0$, 因此 $\det(M)\neq 0$,
+    从而 
+    \[G(x_1,\cdots,x_n)=\det(MM^\T)=\det(M)\det(M^\T)=(\det(M))^2>0.\]
+
+    (b) 略.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $E=C([0,1])$ 上装备有如下的内积
+    \[
+    \innerp{f}{g}=\int_{0}^{1} f(t) \overline{g(t)}\diff t.
+    \]
+    并设 $E_{0}$ 表示在 $[0,1]$ 上积分为 $0$ 的函数组成的 $E$ 的向量子空间. 考虑 $E$ 的 向量子空间:
+    \[
+    H=\{f \in E: f(1)=0\} \text {\ 且\ } H_{0}=E_{0} \cap H.
+    \]
+
+    (a) 验证 $H_{0}$ 是 $H$ 的闭的真向量子空间.
+
+    (b) 设 $h(t)=t-\frac{1}{2}, t \in[0,1]$. 证明
+    \begin{enumerate}[(i)]
+    \item $E=\operatorname{span}(H, h)$ 且有 $E_{0}=\operatorname{span}\left(H_{0}, h\right)$;
+    \item $h$ 属于 $H_{0}$ 在 $E$ 中的闭包.
+    \end{enumerate}
+
+    (c) 证明 $H_{0}^{\perp}=\{0\}$. 解释所得结果蕴含的意义.
+\end{exercise}
+
+\begin{proof}
+    (a) 任取一列 $(f_n)\subset E_0$ 且 $f_n\rightarrow f$,
+    则 $\int_0^1 f_n(t)\diff t=0$, $\int_0^1|f_n(t)-f(t)|^2\diff t\rightarrow0$,
+    故 $f_n(t)-f(t)=0\almosteverywhere$ $(n\to\infty)$,
+    因此 $\int_0^1 f(t)\diff t=0$, 也即 $f\in E_0$,
+    从而说明 $E_0$ 是闭子空间, 故 $H_0=E_0\cap H$ 是 $H$ 的闭子空间.
+    取 $f(t)=1-t$, 显然 $f(t)\in H$, 但是 $f(t)\notin H_0$, 故 $H_0$ 是 $H$ 的真子空间.
+
+    (b)(i) 对于 $\forall f\in E$,
+    令 $g(t)=f(t)-2f(1)h(t)$,
+    则 $g(1)=0$, 故 $g\in H$, 所以 $E=\operatorname{span}(H,h)$.
+
+    对于 $\forall f\in E_0$,
+    令 $g(t)=f(t)-2f(1)h(t)$, 则 $g(1)=0$,
+    $\int_0^1 g(t)\diff t=0$, 即 $g\in H_0$, 所以 $E_0=\operatorname{span}(H_0,h)$.
+
+    (ii)取 $g_n(t)=\sin2\pi nt$, 则 $g_n\in H_0$,由于$h$关于点$(1/2,0)$对称，
+    故 $h$ 的 Fourier 展开式中只含有形如 $g_n$ 的项, 因此 $h\in\bar{H}_0$
+\end{proof}
+
+
+
+\begin{exercise}
+    仍设 $E$ 为上一习题中的内积空间, 并令 $0<c<1$. 记
+\[
+F=\left\{f \in E:f|_{[0, c]}=0\right\}.
+\]
+
+(a) 验证 $F$ 是 $E$ 的闭的真向量子空间.
+
+(b) 证明 $F \oplus F^{\perp} \neq E$. 解释所得结果蕴含的意义.
+\end{exercise}
+% 14.
+% \begin{proof}
+% (a)任取一列$(f_n)\subset F$且$f_n\rightarrow f$,则$f_n|_{[0,c]}=0,\int_0^1|f_n(t)-f(t)|^2\diff t\rightarrow 0$\\
+% 故$\int_0^c|f_n(t)-f(t)|^2\diff t=\int_0^c|f(t)|^2\rightarrow 0\Rightarrow f|_{[0,c]}=0$, 因此$f\in F$,从而$F$是$E$的闭子空间, 而$F$是$E$的真子空间是显然的.
+
+% (b)要证明$F\oplus F^{\perp}\not= E$, 即需要证明存在$E$中元素使其没有基于$F$的正交分解.
+
+% 取$f\equiv 1\in E$, 对任意$g\in F,\exists\delta>0,s.t.\forall t\in [c,c+\delta],(f-g)(t)>0$(不妨设$c+\delta<1$), 取实值函数$h(t)$满足:
+% \[h(t)
+% \begin{cases}
+% =0&t\in [0,c]\cup [c+\delta,1]\\
+% >0&t\in (c,c+\delta)
+% \end{cases}\]
+% 则
+% \[\int_0^1(f-g)(t)\cdot h(t)\diff t=\int_c^{c+\delta}(f-g)(t)\cdot h(t)\diff t>0\]
+% 故 $f-g\notin F^{\perp}$, 从而证明了$F\oplus F^{\bot}\not= E$, 此结论说明$E$不是Hilbert空间.
+% \end{proof}
+
+
+
+\begin{exercise}
+    (a) 设 $E$ 和 $F$ 是 Hilbert 空间 $H$ 的两个正交向量子空间. 证明 $E+F$ 是闭的当且仅当 $E$ 和 $F$ 都是闭的.
+    
+    (b) $(e_{n})$ 表示 $\ell_{2}$ 中的标准正交基. 
+    设 $E$ 是 $\left\{e_{2 n}: n \geq 1\right\}$ 的线性扩张的闭包, 
+    而 $F$ 是 $\left\{e_{2 n}+\frac{1}{n} e_{2 n+1}: n \geq 1\right\}$ 的线性扩张的闭包. 
+    证明 $E\cap F=\{0\}$ 并 且 $E+F$ 在 $\ell_{2}$ 中不是闭的.
+\end{exercise}
+
+\begin{proof}
+    (a) 由 $E$ 与 $F$ 正交知 $E+F=E\oplus F$, 即任取 $z\in E+F$,
+    存在唯一的 $x\in E$ 和 $y\in F$, 使得 $z=x+y$.
+
+    \necessary
+    任取 $E$ 中收敛列 $(x_n)_{n\geq 1}$, 设 $x_n\to x\in E+F$,
+    即 $\lim_{n\to\infty}\|x_n-x\|=0$. 由于 $x\in E+F$, 故存在 $x'\in E$, $x''\in F$,
+    使得 $x=x'+x''$, 那么
+    \begin{align*}
+        \lim_{n\to\infty}\|x_n-x\|^2
+        & =\lim_{n\to\infty}\|x_n-x'-x''\|^2 \\
+        & =\lim_{n\to\infty}\|x_n-x'\|^2+\|x''\|^2-2\Re\innerp{x_n-x'}{x''} \\
+        & =\lim_{n\to\infty}\|x_n-x'\|^2+\|x''\|^2=0.
+    \end{align*}
+    故必有 $x''=0$, 从而 $x=x'\in E$, 因此 $E$ 为闭集. 同理可证 $F$ 为闭集.
+
+    \sufficient
+    任取 $E+F$ 中 Cauchy 序列 $(z_n)_{n\geq 1}$, 设 $z_n=x_n+y_n$, 其中 $x_n\in E$, $y_n\in F$, 则
+    \begin{align*}
+        \|z_m-z_n\|^2
+        & =\|x_m+y_m-x_n-y_n\|^2 \\
+        & =\|x_m-x_n\|^2+\|y_m-y_n\|^2+2\Re\innerp{x_m-x_n}{y_m-y_n} \\
+        & =\|x_m-x_n\|^2+\|y_m-y_n\|^2\to 0\quad (m,n\to\infty).
+    \end{align*}
+    故 $(x_n)_{n\geq 1}$ 和 $(y_n)_{n\geq 1}$ 分别为 $E$ 和 $F$ 中的 Cauchy 序列,
+    而 $E,F$ 皆完备, 故设 $x_n\to x\in E$, $y_n\to y\in F$.
+    令 $z=x+y\in E+F$, 则当 $n\to\infty$ 时
+    \[\|z_n-z\|^2=\|x_n+y_n-x-y\|^2=\|x_n-x\|^2+\|y_n-y\|^2\to 0.\]
+    即 $z_n\to z\in E+F$, 故 $E+F$ 完备, 从而为闭集.
+
+    (b) 任取 $x\in E\cap F$, 由于 $E$ 是 Hilbert 空间, 且
+    $\{e_{2n}:n\geq 1\}$ 是 $E$ 的一组规范正交基, 故存在唯一的系数列 $(x_n)_{n\geq 1}$,
+    使得 $x=\sum_{n=1}^{\infty}x_n e_{2n}$. 类似地, $F$ 为 Hilbert 空间, 且规范化后的
+    $\{\frac{n}{\sqrt{n^2+1}}(e_{2n}+\frac{1}{n}e_{2n+1}):n\geq 1\}$ 是 $F$ 的一组规范正交基,
+    故存在唯一的系数列 $(y_n)_{n\geq 1}$, 
+    使得 $x=\sum_{n=1}^{\infty}y_n\frac{n}{\sqrt{n^2+1}}(e_{2n}+\frac{1}{n}e_{2n+1})$.
+    于是对任意 $n\geq 1$, 有
+    \[x_n=y_n\cdot\frac{n}{\sqrt{n^2+1}},\quad\frac{y_n}{\sqrt{n^2+1}}=0\Longrightarrow x_n=y_n=0.\]
+    故 $x=0$, 因此 $E\cap F=\{0\}$. 下证 $E+F$ 不是闭集,
+    取 $x^{(m)}=\sum_{n=1}^m -e_{2n}\in E$, $y^{(m)}=\sum_{n=1}^m (e_{2n}+\frac{1}{n}e_{2n+1})\in F$,
+    则
+    \[x^{(m)}+y^{(m)}=\sum_{n=1}^m \frac{1}{n}e_{2n+1}\in E+F\]
+    且
+    \[x^{(m)}+y^{(m)}\xrightarrow{\ell_2}\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}.\]
+    但 $\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}\notin E+F$, 事实上, 若存在
+    $x=\sum_{n=1}^{\infty}x_n e_{2n}\in E$ 和 $y=\sum_{n=1}^{\infty}y_n\frac{n}{\sqrt{n^2+1}}(e_{2n}+\frac{1}{n}e_{2n+1})\in F$,
+    使得 $x+y=\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}$, 则
+    \[x_n+\frac{ny_n}{\sqrt{n^2+1}}=0,\quad\frac{y_n}{\sqrt{n^2+1}}=\frac{1}{n}\Longrightarrow x_n=-1,y_n=\frac{\sqrt{n^2+1}}{n}.\]
+    但此时 $x=\sum_{n=1}^{\infty}-e_{2n}\notin\ell_2$, 矛盾.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间, $E$ 是 $H$ 的非零的闭向量子空间. 
+    设 $P$ 是 $H$ 到 $E$ 的投 影 (投影意味着 $P$ 是 $H$ 上的线性算子且满足 $P^{2}=P$ ). 证明以下命题等价:
+    
+    (a) $P=P_{E}$.
+    
+    (b) $\|P\|=1$.
+    
+    (c) $|\langle x, P(x)\rangle| \leq\|x\|^{2}, \forall x \in H$.
+\end{exercise}
+
+\begin{proof}
+    (a) $\Rightarrow$ (b) 显然.
+
+    (b) $\Rightarrow$ (c)
+    由 $\|P\|=1$ 知 $\|P(x)\|\leq\|x\|$, 故 $|\langle x,P(x)\rangle|\leq\|x\|\cdot\|P(x)\|\leq\|x\|^2$.
+
+    (c) $\Rightarrow$ (a)
+    分三步进行
+    \begin{itemize}
+    \item $\forall y\in E,P(y)=y$: 任意 $y\in E,\exists x\in H,s.t.P(x)=y$,故$P(y)=P(P(x))=P(x)=y$.
+    \item $\forall y\in E^{\perp},P(y)=0$: 根据$P$的线性性知:
+    \[P(y+nP(y))=(n+1)P(y).\]
+    故结合条件得
+    \[|\langle y+nP(y),(n+1)P(y)\rangle|\leq\|y+nP(y)\|^2=\|y\|^2+n^2\|P(y)\|^2.\]
+    又
+    \[|\langle y+nP(y),(n+1)P(y)\rangle|=|\langle nP(y),(n+1)P(y)\rangle|=(n^2+n)\|P(y)\|^2.\]
+    结合两式得
+    \[\|P(y)\|^2\leq\frac{1}{n}\|y\|^2.\]
+    上式对于任意正整数 $n$ 成立, 故只能有 $P(y)=0$.
+    \item $\forall x\in H,P(x)=P_E(x)$: 根据前两步的结果可知
+    \[P(x)=P(P_E(x))+P(x-P_E(x))=P_E(x).\qedhere\]
+    \end{itemize}
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间, $E$ 是 $H$ 的向量子空间. 
+    设 $F$ 为赋范空间, $u: E \rightarrow F$ 是连续线性映射. 
+    证明 $u$ 有连续的线性延拓 $\widehat{u}: H \rightarrow F$, 且 $\|\widehat{u}\|=\|u\|$.
+\end{exercise}
+
+\begin{proof}
+    假设 $F$ 为 Banach 空间, 由定理 3.2.13 知连续线性映射 $u:E\to F$
+    可以唯一地扩展为连续线性映射 $\tilde{u}:\closure{E}\to F$ 且 $\|\tilde{u}\|=\|u\|$.
+    对任意 $x\in H$, 定义
+    \[\hat{u}(x):=\tilde{u}\left(P_{\closure{E}}(x)\right).\]
+    若 $x\in E$, 则 $\hat{u}(x)=\tilde{u}(x)=u(x)$, 故 $\hat{u}$
+    为 $u$ 的扩展映射.
+
+    $\hat{u}$ 为连续映射: 对任意 $x,y\in H$ 和 $\lambda\in\FK$,
+    由 $\tilde{u}$ 和 $P_{\closure{E}}$ 的线性性得
+    \begin{align*}
+        \hat{u}(\lambda x+y)
+        & =\tilde{u}(P_{\closure{E}}(\lambda x+y)) \\
+        & =\tilde{u}(\lambda P_{\closure{E}}(x)+P_{\closure{E}}(y)) \\
+        & =\lambda\tilde{u}(P_{\closure{E}}(x))+\tilde{u}(P_{\closure{E}}(y)) \\
+        & =\lambda\hat{u}(x)+\hat{u}(y).
+    \end{align*}
+
+    $\hat{u}$ 为有界映射: 对任意 $x\in H$, 有
+    \[\|\hat{u}(x)\|=\|\tilde{u}(P_{\closure{E}}(x))\|\leq\|\tilde{u}\|\|P_{\closure{E}}\|\|x\|=\|u\|\|x\|.\]
+    故 $\|\tilde{u}\|\leq\|u\|$, 又
+    \[\|u\|=\sup_{x\in E,x\neq 0}\frac{\|u(x)\|}{\|x\|}\leq\sup_{x\in H,x\neq 0}\frac{\|\hat{u}(x)\|}{\|x\|}=\|\hat{u}\|,\]
+    所以 $\|\hat{u}\|=\|u\|$.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $[0,1]$ 上赋予 Lebesgue 测度, $H=L_{2}(0,1)$. 并假设 $K \in L_{2}([0,1] \times[0,1])$. 我们定义
+    \[
+    T_{K}(f)(x)=\int_{0}^{1} K(x, y) f(y)\diff y, \quad f \in H, x \in[0,1].
+    \]
+
+    (a) 证明 $T_{K}(f)$ 在 $[0,1]$ 上几乎处处有定义.
+
+    (b) 证明 $T_{K} \in\mathcal{B}(H)$ 且
+    \[
+    \left\|T_{K}\right\|\leq\|K\|_{L_{2}([0,1] \times[0,1])}.
+    \]
+
+    (c) 设 $\widetilde{K}(x, y)=\overline{K(y, x)}$, $x,y\in[0,1]$. 证明 $T_{K}^{*}=T_{\tilde{K}}$.
+
+    (d) 定义
+    \[
+    T(f)(x)=\int_{0}^{x} f(1-y)\diff y, \quad f \in H, x \in[0,1].
+    \]
+    证明 $T\in\mathcal{B}(H)$ 且有 $T^{*}=T$.
+    最后给出 $T$ 的非零特征值并证明相应的特征子空间两两正交.
+\end{exercise}
+
+\begin{proof}
+    (a)任意固定 $x$, 将 $K(x,y)$ 看作关于 $y$ 的一元函数, 由 Cauchy-Schwarz 不等式得:
+    \begin{align*}
+        |\innerp{K}{\bar{f}}|^2
+        & =\left|\int_0^1K(x,y)f(y)\diff y\right|^2 \\
+        & \leq\int_0^1|K(x,y)|^2\diff y\cdot\int_0^1|f(y)|^2\diff y.
+    \end{align*}
+    因为 $f\in L_2(0,1)$, 所以
+    \[\int_0^1|f(y)|^2\diff y<\infty.\]
+    因为 $K\in L_2([0,1]\times [0,1])$, 所以
+    \[\int_0^1\int_0^1|K(x,y)|^2\diff y\diff x<\infty\Rightarrow\int_0^1|K(x,y)|^2\diff y<\infty, \almosteverywhere\]
+    结合以上三式得
+    \[\left|\int_0^1K(x,y)f(y)\diff y\right|^2<\infty, \almosteverywhere\]
+    也就证明了 $T_K(f)$ 在 $[0,1]$ 上几乎处处有定义.
+
+    (b) 由 (a) 中结论知: $\forall f\in H$, $T_K(f)\in H$.
+
+    首先, $T_K$ 为线性算子. 对于任意 $f,g\in H$ 和 $\lambda\in\mathbb{K}$, 有
+    \[T_K(\lambda f+g)=\int_0^1K(x,y)(\lambda f(y)+g(y))\diff y=\lambda T_K(f)+T_K(g).\] 
+
+    其次, $T_K$ 为有界算子. 对于任意 $f\in H$, 有
+    \begin{align*}
+        \|T_K(f)\|^2
+        &=\int_0^1|T_K(f)(x)|^2\diff x\\
+        &=\int_0^1\left|\int_0^1K(x,y)f(y)\diff y\right|^2\diff x\\
+        &\leq \int_0^1\left(\int_0^1|K(x,y)|^2\diff y\cdot\int_0^1|f(y)|^2\diff y\right)\diff x\\
+        &=\int_0^1|f(y)|^2\diff y\cdot\int_0^1\int_0^1|K(x,y)|^2\diff x\diff y\\
+        &=\|f\|^2\cdot\|K\|_{L_2([0,1]\times[0,1])}^2.
+    \end{align*}
+    故 $T_K$ 为有界算子且 $\|T_K\|\leq \|K\|_{L_2([0,1]\times [0,1])}$.
+
+
+    (c) 对于 $\forall f,g\in H$, 有
+    \begin{align*}
+        \langle T_{\widetilde{K}}(f),g\rangle&=\int_0^1\left(\int_0^1\widetilde{K}(x,y)f(y)\diff y\right)\conjugate{g(x)}\diff x\\
+        &=\int_0^1\left(\int_0^1\overline{K(y,x)}f(y)\diff y\right)\conjugate{g(x)}\diff x \\
+        &=\int_0^1\left(\int_0^1\overline{K(x,y)}f(x)\diff x\right)\conjugate{g(y)}\diff y \\
+        &=\int_0^1\left(\int_0^1\overline{K(x,y)g(y)}f(x)\diff x\right)\diff y \\
+        &=\int_0^1\left(\int_0^1\overline{K(x,y)g(y)}f(x)\diff y\right)\diff x \\
+        &=\int_0^1f(x)\overline{\left(\int_0^1K(x,y)g(y)\diff y\right)}\diff x \\
+        &=\langle f,T_K(g)\rangle.
+    \end{align*}
+    因此由伴随算子的定义知 $T_K^{*}=T_{\widetilde{K}}$.
+
+    (d) $T(f)(x)=\int_0^x f(1-y)\diff y=\int_{1-x}^1 f(y)\diff y$, 取:
+    \[K(x,y)=
+    \begin{cases}
+    0, & 0\leq y\leq 1-x,\\
+    1, & 1-x<y\leq 1.
+    \end{cases}\]
+    显然 $K(x,y)\in L_2([0,1]\times [0,1])$, 且
+    \[T_K(f)(x)=\int_0^1 K(x,y)f(y)\diff y=\int_{1-x}^1 f(y)\diff y=T(f)(x).\]
+    即在此情形下 $T_K$ 和 $T$ 是同一个算子, 利用(b)中结论知 $T\in\mathcal{B}(H)$.
+
+    由 $K(x,y)$ 的定义知 $\widetilde{K}(x,y)=\overline{K(y,x)}=K(y,x)=K(x,y)$, 所以由 (c) 中结论知:
+    \[T^{*}=T_K^{*}=T_{\widetilde{K}}=T_K=T.\]
+    因为 $T^{*}=T$, 所以 $T$ 的特征值全部都为实数, 
+    任取两个特征值 $\lambda,\mu\in\mathbb{R}$, 任取两个相应的特征向量 $f,g\in H$, 
+    即$T(f)=\lambda f,T(g)=\mu g$,则:
+    \[\mu\langle f,g\rangle=\langle f,\mu g\rangle=\langle f,T(g)\rangle=\langle T(f),g\rangle=\lambda\langle f,g\rangle.\]
+    从而
+    \[(\mu-\lambda)\langle f,g\rangle=0.\]
+    故 $\langle f,g\rangle=0$, 因此相应的特征子空间两两正交.
+
+    下面具体求特征值. 任取非零特征值 $\lambda$ 及其相应的特征向量 $f$, 则
+    \[T(f)(x)=\int_{1-x}^1 f(y)\diff y=\lambda f(x),\quad\forall x\in [0,1].\]
+    故 $f(0)=0$ 且 $\lambda f(1)=\int_0^1 f(y)\diff y$. 将上式求导一次得
+    \begin{equation}
+        f(1-x)=\lambda f'(x)\Longrightarrow f(x)=\lambda f'(1-x).\tag{$\star$}
+    \end{equation}
+    再将上式求导一次得
+    \begin{equation}
+        -f'(1-x)=\lambda f''(x).\tag{$\star\star$}
+    \end{equation}
+    结合 $(\star)(\star\star)$ 两式即得 ODE
+    \[f''(x)+\frac{1}{\lambda^2}f(x)=0.\]
+    上述常微分方程的解为 $f(x)=C_1\cos\frac{x}{\lambda}+C_2\sin\frac{x}{\lambda}$.
+    由 $f(0)=0$, 得 $f(x)=C_2\sin\frac{x}{\lambda}$, 再由 $\lambda f(1)=\int_0^1 f(x)\diff x$ 得
+    \[\lambda C_2\sin\frac{1}{\lambda}=\int_0^1 C_2\sin\frac{x}{\lambda}\diff x.\]
+    由上式直接解得 $\sin\frac{1}{\lambda}+\cos\frac{1}{\lambda}=1$,
+    故 $\lambda=\frac{1}{2k\pi}$ ($k\in\FZ,k\neq 0$) 或 $\frac{1}{\frac{\pi}{2}+2k\pi}$ ($k\in\FZ$).
+\end{proof}
+
+% \begin{remark}
+% 如果 $u\in\mathcal{B}(H)$ 是正规的且 $u(f)=\lambda f$, 则 $u^{*}(f)=\bar{\lambda}f$ 利用 $\lambda\mathbbm{1}-u$ 的正规性可以证明此结果, 即 $(\lambda\mathbbm{1}-u)^{*}(\lambda\mathbbm{1}-u)=(\lambda\mathbbm{1}-u)(\lambda\mathbbm{1}-u)^{*}$
+% \end{remark}
+
+
+\begin{exercise}
+    和上一习题一样, 令 $H=L_{2}(0,1)$; 并设 $\left(e_{n}\right)_{n \geq 1}$ 是 $H$ 中的规范正交集. 
+    证明: $\left(e_{n}\right)_{n \geq 1}$ 是 $H$ 上的规范正交基的充分必要条件是
+    \[
+    \sum_{n\geq 1}\left|\int_{0}^{x} e_{n}(t)\diff t\right|^{2}=x, \quad \forall x \in[0,1].
+    \]
+\end{exercise}
+
+\begin{proof}
+    \necessary
+    取 $f_x=\mathbbm{1}_{(0,x)}$, 由 Parseval 恒等式得 
+    \begin{equation}
+        \|f_x\|_{L_2}^2=\sum_{n\geq 1}|\innerp{f_x}{e_n}|^2,\tag{$\star$}
+    \end{equation}
+    换个马甲即为
+    \[x=\sum_{n\geq 1}\left|\int_{0}^{x} e_{n}(t)\diff t\right|^{2}.\]
+
+    \sufficient
+    将 $(e_n)_{n\geq 1}$ 扩展成为 $L_2(0,1)$ 的规范正交基 $(e_n)_{n\geq 1}\cup(\tilde{e}_n)_{n\geq 1}$,
+    则由 Parseval 恒等式得
+    \[\|f_x\|_{L_2}^2=\sum_{n\geq 1}|\innerp{f_x}{e_n}|^2+\sum_{n\geq 1}|\innerp{f_x}{\tilde{e}_n}|^2.\]
+    而由 $(\star)$ 式得 $\sum_{n\geq 1}|\innerp{f_x}{\tilde{e}_n}|^2=0$, 即对任意的 $n\geq 1$, 有
+    \[\innerp{f_x}{\tilde{e}_n}=\int_0^x \tilde{e}_n(t)\diff t=0,\quad\forall x\in [0,1].\]
+    故 $\tilde{e}_n=0$, $\forall n\geq 1$, 从而 $(e_n)_{n\geq 1}$ 为 $L_2(0,1)$ 的规范正交基.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $\Omega$ 是复数域 $\mathbb{C}$ 中的开集, 约定 $\mathbb{C}$ 
+    上的测度为 $\mathbb{R}^{2}$ 上的 Lebesgue 测度, 记为 $\diff \lambda(z)$. 令
+    \[H_{\Omega}=\{f\in L_{2}(\Omega): f \text{\ 是\ }\Omega\text{\ 上的全纯函数}\}.\]
+    对任一点 $z\in\Omega$, $\delta_{z}$ 表示 $z$ 处在 $H_{\Omega}$ 上的演化, 即有 $\delta_{z}(f)=f(z), f \in H_{\Omega}$.
+
+    (a) 若 $\closure{B}(z, r)=\{w\in\mathbb{C}:|w-z|\leq r\}\subset\Omega$, 证明
+    \[
+    f(z)=\frac{1}{\pi r^2} \int_{\closure{B}(z, r)} f(w)\diff\lambda(w), \quad\forall f\in H_{\Omega}.
+    \]
+
+    (b) 证明
+    \[
+    f \in H_{\Omega}, z \in\Omega, d(z,\Omega^{c})>r\Longrightarrow|f(z)| \leq \frac{1}{\sqrt{\pi} r}\|f\|_{2}.
+    \]
+    
+    (c) 证明: 当在 $L_{2}(\Omega)$ 上赋予内积运算时, $H_{\Omega}$ 是一个可分的 Hilbert 空间.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $H$ 是一个 Hilbert 空间, 并设 $T\in\mathcal{B}(H)$ 且 $\|T\|\leq 1$. 证明:
+
+    (a) $T(x)=x$ 当且仅当 $T^*(x)=x$, $x\in H$.
+
+    (b) $\ker(I-T)=\ker(I-T^*)$.
+
+    (c) $H=\ker(I-T)\oplus\closure{(I-T)(H)}$.
+\end{exercise}
+
+\begin{proof}
+    (a)由伴随算子的性质知 $\|T^*\|=\|T\|\leq 1$. 当 $T(x)=x$ 时,
+    \begin{align*}
+        \|T^*(x)-x\|^2
+        & =\|T^*(x)\|^2+\|x\|^2-2\Re\innerp{T^*}{x} \\
+        & =\|T^*(x)\|^2+\|x\|^2-2\Re\innerp{x}{T(x)} \\
+        & =\|T^*(x)\|^2+\|x\|^2-2\Re\innerp{x}{x} \\
+        & =\|T^*(x)\|^2-\|x\|^2 \\
+        & \leq\|T^*\|^2\|x\|^2-\|x\|^2\leq 0,
+    \end{align*}
+    故 $T^*(x)=x$. 同理可证当 $T^*(x)=x$ 时有 $T(x)=x$.
+
+    (b) $x\in\ker(I-T)\Leftrightarrow x-T(x)=0\Leftrightarrow x-T^{*}(x)=0\Leftrightarrow x\in\ker(I-T^{*})$, 
+    故 $\ker(I-T)=\ker(I-T^{*})$.
+
+    (c) 由正交分解定理, 只需证明:
+    \[\ker(I-T)=[(I-T)(H)]^{\perp}\]
+
+    先证: $(I-T)^*=I-T^*$. 对于任意 $x,y\in H$, 有
+    \[\innerp{(I-T)(x)}{y}=\innerp{x}{y}-\innerp{T(x)}{y}=\innerp{x}{y}-\innerp{x}{T^*(y)}=\innerp{x}{(I-T^*)(y)},\]
+    故 $(I-T)^*=I-T^*$.
+
+    再证: $\ker(I-T)=(I-T)(H)^{\perp}$.
+    一方面, 对任意 $x\in (I-T)(H)^{\perp}$ 和 $y\in H$, 有
+    \[\innerp{(I-T^*)(x)}{y}=\innerp{(I-T)^*(x)}{y}=\innerp{x}{(I-T)(y)}=0.\]
+    由 $y$ 的任意性知 $x\in\ker(I-T^*)=\ker(I-T)$, 故 $(I-T)(H)^{\perp}\subset\ker(I-T)$.
+    另一方面, 对任意 $x\in\ker(I-T)=\ker(I-T^*)$ 和 $(I-T)(y)\in (I-T)(H)$, 有
+    \[\innerp{x}{(I-T)(y)}=\innerp{(I-T)^*(x)}{y}=\innerp{(I-T^*)(x)}{y}=0,\]
+    故 $\ker(I-T)\subset (I-T)(H)^{\perp}$.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间. 称映射 $A\in\mathcal{B}(H)$ 为压缩算子, 若 $\|A\|\leq 1$;
+    称 $A$ 是正的, 若对任一 $x\in H$, 有 $\innerp{A(x)}{x}\geq 0$.
+
+    (a) 证明 $H$ 上任意压缩正算子 $A$ 满足
+    \[\|x-A(x)\|^2\leq\|x\|^2-\|A(x)\|^2,\quad x\in H.\]
+\end{exercise}
+
+\begin{proof}
+    (a) 先证明 $A$ 是自伴算子, 即 $\innerp{A(x)}{y}=\innerp{x}{A(y)}$, $\forall x,y\in H$. 因
+    \[\innerp{A(x+y)}{x+y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\FR,\]
+    故 $\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\FR$, 故
+    \begin{equation}
+            \innerp{A(y)}{x}+\innerp{A(x)}{y}=\conjugate{\innerp{A(y)}{x}}+\conjugate{\innerp{A(x)}{y}}=\innerp{x}{A(y)}+\innerp{y}{A(x)}.\tag{$\star$}
+    \end{equation}
+    又因
+    \[\innerp{A(x-\ii y)}{x-\ii y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\FR,\]
+    故 $\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\FR$, 故
+    \[\ii(\innerp{A(x)}{y}-\innerp{A(y)}{x})=(-\ii)(\innerp{y}{A(x)}-\innerp{x}{A(y)}),\]
+    从而
+    \begin{equation}
+        \innerp{A(x)}{y}-\innerp{A(y)}{x}=\innerp{x}{A(y)}-\innerp{y}{A(x)}.\tag{$\star\star$}
+    \end{equation}
+    结合 $(\star)(\star\star)$ 即得 $\innerp{A(x)}{y}=\innerp{x}{A(y)}$.
+
+    再证明 $I-A$ 是正算子, 从而是自伴算子. 对任意 $x\in H$, 由 Cauchy-Schwarz 不等式有
+    \[\innerp{A(x)}{x}\leq\|A(x)\|\|x\|\leq\|A\|\|x\|^2\leq\|x\|^2=\innerp{x}{x},\]
+    即 $\innerp{(I-A)(x)}{x}\geq 0$, 故 $I-A$ 是正算子.
+
+    原不等式 $\|x-A(x)\|^2\leq\|x\|^2-\|A(x)\|^2$ 等价于 $\innerp{A(x)}{(I-A)(x)}\geq 0$,
+    故只需证后者即可, 由 $I-A$ 为自伴算子得
+    \begin{align*}
+        \innerp{A(x)}{(I-A)(x)}
+        & =\innerp{(I-A)A(x)}{x} \\
+        & =\innerp{(I-A)A(x)}{(I-A)(x)+A(x)} \\
+        & =\innerp{(I-A)A(x)}{(I-A)(x)}+\innerp{(I-A)A(x)}{A(x)} \\
+        & =\innerp{A(I-A)(x)}{(I-A)(x)}+\innerp{(I-A)A(x)}{A(x)} \\
+        & \geq 0.
+    \end{align*}
+    最后用到了 $A$ 和 $I-A$ 皆为正算子, 证毕.
+\end{proof}
+
+\begin{remark}
+    从 (a) 可以得到一个结论: 正算子必为自伴算子. 事实上, 我们也可以用极化恒等式证明此结论,
+    但这里所说的极化恒等式是广义的极化恒等式, 设 $H$ 为 $\FC$ 上的向量空间,
+    映射 $S:H\times H\to\FC$, $(x,y)\to S(x,y)$ 关于第一个变量是线性的,
+    关于第二个变量是共轭线性的, 则我们有极化恒等式
+    \[4S(x,y)=\sum_{k=0}^3 \ii^k S(x+\ii^k y,x+\ii^k y).\]
+    证明很容易, 将上式右侧展开验证即可. 特别地, 取 $S$ 为内积, 则得到经典的极化恒等式
+    \[4\innerp{x}{y}=\sum_{k=0}^3 \ii^k\|x+\ii^k y\|^2.\]
+    如果假设 $S$ 关于第一个变量是共轭线性的而
+    关于第二个变量是线性的, 则也有相应的极化恒等式
+    \[4S(x,y)=\sum_{k=0}^3(-\ii)^k S(x+\ii^k y,x+\ii^k y).\]
+
+    在本问题中, 定义 $\mathcal{S}(x,y)=\innerp{A(x)}{y}$ 和 $\mathcal{T}(x,y)=\innerp{x}{A(y)}$,
+    则 $\mathcal{S}$ 和 $\mathcal{T}$ 都关于第一个变量为线性且关于第二个变量为共轭线性,
+    由极化恒等式得
+    \[4\mathcal{S}(x,y)=\sum_{k=0}^3 \ii^k \mathcal{S}(x+\ii^k y,x+\ii^k y),\]
+    \[4\mathcal{T}(x,y)=\sum_{k=0}^3 \ii^k \mathcal{T}(x+\ii^k y,x+\ii^k y).\]
+    即
+    \[4\innerp{A(x)}{y}=\sum_{k=0}^3 \ii^k \innerp{A(x+\ii^k y)}{x+\ii^k y},\]
+    \[4\innerp{x}{A(y)}=\sum_{k=0}^3 \ii^k \innerp{x+\ii^k y}{A(x+\ii^k y)}.\]
+    结合 $A$ 为正算子即得 $\innerp{A(x)}{y}=\innerp{x}{A(y)}$.
+\end{remark}

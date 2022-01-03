@@ -1,0 +1,329 @@
+% !TeX root = main.tex
+% !TeX program = xelatex
+
+\chapter{拓扑空间简介}
+
+
+\textbf{定理1.3.2的证明}
+\begin{proof}
+($\Rightarrow$)(反证法)假设 $\bigcap_{i\in I}F_i=\emptyset$, 则
+\[\biggl(\bigcap_{i\in I}F_i\biggr)^c=\bigcup_{i\in I}F_i^c=E,\]
+也即 $E$ 存在开覆盖 $(F_i^c)_{i\in I}$, 由 $E$ 为紧集可知存在有限集
+$J\subset I$ 使得
+\[E=\bigcup_{i\in J}F_i^c.\]
+故 $\bigcap_{i\in J}F_i=\emptyset$, 这与闭集族 $(F_i)_{i\in I}$
+的有限交性质相矛盾, 所以假设不成立.
+
+$(\Leftarrow)$ 同理可证.
+\end{proof}
+
+
+\begin{theorem}[距离越小,拓扑越小]
+    设 $(E,d_1)$ 和 $(E,d_2)$ 都是度量空间,
+    且 $d_1$ 诱导的拓扑为 $\tau_1$, $d_2$ 诱导的拓扑为 $\tau_2$,
+    若 $d_1\leq d_2$, 则$\tau_1\subset\tau_2$; 若存在正常数 $C_1,C_2$ 使得
+    $C_1d_2(x,y)\leq d_1(x,y)\leq C_2d_2(x,y),\forall x,y\in E$, 则$\tau_1=\tau_2$.
+    换言之, 若两个度量等价, 则其诱导出的拓扑是相同的.
+\end{theorem}
+
+\begin{proof}
+事实上只需要证明后半部分, 因为前半部分是后半部分的推论.
+\begin{align*}
+    U\in\tau_1
+    &\Leftrightarrow\forall x\in U,\exists r>0,\text{\ 使得\ }\{y\in E\mid d_1(x,y)<r\}\subset U\\
+    &\Leftrightarrow\forall x\in U,\exists r>0, \text{\ 使得\ }\left\{y\in E\middle|\frac{1}{C_2}d_1(x,y)<\frac{r}{C_2}\right\}\subset U\\
+    &\Rightarrow\forall x\in U,\exists r>0, \text{\ 使得\ }\left\{y\in E\bigg|d_2(x,y)<\frac{r}{C_2}\right\}\subset U\\
+    &\Leftrightarrow U\in\tau_2. 
+\end{align*}
+所以 $\tau_1\subset\tau_2$, 同理可证明 $\tau_2\subset\tau_1$, 故 $\tau_1=\tau_2$.
+在这里, 我们要建立起一个清醒的认识, 那就是度量越大, 其所对应的相同半径的开球越小.
+\end{proof}
+
+求证: 设 $d$ 是 $E$ 上的度量, 则 $d,\min\{1,d\},rd(r>0)$ 都诱导出 $E$ 上相同的拓扑.
+\begin{proof}
+记三者诱导的拓扑分别为 $\tau_1,\tau_2,\tau_3$, 要证明 $\tau_1=\tau_2=\tau_3$,
+由上述性质知$\tau_1=\tau_3$显然成立, 故只需要证明$\tau_1=\tau_2$.
+由 $d\geq\min\{1,d\}$ 知 $\tau_2\subset\tau_1$. 又因为
+\begin{align*}
+    U\in\tau_1
+    &\Leftrightarrow\forall x\in U,\exists r\in(0,1),\text{\ 使得\ }\{y\in E\mid d(x,y)<r\}\subset U \\
+    &\Rightarrow\forall x\in U,\exists r\in(0,1),\text{\ 使得\ }\{y\in E\mid\min\{1,d(x,y)\}<r\}\subset U \\
+    &\Rightarrow U\in\tau_2,
+\end{align*}
+所以 $\tau_1\subset\tau_2$, 从而 $\tau_1=\tau_2$.
+显然 $d$ 与 $\min\{1,d\}$ 不是等价的度量, 由此可见不等价的度量也可以诱导出相同的拓扑.
+\end{proof}
+
+\begin{exercise}
+证明定理~1.1.22.
+\end{exercise}
+
+\begin{proof}
+(1)显然.
+
+(2)要证 $E\setminus\mathring{A}=\overline{E\setminus A}$,
+即证 $\mathring{A}=E\setminus(\overline{E\setminus A})$,而
+\begin{align*}
+    x\in E\setminus(\overline{E\setminus A})&\Leftrightarrow\exists U\in\mathcal{N}(x),s.t.U\cap(E\setminus A)=\emptyset\\
+    &\Leftrightarrow\exists U\in\mathcal{N}(x),s.t.U\subset A\\
+    &\Leftrightarrow x\in\mathring{A}.
+\end{align*}
+故结论得证.
+
+(3)因为$A\subset A\cup B$, 所以 $\overline{A}\subset\overline{A\cup B}$,
+同理 $\overline{B}\subset\overline{A\cup B}$,
+故 $\overline{A}\cup\overline{B}\subset\overline{A\cup B}$,
+又 $\overline{A}\cup\overline{B}\supset A\cup B\Rightarrow\overline{(\overline{A}\cup\overline{B})}=\overline{A}\cup\overline{B}\supset\overline{A\cup B}$,
+结合双向包含关系可得 $\overline{A\cup B}=\overline{A}\cup\overline{B}$,
+同理可证$\mathring{\widehat{A\cap B}}=\mathring{A}\cap\mathring{B}$.
+\end{proof}
+
+\begin{exercise}
+(a)设$(E,d)$是一个度量空间, $F\subset E$. 证明$d$在$F$上诱导的拓扑和$d$在$E$上诱导的拓扑空间在$F$上的限制一致.
+
+(b)设$E$是一个拓扑空间, $F$是$E$的拓扑子空间, $A\subset F$.
+用实例说明$A$是$F$中闭集但是在$E$中不一定是闭集, 以及$A$在$F$中是开集但在$E$中不一定是开集.
+\end{exercise}
+
+\begin{proof}
+(a)记$d$在$F$上诱导的拓扑为$\tau$, 在$E$上诱导的拓扑为$\tau'$, 则我们需要证明$\tau'|_F=\tau$.
+\[\begin{split}
+U\in\tau'|_F&\Leftrightarrow\exists V\in\tau',s.t.U=V\cap F\\
+&\Leftrightarrow\forall x\in U,\exists r>0,s.t.B(x,r)\subset V\mbox{且}U=V\cap F\\
+&\Leftrightarrow\forall x\in U,\exists r>0,s.t.B(x,r)\cap F\subset U\\
+&\Leftrightarrow U\in\tau
+\end{split}\]
+故$\tau'|_F=\tau$.
+
+(b)取$E$为二维欧式空间, $F$为一维欧氏空间, 则$F$中的开集和闭集在$E$中分别不再是开集和闭集.
+\end{proof}
+
+\begin{exercise}
+设 $E$ 是 $\mathbb{R}^*=\mathbb{R}\backslash\{0\}$ 和另外两个不同的点构成的并集,
+如 $E=\mathbb{R}^*\cup\{-\infty,+\infty\}$. 并设 $\tau$ 是 $E$ 中满足如下条件的子集 $U$ 构成的集族:
+\begin{enumerate}[(i)]
+    \item 在 $\mathbb{R}^*$ 的拓扑下, $U\cap\mathbb{R}^*$ 在 $\mathbb{R}^*$ 中是开的.
+    \item 若 $-\infty\in U$ 或 $+\infty\in U$, 则 $U$ 包含一个形如 $\mathbb{R}^*\cap V$ 的集合, 其中 $V$ 是 $\mathbb{R}$ 中零点的一个邻域.
+\end{enumerate}
+证明:
+\begin{enumerate}[(a)]
+    \item $\tau$ 是 $E$ 上的拓扑.
+    \item $\tau$ 不是 Hausdorff 空间.
+    \item 任一点 $x\in E$ 的所有邻域的交集为 $\{x\}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)
+\begin{itemize}
+\item 显然$\emptyset,E\in\tau$
+\item 任意并性质: 设$(U_i)_{i\in I}\subset\tau$, 需要证明$\bigcup_{i\in I}U_i\in\tau$.
+首先验证其满足条件(i): 对于每个 $i\in I$, 因为 $U_i\cap\mathbb{R}^*$ 在 $\mathbb{R}^*$ 中是开的, 
+所以存在$\mathbb{R}$中的开集$U_i^*$使得$U_i\cap\mathbb{R}^*=U_i^*\cap\mathbb{R}^*$, 故
+\[\left(\bigcup_{i\in I}U_i\right)\cap\mathbb{R}^*=\bigcup_{i\in I}\left(U_i\cap\mathbb{R}^*\right)=\left(\bigcup_{i\in I}U_i^*\right)\cap\mathbb{R}^*\text{\ 在\ }\FR^*\text{\ 中是开的}.\]
+
+再验证其满足条件(ii): 不妨设$-\infty\in\bigcup_{i\in I}U_i$, 则存在某个$i_0\in I,s.t.-\infty\in U_{i_0}$,
+则 $U_{i_0}$ 包含一个形如 $\FR^*\cap V$的集合,$V$是$\FR$中零点的一个邻域,
+从而 $\bigcup_{i\in I}U_i$ 必然包含此 $\FR^*\cap V$.
+\item 有限交性质: 验证方法与上面方法类似.
+\end{itemize}
+
+(b)考虑 $+\infty$ 和 $-\infty$ 这两个特殊的点, 由条件 (ii) 可知 $+\infty$ 与 $-\infty$
+不存在不相交的开邻域, 故 $\tau$ 不是 Hausdorff 空间.
+
+(c) 若 $x\in\FR^*$, 则由于 $\FR^*$ 是 Housdorff 空间, 故 $x$ 的所有邻域的交集为 $\{x\}$;
+若 $x\in E\setminus\FR^*$, 如 $x=-\infty$, 取 $-\infty$ 的一列邻域
+$\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\FR^*)\right)_{n\geq 1}$. 显然
+\[\bigcap_{n=1}^{\infty}\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\FR^*)\right)=-\infty.\]
+因此 $-\infty$ 的所有邻域的交集必为单点集 $\{-\infty\}$.
+\end{proof}
+
+\begin{exercise}
+证明: 紧空间中的任一序列均有凝聚点.
+\end{exercise}
+
+\begin{proof}
+设 $E$ 是紧空间, $(x_n)_{n\geq 1}\subset E$ 为任一序列.
+
+当 $(x_n)_{n\geq 1}$ 为有限集时, $(x_n)_{n\geq 1}$ 从某一项开始必为常值,
+此常值即为 $(x_n)_{n\geq 1}$ 的凝聚点.
+
+当 $(x_n)_{n\geq 1}$ 为无限集时, 假设 $(x_n)_{n\geq 1}$ 没有凝聚点, 则
+对任意 $x\in E$, 存在 $V_x\in\mathcal{N}(x)$ 使得
+\[V_x\cap (x_n)_{n\geq 1}\setminus\{x\}=\varnothing.\]
+因为 $E$ 为紧空间, 所以 $E$ 的开覆盖 $\bigcup_{x\in E}V_x$ 存在有限子覆盖 $\bigcup_{i=1}^n V_{x_i}=E$.
+然而 $\bigcup_{i=1}^n V_{x_i}$ 至多包含 $(x_n)_{n\geq 1}$ 中的有限个点, 这与 $(x_n)_{n\geq 1}$ 为无限集相矛盾.
+\end{proof}
+
+\begin{exercise}
+证明: 有限维的赋范空间是局部紧的.
+\end{exercise}
+
+\begin{proof}
+设$E$为有限维赋范空间, 教材注 3.1.12 (2) 表明在有限维空间中有界闭集为紧集.
+任取 $x\in E$, $\overline{B(x,1)}$ 即为 $x$ 的紧邻域, 故有限维的赋范空间是局部紧的.
+\end{proof}
+
+\begin{exercise}
+设 $(E,\tau)$ 是一个局部紧的但不是紧的 Hausdorff 空间. 我们在 $E$ 上增加一个点,
+记作 $\infty$, 然后定义 $\widehat{E}=E\cup\{\infty\}$. 在 $\widehat{E}$ 上定义集族 $\widehat{\tau}$,
+$U\in\widehat{\tau}$ 当且仅当 $U\in\tau$ 或者存在 $E$ 中的紧集 $K$, 使得 $U=\widehat{E}\setminus K$. 证明:
+\begin{enumerate}[(a)]
+    \item $\widehat{\tau}$ 是 $\widehat{E}$ 上的拓扑.
+    \item $\widehat{\tau}$ 在 $E$ 上的限制等于 $\tau$, 即 $(E,\tau)$ 是 $(\widehat{E},\widehat{\tau})$ 的拓扑子空间.
+    \item $(\widehat{E},\widehat{\tau})$ 是一个紧 Hausdorff 空间.
+    \item $E$ 在 $\widehat{E}$ 中稠密.
+\end{enumerate}
+\end{exercise}
+
+\begin{remark}
+    拓扑空间 $(\widehat{E},\widehat{\tau})$ 通常被称为 $(E,\tau)$ 的 Al\-e\-x\-a\-ndorff 紧化空间 
+    (Alexandorff compactification or one-point compactification).
+\end{remark}
+
+\begin{proof}
+(a) 显然$\emptyset,\widehat{E}\in\widehat{\tau}$.
+
+下面验证任意并性质:设$(U_i)_{i\in I}\subset\widehat{\tau}$,
+要证明$\bigcup_{i\in I}U_i\in\widehat{\tau}$, 分三种情况讨论:
+
+(1) 当 $(U_i)_{i\in I}\subset\tau$时, $\bigcup_{i\in I}U_i\in\tau\Rightarrow\bigcup_{i\in I}U_i\in\widehat{\tau}$.
+(2) 当对任意 $i\in I$, $U_i=\widehat{E}\setminus K_i$ 时, 其中 $K_i$ 为 $E$ 中紧集.
+      注意到 $\bigcap_{i\in I}K_i$ 仍为 $E$ 中紧集且
+      \[\bigcup_{i\in I}U_i=\bigcup_{i\in I}\widehat{E}\setminus K_i=\widehat{E}\setminus\Bigl(\bigcap_{i\in I}K_i\Bigr),\]
+      因此 $\bigcup_{i\in I}U_i\in\tau$.
+(3) 存在非空真子集 $J\subset I$ 使得当 $i\in J$ 时, $U_i=\widehat{E}\setminus K_i$, 
+$K_i$ 为 $E$ 中紧集; 当 $i\in I\setminus J$ 时, $U_i\in\tau$, 则
+\begin{align*}
+\bigcup_{i\in I}U_i
+&=\bigg(\bigcup_{i\in J}\widehat{E}\setminus K_i\bigg)\bigcup\bigg(\bigcup_{i\in I\setminus J}U_i\bigg)=\biggl(\widehat{E}\setminus\bigcap_{i\in J}K_i\biggr)\bigcup\biggl(\widehat{E}\setminus\bigcap_{i\in I\setminus J}U_i^c\biggr) \\
+&=\widehat{E}\setminus\biggl(\biggl(\bigcap_{i\in J}K_i\biggr)\bigcap\biggl(\bigcap_{i\in I\setminus J}U_i^c\biggr)\biggr). 
+\end{align*}
+而 $\left(\bigcap_{i\in J}K_i\right)\bigcap\bigl(\bigcap_{i\in I\setminus J}U_i^c\bigr)$ 是 $E$  中紧集,
+故 $\bigcup_{i\in I}U_i\in\widehat{\tau}$.
+
+再验证有限交性质: 只需要考虑两个开集 $V_1,V_2\in\widehat{\tau}$ 即可. 分三种情形:
+
+(1) 若 $V_1,V_2\in\tau$, 则 $V_1\cap V_2\in\tau\Rightarrow V_1\cap V_2\in\widehat{\tau}$.
+(2) 若 $V_1=\widehat{E}\setminus K_1$, $V_2=\widehat{E}\setminus K_2$, 其中 $K_1$ 和 $K_2$
+是 $E$ 中的紧集, 则 $V_1\cap V_2=(\widehat{E}\setminus K_1)\cap(\widehat{E}\setminus K_1)=\widehat{E}\setminus (K_1\cup K_2)$.
+由于 $K_1\cup K_2$ 为 $E$ 中紧集, 故 $V_1\cap V_2\in\widehat{\tau}$.
+(3) 若 $V_1\in\tau$ 且 $V_2=\widehat{E}\setminus K_2$, 其中 $K_2$ 是 $E$ 中紧集, 则
+$V_1\cap V_2=V_1\cap(\widehat{E}\setminus K_2)=V_1\cap(E\setminus K_2)\in\tau$.
+由此可知有限交性质成立.
+
+(b) 往证 $\widehat{\tau}|_E=\tau$.
+
+对于任意 $U\in\tau$, 有 $U\in\widehat{\tau}$, 故 $U=U\cap E\in\widehat{\tau}|_E$, 从而 $\tau\subset\widehat{\tau}|_E$.
+
+对于任意 $U\in\widehat{\tau}|_E$, 存在 $\widehat{U}\in\widehat{\tau}$ 使得 $U=\widehat{\tau}\cap E$.
+当 $\widehat{U}\in\tau$ 时, $U=\widehat{U}\cap E=\widehat{U}\in\tau$;
+当 $\widehat{U}=\widehat{E}\setminus K$ 时, $U=(\widehat{E}\setminus K)\cap E=E\setminus K\in\tau$,
+从而 $\widehat{\tau}|_E\subset\tau$.
+
+因此 $\widehat{\tau}|_E=\tau$.
+
+(c) 首先证明 $(\widehat{E},\widehat{\tau})$ 是紧空间. 设 $\{U_i\mid i\in I\}$
+为 $\widehat{E}$ 的开覆盖, 则存在 $i_0\in I$ 使得 $\infty\in U_{i_0}$ 且 $U_{i_0}=\widehat{E}\setminus K_{i_0}$,
+其中 $K_{i_0}$ 为 $E$ 中紧集. 由于 $\{U_i\cap E\mid i\in I,i\neq i_0\}$ 为 $K_{i_0}$
+的开覆盖, 故存在 $K_{i_0}$ 的有限子覆盖 $\{U_i\cap E\}_{i=1}^n$, 那么
+$\{U_{i_0},U_1,\dots,U_n\}$ 即为 $\widehat{E}$ 的有限子覆盖.
+
+然后证明 $(\widehat{E},\widehat{\tau})$ 为 Hausdorff 空间. 事实上,
+只需要证明 $\forall x\in E$ 与 $\infty$ 存在不相交的开邻域即可.
+由于 $E$ 局部紧, 所以存在开集 $V$ 使得 $x\in V\subset E$ 且 $\overline{V}$ 为紧集.
+因此, 取 $x$ 的开邻域 $V$ 和 $\infty$ 的开邻域 $\widehat{E}\setminus\overline{V}$
+即可.
+\end{proof}
+
+\begin{exercise}
+设$E$是一个局部紧的Hausdorff空间, 则$E$中每一点都有一个紧邻域基.
+\end{exercise}
+
+\begin{proof}
+对于 $E$ 中任意一点 $x$, 由 $E$ 局部紧可知 $x$ 点处存在紧邻域 $W$.
+对于点 $x$ 的任意开邻域 $G$, 我们的目标是寻找紧集 $\overline{V}$
+使得 $x\in\overline{V}\subset G$.
+
+若 $W\subset G$, 取 $\overline{V}=W$ 即可;
+
+若 $W\not\subset G$, 记 $A=W\cap G^c$, 显然 $A$ 是非空紧集. $\forall y\in A$,
+由 Hausdorff 条件可知 $y$ 与 $x$ 存在不相交的开邻域 $U_y$ 和 $W_y$ 使得 $W_y\subset W$.
+因为 $A$ 为紧集, 所以存在
+$y_1,y_2,\cdots,y_k\in A$, 使得 $A\subset\bigcup_{i=1}^k U_{y_i}$, 令
+\[U=\bigcup_{i=1}^kU_{y_i},\quad V=\bigcap_{i=1}^kW_{y_i},\]
+则 $U$ 和 $V$ 都是开集并且 $U\cap V=\varnothing$, 这意味着 $\overline{V}\cap U=\varnothing$, 从而有
+\[\overline{V}\cap G^c=\overline{V}\cap\left(W\cap G^c\right)=\overline{V}\cap A\subset\overline{V}\cap U=\varnothing,\]
+故 $\overline{V}\subset G$, 此时的 $\overline{V}$ 就是我们要寻找的紧集.
+\end{proof}
+
+\begin{exercise}
+    证明注 1.4.2 中的命题 (1), (3) 和 (4).
+\end{exercise}
+
+\begin{proof}[命题 (1) 证明]
+记所有基础开集的并集构成的集合为$\tau$, 下面证明$\tau$是$E$上的拓扑.
+\begin{enumerate}[(i)]
+\item 显然$\varnothing,E\in\tau$
+\item 任意并性质:设$(V_{\alpha})_{\alpha\in\Lambda}\subset\tau$,则每个$V_{\alpha}$可以表为:
+\[V_{\alpha}=\bigcup_{\beta\in\Lambda_{\alpha}}O_{\beta}=\bigcup_{\beta\in\Lambda_{\alpha}}\left(\prod_{i\in J_{\beta}}U_i\times\prod_{i\in I\backslash J_{\beta}}E_i\right)(J_{\beta}\text{\ 有限})\]
+故
+\[\bigcup_{\alpha\in\Lambda}V_{\alpha}=\bigcup_{\alpha\in\Lambda}\bigcup_{\beta\in\Lambda_{\alpha}}\left(\prod_{i\in J_{\beta}}U_i\times\prod_{i\in I\backslash J_{\beta}}E_i\right)\]
+上式仍为基础开集的并,故$\bigcup_{\alpha\in\Lambda}V_{\alpha}\in\tau$
+\item 有限交性质:设$\left(V_{\alpha}\right)_{\alpha\in\Lambda}\subset\tau$,其中$\Lambda=\{\alpha_1,\cdots,\alpha_n\}$为有限指标集,则
+\[V_{\alpha}=\bigcup_{\beta\in\Lambda_{\alpha}}O_{\beta}\]
+故
+\begin{align*}
+    \bigcap_{\alpha\in\Lambda}V_{\alpha}
+    &=\bigcap_{\alpha\in\Lambda}\bigcup_{\beta\in\Lambda_{\alpha}}O_{\beta}\\
+    &=\left(\bigcup_{\beta_1\in\Lambda_{\alpha_1}}O_{\beta_1}\right)\bigcap\left(\bigcup_{\beta_2\in\Lambda_{\alpha_2}}O_{\beta_2}\right)\bigcap\cdots\bigcap\left(\bigcup_{\beta_n\in\Lambda_{\alpha_n}}O_{\beta_n}\right)\\
+    &=\bigcup_{\beta_1\in\Lambda_{\alpha_1}}\bigcup_{\beta_2\in\Lambda_{\alpha_2}}\cdots\bigcup_{\beta_n\in\Lambda_{\alpha_n}}\left(O_{\beta_1}\bigcap O_{\beta_2}\bigcap\cdots\bigcap O_{\beta_n}\right)
+\end{align*}
+注意到有限个基础开集的交仍为基础开集, 故上式为基础开集的并, 因此$\bigcap_{\alpha\in\Lambda}V_{\alpha}\in\tau$.
+\end{enumerate}
+\end{proof}
+
+\begin{proof}[命题 (3) 证明]
+记 $\FR^n$ 上的自然拓扑为 $\tau_1$, $\FR\times\cdots\times\FR$ 上的乘积拓扑为 $\tau_2$, 
+为叙述方便, 记 $E:=\FR^n=\FR\times\cdots\times\FR$.
+
+首先证明 $\tau_1\subset\tau_2$. 只需证明 $(E,\tau_1)$ 中的任意开球为 $(E,\tau_2)$ 中的开集即可.
+任取 $x\in E$ 和开球 $B(x,r)$, 选取 $(E,\tau_2)$ 中含 $x$ 的开集 $O=\prod_{i=1}^nB_i(x_i,\frac{r}{\sqrt{n}})$,
+则对于任意 $y\in O$, 有 $(x_i-y_i)^2<\frac{r^2}{n}$, 从而
+\[\biggl(\sum_{i=1}^n(x_i-y_i)^2<r\biggr)^{1/2}\Rightarrow y\in B(x,r),\]
+故 $O\subset B(x,r)$, 因此 $\tau_1\subset\tau_2$.
+
+然后证明 $\tau_2\subset\tau_1$. 只需证明 $(E,\tau_2)$ 中任意基础开集为 $(E,\tau_1)$
+中的开集即可. 任取 $x\in E$ 和 $(E,\tau_2)$ 中的基础开集 $O=\prod_{i=1}^nB_i(x_i,r_i)$.
+令 $r=\min\{r_1,\dots,r_n\}$, 取 $(E,\tau_1)$ 中的开球 $B(x,r)$, 则对于任意 $y\in B(x,r)$,
+有 $\sum_{i=1}^n(x_i-y_i)^2<r^2$, 从而对任意 $1\leq i\leq n$ 有
+\[(x_i-y_i)^2\leq\sum_{i=1}^n(x_i-y_i)^2<r^2\leq r_i^2,\]
+所以 $y_i\in B_i(x_i,r_i)\Rightarrow y\in O$, 故 $B(x,r)\subset O$, 因此 $\tau_2\subset\tau_1$.
+\end{proof}
+
+\begin{proof}[命题 (4) 证明]
+因为
+\[\left(\prod_{i\in I}F_i\right)^c=\bigcup_{i_0\in I}\left(F_{i_0}^c\times\bigcup_{i\in I\backslash\{i_0\}}E_i\right)\text{为开集},\]
+所以 $\prod_{i\in I}F_i$ 为 $E$ 中闭集.
+\end{proof}
+
+
+\begin{exercise}
+    把定理 1.4.9 中的距离换成下面的距离
+    \[\delta(x,y)=\sum_{n=1}^{\infty}\frac{1}{2^n}d_n(x_n,y_n).\]
+    证明由 $\delta$ 诱导的拓扑也与乘积拓扑相同.
+\end{exercise}
+
+
+\begin{exercise}
+    证明一列紧度量空间的乘积空间(赋予乘积拓扑)是紧的可度量化空间.
+\end{exercise}
+
+
+\begin{exercise}
+    设 $E=\{x=(x_n)_{n=1}^{\infty}\mid \forall n\geq 1, x_n=0\text{\ 或\ }1\}=\{0,1\}^{\FN*}$.
+    对每个 $x=(x_n)_{n\geq 1}\in E$, 令
+    \[\phi(x)=\sum_{n=1}^{\infty}\frac{2x_n}{3^n}.\]
+    在 $\{0,1\}$ 上赋予离散拓扑(这实际上对应着自然的距离 $d(0,1)=1$), 则在 $E$
+    上有相应的乘积拓扑. 证明 $\phi$ 是 $E$ 到 $\FR$ 的紧子集 $C=\phi(E)$ 上的同胚.
+\end{exercise}
