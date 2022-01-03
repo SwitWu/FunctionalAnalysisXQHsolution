@@ -1,0 +1,44 @@
+\chapter{Banach空间的对偶理论}
+线性映射$x\to B(x,\cdot)$是从$E$到$E^{**}$的等距映射($E\hookrightarrow E^{**}$),但是不一定是满的(可以取$E$不完备,但是不管怎样,$E^*$和$E^{**}$都是完备的,因此$E$与$E^{**}$不可能等距同构),这就说明自反空间必是Banach空间\\\\
+1.解:(a)由定义$\|f_n\|=\sup_{\|x\|\leq1}|f_n(x)|$,故存在序列$(x_n)$使得$f_n(x_n)\geq\frac{\|f_n\|}{2}$\\
+(b)因$(f_n)$在$E^*$中稠密,故\[\forall n\geq1,\exists f_n,s.t.\|f_n-f\|<\frac{1}{n}\]
+又\[\|f_n-f\|\geq|f_n(x_n)-f(x_n)|=|f_n(x_n)|\geq\frac{\|f_n\|}{2}\]
+故\[\|f\|\leq\|f-f_n\|+\|f_n\|<\frac{1}{n}+\frac{2}{n}\to0(n\to\infty)\]
+因此$f=0$\\
+(c)记$A=\overline{span(x_1,x_2,\cdots)}$,显然$A$是$E$的闭向量子空间,假设$A\neq E$,则存在$x_0\in E\backslash A$,由推论8.1.16知
+\[\exists f\in E^*,s.t.f|_A=0,f(x_0)=d(x_0,A)>0\]
+这与(b)中结论矛盾,故假设不成立,所以$\overline{span(x_1,x_2,\cdots)}=E$,下面证明$E$是可分的:\\
+记$\mathbb{Q}=\{q_i\}_{i=1}^{\infty}$,则$\{\sum_{i=1}^nq_ix_i,n\geq1\}$是$E$的可数稠密子集\\
+(d)设$E$是可分且自反的Banach空间,则$E^{**}=E$可分,由(c)中结论知$E^*$可分,当$E^*$是可分且自反的,显然$E$是可分且自反的\\
+(e)$\ell_1$可分,但$\ell_1^*=\ell_{\infty}$不可分\\\\
+10.\textit{Proof}:任取$a=(a_i)_{i\geq1}\in\ell_q$,令
+\[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in\ell_p\]
+则由$H\ddot{o}lder$不等式得
+\[|f_a(x)|\leq\|x\|_{\ell_p}\|a\|_{\ell_q},x=(x_i)\in\ell_p\]
+即得$f_a\in\ell_p^*$,下面任取$f\in\ell_p^*$,证明反向的结论成立\\
+对任意$x=(x_1,x_2,\cdots)\in\ell_p$,记$x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$,则$x^{(n)}\xrightarrow{\|\cdot\|_p}x$.用$e_1,e_2,\cdots$表示$\ell_p$中的标准基,因为$f\in\ell_p^*$,所以
+\[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}\sum_{i=1}^nf(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i\]
+下证$(a_i)_{i\geq1}\in\ell_q.\forall n\geq 1$,令$a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$,取
+\[x^{(n)}=\left(\frac{|a_1|^{q-1}\sgn a_1}{\|a^{(n)}\|^{\frac{q}{p}}_q},\cdots,\frac{|a_n|^{q-1}\sgn a_n}{\|a^{(n)}\|^{\frac{q}{p}}_q},0,\cdots\right)\]
+则由$p(q-1)=q$知
+\[\|x^{(n)}\|_{\ell_p}=\left(\frac{|a_1|^q}{\|a^{(n)}\|^q_q}+\cdots+\frac{|a_n|^q}{\|a^{(n)}\|^q_q}\right)^{1/p}=1\]
+并且由$\sgn a_i\cdot f(e_i)=|a_i|$得
+\[f(x^{(n)})=\frac{|a_1|^{q-1}\cdot|a_1|}{\|a^{(n)}\|^{\frac{q}{p}}_q}+\cdots+\frac{|a_n|^{q-1}\cdot|a_n|}{\|a^{(n)}\|^{\frac{q}{p}}_q}=\frac{\|a^{(n)}\|_q^q}{\|a^{(n)}\|_q^\frac{q}{p}}=\|a^{(n)}\|_q\]
+因此有$\|a^{(n)}\|_q\leq\|f\|\Rightarrow\|a\|_q\leq\|f\|$,于是建立了$\ell_p^*$到$\ell_q$的等距同构映射:
+\[J:\ell_p^*\to\ell_q,f\mapsto a=(a_1,a_2,\cdots)\]
+下面证明$c_0^*=\ell_1,c_0=\{x=(x_n)_{n\geq1}:\lim_{n\to\infty}x_n=0\}\subset\ell_{\infty}$,这里的证明方法与上面证明$\ell_p^*=\ell_q(1\leq p<\infty)$是完全类似的.\\
+$\forall a=(a_i)_{i\geq 1}\in\ell_1$,令
+\[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in c_0\]
+则\[|f_a(x)|\leq\|a\|_{\ell_1}\|x\|_{c_0},x=(x_i)\in c_0\]
+故$f_a\in c_0^*$且$\|f_a\|\leq\|a\|_{\ell_1}$\\
+再任取$f\in c_0^*,\forall x=(x_1,x_2,\cdots)\in c_0$,记$x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$,用$e_1,e_2,\cdots$表示$c_0$中的标准基,则
+\[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}f(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i\]
+下证$a=(a_i)_{i\geq 1}\in\ell_1.\forall n\geq1$,令$a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$,取
+\[x^{(n)}=(\sgn a_1,\cdots,\sgn a_n,0,\cdots)\]
+则\[\|x^{(n)}\|_{c_0}=1\]
+且\[f(x^{(n)})=\sum_{i=1}^nf(e_i)\sgn a_i=\sum_{i=1}^n|a_i|=\|a^{(n)}\|_{\ell_1}\]
+故$\|a^{(n)}\|_{\ell_1}\leq\|f\|\Rightarrow\|a\|_{\ell_1}\leq\|f\|$,这样就建立了等距同构映射:
+\[J:c_0^*\to\ell_1,f\mapsto a=(a_1,a_2,\cdots)\]
+因$c_0^{**}=\ell_1^*=\ell_{\infty}$,故$c_0,\ell_1,\ell_{\infty}$不自反
+\chapter{紧算子}
+\thispagestyle{empty}

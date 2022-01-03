@@ -1,0 +1,198 @@
+\setcounter{chapter}{7}
+\chapter{Hahn-Banach 定理}
+\thispagestyle{empty}
+
+
+
+\begin{exercise}
+    设 $1\leq p\leq\infty$, 考虑 $\FR^2$ 上的 $p$ 范数:
+    \[\|(x_1,x_2)\|_p=\bigl(|x_1|^p+|x_2|^p\bigr)^{\frac{1}{p}},\;p<\infty;\quad \|(x_1,x_2)\|_{\infty}=\max\{|x_1|,|x_2|\}.\]
+    设 $F=\FR\times\{0\}$, 即由 $e_1=(1,0)$ 生成的向量子空间, 并设 $f:F\to\FR$
+    是线性泛函, 满足 $f(e_1)=1$.
+
+    (a) 当 $\FR^2$ 上赋予 $\|\cdot\|_1$ 范数时, 确定 $f$ 从 $F$ 到 $\FR^2$ 的所有保范延拓.
+
+    (b) 当 $\FR^2$ 上赋予 $\|\cdot\|_p$ 范数时, 考虑同样的问题.
+\end{exercise}
+
+\begin{proof}
+    (a)首先 $\|f\|=\sup\limits_{x=te_1,t\neq 0}\frac{|f(x)|}{\|x\|_1}=\sup\limits_{x=te_1,t\neq0}\frac{|t|}{|t|}=1$,
+    记 $e_2=(0,1)$, 则对任意 $x=x_1e_1+x_2e_2\in\FR^2$, 有
+    \[\tilde{f}(x)=x_1f(e_1)+x_2\tilde{f}(e_2)=x_1+x_2\tilde{f}(e_2).\]
+    则
+    \[\|\tilde{f}\|=\sup_{x\in\FR^2,x\neq 0}\frac{|\tilde{f}(x)|}{\|x\|_1}=\sup_{x\in\FR^2,x\neq 0}\frac{|x_1+x_2\tilde{f}(e_2)|}{|x_1|+|x_2|}.\]
+    要使得 $\|\tilde{f}\|=\|f\|=1$, 即
+    \[\sup_{x\in\FR^2,x\neq 0}\frac{|x_1+x_2\tilde{f}(e_2)|}{|x_1|+|x_2|}=1.\]
+    容易验证当 $|\tilde{f}(e_2)|\leq 1$ 时, 上面等式得以成立, 
+    因此当 $\FR^2$ 上赋予 $\|\cdot\|_1$ 范数时, $f$ 从 $F$ 到 $\FR^2$ 的所有保范延拓为:
+    \[\left\{\tilde{f}:\tilde{f}(x)=x_1+x_2\tilde{f}(e_2),|\tilde{f}(e_2)|\leq1\right\}.\]
+
+    (b) 当 $1<p<\infty$ 时, 此时目标是:
+    \[\|\tilde{f}\|=\sup_{x\in\FR^2,x\neq0}\frac{|x_1+x_2\tilde{f}(e_2)|}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}=1.\]
+    为叙述简便, 记 $t=|\tilde{f}(e_2)|$, 则$x_1x_2\tilde{f}(e_2)\geq 0$ 时
+    \[\begin{split}\frac{|x_1+x_2\tilde{f}(e_2)|}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}\leq 1
+    &\Leftrightarrow \frac{|x_1|+|x_2|\cdot t}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}\leq1\\
+    &\Leftrightarrow (|x_1|+|x_2|\cdot t)^p\leq|x_1|^p+|x_2|^p(\mbox{不妨}|x_2|\neq0)\\
+    &\Leftrightarrow\left(\frac{|x_1|}{|x_2|}+t\right)^p\leq\left(\frac{|x_1|}{|x_2|}\right)^p+1\\
+    &\Leftrightarrow (\alpha+t)^p\leq\alpha^p+1(0\leq\alpha\leq\infty)\\
+    &\Leftrightarrow t=0.
+    \end{split}\]
+    因此保范延拓为 $\left\{\tilde{f}:\tilde{f}(x)=x_1\right\}$.
+    
+    当 $p=\infty$ 时, 此时目标是:
+    \[\sup_{x\in\FR^2,x\neq 0}\frac{|x_1+x_2\tilde{f}(e_2)|}{\max\{|x_1|,|x_2|\}}=1\Leftrightarrow\tilde{f}(e_2)=0.\]
+    因此保范延拓为 $\left\{\tilde{f}:\tilde{f}(x)=x_1\right\}$.
+
+    综上知当$\FR^2$上赋予$\|\cdot\|_p(1<p\leq\infty)$范数时,所有的保范延拓为$\left\{\tilde{f}:\tilde{f}(x)=x_1\right\}$.
+\end{proof}
+
+
+
+\begin{exercise}
+    通过 $\FR^2$ 上的反例说明在几何形式的 Hahn-Banach 定理中, 一个凸子集是开集的条件是必要的.
+\end{exercise}
+
+\begin{proof}
+将四个点$(\pm1,\pm1)$围成的正方形用$x$轴分成两部分,
+上半部分去掉线段 $\{(x,y)|-1\leq x\leq0,y=0\}$, 得到区域 $A$,
+下半部分去掉线段 $\{(x,y)|0\leq x\leq 1,y=0\}$, 得到区域$B$, 易知$A,B$无法被隔离.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是数域 $\FK$ 上的赋范空间, $A\subset E$, 并设 $f:A\to\FK$
+    以及常数 $\lambda\geq 0$. 证明: 存在 $\widehat{f}\in E^*$, 使得
+    $\widehat{f}|_A=f\quad\text{且}\quad\|\widehat{f}\|\leq\lambda$
+    的充分必要条件是
+    \[\left|\sum_{k=1}^n \alpha_kf(a_k)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|,\forall n\in\FN^*,
+    \forall(a_1,\cdots,a_n)\in A^n,\forall (\alpha_1,\cdots,\alpha_n)\in\FK^n.\]
+\end{exercise}
+
+\begin{proof}
+    必要性显然,下面证明充分性. 由
+    \[\left|\sum_{k=1}^n\alpha_kf(a_k)\right|=\left|f\left(\sum_{k=1}^n\alpha_ka_k\right)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|.\]
+    知 $f$ 是连续线性泛函, 由 Hahn-Banach 定理知存在 $\hat{f}\in E^{*}$, 使得 $\hat{f}|_A=f,\|\hat{f}\|\leq\lambda$.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是 Hausdorff 拓扑向量空间, $A$ 是 $E$ 中包含原点的开凸集以及 $x_0\in E\setminus A$.
+
+    (a) 证明: 存在 $f\in E^*$, 使得
+    \[\Re f(x_0)=1,\;\text{且在\ }A\text{\ 上\ }\Re f<1.\]
+
+    (b) 假设 $A$ 还是平衡的. 证明: 可以选择 $f\in E^*$, 使其满足
+    \[f(x_0)=1,\;\text{且在\ }A\text{\ 上\ }|f|<1.\]
+\end{exercise}
+
+\begin{proof}
+    (a) 由于 $\{x_0\}$ 为凸集, $A$ 为开凸集且二者不相交, 故由 Hahn-Banach 定理知存在
+    $\widetilde{f}\in E^*$ 和 $\alpha>0$, 使得
+    \[\Re\widetilde{f}(a)<\alpha\leq\Re\widetilde{f}(x_0),\quad\forall a\in A.\]
+    令 $f=\frac{\widetilde{f}}{\Re\widetilde{f}(x_0)}$, 则 $\Re f(x_0)=1$ 且对任意 $a\in A$, 有
+    \[\Re f(a)=\frac{\Re\widetilde{f}(a)}{\Re\widetilde{f}(x_0)}<\frac{\alpha}{\alpha}=1.\]
+
+    (b) $\widetilde{f}$ 仍为 (a) 中所得有界线性泛函, 令 $f(x)=\frac{\widetilde{f}(x)}{\widetilde{f}(x_0)}$, 则
+    $f(x_0)=1$, 且对任意 $a\in A$, 由 $A$ 平衡可得
+    \begin{align*}
+        |f(a)|
+        & =\left|\frac{\widetilde{f}(a)}{\widetilde{f}(x_0)}\right|=\frac{|\widetilde{f}(a)|}{|\widetilde{f}(x_0)|}=\frac{\widetilde{f}(a)\sgn\widetilde{f}(a)}{|\widetilde{f}(x_0|} \\
+        & =\frac{\widetilde{f}(a\sgn\widetilde{f}(a))}{|\widetilde{f}(x_0)|}\leq\frac{\Re\widetilde{f}(a\sgn\widetilde{f}(a))}{\alpha}<\frac{\alpha}{\alpha}=1.\qedhere
+    \end{align*}
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是 Hausdorff 局部凸空间, $A$ 是 $E$ 中包含原点的闭凸集以及 $x_0\in E\setminus A$.
+
+    (a) 证明: 存在 $f\in E^*$, 使得
+    \[\Re f(x_0)>1\quad\text{且}\quad\sup_{x\in A}\Re f(x)\leq 1.\]
+
+    (b) 假设 $A$ 还是平衡的. 证明: 可以选择 $f$, 使其满足
+    \[f(x_0)=1\quad\text{且}\quad\sup_{x\in A}|f(x)|\leq 1.\]
+\end{exercise}
+
+\begin{proof}
+    (a) 由于 $A$是包含原点的闭凸集, $\{x_0\}$是紧集, 且二者不相交,
+    故由 Hahn-Banach 定理知存在 $\widetilde{f}\in E^*$和常数 $\alpha>0$, 使得
+    \[\sup_{x\in A}\Re\widetilde{f}(x)<\alpha<\Re\widetilde{f}(x_0).\]
+    令 $f=\frac{\widetilde{f}}{\alpha}\in E^*$, 则
+    \[\Re f(x_0)=\frac{\Re\widetilde{f}(x_0)}{\alpha}>1\quad\text{且}\quad\sup_{x\in A}\Re f(x)=\sup_{x\in A}\frac{\Re\widetilde{f}(x)}{\alpha}<1.\]
+    (b) $\widetilde{f}$ 仍为 (a) 中所得有界线性泛函, 令 $f=\frac{\widetilde{f}}{\widetilde{f}(x_0)}$, 则
+    $f(x_0)=1$, 且由 $A$ 平衡可得
+    \begin{align*}
+        \sup_{x\in A}|f(x)|
+        & =\sup_{x\in A}\left|\frac{\widetilde{f}(x)}{\widetilde{f}(x_0)}\right|=\sup_{x\in A}\frac{|\widetilde{f}(x)|}{|\widetilde{f}(x_0)|} \\
+        & <\frac{1}{\alpha}\sup_{x\in A}\Re\widetilde{f}(x\sgn\widetilde{f}(x))<\frac{\alpha}{\alpha}=1.\qedhere
+    \end{align*}
+\end{proof}
+% 6.\textit{Proof}:(a)$\forall x\in\overline{\conv(A)},\exists(x_n)_{n\geq 1}\subset\conv(A),s.t.x_n\to x(n\to\infty)$,由凸包的定义知:\[x_n=\sum_{k=1}^{N_n}t_ka_k,a_k\in A,t_k\geq0,\sum_{k=1}^{N_n}t_k=1\]
+% 取$f\in E^*$满足对任意$a\in A$,有$f(a)\leq1$,则
+% \[f(x)=f\left(\lim_{n\to\infty}\sum_{k=1}^{N_n}t_ka_k\right)=\lim_{n\to\infty}\sum_{k=1}^{N_n}t_kf(a_k)\leq1\]
+% 故$x\in\widehat{A}\Rightarrow\overline{\conv(A)}\subset\widehat{A}$\\
+% (b)\\$(\Rightarrow)$当$\overline{\conv(A)}=\widehat{A}$时,因为显然$0\in\widehat{A}$,所以$0\in\overline{\conv(A)}$\\
+% $(\Leftarrow)$因为$0\in\overline{\conv(A)}$,所以$\overline{\conv(A)}$是包含原点的闭凸集,任取$x_0\in E\setminus\overline{\conv(A)}$,由上一题结论知存在$f\in E^*$,使得
+% \[f(x_0)>1\mbox{且}\sup_{x\in\overline{\conv(A)}}f(x)\leq 1\]
+% 故$x_0\not\in\widehat{A}$,即$x_0\in\left(\widehat{A}\right)^c$,所以
+% \[E\setminus\overline{\conv(A)}\subset\left(\widehat{A}\right)^c\Rightarrow\widehat{A}\subset\overline{\conv(A)}\]
+% 结合$(a)$中结论得$\overline{\conv(A)}=\widehat{A}$\\\\
+% 8.\textit{Proof}:(注:本题需要加上连续性的条件)\\
+% (a)\begin{enumerate}[(i)]
+% \item $G$是凸集:$\forall y^{(1)},y^{(2)}\in G,\exists x_1,x_2\in C$使得
+% \[f_i(x_1)\leq y^{(1)}_i,f_i(x_2)\leq y^{(2)}_i,1\leq i\leq m\]
+% 对于任意$0<\lambda<1$,由$C$是凸集知$\lambda x_1+(1-\lambda)x_2\in C$,又由$(f_i)$是凸函数得
+% \[f_i(\lambda x_1+(1-\lambda)x_2)\leq\lambda f_i(x_1)+(1-\lambda)f_i(x_2)\leq\lambda y^{(1)}_i+(1-\lambda)y^{(2)}_i,1\leq i\leq m\]
+% 故\[\lambda y^{(1)}+(1-\lambda)y^{(2)}\in G\]
+% 因此$G$是凸集
+% \item $G$是闭集:任取$G$中收敛序列$(y^{(n)})\to y$,需要证明$y\in G$,由$G$的定义知存在$(x_n)_{n\geq1}\subset C$,使得
+% \[f_i(x_n)\leq y^{(n)}_i,1\leq i\leq m\]
+% 因为$C$紧,故其有收敛子列$(x_{n_k})_{k\geq1}\to x\in C$,同时$f_i(x_{n_k})\leq y^{(n_k)}_i$,令$k\to\infty$,得
+% \[\lim_{k\to\infty}f_i(x_{n_k})=f_i(x)\leq\lim_{k\to\infty}y^{(n_k)}_i=y_i\]
+% 故$y\in G$,这就证明了$G$是闭集
+% \end{enumerate}
+% $S=\varnothing$意味着$\forall x\in C,\exists f_i,s.t.f_i(x)>0$,而
+% \[G^c=\{y=(y_1,\cdots,y_m)\in\FR^m:\forall x\in C,\exists f_i,s.t.f_i(x)>y_i\}\]
+% 故$S=\varnothing$可以表示为$0\in G^c$\\
+% (b)显然\\\\
+
+
+\begin{exercise}
+    设 $E$ 是数域 $\FK$ 上的拓扑向量空间. 称 $E$ 的向量子空间 $H$ 是超平面,
+    若有某个 $x_0\in E\setminus H$, 使得 $E=H+\FK x_0$.
+
+    (a) 证明: 若 $H$ 是超平面, 则对任意的 $x_0\in E\setminus H$, $E=H+\FK x_0$ 成立.
+
+    (b) 证明: 一个超平面或者是 $E$ 的稠密集, 或者是闭集.
+
+    (c) 证明: $H$ 是超平面当且仅当存在 $E$ 上的一个非零线性泛函 $f$,
+    使得 $H=\ker f$. 因而 $H$ 是闭的等价于 $f$ 是连续的.
+\end{exercise}
+
+\begin{proof}
+    (a) $\forall x_1\in E\setminus H,x_1=y_1+\lambda x_0,y_1\in H,\lambda\neq0$, 故对 $\forall x\in E$,
+    \[x=y+kx_0=y+k\frac{x_1-y_1}{\lambda}=\left(y-\frac{k}{\lambda}y_1\right)+\frac{k}{\lambda}x_1\in H+\mathbb{K}x_1.\]
+    因此
+    \[E=H+\mathbb{K}x_1,\quad\forall x_1\in E\setminus H.\]
+
+    (b)由定理7.1.6知$\overline{H}$是向量子空间, 又$\dim (E\setminus H)=1$, 故只可能有两种情况:
+    当 $\closure{H}=H$ 时, $H$ 为闭集; 当 $\closure{H}=E$ 时, $H$ 在 $E$ 中稠密.
+
+    (c) $(\Leftarrow)$假设存在$E$上的非零线性泛函$f$,使得$H=\ker f$,首先因$f\not\equiv0$,故存在$x_0\in E\setminus\ker f,s.t.f(x_0)=1$,则$\forall x\in E$,有
+    \[x=x-f(x)x_0+f(x)x_0\]
+    因为$f(x-f(x)x_0)=f(x)-f(x)f(x_0)=0$,所以$x-f(x)x_0\in\ker f$,并且$f(x)x_0\in\mathbb{K}x_0$,又容易验证表示$x=h+kx_0,h\in\ker f,k\in\mathbb{K}$是唯一的,因此
+    \[E=H+\mathbb{K}x_0\]也即$H$是超平面\\
+    $(\Rightarrow)$因为$H$是超平面,所以$\exists x_0\in E\setminus H,s.t.E=H+\mathbb{K}x_0$,故$\forall x\in E,x=h+kx_0$\\
+    定义泛函:\[f:E\to\mathbb{K},x=h+kx_0\mapsto k\]
+    容易验证$f$是合理定义的线性泛函且$\ker f=H$\\
+    当$f$连续时,因为$\{0\}\subset\mathbb{K}$是闭集,所以$H=\ker f=f^{-1}(0)$是闭集.
+\end{proof}
+% 11.\textit{Proof}:(a)由题目条件知$C$是$X$中原点的凸平衡闭邻域,同定理7.3.4的证明结合$C$有界可知$p$是$X$上的范数,下证其与$\|\cdot\|_X$等价:\\
+% 因为$\frac{x}{\|x\|}\in\overline{B}_X\subset C$,所以$\|x\|\geq p(x)$,又因为
+% \[\frac{x}{\frac{1}{K}\|x\|}=\frac{Kx}{\|x\|}\in\partial\left(K\overline{B}_X\right)\mbox{且}C\subset K\overline{B}_X\]
+% 故$\frac{1}{K}\|x\|\leq p(x)$,因此$p$与$\|\cdot\|_X$等价\\
+% (b)令\[I(x)=\left\{\lambda>0:\frac{x}{\lambda}\in C\right\}\]
+% 由$C$是闭集知$I(x)$是$\FR$上的闭集,即$I(x)=[p(x),+\infty)$,因此(i)(ii)(iii)都是显然的\\
+% (c)\\

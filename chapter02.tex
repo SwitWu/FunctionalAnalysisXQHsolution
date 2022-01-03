@@ -1,0 +1,564 @@
+\chapter{完备度量空间}
+\thispagestyle{empty}
+
+
+
+\begin{corollary}[推论 2.5.7]
+    若度量空间 $(E,d)$ 完备, 则 $A\subset E$ 是相对紧的当且仅当 $A$ 是预紧的.
+\end{corollary}
+
+\begin{proof}
+    \necessary
+    设 $A\subset E$ 相对紧, 则 $\closure{A}$ 是 $E$ 中紧集, 故 $\closure{A}$
+    预紧, 从而 $A\subset\closure{A}$ 也是预紧的.
+
+    \sufficient
+    设 $A$ 是预紧的, 则对任意 $\epsilon>0$, $A$ 存在有限的 $\frac{\epsilon}{2}$-网
+    $\{x_i\}_{i=1}^n$, 故 $A\subset\bigcup_{i=1}^n B(x_i,\frac{\epsilon}{2})$.
+    注意到有限个闭集的并仍为闭集, 故
+    \[\closure{A}\subset\bigcup_{i=1}^n\closure{B\left(x_i,\frac{\epsilon}{2}\right)}\subset\bigcup_{i=1}^n B(x_i,\epsilon).\]
+    所以 $\{x_i\}_{i=1}^n$ 为 $A$ 的有限 $\epsilon$-网, 从而 $\closure{A}$ 预紧
+    (从上述证明过程中可以看出 $A$ 预紧 $\iff\closure{A}$ 预紧).
+    由于完备度量空间的闭子集完备, 故 $\closure{A}$ 完备, 结合 $\closure{A}$
+    完备和预紧即知 $\closure{A}$ 为紧集, 从而 $A$ 相对紧.
+\end{proof}
+
+
+
+\begin{exercise}
+    完备性不是一个拓扑概念, 我们用两个例子说明这一点.
+
+    (a) 设有函数 $\phi(x)=\frac{x}{1+|x|}$, $x\in\FR$, 并定义
+    \[d(x,y)=|\phi(x)-\phi(y)|,\quad x,y\in\FR.\]
+    证明由此定义的 $d$ 是 $\FR$ 上的距离并和 $\FR$ 上通常意义下的拓扑一致, 但 $d$ 不完备.
+
+    (b) 更一般地, 设 $O$ 是完备度量空间 $(E,d)$ 上的开子集, 且 $O\neq E$.
+    映射 $\phi:O\to E\times\FR$ 定义为
+    \[\phi(x)=\left(x,\frac{1}{d(x,O^c)}\right):=(x,\rho(x)),\quad\forall x\in O.\]
+    证明 $\phi$ 是从 $O$ 到 $E\times\FR$ 的一个闭子集上的同胚. 并由此导出 $O$ 上存在一个完备的距离,
+    由其所诱导的拓扑和 $d$ 在 $O$ 上所诱导的拓扑一致 (注意, $(O,d_O)$ 一般并不完备).
+\end{exercise}
+
+\begin{proof}
+    (a)易知$\phi (x)$是严格单调递增函数且$-1<\phi(x)<1,|\phi '(x)|\leq 1$
+    \begin{itemize}
+    \item $d(x,y)\geq 0$且$d(x,y)=0$ 当且仅当 $x=y$
+    \item $d(x,y)=|\phi(x)-\phi(y)|=|\phi(y)-\phi(x)|=d(y,x)$
+    \item $d(x,y)=|\phi(x)-\phi(y)|\leq |\phi(x)-\phi(z)|+|\phi(y)-\phi(z)|=d(x,z)+d(y,z)$
+    \end{itemize}
+    因此, $d$ 是一个距离.
+
+    下证两拓扑一致(距离越小,拓扑越小,下面第一个包含关系的推导是自然的), 
+    记 $\tau$ 为自然拓扑, $\tau_d$ 为由 $d$ 诱导的拓扑. 一方面,
+    \begin{align*}
+        U\in\tau_d
+        & \Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y\mid|\phi(x)-\phi(y)|<r\}\subset U\\
+        & \Rightarrow\forall x\in U,\exists r>0,s.t.\{y\mid|x-y|<r\}\subset U\\
+        & \Rightarrow U\in\tau.
+    \end{align*}
+    另一方面,
+    \begin{align*}
+    U\in\tau
+    & \Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y\mid |y-x|<r\}\subset U\\
+    & \Rightarrow\forall x\in U,\text{取\ }s=\min\{\phi(x)-\phi(x-r),\phi(x+r)-\phi(x)\},\text{则\ }\{y\mid |\phi(y)-\phi(x)|<s\}\subset U\\
+    & \Rightarrow U\in\tau_d.
+    \end{align*}
+    综合两个方向知 $\tau=\tau_d$.
+
+    最后证明 $d$ 不完备. 取集列 $\{A_n\}_{n=1}^{\infty}(A_n=[n,+\infty))$, 则
+    \[\diam A_n=\sup_{x,y\in A_n}|\phi(x)-\phi(y)|=1-\frac{n}{n+1}=\frac{1}{n+1}\to 0\quad(n\to +\infty)\]
+    但 $\bigcap\limits_{n\geq 1}A_n=\emptyset$, 由完备性的等价推论知 $d$ 不完备.
+
+    (b) 由于
+    \begin{itemize}
+    \item $\phi$ 是连续的一一对应. $\phi_1=\id_O:x\mapsto x$ 是连续的, 且$\phi_2=\rho(x):x\mapsto\frac{1}{d(x,O^C)}$是连续的,
+          故 $\phi$ 连续, 由 $\phi_1$ 是一一对应知 $\phi$ 是一一对应.
+    \item $\phi(O)$是闭集. 只需证明$\phi(O)$完备,
+          任取 $\phi(O)$ 中的 Cauchy 序列 $\{(x_n,\rho_n)\}$,
+          设其在 $E\times\mathbb{R}$ 中收敛到 $(x,\rho)$,
+          由Cauchy序列的有界性知存在 $M>0$, 使得 $0\leq\rho_n<M$, 且 $x\in\closure{O}$, 则 $x\in O$ 或者 $x\in\partial O$.
+          若 $x\in\partial O$, 则 $d(x,O^C)=0$, 故存在 $n_o$, 使得 $d(x_{n_0},O^C)<\frac{1}{M}\Rightarrow\rho_{n_0}>M$,矛盾.
+          所以 $x\in O$, 因此 $(x,\rho)\in\phi(O)$, 故 $\phi(O)$ 完备.
+    \item $\phi^{-1}$连续. 由$(x_n,\rho_n)\rightarrow (x,\rho)$显然得到$x_n\rightarrow x$,故$\phi^{-1}$连续
+    \end{itemize}
+    综上得知, $\phi$是从$O$到$E\times R$上的闭子集的同胚.
+
+    记$E\times\mathbb{R}$上的度量为$\delta$,定义$d^*$为$d^*(x_1,x_2)=\delta(\phi(x_1),\phi(x_2))$,
+    容易验证$d^*$是$O$上的一个完备的距离,记$d^*$诱导的拓扑为$\tau^*$,$d$诱导的拓扑为$\tau$,则:
+    由$d(x,y)\leq d^*(x,y)=\max\{d(x,y),|\rho(x)-\rho(y)|\}$知$\tau\subset\tau^*$,又:
+    另一个方向待完善.
+\end{proof}
+
+% \textcolor{blue}{注:实际上有如下结果:在向量空间$E$上赋予两个距离$d_1,d_2$,若存在两个正常数$C_1,C_2$使得\[C_1d_1(x,y)\leq d_2(x,y)\leq C_2d_1(x,y)(\forall x,y\in E)\]则两距离诱导的拓扑$\tau_{d_1},\tau_{d_2}$相同}
+
+\begin{exercise}
+    证明度量空间 $(E,d)$ 是完备的充分必要条件是: 
+    对 $E$ 中任意序列 $(x_n)$, 若对任一个 $n\geq 1$ 有 $d(x_n,x_{n+1})\leq 2^{-n}$, 则序列 $(x_n)$ 收敛.
+\end{exercise}
+
+\begin{proof}
+    \necessary
+    $\forall\varepsilon>0$, 取 $N=[1-\log_2\varepsilon]$, 对于任意 $m,n>N$ 有
+    \[d(x_m,x_n)\leq \frac{1}{2^n}+\frac{1}{2^{n+1}}+\cdots+\frac{1}{2^{m-1}}=\frac{1}{2^{n-1}}-\frac{1}{2^{m-1}}<\varepsilon,\]
+    所以 $(x_n)$ 是 Cauchy 序列, 因 $(E,d)$ 完备, 故 $(x_n)$ 在 $E$ 中收敛.
+    
+    \sufficient 任取 $(E,d)$ 中的 Cauchy 序列 $(x_n)_{n\geq 1}$.
+    对于 $\varepsilon_1=\frac{1}{2}$, 存在 $N_1$, 使得对于 $\forall m,n\geq N_1$
+    有 $d(x_m,x_n)<\frac{1}{2}$;
+    对于 $\varepsilon_2=\frac{1}{2^2}$, 存在 $N_2>N_1$, 使得对于 $\forall m,n\geq N_2$
+    有 $d(x_m,x_n)<\frac{1}{2^2}$;
+    依次进行下去可得 $(x_n)_{n\geq 1}$ 的子列 $(x_{N_k})_{k\geq 1}$
+    且此子列满足对于任意 $k\geq 1$ 有 $d(x_{N_k},x_{N_{k+1}})<2^{-k}$.
+    由假设条件知 $(x_{N_k})_{k\geq 1}$ 收敛, 因此 $(x_n)_{n\geq 1}$ 也收敛,
+    由此证明 $(E,d)$ 完备.
+\end{proof}
+
+
+\begin{exercise}
+    设 $(E,d)$ 是度量空间, $(x_n)$ 是 $E$ 中的  Cauchy 序列, 并有 $A\subset E$.
+    假设 $A$ 的闭包 $\overline{A}$ 在 $E$ 中完备并且 $\lim_{n\to\infty}d(x_n,A)=0$.
+    证明 $(x_n)$ 在 $E$ 中收敛.
+\end{exercise}
+
+\begin{proof}
+    先证明 $\lim_{n\to\infty}d(x_n,\overline{A})=0$. 任取 $x\in A,y\in\overline{A}$, 有
+    \begin{equation*}
+        d(x_n,y)\leq d(x_n,x)+d(x,y),
+    \end{equation*}
+    上述不等式关于 $x\in A$ 取下确界得
+    \[d(x_n,y)\leq d(x_n,A)+\inf_{x\in A}d(x,y)=d(x_n,A),\]
+    上述不等式再关于 $y\in\overline{A}$ 取下确界得
+    \[d(x_n,\overline{A})\leq d(x_n,A).\]
+    令 $n\to\infty$ 即得 $\lim_{n\to\infty}d(x_n,\bar{A})=0$.
+
+    令 $(y_n)_{n\geq 1}$ 为 $\overline{A}$ 中满足 $d(x_n,y_n)=d(x_n,\overline{A})$ 的序列, 
+    由 $\lim\limits_{n\to\infty}d(x_n,y_n)=0$ 及 $(x_n)_{n\geq 1}$ 是 Cauchy 序列有
+    \[\forall\varepsilon>0,\exists N>0,\forall m,n>N,d(x_n,y_n)<\varepsilon/3,d(x_n,x_m)<\varepsilon/3.\]
+    故
+    \[d(y_n,y_m)\leq d(y_n,x_n)+d(x_n,x_m)+d(x_m,y_m)<\varepsilon.\]
+    从而 $(y_n)_{n\geq 1}$ 是 Cauchy 序列, 由 $\overline{A}$ 的完备性知 $(y_n)_{n\geq 1}$ 收敛, 记为 $y_n\to y$, 故
+    \[\forall\varepsilon>0,\exists M>0,\forall n>M,d(y_n,y)<\varepsilon/2,d(x_n,y_n)<\varepsilon/2.\]
+    因此 $d(x_n,y)\leq d(x_n,y_n)+d(y_n,y)<\varepsilon$, 从而说明 $x_n\to y$.
+\end{proof}
+
+
+\begin{exercise}
+    设 $(E,d)$ 是度量空间, $\alpha>0$. 假设 $A\subset E$ 满足对任意 $x,y\in A$
+    且 $x\neq y$, 必有 $d(x,y)\geq\alpha$. 证明 $A$ 是完备的.
+\end{exercise}
+
+\begin{proof}
+    任取 $A$ 中的 Cauchy 序列 $(x_n)_{n\geq 1}$, 由定义知对于题给常数 $\alpha$, 
+    $\exists N>0$, 使得对于 $\forall m,n>N$, 有 $d(x_m,x_n)<\alpha$, 结合条件知
+    $\forall m,n>N,x_m=x_n$, 因此序列$(x_n)_{n\geq 1}$收敛, 故 $A$ 完备.
+\end{proof}
+
+
+\begin{exercise}
+    设 $(E,d)$ 是度量空间且 $A\subset E$. 假设 $A$ 中任一 Cauchy 序列在 $E$ 中收敛,
+    证明 $A$ 的闭包 $\overline{A}$ 是完备的.
+\end{exercise}
+
+\begin{proof}
+    任取 $\closure{A}$ 中的 Cauchy 序列 $(x_n)_{n\geq 1}$.
+    对于 $\forall\varepsilon>0$, 存在序列 $(y_n)_{n\geq 1}\subset A$ 使得对于 $\forall n\geq 1$ 有
+    \[d(x_n,y_n)<\frac{\varepsilon}{3}.\]
+    因为 $(x_n)_{n\geq 1}$是 Cauchy 序列, 所以对于上述 $\varepsilon>0$,
+    存在 $N\geq 1$, 使得对于 $\forall m,n\geq N$ 有
+    \[d(x_m,x_n)<\frac{\varepsilon}{3},\]
+    于是
+    \[d(y_m,y_n)\leq d(y_m,x_m)+d(x_m,x_n)+d(x_n,y_n)<\varepsilon,\]
+    所以 $(y_n)_{n\geq 1}$ 是 $A$ 中的 Cauchy 序列, 由题目条件知 $y_n\to y\in\closure{A}$,
+    于是对于上述 $\varepsilon>0$, 存在 $M\geq 1$, 使得当 $n\geq M$ 时 $d(y_n,y)<\frac{2}{3}\varepsilon$,
+    从而 $d(x_n,y)<d(x_n,y_n)+d(y_n,y)<\frac{\varepsilon}{3}+\frac{2}{3}\varepsilon=\varepsilon$.
+    所以$x_n\to y\in\closure{A}$, 由完备性定义知 $\closure{A}$ 完备.
+\end{proof}
+
+
+\begin{exercise}
+    设 $(E,d)$ 是度量空间, 而 $(x_n)$ 是 $E$ 中发散的 Cauchy 序列. 证明
+    \begin{enumerate}[(a)]
+        \item 任取 $x\in E$, 序列 $(d(x,x_n))$ 收敛于一个正数, 记为 $g(x)$.
+        \item 函数 $x\mapsto\frac{1}{g(x)}$ 是从 $E$ 到 $\FR$ 的连续函数.
+        \item 上面的函数无界.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) 由 $(x_n)_{n\geq 1}$ 是 Cauchy 序列和三角不等式得
+    \[|d(x,x_m)-d(x,x_n)|\leq d(x_m,x_n)\to 0,\quad m,n\to\infty,\]
+    故序列 $(d(x,x_n))_{n\geq 1}$ 是 $\FR$ 中的 Cauchy 序列, 
+    由 $\FR$ 的完备性知 $(d(x,x_n))_{n\geq 1}$ 收敛, 记收敛值为 $g(x)$.
+
+    显然 $g(x)\geq 0$, 若 $g(x)=0$, 则 $\lim_{n\to\infty}d(x,x_n)=0$, 
+    故 $x_n\to x$, 与 $(x_n)_{n\geq 1}$ 发散相矛盾, 因此 $g(x)>0$.
+
+    (b)只需证明 $g(x)$ 连续即可. 任意取定 $x_0\in E$, 则
+    \begin{align*}
+        |g(x)-g(x_0)| & =|\lim_{n\to\infty}d(x,x_n)-\lim_{n\to\infty}d(x_0,x_n)| \\
+                      & =\bigl|\lim_{n\to\infty}\bigl(d(x,x_n)-d(x_0,x_n)\bigr)\bigr| \\
+                      & \leq\lim_{n\to\infty}d(x,x_0) \\
+                      & =d(x,x_0),
+    \end{align*}
+    上述不等式表明 $g(x)$ 为连续函数.
+
+    (c) 假设 $\frac{1}{g(x)}$ 有界, 即存在 $M>0$,
+    使得 $\frac{1}{g(x)}<M\Rightarrow g(x)>\frac{1}{M}(\forall x\in E)$.
+    因为 $(x_n)_{n\geq 1}$ 是 Cauchy 序列, 
+    所以存在 $N\geq 1$, 当 $\forall n>N$ 时, $d(x_n,x_N)<\frac{1}{M}$,
+    故 $g(x_N)=\lim_{n\to\infty}d(x_n,x_N)\leq\frac{1}{M}$, 矛盾, 因此 $\frac{1}{g(x)}$ 无界.
+\end{proof}
+
+
+\begin{exercise}
+    设 $(E,d)$ 和 $(F,\delta)$ 都是度量空间, $f:(E,d)\to (F,\delta)$
+    是一致连续的双射并且逆映射 $f^{-1}$ 也是一致连续的.
+    证明对任意 $A\subset E$, $f(A)$ 完备当且仅当 $A$ 完备.
+\end{exercise}
+
+\begin{proof}
+    \sufficient 假设 $A$ 完备, 要证明$f(A)$完备.
+    任取 $f(A)$ 中的 Cauchy 序列 $(y_n)_{n\geq 1}$, 记 $f^{-1}(y_n)=x_n $, 
+    从而得到 $A$ 中的序列 $(x_n)_{n\geq 1}$, 由 $f^{-1}$ 一致连续知
+    对于 $\forall\varepsilon>0$, 存在 $\theta>0$, 使得当 $\delta(y_m,y_n)<\theta$ 时,
+    有 $d(x_m,x_n)<\varepsilon$.
+    对于上述的 $\theta>0$, 存在 $N\geq 1$, 当 $m,n>N$ 时,
+    $\delta(y_m,y_n)<\theta$, 此时 $d(x_m,x_n)<\varepsilon$.
+    从而 $(x_n)_{n\geq 1}$ 是 $A$ 中的 Cauchy 序列, 
+    由 $A$ 完备知 $(x_n)_{n\geq 1}$ 收敛, 记 $x_n\to x\in A$,
+    故 $y_n=f(x_n)\to f(x)\in f(A)$, 因此$f(A)$是完备的.
+
+    \necessary 由 $f$ 的一致连续性可证, 证法同充分性.
+\end{proof}
+
+
+\begin{exercise}
+    设 $f:\FR^n\to\FR$ 是一致连续函数. 证明存在两个非负常数 $a$ 和 $b$, 使得
+    \[|f(x)|\leq a\|x\|+b,\]
+    这里 $\|x\|$ 是 $x$ 的欧氏范数.
+\end{exercise}
+
+\begin{proof}
+    为强调自变量为 $\FR^n$ 中向量, 下面记 $x\in\FR^n$ 为 $\vec{x}$.
+
+
+    因为 $f(\vec{x})$ 一致连续, 所以对于任意 $\varepsilon>0$, 存在 $\delta>0$,
+    使得当 $\|\vec{x}-\vec{y}\|<\delta$ 时, 有 $|f(\vec{x})-f(\vec{y})|<\varepsilon$.
+
+    固定 $\varepsilon$ 和 $\delta$, 取定某 $0<\delta'<\delta$.
+    则对于任意 $\vec{x}\in\FR^n$, 可将其表为
+    \[\vec{x}=\delta'\frac{\vec{x}}{\|\vec{x}\|}\cdot N+\vec{x}_0,\quad\|\vec{x}_0\|<\delta',\]
+    其中 $N=\frac{\|\vec{x}-\vec{x}_0\|}{\delta'}$. 可以将 $f(\vec{x})$ 进行如下和式分解:
+    \[f(\vec{x})=\sum_{k=1}^N\left[f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}k+\vec{x}_0\biggr)-f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}(k-1)+\vec{x}_0\biggr)\right]+f(\vec{x}_0),\]
+    并且注意到 $\|\vec{x}_0\|=\|\vec{x}_0-\vec{0}\|<\delta'<\delta$, 所以 $|f(\vec{x}_0)-f(\vec{0})|<\varepsilon$, 
+    即 $f(\vec{0})-\varepsilon<f(\vec{x}_0)<f(\vec{0})+\varepsilon$, 记 $M=\max\{|f(\vec{0})-\varepsilon|,|f(\vec{0})+\varepsilon|\}$.
+    从而
+    \begin{align*}
+        |f(\vec{x})|
+        &\leq\sum_{k=1}^N \left\lvert f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}k+\vec{x}_0\biggr)-f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}(k-1)+\vec{x}_0\biggr)\right\rvert+|f(\vec{x}_0)| \\
+        &\leq N\cdot\varepsilon+M \\
+        &=\frac{\|\vec{x}-\vec{x}_0\|}{\delta'}\cdot\varepsilon+M \\
+        &\leq\frac{\|\vec{x}\|+\|\vec{x}_0\|}{\delta'}\cdot\varepsilon+M \\
+        &<\frac{\varepsilon}{\delta'}\|\vec{x}\|+(M+\varepsilon).
+    \end{align*}
+    记 $a=\frac{\varepsilon}{\delta'}$ 且 $b=M+\varepsilon$, 则上述不等式表明
+    \[|f(\vec{x})|\leq a\|\vec{x}\|+b.\qedhere\]
+\end{proof}
+
+
+\begin{exercise}
+    设 $f:E\to F$ 是两个度量空间之间的连续映射, 并设 $f$ 在 $E$ 的每个有界子集上一致连续.
+
+    (a) 证明若 $(x_n)_{n\geq 1}$ 是 $E$ 中的 Cauchy 序列, 则 $(f(x_n))_{n\geq 1}$ 也是 $F$ 中的 Cauchy 序列.
+
+    (b) 设 $E$ 在度量空间 $E'$ 中稠密并且 $F$ 是完备的, 证明 $f$ 可以唯一地拓展成从 $E'$ 到 $F$ 的连续映射.
+\end{exercise}
+
+\begin{proof}
+    (a) 因为 $(x_n)_{n\geq 1}$ 是 Cauchy 序列, 所以 $(x_n)_{n\geq 1}$ 为有界序列.
+    又 $f$ 在 $E$ 的有界子集上一致连续且一致连续映射将 Cauchy 序列映为 Cauchy 序列,
+    故 $(f(x_n))_{n\geq 1}$ 是 $F$ 中的 Cauchy 序列.
+
+    (b) 记 $E$ 上的度量为 $d$, $F$ 上的度量为 $\delta$.
+
+    首先构造 $f$ 的一个扩展映射.
+    由于 $E$ 在 $E'$ 中稠密, 故对于 $\forall x\in E'$,
+    存在 $(x_n)_{n\geq 1}\subset E$ 使得 $(x_n)_{n\geq 1}$ 收敛于 $x$.
+    显然 $(x_n)_{n\geq 1}$ 为 Cauchy 序列, 故由 (a) 知 $(f(x_n))_{n\geq 1}$
+    为 $F$ 中的 Cauchy 序列, 又因 $F$ 完备, 故存在 $y\in F$,
+    使得 $(f(x_n))_{n\geq 1}$ 收敛于 $y$. 定义 $\tilde{f}(x)=y$.
+    由于 $E$ 中收敛于 $x$ 的序列不唯一, 故需证明这一定义不依赖 $(x_n)_{n\geq 1}$ 的选择.
+    设 $(x_n')_{n\geq 1}$ 也收敛于 $x$, 相应地, 定义 $y'=\tilde{f}(x_n')$.
+    由于 $(x_n)_{n\geq 1}$ 和 $(x_n')_{n\geq 1}$ 都收敛于 $x$,
+    故存在 $r>0$ 使得 $(x_n)_{n\geq 1}\subset B(x,r)$ 且 $(x_n')_{n\geq 1}\subset B(x,r)$.
+    由于 $f$ 在有界集 $B(x,r)$ 上一致连续,
+    故对于 $\forall\varepsilon>0$, 存在 $\eta>0$, 使得当 $d(x_n,x_n')<\eta$ 时,
+    有 $\delta(f(x_n),f(x_n'))<\varepsilon$.
+    对于上述 $\eta>0$, 存在 $N$, 当 $n>N$ 时, 有 $d(x_n,x_n')<\eta$,
+    因此 $\lim_{n\to\infty}\delta(f(x_n),f(x_n'))=0$.
+    由度量的连续性即得 $\delta(y,y')=0$, 故 $y=y'$.
+    显然 $\tilde{f}|_E=f$, 故 $\tilde{f}$ 为 $f$ 的一个扩展.
+\end{proof}
+
+
+
+\begin{exercise}
+    构造一个反例说明: 在不动点定理中, 如果我们将映射 $f$ 满足的条件减弱为
+    \[d(f(x),f(y))<d(x,y),\quad\forall x,y\in E\text{\ 且\ }x\neq y,\]
+    则结论不成立.
+\end{exercise}
+
+\begin{proof}
+    取函数 $f(x)=(x^2+1)^{1/2}$, 不妨设 $x>y$, 则由下面推导过程:
+    \begin{align*}
+        \sqrt{x^2+1}-\sqrt{y^2+1}<x-y
+        &\Leftarrow 2-2\sqrt{x^2+1}\sqrt{y^2+1}<-2xy\\
+        &\Leftarrow 1+xy<\sqrt{x^2+1}\sqrt{y^2+1}\\
+        &\Leftarrow 1+x^2y^2+2xy<x^2y^2+x^2+y^2+1\\
+        &\Leftarrow 0<(x-y)^2,
+    \end{align*}
+    可知 $f(x)$ 满足题给条件, 显然 $f(x)$ 没有不动点.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $(E,d)$ 是一个完备的度量空间, $f$ 是其上的映射, 并满足 $f^n=f\circ\cdots\circ f$
+    ($n$ 次幂) 是压缩映射. 证明 $f$ 有唯一的不动点, 并给出例子说明 $f$ 可以不连续.
+\end{exercise}
+
+\begin{proof}
+    因为 $f^n$ 是压缩映射, 所以 $f^n$ 存在唯一的不动点 $x_0\in E$, 即
+    $f^n(x_0)=x_0$. 那么就有
+    \[f^n(f(x_0))=f(f^n(x_0))=f(x_0).\]
+    这说明 $f(x_0)$ 也是 $f^n$ 的不动点, 而由不动点的唯一性知 $f(x_0)=x_0$, 即 $x_0$ 为 $f$ 的不动点.
+
+    下证 $f$ 的不动点唯一, 假设 $f$ 存在另一个不动点 $y_0$, 即 $f(y_0)=y_0$, 则
+    由归纳法可推出 $f^n(y_0)=y_0$. 由 $f^n$ 的不动点的唯一性知 $y_0=x_0$.
+    
+    综上可知, $f$的不动点存在且唯一.
+\end{proof}
+
+\begin{exercise}
+    记区间 $I=(0,\infty)$ 上通常的拓扑为 $\tau$.
+
+    (a) 证明 $\tau$ 可由如下完备的距离 $d$ 诱导:
+    \[d(x,y)=|\log x-\log y|.\]
+
+    (b) 设函数 $f\in C^1(I)$ 满足对某个 $\lambda<1$, 任取 $x\in I$, 都有
+    $x|f'(x)|\leq\lambda f(x)$. 证明 $f$ 在 $I$ 上存在唯一的不动点.
+\end{exercise}
+
+\begin{proof}
+    (a) 将距离 $d$ 诱导的拓扑记为 $\tau _d$.
+    \[\begin{split}U\in\tau&\Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y>0\mid|y-x|<r\}\subset U\\&\Rightarrow\forall x\in U,\exists r^{*}=\ln\left(\frac{r}{x}+1\right)>0,s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r^{*}\}\subset U\\&\Rightarrow U\in\tau _d\end{split}\]
+    \[\begin{split}U\in\tau_d&\Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r\}\subset U\\&\Rightarrow\forall x\in U,\exists r^{*}=x(1-e^{-r})>0,s.t.\{y>0\mid|y-x|<r^{*}\}\subset U\\&\Rightarrow U\in\tau\end{split}\]\\
+    因而$\tau$可由距离$d$诱导,下面证明距离$d$是完备的:
+
+    任取$(I,d)$中的Cauchy序列$(x_n)_{n\geq 1}$,记$y_n=\log x_n\in\mathbb{R}$,则
+    \[\forall\varepsilon >0,\exists N,\forall m,n>N,|\log x_m-\log x_n|<\varepsilon\]
+    也即
+    \[\forall\varepsilon >0,\exists N,\forall m,n>N,|y_m-y_n|<\varepsilon\]
+    故$(y_n)_{n\geq 1}$是$(\mathbb{R},d_{\mathbb{R}})$中的Cauchy序列($d_{\mathbb{R}}$表示自然距离),由$(\mathbb{R},d_{\mathbb{R}})$的完备性知\[\exists y\in\mathbb{R},s.t.y_n\rightarrow y\]
+    令$x=e^y\in I$,则有$d(x_n,x)=|\log x_n-\log x|=|y_n-y|\rightarrow 0$,从而说明$(I,d)$完备.
+
+    (b) 首先, 应该声明 $f$ 恒大于零, 否则, 取 $f\equiv 0$, 此时 $f$ 满足题目条件
+    但是显然 $f$ 没有不动点.
+    在度量空间 $(I,d)$ 中, $f$ 的导数为:
+    \begin{align*}
+        \forall x_0\in I,f^{(1)}(x_0)
+        & =\lim_{x\to x_0}\frac{d(f(x),f(x_0))}{d(x,x_0)}=\lim_{x\to x_0}\frac{|\log f(x)-\log f(x_0)|}{|\log x-\log x_0|}\\
+        & =\lim_{x\to x_0}\frac{\left|\frac{\log f(x)-\log f(x_0)}{x-x_0}\right|}{\left|\frac{\log x-\log x_0}{x-x_0}\right|}=\frac{x_0|f^{\prime}(x_0)|}{f(x_0)}.
+    \end{align*}
+    结合题目条件 $x|f^{\prime}(x)|\leq\lambda f(x)$
+    知对 $\forall x\in I$, 有 $|f^{(1)}(x)|\leq\lambda<1$, 
+    这表明 $f$ 在度量空间 $(I,d)$ 中为压缩映射.
+    又因为 $(I,d)$ 是完备度量空间, 因此 $f$ 在 $I$ 上存在唯一的不动点.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是可数集, 其元素记为 $a_1,a_2,\cdots$. 定义
+    \[d(a_p,a_p)=0\text{\ 且当\ }p\neq q\text{\ 时},\; d(a_p,a_q)=10+\frac{1}{p}+\frac{1}{q}.\]
+
+    (a) 证明 $d$ 是 $E$ 上的距离并且 $E$ 成为一个完备的度量空间.
+
+    (b) 设 $f:E\to E$ 定义为 $f(a_p)=a_{p+1}$. 证明当 $p\neq q$ 时, 有
+    \[d(f(a_p),f(a_q))<d(a_p,a_q),\]
+    但是 $f$ 没有不定点.
+\end{exercise}
+
+\begin{proof}
+    (a) 由 $d$ 的定义容易验证其满足正定性、对称性以及三角不等式, 因此 $d$ 是 $E$ 上的距离.
+    并且对任意 $p\neq q$, 有 $d(a_p,a_q)>10$,由第四题结论, 可知 $(E,d)$ 是完备度量空间.
+
+    (b) 当 $p\neq q$ 时, $d(f(a_p),f(a_q))=d(a_{p+1},a_{q+1})=10+\frac{1}{p+1}+\frac{1}{q+1}<d(a_p,a_q)$.
+    假设 $f$ 存在不动点 $a_k$, 则 $f(a_k)=a_k=a_{k+1}$,
+    因此 $d(a_k,a_{k+1})=0$, 矛盾, 故 $f$ 没有不动点.
+\end{proof}
+
+
+
+\begin{exercise}
+    本习题的目的是给不动点定理一个新的证明方法.
+    设 $(E,d)$ 是非空的完备度量空间, $f:E\to E$ 是压缩映射. 任取 $R\geq 0$, 设
+    \[A_R=\{x\in E\mid d(x,f(x))\leq R\}.\]
+    \begin{enumerate}[(a)]
+        \item 证明 $f(A_R)\subset A_{\lambda R}$.
+        \item 证明当 $R>0$ 时, $A_R$ 是 $E$ 中的非空闭子集.
+        \item 证明任取 $x,y\in A_R$, 有 $d(x,y)\leq 2R+d(f(x),f(y))$. 并由此导出
+              \[\diam(A_R)\leq 2R/(1-\lambda).\]
+        \item 证明 $A_0$ 非空.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) 任取 $y\in f(A_R)$, 存在 $x\in A_R$, 使得 $y=f(x)$, 则
+    \[d(y,f(y))=d(f(x),f(f(x)))\leq\lambda d(x,f(x))\leq\lambda R,\]
+    故 $y\in  A_{\lambda R}$, 因此 $f(A_R)\subset A_{\lambda R}$.
+
+    (b) 先证明 $A_R$ 非空. 取定某 $x_0\in E$, 若 $x_0=f(x_0)$, 则 $x_0\in A_R$;
+    若 $x_0\neq f(x_0)$, 则 $d(x_0,f(x_0))>0$, 取正整数 $N\geq\log_{\lambda}\frac{R}{d(x_0,f(x_0))}$.
+    通过 $x_{n+1}=f(x_n)$ ($n\geq 0$) 构造序列 $(x_n)_{n\geq 0}$, 则
+    \[d(x_1,f(x_1))=d(f(x_0),f(f(x_0)))\leq\lambda d(x_0,f(x_0)),\]
+    \[d(x_2,f(x_2))=d(f(x_1),f(f(x_1)))\leq\lambda^2 d(x_0,f(x_0)),\]
+    由归纳法可得
+    \[d(x_n,f(x_n))\leq\lambda^n d(x_0,f(x_0)).\]
+    当 $n\geq N$ 时, 有 $d(x_n,f(x_n))\leq R$, 因此 $A_R$ 非空.
+
+    再证明 $A_R$ 为闭集. 任取 $A_R$ 中的收敛序列 $(x_n)_{n\geq 1}$,
+    记其收敛值为 $x$. 则对任意 $n\geq 1$ 有 $d(x_n,f(x_n))\leq R$,
+    令 $n\to\infty$, 由度量的连续性以及 $f$ 的连续性得 $d(x,f(x))\leq R$,
+    即得 $x\in A_R$, 因此 $A_R$ 为闭集.
+
+    (c) 任取 $x,y\in A_R$, 由度量的三角不等式得
+    \begin{align*}
+        d(x,y)
+        &\leq d(x,f(x))+d(f(x),f(y))+d(f(y),y) \\
+        &\leq 2R+d(f(x),f(y)).
+    \end{align*}
+    于是 $d(x,y)\leq 2R+\lambda d(x,y)$, 即 $d(x,y)\leq 2R/(1-\lambda)$.
+    关于 $x,y\in A_R$ 取上确界即得 $\diam(A_R)\leq 2R/(1-\lambda)$.
+
+    (d) 取 $R_n=\frac{1}{n}$, 则 $(A_{R_n})_{n\geq 1}$ 为单调下降的非空闭集列且
+    $\lim\limits_{n\to\infty}\diam(A_{R_n})=0$, 由\textbf{定理 2.2.6} 知 $A_0=\bigcap\limits_{n\geq 1}A_{R_n}$
+    为单点集.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $(E,d)$ 是完备度量空间, $f$ 和 $g$ 是 $E$ 上两个可交换的压缩映射 (即 $f\circ g=g\circ f$).
+    证明 $f$ 和 $g$ 有唯一的、共同的不动点.
+\end{exercise}
+
+\begin{proof}
+    因 $f$ 是压缩映射, 故 $f$ 有唯一的不动点 $x$, 即 $f(x)=x$.
+    因为 $f\circ g=g\circ f$, 所以
+    \[f\circ g(x)=\textcolor{red}{f(g(x))}=g\circ f(x)=\textcolor{red}{g(x)},\]
+    从而 $g(x)$ 也是 $f$ 的不动点, 而由不动点唯一性知 $g(x)=x$,
+    这说明 $x$ 也为 $g$ 的不动点.
+\end{proof}
+
+
+
+\begin{exercise}
+    本习题的目的是把上一习题的结论推广到更一般的情形, 在某种意义上说是非交换
+    的压缩映射不动点定理. 设 $(E,d)$ 是完备的度量空间.
+    定义联系于集合 $A\subset E$ 的距离函数 $d_A$ 如下:
+    \[d_A(x):=d(x,A)=\inf\{d(x,a)\mid a\in A\}.\]
+    并设 $\mathcal{C}$ 表示 $E$ 的所有紧子集构成的集族.
+    对任意的 $A,B\in\mathcal{C}$, 定义
+    \[h(A,B)=\sup_{x\in E}|d_A(x)-d_B(x)|.\]
+    \begin{enumerate}[(a)]
+        \item 证明 $h$ 是 $\mathcal{C}$ 上的一个距离.
+        \item 任取 $F\subset E$, 令 $F_{\varepsilon}=\{x\in E\mid d_F(x)\leq\varepsilon\}$. 证明
+              \[h(A,B)=\inf\{\varepsilon\geq 0\mid A\subset B_{\varepsilon}, B\subset A_{\varepsilon}\}.\]
+        \item 证明 $(\mathcal{C},h)$ 完备.
+        \item 现在令 $f_1,\cdots,f_n$ 是 $E$ 上的 $n$ 个压缩映射.
+              定义 $(\mathcal{C},h)$ 上的映射 $T$ 为
+              \[T(A)=\bigcup_{k=1}^n f_k(A),\quad A\in\mathcal{C}.\]
+              证明 $T$ 是压缩映射. 并由此导出存在唯一的一个紧子集 $K$,
+              使得 $T(K)=K$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) 由 Housdorff 空间的紧子集是闭集知 $\mathcal{C}$里面的任意元素都是闭集,
+    当 $h(A,B)=0$ 时, 我们有
+    \[\forall x\in E,d_A(x)=d_B(x).\]
+    故当 $x\in A$ 时, 有 $d_B(x)=d_A(x)=0\Rightarrow x\in B\Rightarrow A\subset B$, 
+    同理可得 $B\subset A$, 因此 $h(A,B)=0\Rightarrow A=B$.
+    又显然 $A=B\Rightarrow h(A,B)=0$, 因此$h(A,B)=0\Leftrightarrow A=B$,
+    故 $h$ 满足正定性, 并且容易验证 $d$ 满足对称性和三角不等式,
+    所以 $h$ 是 $\mathcal{C}$ 上的一个距离(实际上, $h$称为Housdorff度量).
+
+    (b) 记 $Q=\{\varepsilon\geq 0\mid A\subset B_\varepsilon, B\subset A_\varepsilon\}$.
+
+    任取 $\varepsilon\in Q$, 下面用反证法证明 $\varepsilon\geq h(A,B)$.
+
+    假设 $\varepsilon <h(A,B)=\sup_{x\in E}|d_A(x)-d_B(x)|$,
+    则存在 $x\in E$, 使得 $|d_A(x)-d_B(x)|>\varepsilon$,
+    不妨设 $d_A(x)-d_B(x)>\varepsilon$,
+    由 $A,B$ 为闭集知存在 $a\in A$ 和 $b\in B$, 使得 $d_A(x)=d(a,x),d_B(x)=d(b,x)$,
+    且存在 $a'\in A$, 使得 $d_A(b)=d(a',b)\leq\varepsilon$,
+    因此
+    \begin{align*}
+        d(x,b)+\varepsilon 
+        &=d_B(x)+\varepsilon <d_A(x)=d(x,a) \\
+        &\leq d(x,a')\leq d(x,b)+d(b,a')\leq d(x,b)+\varepsilon.
+    \end{align*}
+    矛盾, 故 $\varepsilon\geq h(A,B)$.
+
+    任取 $r>h(A,B)$,下证 $r$ 不是集合 $Q$ 的下界.
+    事实上, 存在 $s$, 使得 $r>s>h(A,B)$,故 $\forall x\in E,|d_A(x)-d_B(x)|<s$,
+    因此 $\forall x\in A,d_B(x)<s$ 且 $\forall x\in B,d_A(x)<s$,
+    从而 $A\subset B_s,B\subset A_s$, 这说明 $s\in Q$, 从而 $r$ 不是集合 $Q$ 的下界.
+
+    综合两点知 $h(A,B)=\inf Q=\inf\{\varepsilon\geq 0\mid A\subset B_{\varepsilon}, B\subset A_{\varepsilon}\}$.
+
+    (c) 任取 $\mathcal{C}$ 中的 Cauchy 序列 $(A_n)_{n\geq 1}$,
+    即 $\forall\varepsilon >0,\exists N>0,s.t.\forall m,n>N_1,h(A_m,A_n)<\varepsilon /2$.
+
+    定义集合 $A$ 为:
+    \[A=\{x\mid\text{存在序列\ }(x_k) s.t. x_k\in A_k\text{\ 且\ }x_k\rightarrow x\}.\]
+    $\forall x\in A,\exists (x_k)(x_k\in A_k),s.t.x_k\rightarrow x$故$\exists N_2>0,\forall k>N_2,d(x_k,x)<\varepsilon /2$\\
+    若$k>max\{N_1,N_2\}$,则$h(A_k,A_n)<\varepsilon /2$,故$\exists y\in A_n,s.t.d(x_k,y)<\varepsilon /2$,故$d(y,x)\leq d(x_k,y)+d(x_k,x)<\varepsilon\Rightarrow x\in (A_n)_\varepsilon\Rightarrow A\subset (A_n)_\varepsilon$\\
+    另一方面,$\forall y\in A_n$,选取一列整数$n=k_1<k_2<\cdots$使得\[h(A_{k_j},A_m)<2^{-j}\varepsilon (\forall m\geq k_j)\]
+    然后我们如下定义序列$(y_k)_{k\geq 1}(y_k\in A_k)$:
+    $k<n$时,$y_k$任意选取,选择$y_n=y$,如果$y_{k_j}$已经选择了,且$k_j<k\leq k_{j+1}$,
+    选择$y_k\in A_k,s.t.d(y_{k_j},y_k)<2^{-j}\varepsilon$,则$(y_k)_{k\geq 1}$是Cauchy序列,
+    故$y_k\rightarrow x\in A$
+    由
+    \[d(y,x)=\lim_{k\to\infty}d(y,y_k)=\lim_{j\to\infty}d(y,y_{k_j})\leq\lim_{j\to\infty}(2^{-1}\varepsilon +\cdots +2^{-j+1}\varepsilon)=\varepsilon\]
+    知$ y\in (A)_\varepsilon\Rightarrow A_n\subset (A)_\varepsilon$,
+    所以$h(A,A_n)<\varepsilon$,这就证明了$A_n\xrightarrow{h}A$
+    
+    下面还需证明$A$是紧的,为此,需要证明$A$是闭集且完全有界:
+
+    i)假设$x\in\bar{A}$,则$\forall n\geq 1,\exists y_n\in A,s.t.d(x,y_n)<2^{-n}$,
+    又因为$\forall n\geq 1,\exists z_n\in A_n,s.t.d(z_n,y_n)\leq h(A_n,A)$,
+    故\[d(z_n,x)\leq d(z_n,y_n)+d(x,y_n)<h(A_n,A)+2^{-n}\rightarrow 0\]
+    所以$z_n\rightarrow x$,故$x\in A$,因而$A$是闭集.
+
+    ii)$\forall\varepsilon >0,\exists n\geq 1,s.t.h(A_n,A)<\varepsilon/3$,
+    由于$A_n$紧,故$A_n$存在有限的$\varepsilon/3$网,
+    即存在$\{y_1,y_2,\cdots,y_m\}\subset A_n,s.t.A_n\subset\bigcup_{i=1}^mB(y_i,\varepsilon/3),\forall y_i,\exists x_i\in A,s.t.d(x_i,y_i)<\varepsilon/3$,
+    我们断言$\{x_1,x_2,\cdots,x_m\}$构成了$A$的一个有限$\varepsilon$网
+    (反证法:假设$\exists x_0\in A,s.t.d(x_0,x_i)\geq\varepsilon(\forall i=1,2,\cdots,m)$,
+    设$x_0$与$A_n$中的$y_0$距离最近,且$y_0$所在的开球球心为$y_i$,
+    则$d(x_0,x_i)\leq d(x_0,y_0)+d(y_0,y_i)+d(y_i,x_i)<\varepsilon$,矛盾)因此$A$是完全有界的.
+
+    (d)将$\{f_i\}$的压缩系数分别记为$\lambda_1,\cdots,\lambda_n$,
+    令$\lambda=\max\{\lambda_1,\cdots,\lambda_n\}$,下面证明$T$是以$\lambda$为压缩系数的压缩映射,
+    即证:$\forall A,B\in C,h(T(A),T(B))\leq\lambda h(A,B)$
+
+    任取$r>h(A,B),\forall x\in T(A),\exists 1\leq i\leq n,a\in A,s.t.x=f_i(a)$,
+    因为$h(A,B)<r$,所以$\exists b\in B,s.t.d(a,b)<r$,令$y=f_i(b)\in T(B)$,
+    我们有\[d(x,y)=d(f_i(a),f_i(b))\leq\lambda_i d(a,b)<\lambda r\]
+    所以\[d(x,T(B))<\lambda r\Rightarrow\sup_{x\in T(A)}d(x,T(B))\leq\lambda r\]
+    同理可得
+    \[\sup_{y\in T(B)}d(y,T(A))\leq\lambda r\]
+    因此$h(T(A),T(B))\leq\lambda r$,令$r\to h(A,B)$,即得$h(T(A),T(B))\leq\lambda h(A,B)$,从而说明$T$是压缩映射.
+\end{proof}

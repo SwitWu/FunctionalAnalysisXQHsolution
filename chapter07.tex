@@ -1,0 +1,312 @@
+\chapter{拓扑向量空间}
+\thispagestyle{empty}
+% 设$(x,y)\in\mathbb{R}^2$,令$p(x,y)=|x|$,则$p$是半范数;设$f\in C(\mathbb{R})$,令$p_N(f)=\sup\limits_{x\in [-N,N]}|f(x)|$,则$p_N$是半范数\\\\
+% 怎样证明定理7.2.6中半范数族$(p_i)_{i\in I}$诱导的拓扑$\tau$与$E$的线性结构相容?
+
+
+% 1.\textit{Proof}:
+% (a)容易验证$d$满足正定性和对称性,故只需要说明$d$满足三角形不等式:即证明对于任意$f,g,h\in C(\mathbb{R},\mathbb{R})$,有
+% \[\begin{split}\min\left\{1,\sup_{x\in\mathbb{R}}|f(x)-g(x)|\right\}\leq\min\bigg\{&1,\sup_{x\in\mathbb{R}}|f(x)-h(x)|\bigg\}+\min\left\{1,\sup_{x\in\mathbb{R}}|g(x)-h(x)|\right\}\\
+% =\min\bigg\{&2,\sup_{x\in\mathbb{R}}|f(x)-h(x)|+1,\sup_{x\in\mathbb{R}}|g(x)-h(x)|+1,\\
+% &\sup_{x\in\mathbb{R}}|g(x)-h(x)|+\sup_{x\in\mathbb{R}}|g(x)-h(x)|\bigg\}\end{split}\]
+% 将$\min\{1,\sup_{x\in\mathbb{R}}|f(x)-g(x)|\}$与右侧括号里面四项逐一比较知此不等式显然成立\\
+% 下面证明距离$d$是完备的:取$C(\mathbb{R},\mathbb{R})$中的柯西序列$(f_n)_{n\geq 1}$,即
+% \[\forall\varepsilon>0(\mbox{不妨设}\varepsilon<1),\exists N>0,\forall m,n>N,d(f_m,f_n)<\varepsilon\]
+% 从而\[\sup_{x\in\mathbb{R}}|f_m(x)-f_n(x)|<\varepsilon(m,n>N)\]
+% 那么对任意给定的$x\in\mathbb{R}$,$(f_n(x))_{n\geq 1}$是$\mathbb{R}$中的Cauchy序列,从而必然收敛,记为
+% \[f_n(x)\to f(x)\in\mathbb{R}(n\to\infty)\]
+% 这样就得到一个映射$f:\mathbb{R}\to\mathbb{R}$,由$f(x)-f(y)=\lim_{n\to\infty}(f_n(x)-f_n(y))$知$f\in C(\mathbb{R},\mathbb{R})$,又$d(f_n,f)=\min\{1,\sup_{x\in\mathbb{R}}|f_n(x)-f(x)|\}\to0(n\to\infty)$,故$f_n\to f(n\to\infty)$,所以$d$是完备的\\
+% (b)\\\\
+\setcounter{exer}{1}
+\begin{exercise}
+    设 $E$ 是拓扑向量空间, $A,B\subset E$.
+
+    (a) 证明: 若 $A$ 是开集, 则 $A+B$ 也是开集.
+
+    (b) 证明: 若 $A$ 和 $B$ 是紧的且 $E$ 是一个 Hausdorff 空间, 则 $A+B$ 也是紧的.
+
+    (c) 构造 $\FR^2$ 上的例子, 说明 $A$ 和 $B$ 是闭集, 但 $A+B$ 不是闭集.
+\end{exercise}
+
+\begin{proof}
+    (a) 因为
+    \[A+B=\bigcup_{y\in B}(A+y).\]
+    所以 $A+B$ 是开集.
+
+    (b) $\varPhi:(x,y)\mapsto x+y$ 是连续映射, 因$A,B$紧, 故 $A\times B$紧, 故 $A+B=\varPhi(A\times B)$紧.
+
+    (c) 取 $A=\{(x,0)\mid x\in\FR\}$, $B=\{xy=1\mid x>0\}$,
+    则 $A$ 和 $B$ 都是 $\FR^2$ 中闭集, 但是 $A+B$ 不是闭集.
+    事实上, $A+B$ 中序列
+    \[(-n,0)+(n,\frac{1}{n})=(0,\frac{1}{n})\to (0,0),\]
+    但是 $(0,0)\notin A+B$, 因此 $A+B$ 不是闭集.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是拓扑向量空间, $f$ 是 $E$ 到 $F$ 的线性泛函 ($f$ 不恒为 $0$). 
+    并假设 $H=f^{-1}(0)$ 是闭集. 本题的目的是证明在该假设下 $f$ 是连续的.
+
+    (a) 证明: 存在元素 $a\in E$, 使得 $f(a)=1$.
+
+    (b) 证明: $E\setminus f^{-1}(1)$ 是含有原点的开集.
+
+    (c) 设 $V$ 是包含于 $E\setminus f^{-1}(1)$ 的原点处的平衡邻域. 证明: $|f|$ 在 $V$ 上被 $1$ 严格控制, 进而导出 $f$ 连续.
+\end{exercise}
+
+\begin{proof}
+    (a) 由于 $f$ 不恒为 $0$, 故存在 $x\in E$, 使得 $f(x)\neq 0$.
+    取 $a=\frac{x}{f(x)}\in E$, 则 $f(a)=1$.
+
+    (b)显然 $E\setminus f^{-1}(1)$包含原点,
+    下证其为开集. 任取 $x\in E\setminus f^{-1}(1)$, 则 
+    \[f(x)\neq 1\Rightarrow f(x-a)\neq 0\Rightarrow x-a\in E\setminus f^{-1}(0).\]
+    而 $E\setminus f^{-1}(0)$ 为开集, 故存在开集 $U$ 使得 
+    \[x-a\in U\subset E\setminus f^{-1}(0).\]
+    那么 $a+U$ 也为开集且
+    \[x\in a+U\subset E\setminus f^{-1}(1).\]
+    因此 $E\setminus f^{-1}(1)$ 为开集.
+
+    (c) (反证法) 假设存在 $x\in V$, 使得 $|f(x)|=\lambda>1$,
+    则由 $V$ 是平衡的可得 $\frac{x}{\lambda}\in V$ 且 $|f(\frac{x}{\lambda})|=1$, \
+    这与 $V\subset E\setminus f^{-1}(1)$ 相矛盾.
+    因此在 $V$ 上, $|f|<1$, 由推论 7.1.11 知 $f$ 连续.
+\end{proof}
+
+
+
+
+% 4.\textit{Proof}:(a)记$B=\{\sum_{k=1}^nt_ka_k:a_k\in A,t_k\geq 0,\sum_{k=1}^nt_k=1,n\geq1\},C=\bigcup_{\lambda\in\mathbb{K},|\lambda|\leq1}\lambda A$,先证明$\conv(A)=B$:
+% \begin{enumerate}[(i)]
+% \item $B$是凸集:$\forall x,y\in B$,设
+% \[x=\sum_{k=1}^mt_{k1}a_{k1},y=\sum_{k=1}^nt_{k2}a_{k2}\left(\mbox{其中}\sum_{k=1}^mt_{k1}=\sum_{k=1}^nt_{k2}=1\right)\]
+% 则对于任意$\lambda\in [0,1]$
+% \[\lambda x+(1-\lambda)y=\sum_{k=1}^m\lambda t_{k1}a_{k1}+\sum_{k=1}^n(1-\lambda)t_{k2}a_{k2}\]
+% 因为$\sum_{k=1}^m\lambda t_{k1}+\sum_{k=1}^n(1-\lambda)t_{k2}=1$,所以$\lambda x+(1-\lambda)y\in B$,故$B$是凸集
+% \item $B$是包含$A$的最小凸集:设$B'$是包含$A$的任意一个凸集,下面对指标$n$用数学归纳法证明$B\subset B'$:\\
+% 当$n=1$时,显然$\sum_{k=1}^nt_ka_k=a_1\in B'$\\
+% 假设当$n=m$时结论成立,即$\sum_{k=1}^mt_ka_k\in B'$,其中$\sum_{k=1}^mt_k=1$,则当$n=m+1$时:\\
+% 因为$\sum_{k=1}^{m+1}t_k=1$,所以$\sum_{k=1}^m\frac{t_k}{1-t_{m+1}}=1$,由假设条件知
+% \[\sum_{k=1}^m\frac{t_ka_k}{1-t_{m+1}}\in B'\]
+% 即存在$a_0\in B'$使得\[a_0=\sum_{k=1}^m\frac{t_ka_k}{1-t_{m+1}}\Rightarrow\sum_{k=1}^mt_ka_k=(1-t_{m+1})a_0\]
+% 结合$B'$是凸集知\[\sum_{k=1}^{m+1}t_ka_k=\sum_{k=1}^mt_ka_k+t_{m+1}a_{m+1}=(1-t_{m+1})a_0+t_{m+1}a_{m+1}\in B'\]
+% \end{enumerate}
+% 再证明$ba(A)=C$:
+% \begin{enumerate}[(i)]
+% \item $C$是平衡集:对任意$|\mu|\leq1$\[\mu C=\bigcup_{|\lambda|\leq1}\lambda\mu A\subset\bigcup_{|\lambda|\leq1}\lambda A=C\]
+% \item $C$是包含$A$的最小的平衡集:显然
+% \end{enumerate}
+% (b)设$A$是平衡集,则对于任意$x=\sum_{k=1}^nt_ka_k\in\conv(A),|\lambda|\leq1$,有
+% \[\lambda x=\lambda\sum_{k=1}^nt_ka_k=\sum_{k=1}^nt_k(\lambda a_k)\in\conv(A)\]
+% 故$\conv(A)$是平衡集\\
+% (c)考虑凸集$\{(x,y)|x^2+y^2=1,x\geq0,y\geq0\}$,显然其平衡包是$\{(x,y)|x^2+y^2=1,xy\geq0\}$,其不是凸集\\\\
+
+\setcounter{exer}{4}
+\begin{exercise}
+    设 $\varOmega$ 表示开圆盘 $\{z\in\FC\mid |z|<3\}$, $K$ 表示闭单位圆盘 $\{z\in\FC\mid |z\leq 1|\}$.
+    对 $f\in H(\varOmega)$ 定义
+    \[p(f)=\sup_{z\in K}|f(z)|.\]
+
+    (a) 证明: $p$ 是 $H(\varOmega)$ 上的范数.
+
+    (b) 证明: 由 $p$ 诱导的拓扑不同于在 $\varOmega$ 的紧子集上一致收敛的拓扑.
+    (提示: 可以考虑函数 $f_n(z)=\e^{n(z-2)}$.)
+\end{exercise}
+
+\begin{proof}
+    (a) 直接按定义验证.
+
+    (b) 
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $A$ 是 $[0,1]$ 的可数子集, 且映射 $\alpha: A \rightarrow(0,+\infty)$ 
+    满足 $\sum_{t\in A}\alpha(t)<+\infty$. 对 $f\in C([0,1],\mathbb{R})$ 定义
+    \[
+    \|f\|_{A,\alpha}=\sum_{t\in A}\alpha(t)|f(t)|.
+    \]
+
+    (a) 证明: $\|\cdot\|_{A,\alpha}$ 是 $C([0,1],\mathbb{R})$ 上的半范数. 什么时候它是一个范数? 
+    什么时候它等价于一致范数 $\|\cdot\|_{\infty}$?
+
+    (b) 证明: 两个半范数 $\|\cdot\|_{A, \alpha}$ 和 $\|\cdot\|_{A',\alpha'}$ 诱导相同的拓扑当且仅当 $A=A'$ 且
+    \[
+    0<\inf_{t\in A} \alpha'(t)/\alpha(t)\leqslant \sup_{t\in A} \alpha'(t)/\alpha(t)<\infty.
+    \]
+\end{exercise}
+
+\begin{proof}
+    (a) 首先由 $f \in C([0,1], \mathbb{R})$, 知 $\sup_{t \in A}|f(t)|<\infty$. 那么
+    \[\|f\|_{A,\alpha}=\sum_{t\in A}\alpha(t)|f(t)|\leq\sup_{t\in A}|f(t)|\sum_{t \in A} \alpha(t)<+\infty.\]
+    并且容易验证 $\|\cdot\|_{A, \alpha}$ 是满足半范数满足的其它公理. 
+    而且可以看到, 若取 $A=\{1,\frac{1}{2},\ldots,\frac{1}{n},\ldots\}$, 
+    令映射 $\alpha: \frac{1}{n} \rightarrow \frac{1}{2^{n}}$, 
+    并设 $f$ 为在 $A$ 上取 $0$ 的 “锯齿” 函数, 则 $\|f\|_{A,\alpha}=0$, 但 $f\not\equiv 0$, 即 $\|f\|_{A,\alpha}$ 不是一个范数.
+
+    由定义可知, $\|f\|_{A, \alpha}=0$ 等价于 $f(t)=0$, $t\in A$. 由此可以证明: $\|\cdot\|_{A, \alpha}$ 
+    是一个范数当且仅当 $A$ 在 $[0,1]$ 中稠密.
+
+    实际上, 若 $A$ 在 $[0,1]$ 中稠密, 则由 $f(t)=0$, $t\in A$, 及 $f$ 的连续性, 得 $f(t)=0$, $\forall t \in[0,1]$. 
+    反过来, 假设 $A$ 在 $[0,1]$ 中不稠密, 那么存在点 $t\in[0,1]$
+    及 $t$ 的开邻域 $I$, 使得 $A\cap I=\emptyset$, 即 $A \subset[0,1]\setminus I$.
+    那么可取 $[0,1]$ 上的连续函数 $f$ 在 $[0,1]\setminus I$ 上为 $0$ , 而在 $I$ 上不为 $0$, 
+    这与 $\|\cdot\|_{A,\alpha}$ 是一个范数相予盾.
+
+    最后, 我们来证明: 对任意一个半范数 $\|\cdot\|_{A,\alpha}$, 它都不等价于一致范数 $\|\cdot\|_{\infty}$.
+    对可列集 $A$ 中的元素排序, 记 $A=(t_{i})_{i\geq 1}$. 
+    由 $\sum_{t_i\in A} \alpha(t)<+\infty$, 存在 $N>0$, 使得当 $i\geq N$ 时, 
+    有 $\sum_{i \geq N} \alpha(t_i)<\varepsilon$. 接下来, 选择一个连续函数 $f$ 满足 $\|f\|_{\infty}=1$, 且
+    \[
+    f(t)= \begin{cases}0, & t=t_{i}, i<N \\ 1, & t=t_{N+1}\end{cases}
+    \]
+    那么
+    \[
+    \|f\|_{A,\alpha}=\sum_{i>N} \alpha(t_i)|f(t_i)|\leq\sum_{i>N} \alpha(t_i)<\varepsilon,
+    \]
+    这意味着一致范数 $\|\cdot\|_{\infty}$ 关于半范数 $\|\cdot\|_{A,\alpha}$ 不是有界的.
+
+    (b) 首先证明充分性. 设 $C_1=\inf_{t\in A}\alpha'(t)/\alpha(t)$, 
+    $C_{2}=\sup_{t \in A} \alpha'(t)/\alpha(t)$, 则由充分性条件知 $0<C_1\leq C_2<\infty$. 故
+    \[C_{1}\|f\|_{A,\alpha}\leq\|f\|_{A',\alpha'}=\sum_{t\in A'} \alpha'(t)|f(t)|=\sum_{t\in A} \frac{\alpha'(t)}{\alpha(t)} \alpha(t)|f(t)|\leq C_{2}\|f\|_{A,\alpha}.\]
+    即证两个范数 $\|\cdot\|_{A, \alpha}$ 和 $\|\cdot\|_{A', \alpha'}$ 等价.
+
+    下面证明必要性, 我们先假设 $A\neq A'$. 
+    不妨设存在 $t_{i_0}\in A$, 但 $t_{i_{0}}\notin A'$. 任取 $\varepsilon>0$, 则存在 $N>0$, 
+    当 $i\geq N$ 时, 有 $\sum_{i\geq N} \alpha'(t_i')<\varepsilon$. 取连续函数 $f$ 满足 $\|f\|_{\infty}=1$, 且
+    \[f(t)=\begin{cases} 0, & t=t_{i}',\forall i<N; \\ 1, & t=t_{i_{0}} .\end{cases}\]
+    则有
+    \[\|f\|_{A,\alpha'}=\sum_{i>N} \alpha'(t_{i}')|f(t_{i}')|<\varepsilon,\]
+    而
+    \[\|f\|_{A, \alpha}\geq\alpha(t_{i_0}),\]
+    这意味着两个半范数 $\|\cdot\|_{A, \alpha}$ 和 $\|\cdot\|_{A', \alpha'}$ 诱导的拓扑不同. 因此必有 $A=A'$.
+
+    接下来, 我们假设 $A=A'=(t_i)_{i\geq 1}$. 两个半范数 $\|\cdot\|_{A,\alpha}$ 和 $\|\cdot\|_{A',\alpha'}$
+    诱导的拓扑相同, 意味着存在常数 $C_1,C_2>0$, 使得
+    \begin{equation}
+        C_1\|f\|_{A,\alpha}\leq\|f\|_{A',\alpha'}\leq C_2\|f\|_{A,\alpha}.\tag{$\star$}
+    \end{equation}
+    任取一个 $t_{i_0}$, 则 $N>0$, 使得当 $i\geq N$ 时, 
+    有 $\sum_{i\geq N} \alpha(t_i)\leq\alpha(t_{i_0})$. 取连续函数 $f$ 满足 $\|f\|_{\infty}=1$, 且
+    \[
+    f(t)=
+    \begin{cases}
+        0, & t=t_{i},\forall i<N \text {\ 且\ }i\neq i_{0}; \\
+        1, & t=t_{i_{0}}.
+    \end{cases}\]
+    则有
+    \[\|f\|_{A, \alpha}\leq 2\alpha(t_{i_0})\quad\text{ 且 }\quad\|f\|_{A,\alpha'}\geq\alpha'(t_{i_{0}}).\]
+    综合上面的两个不等式以及 $(\star)$ 式, 立即可得
+    \[\alpha'(t_{i_{0}}) \leq\|f\|_{A, \alpha'} \leq C_{2}\|f\|_{A,\alpha}\leq 2C_2\alpha(t_{i_{0}}).\]
+    因此对任意 $t\in A$, 有 $\alpha'(t)/\alpha(t)\leq 2C_2$. 类似上面的讨论, 也有
+    \[
+    \alpha(t_{i_0})\leq\frac{2}{C_{1}}\alpha'(t_{i_{0}}).
+    \]
+    故结论成立.
+\end{proof}
+
+% 7.\textit{Proof}:(a)因为任取原点的邻域$V$,存在$\alpha>0,s.t.B\subset\alpha V$,即$\frac{1}{\alpha}B\subset V$,由定义知$(rB)_{r>0}$是原点的邻域基\\
+% (b)因为$B$是原点的邻域,所以存在平衡邻域$V$使得$V\subset B$,由于平衡集的凸包仍然平衡,故$\conv(V)\subset B$且$\conv(V)$是平衡的凸集,取其内部,即得原点的凸平衡开邻域$(\conv(V))^{\circ}\subset B$\\\\
+% 11.\textit{Proof}:(a)因为$E$是局部凸空间,所以$E$上必存在有界的凸平衡开邻域(记为$\Omega$),由第七题结论知其对应的Minkowski泛函$p_{\Omega}$是$E$上的范数,因此也是$F$上的范数\\\\
+% 12.\textit{Proof}:(a)由定理7.1.7(2)知$\forall V\in\mathcal{N}_{\tau}(0)$,存在$W_1\in\mathcal{N}_{\tau}(0)$,使得$W_1+W_1\subset V$,又存在$W_2\in\mathcal{N}_{\tau}(0)$,使得$W_2+W_2\subset W_1$,依次进行下去,存在$W_{n-1}\in\mathcal{N}_{\tau}(0)$,使得$W_{n-1}+W_{n-1}\subset W_{n-2}$,这样就得到一列单调递减的集列$(W_i)_{i=1}^{n-1}$满足
+% \[W_{n-1}+W_{n-1}+W_{n-2}+W_{n-3}+\cdots +W_1\subset V\]
+% 取$W=W_{n-1}\in\mathcal{N}_{\tau}(0)$,即得$W+W+\cdots +W\subset V$($n$个$W$求和)\\
+% (b)由$W$的吸收性知:\\
+% 存在$\alpha_1>0$,当$|x_1|<\alpha_1$时,$x_1e_1\in W$\\
+% 存在$\alpha_2>0$,当$|x_2|<\alpha_2$时,$x_2e_2\in W$\\
+% $\cdots$\\
+% 存在$\alpha_n>0$,当$|x_n|<\alpha_n$时,$x_ne_n\in W$\\
+% 故取$r=\min\limits_{1\leq k\leq n}\alpha_k>0$,当$\max\limits_{1\leq k\leq n}|x_k|<r$时:
+% \[x=\sum_{k=1}^nx_ke_k\in W+W+\cdots+W\subset V\]
+% 也即$B_{\tau_0}(0,r)\subset V$,从而导出$\tau\subset\tau_0$\\
+% (c)这里不是向量空间怎么谈同构呢?下面证明$id:(E,\tau_0)\to (E,\tau)$连续:\\
+% 首先$f:\mathbb{K}^n\to(E,\tau_0),(x_1,\cdots,x_n)\mapsto\sum_{k=1}^nx_ke_k$为同胚,显然连续,又由$(E,\tau)$是拓扑向量空间知映射$id\circ f:\mathbb{K}^n\to (E,\tau_0)$连续,故$id$连续\\
+% (d)令$S=\overline{B}\backslash B$,则$B$为$(E,\tau_0)$中的紧集,由$id:(E,\tau_0)\to(E,\tau)$连续知$S$是$(E,\tau)$中的紧集,而$\tau$是Hausdorff拓扑,故$S$是闭集,故$E\backslash S$为$(E,\tau)$中开集,令$V=E\backslash S\in\mathcal{N}_{\tau}(0)$,则$B=V\cap\overline{B}$\\
+% (e)由$U$是平衡集知$U$是$(E,\tau_0)$中的单连通集且$0\in U$,又$U\cap S=\emptyset$,故必有$U\subset B$\\
+% (f)显然\\\\
+
+
+
+\setcounter{exer}{15}
+\begin{exercise}
+    令 $0<p<1$, 考虑空间 $L_p=L_p(0,1)$, 并在 $L_p$ 上赋予距离 $d_{p}(f, g)=\|f-g\|_p^p$. 
+    本习题的目标是证明 $L_p$ 不是局部凸的且没有非零线性泛函.
+
+    (a) 证明: $L_p$ 是拓扑向量空间.
+
+    接下来, 我们先考虑 $p=\frac{1}{2}$ 的情形, 用 $B(r)$ 表示中心在原点、半径为 $r$ 的 $L_{\frac{1}{2}}$ 中的闭单位球: 
+    $B(r)=\left\{f \in L_{\frac{1}{2}}\colon \|f\|_{\frac{1}{2}}^{\frac{1}{2}} \leqslant r\right\}$.
+
+    (b) 取 $f\in B(\sqrt{2}r)$. 证明: 存在 $t_0 \in(0,1)$, 使得
+    \[
+    \int_{0}^{t_0}|f(t)|^{\frac{1}{2}}\diff t=\frac{\|f\|_{\frac{1}{2}}^{\frac{1}{2}}}{2}.
+    \]
+
+    (c) 定义
+    \[g(t)=
+    \begin{cases}
+        2f(t), & 0\leqslant t\leqslant t_{0}, \\
+        0, & t_{0}<t\leqslant 1,
+    \end{cases}\quad\text{且}\quad 
+    h(t)=\begin{cases}
+        0, & 0 \leqslant t \leqslant t_{0}, \\
+        2f(t), & t_{0}<t \leqslant 1.
+    \end{cases}\]
+    证明:
+    \[g, h \in B(r) \quad \text{且} \quad f=\frac{g}{2}+\frac{h}{2}.\]
+
+    (d) 由此导出 $B(\sqrt{2} r)\subset\conv(B(r))$, 并有 $\conv(B(r))=L_{\frac{1}{2}}$.
+
+    (e) 得出 $L_{\frac{1}{2}}$ 是非局部凸的.
+
+    (f) 把以上结论推广到 $0<p<1$ 的情形.
+
+    (g) 证明: $L_{p}$ 上只有零线性泛函是连续的.
+\end{exercise}
+
+\begin{proof}
+    (a) 只证明映射 $\varPhi:L_p\times L_p\to L_p,(f,g)\mapsto f+g$ 连续,
+    对于加法的连续性同理可证, 对于以 $f+g$ 为中心的任意开球 $V=B(f+g,r)$,
+    取 $U_1=B(f,r/2),U_2=B(g,r/2)$, 则对任意 $f_1\in B(f,r/2),g_1\in B(g,r/2)$, 有
+    \[\|f_1-f\|_p^p<\frac{r}{2},\|g_1-g\|_p^p<\frac{r}{2}.\]
+    由距离的三角不等式有
+    \[\|(f_1+g_1)-(f+g)\|_p^p\leq\|f_1-f\|_p^p+\|g_1-g\|_p^p<\frac{r}{2}+\frac{r}{2}=r.\]
+    所以 $f_1+g_1\in V$, 故 $U_1+U_2\subset V$, 由定义知 $\varPhi$连续.
+
+    (b) 令
+    \[\varPhi(t)=\int_0^t|f(x)|^{\frac{1}{2}}\diff x.\]
+    则 $\varPhi(0)=0$, $\varPhi(1)=\|f\|_{\frac{1}{2}}^{\frac{1}{2}}$,
+    且 $\varPhi(t)$ 是连续函数, 由介值性定理知存在 $t_0\in(0,1)$ 使得
+    \[\varPhi(t_0)=\int_0^{t_0}|f(t)|^{\frac{1}{2}}\diff t=\frac{\|f\|_{\frac{1}{2}}^{\frac{1}{2}}}{2}.\]
+
+    (c) 因为
+    \[\|g\|_{\frac{1}{2}}^{\frac{1}{2}}=\int_0^1|g(t)|^{\frac{1}{2}}\diff t=\int_0^{t_0}|2f(t)|^{\frac{1}{2}}\diff t=\sqrt{2}\cdot\frac{\|f\|_{\frac{1}{2}}^{\frac{1}{2}}}{2}\leq\frac{\sqrt{2}}{2}\cdot\sqrt{2}r=r.\]
+    所以 $g\in B(r)$. 同理 $h\in B(r)$, 而 $f=\frac{g}{2}+\frac{h}{2}$ 是显然的.
+
+    (d) (注意, 在度量空间中, 球并不一定为凸集, 所以不要对本题中的 $B(r)$ 取凸包的操作感到惊讶! 但是在赋范空间中, 球一定为凸集.)
+    对任意的 $f\in B(\sqrt{2}r)$, 利用 (c) 中的构造方式得到 $g,h\in B(r)$ 使得 $f=\frac{g}{2}+\frac{h}{2}$,
+    故 $f\in \conv(B(r))$, 因此
+    \[B(\sqrt{2}r)\subset \conv(B(r)).\]
+    又
+    \[B(2r)\subset \conv(B(\sqrt{2}r))\subset \conv(\conv(B(r)))=\conv(B(r)).\]
+    故对任意的 $n$, 有
+    \[B(2^nr)\subset \conv(B(r)).\]
+    因此
+    \[L_{\frac{1}{2}}=\bigcup_{n=1}^{\infty} B(2^nr)\subset \conv(B(r)).\]
+    结合 $\conv(B(r))\subset L_{\frac{1}{2}}$ 知 $\conv(B(r))=L_{\frac{1}{2}}$.
+
+    (e) 由(d) 知原点的凸开邻域只有 $L_{\frac{1}{2}}$, 因此 $L_{\frac{1}{2}}$ 是非局部凸的.
+
+    (f)同 (c) 的构造亦可得 $L_p(0<p<1)$ 是非局部凸的.
+
+    (g) 设 $f:L_p\to\mathbb{R}$ 是连续的线性泛函,
+    则 $\forall r>0$, $(-r,r)$ 为 $\mathbb{R}$ 中开凸集,
+    由 $f$ 的线性性知 $f^{-1}((-r,r))$ 为 $L_p$ 中凸集, 
+    由 $f$ 的连续性知 $f^{-1}((-r,r))$ 为 $L_p$ 中的开集, 结合(f)中结论知
+    \[f^{-1}(-r,r)=L_p.\]
+    故
+    \[f^{-1}(0)=\bigcap_{n=1}^{\infty}f^{-1}\left(\left(-\frac{1}{n},\frac{1}{n}\right)\right)=L_p.\]
+    因此$f\equiv 0$.
+\end{proof}

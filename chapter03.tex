@@ -1,0 +1,1001 @@
+% !TeX root = main.tex
+% !TeX encoding = UTF8
+% !TeX program = xelatex
+\setcounter{chapter}{2}
+\chapter{赋范空间和连续线性映射}
+\thispagestyle{empty}
+
+\begin{exercise}
+     设 $C([0,1],\FR)$ 表示 $[0,1]$ 上的所有连续实函数构成的空间. 定义
+    \[\|f\|_{\infty}=\sup_{0\leq x\leq 1}|f(t)|\quad\text{且}\quad \|f\|_1=\int_0^1|f(t)|\diff t\]
+    \begin{enumerate}[(a)]
+        \item 证明 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\FR)$ 上的范数.
+        \item 证明 $C([0,1],\FR)$ 关于范数 $\|\cdot\|_{\infty}$ 是完备的.
+        \item 证明 $C([0,1],\FR)$ 关于范数 $\|\cdot\|_1$ 不完备.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)由\begin{itemize}
+\item $\|f\|_{\infty}=\sup\limits_{0\leq t\leq 1}|f(t)|\geq 0$, 且$\|f\|_{\infty}=0$当且仅当$f\equiv 0$
+\item $\|\lambda f\|_{\infty}=\sup\limits_{0\leq t\leq 1}|\lambda f(t)|=|\lambda|\sup\limits_{0\leq t\leq 1}|f(t)|=|\lambda|\cdot\|f\|_{\infty}$
+\item $\|f+g\|_{\infty}=\sup\limits_{0\leq t\leq 1}|f(t)+g(t)|\leq \sup\limits_{0\leq t\leq 1}(|f(t)|+|g(t)|)=\|f\|_{\infty}+\|g\|_{\infty}$
+\end{itemize}
+和
+\begin{itemize}
+\item $\|f\|_1=\int_0^1|f(t)|\diff t\geq 0$ 且 $\|f\|_1=0$ 当且仅当 $f\equiv 0$
+\item $\|\lambda f\|_1=\int_0^1 |\lambda f(t)|\diff t=|\lambda|\cdot\|f\|_1$
+\item $\|f+g\|_1=\int_0^1 |f(t)+g(t)|\diff t\leq\int_0^1|f(t)|\diff t+\int_0^1|g(t)|\diff t=\|f\|_1+\|g\|_1$
+\end{itemize}
+知 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\FR)$ 上的范数.
+
+(b)任取 $C([0,1],\FR)$ 中的 Cauchy 序列 $(f_n)_{n\geq 1}$, 
+即对于 $\forall\epsilon>0$, 存在$N>0$, 对于 $\forall m,n>N$, 有
+\[\|f_m-f_n\|_{\infty}=\max_{0\leq x\leq 1}|f_m(x)-f_n(x)|<\epsilon,\]
+所以对任意 $t\in[0,1]$, 序列 $(f_n(t))_{n\geq 1}$ 为 Cauchy 序列, 其必收敛. 令
+\[f(t)=\lim_{n\to\infty}f_n(t).\]
+这样就定义了一个 $[0,1]$ 上的实值函数. 
+
+下面证明 $f$ 是连续函数且 $\|f_n-f\|_{\infty}\to 0$ (即 $(f_n)_{n\geq 1}$ 一致收敛到$f$). 
+而我们只需要证明 $(f_n)_{n\geq 1}$ 一致收敛到 $f$ 即可,
+事实上, 由一致收敛级数的连续性定理可知, 如果 $(f_n)_{n\geq 1}$ 一致收敛到 $f$, 则
+$f$ 必为连续函数.
+
+任意给定 $\varepsilon>0$, 存在 $N=N(\varepsilon)>0$, 
+使得对于 $\forall m,n>N$ 和 $\forall t\in[0,1]$ 都有 
+\[|f_m(t)-f_n(t)|<\varepsilon.\]
+任意固定 $n>N$ 并令 $m\to\infty$ 可得对于 $\forall n>N$ 和 $\forall t\in[0,1]$ 有
+\[|f_n(t)-f(t)|<\varepsilon.\]
+所以 $(f_n)_{n\geq 1}$ 一致收敛到 $f$.
+
+(c)我们只需寻找范数 $\|\cdot\|_1$ 意义下的柯西列使其不收敛即可. 定义折线段:
+\[f_n(x)=\begin{cases}
+0, & 0\leq x\leq\frac{1}{2}-\frac{1}{n} \\
+n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\frac{1}{2} \\
+1, & \frac{1}{2}\leq x\leq 1.
+\end{cases}\]
+则
+\[\|f_m-f_n\|_1=\int_0^1|f_m(x)-f_n(x)|\diff x=\frac{1}{2}\left\lvert\frac{1}{m}-\frac{1}{n}\right\rvert\to 0(m,n\to\infty)\]
+故 $(f_n)_{n\geq 1}$ 是 Cauchy 序列, 但是其没有极限.
+\end{proof}
+
+\begin{remark}
+证明度量空间的完备性基本都是转化为基本的完备空间(如($\FR,d_{\FR}$))来考虑.
+\end{remark}
+
+
+\begin{exercise}
+     设 $E$ 是 $\FR$ 上所有的实系数多项式构成的向量空间. 对任意 $P\in E$, 定义
+    \[\|P\|_{\infty}=\max_{x\in[0,1]}|P(x)|.\]
+    \begin{enumerate}[(a)]
+    \item 证明 $\|\cdot\|_{\infty}$ 是 $E$ 上的范数.
+    \item 任取一个 $a\in\FR$ 定义线性映射 $L_a:E\to\FR$ 满足 $L_a(P)=P(a)$. 证明 $L_a$ 连续当且仅当 $a\in[0,1]$, 并且给出该连续线性映射的范数.
+    \item 设 $a<b$ 并定义 $L_{a,b}:E\to\FR$ 满足
+    \[L_{a,b}(P)=\int_a^bP(x)\diff x.\]
+    给出 $a,b$ 的范围, 使其成为 $L_{a,b}$ 连续的充分必要条件, 然后确定 $L_{a,b}$ 的范数.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)由
+\begin{itemize}
+    \item $\|P\|_\infty =0\Leftrightarrow\max\limits_{x\in [0,1]}|P(x)|=0\Leftrightarrow P(x)=0(\forall x\in [0,1])\Leftrightarrow P=0$
+    \item $\|\lambda P\|_\infty =\max_{x\in [0,1]}|\lambda P(x)|=|\lambda |\max_{x\in [0,1]}|P(x)|=|\lambda|\|P\|_{\infty}$
+    \item $\|P+Q\|_{\infty}=\max\limits_{x\in [0,1]}|(P+Q)(x)|\leq\max\limits_{x\in [0,1]}(|P(x)|+|Q(x)|)=\|P\|_{\infty}+\|Q\|_{\infty}$
+\end{itemize}
+知 $\|\cdot\|_{\infty}$ 是 $E$ 上的范数.
+
+(b)\sufficient 
+当 $a\in [0,1]$ 时, 对于任意 $P\in E$, 有
+\[|L_a(P)|=|P(a)|\leq\max_{0\leq x\leq 1}|P(x)|=\|P\|_{\infty},\]
+故 $L_a$ 为连续线性映射.
+
+\necessary 
+(直接法) 由 $L_a$ 为连续线性映射知, 存在常数 $C\geq 0$, 使得
+对于 $\forall P\in E$, 有
+\[|L_a(P)|=|P(a)|\leq C\|P\|_{\infty}=C\max_{0\leq x\leq 1}|P(x)|.\]
+取 $P(x)=x^{2n}$, 则 $a^{2n}\leq C$, 故 $-1\leq a\leq 1$.
+再取 $P(x)=(1-x)^{2n}$, 则 $(1-a)^{2n}\leq C$, 故 $0\leq a\leq 2$.
+因此 $0\leq a\leq 1$.
+
+综上得证: $L_a$ 连续 $\Leftrightarrow a\in [0,1]$, 且
+\[\|L_a\|=\sup\limits_{p\in E,P\neq 0}\frac{|P(a)|}{\max_{0\leq x\leq 1}|P(x)|}=1(P\equiv 1\;\text{时可取到最大值}).\]
+
+(c) $L_{a,b}$连续的充要条件是$0\leq a<b\leq 1$, 理由如下:
+
+\sufficient
+当 $0\leq a<b\leq 1$时, 对于任意 $P\in E$, 有
+\begin{align*}
+    |L_{a,b}(P)|
+    &=\left\lvert\int_a^b P(x)\diff x\right\rvert\leq\int_a^b |P(x)|\diff x \\
+    &\leq\int_0^1 |P(x)|\diff x\leq\max_{0\leq x\leq 1}|P(x)|=\|P\|_{\infty}.
+\end{align*}
+故 $L_{a,b}$ 为连续线性映射且 $\|L_{a,b}\|\leq 1$.
+
+\necessary
+先给出一个结论($\star$):
+设 $b>1$ 且 $a<b$, 则数列 $\left(\frac{b^n-a^n}{n}\right)_{n\geq 1}$
+必有子列为正无穷大量.
+事实上, 当 $1<a<b$ 时, 由 Stolz 定理可得该数列为正无穷大量;
+当 $-1\leq a\leq 1$ 时, 该数列显然为正无穷大量;
+当 $a<-1$ 时, 子列 $\left(\frac{b^{2n+1}-a^{2n+1}}{2n+1}\right)_{n\geq 1}$
+为正无穷大量.
+
+因为$L_{a,b}$连续, 所以存在常数 $C\geq 0$ 使得对于任意 $P\in E$, 有
+\[|L_{a,b}(P)|=\left\lvert\int_a^b P(x)\diff x\right\rvert\leq C\max_{0\leq x\leq 1}|P(x)|.\]
+
+取 $P(x)=x^n$, 则 $\left\lvert\frac{b^{n+1}-a^{n+1}}{n+1}\right\rvert\leq C$, 
+即数列 $\left(\frac{b^{n+1}-a^{n+1}}{n+1}\right)_{n\geq 1}$ 有界.
+假设 $b>1$, 则由上述结论 ($\star$) 知 $\left(\frac{b^{n+1}-a^{n+1}}{n+1}\right)_{n\geq 1}$
+存在子列为正无穷大量, 矛盾, 因此 $b\leq 1$.
+
+再取 $P(x)=(1-x)^n$, 则 $\left\lvert\frac{(1-a)^{n+1}-(1-b)^{n+1}}{n+1}\right\rvert\leq C$, 
+同理可知 $1-a\leq 1$, 即 $a\geq 0$. 从而当 $L_{a,b}$ 连续时, 有 $0\leq a<b\leq 1$.
+
+综上得知 $L_{a,b}$ 连续 $\Leftrightarrow 0\leq a<b\leq 1$, 且
+\[\|L_{a,b}\|=\sup\limits_{P\in E,P\neq 0}\frac{|\int_a^bP(x)\diff x|}{\max_{0\leq x\leq 1}|P(x)|}=b-a(P\equiv 1\;\text{时可取到最大值}).\qedhere\]
+\end{proof}
+
+
+
+\begin{exercise}
+     设 $(E,\|\cdot\|_{\infty})$ 是习题~2 中定义的赋范空间. 
+     设 $E_0$ 是 $E$ 中没有常数项的多项式构成的向量子空间(即多项式 $P\in E_0$ 等价于 $P(0)=0$).
+    \begin{enumerate}[(a)]
+        \item 证明 $N(P)=\|P'\|_{\infty}$ 定义了 $E_0$ 上的一个范数, 并且对任意 $P\in E_0$, 有 $\|P\|_{\infty}\leq N(P)$.
+        \item 证明 $L(P)=\int_0^1\frac{P(x)}{x}\diff x$ 定义了 $E_0$ 关于 $N$ 的连续线性泛函, 并求它的范数.
+        \item 上面定义的 $L$ 是否关于范数 $\|\cdot\|_{\infty}$ 连续?
+        \item 范数 $\|\cdot\|_{\infty}$ 和 $N$ 在 $E_0$ 上是否等价?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a) 由
+\begin{itemize}
+\item $N(P)=\|P'\|_{\infty}=\max\limits_{0\leq x\leq 1}|P'(x)|\geq 0$ 且 $N(P)=0$ 当且仅当 $P\equiv 0$
+\item $N(\lambda P)=\max_{0\leq x\leq 1}|\lambda P'(x)|=|\lambda|\max_{0\leq x\leq 1}|P'(x)|=|\lambda|N(P)$
+\item $N(P+Q)=\max\limits_{0\leq x\leq 1}|P'(x)+Q'(x)|\leq\max\limits_{0\leq x\leq 1}(|P'(x)|+|Q'(x)|)=N(P)+N(Q)$
+\end{itemize}
+知 $N(\cdot)$ 是 $E_0$ 上的范数.
+
+由中值定理知: $P(x)-P(0)=P(x)=xP'(\theta),\forall x\in (0,1],\exists\theta\in (0,x)$. 故
+\[|P(x)|\leq |P'(\theta)|\Rightarrow\max_{0\leq x\leq 1}|P(x)|\leq\max_{0\leq x\leq 1}|P'(x)|\Rightarrow \|P\|_{\infty}\leq N(P).\]
+
+(b)由
+\begin{align*}
+    L(\lambda P+Q)
+    & =\int_0^1\frac{\lambda P(x)+Q(x)}{x}\diff x \\
+    & =\lambda\int_0^1\frac{P(x)}{x}\diff x+\int_0^1\frac{Q(x)}{x}\diff x=\lambda L(P)+L(Q)
+\end{align*}
+知 $L$ 是线性映射. 又因为
+\begin{align*}
+|L(P)|
+&=\left|\int_0^1\frac{P(x)}{x}\diff x\right|\leq\int_0^1\left|\frac{P(x)}{x}\right|\diff x\leq\left\|\frac{P(x)}{x}\right\|_{\infty}\\
+&=\left\lvert\frac{P(x_0)}{x_0}\right\rvert\quad(\exists x_0\in [0,1])\\
+&=\left\lvert\frac{P(x_0)-P(0)}{x_0-0}\right\rvert=|P'(\theta)|\leq\|P'\|_{\infty}=N(P),
+\end{align*}
+即 $|L(P)|\leq N(P)$.
+故 $L$ 是 $E_0$ 关于 $N$ 的连续线性泛函, 且 $\|L\|=1$.
+
+(c) 对于 $\forall C>0$, 取 $M>\frac{3}{2}C-\frac{1}{2}$, 令 $\delta=e^{-M}\in (0,1)$,取
+\[f(x)=\begin{cases}
+\frac{1}{\delta}, & 0\leq x\leq\delta\\ 
+\frac{1}{x}, & \delta\leq x\leq 1.
+\end{cases}\]
+由 Weierstrass 多项式逼近定理知, 存在多项式函数 $p_n(x)\in P_n$ 使得
+\[\lim\limits_{n\to\infty}\max\limits_{0\leq x\leq 1}|p_n(x)-f(x)|=0.\]
+故 $\exists N$, 使得对于 $\forall n>N$, 
+有 $-\frac{1}{2}<p_n(x)-f(x)<\frac{1}{2}$, 记 $q_n(x)=xp_n(x)\in E_0$, 则:
+\[|L(q_n)|=\left\lvert\int_0^1p_n(x)dx\right\rvert>\int_0^1\left(f(x)-\frac{1}{2}\right)dx=\frac{1}{2}+M.\]
+而
+\[\|q_n\|_{\infty}<\|x(f(x)+\frac{1}{2})\|_{\infty}=\max_{0\leq x\leq 1}\left\lvert x(f(x)+\frac{1}{2})\right\rvert=\frac{3}{2}.\]
+所以 $|L(q_n)|>C\|q_n\|_{\infty}$, 故 $L$ 关于范数 $\|\cdot\|_{\infty}$ 不连续.
+
+(d) $\|\cdot\|_{\infty}$ 与 $N$ 在 $E_0$ 上不等价.
+反证法证明: 
+假设存在常数 $C_1 $和 $C_2$ 使得对于 $\forall P\in E_0$ 
+有 $C_1N(p)\leq\|p\|_{\infty}\leq C_2N(p)$. 取$n>\frac{1}{C_1}$ 且$p(x)=x^n$, 则
+\[N(p)=\max_{0\leq x\leq 1}|nx^{n-1}|=n>\frac{1}{C_1}=\frac{1}{C_1}\|p\|_{\infty}.\]
+矛盾, 证毕.
+\end{proof}
+
+
+\begin{exercise}
+     设 $E$ 是由 $[0,1]$ 上所有连续函数构成的向量空间. 
+    定义 $E$ 上的两个范数分别为 $\displaystyle\|f\|_1=\int_0^1|f(x)|\diff x$ 和 $\displaystyle N(f)=\int_0^1x|f(x)|\diff x$.
+    \begin{enumerate}[(a)]
+        \item 验证 $N$ 的确是 $E$ 上的范数并且 $N\leq\|\cdot\|_1$.
+        \item 设函数 $f_n(x)=n-n^2x$, 若 $x\leq\frac{1}{n}$; $f_n(x)=0$, 其它. 
+              证明函数列 $(f_n)_{n\geq 1}$ 在 $(E,N)$ 上收敛到 0. 它在 $(E,\|\cdot\|_1)$ 中是否收敛? 由这两个范数在 $E$ 上诱导的拓扑是否相同?
+        \item 设 $\alpha\in(0,1]$, 并令 $B=\{f\in E:f(x)=0,\forall x\in[0,\alpha]\}$. 证明这两个范数在 $B$ 上诱导相同的拓扑.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a) 由
+\begin{itemize}
+\item $N(f)=\int_0^1x|f(x)|dx\geq 0$ 且 $N(f)=0\Leftrightarrow x|f(x)|\equiv 0\Leftrightarrow f(x)\equiv 0$ (这里利用了 $f(x)$ 的连续性)
+\item $N(\lambda f)=\int_0^1x|\lambda f(x)|dx=|\lambda|\int_0^1x|f(x)|dx=|\lambda|N(f)$
+\item $N(f+g)=\int_0^1x|f(x)+g(x)|dx\leq \int_0^1x(|f(x)|+|g(x)|)dx=N(f)+N(g)$
+\end{itemize}
+知 $N$ 是 $E$ 上的范数, $N\leq\|\cdot\|_1$是显然的.
+
+(b) 因
+\[N(f_n)=\int_0^{\frac{1}{n}}x(n-n^2x)\diff x=\frac{1}{6n}\rightarrow 0(n\to\infty),\]
+故 $(f_n)_{n\geq 1}$ 在 $(E,N)$ 中收敛到 $0$. 
+假设函数列在 $(E,\|\cdot\|_1)$ 中收敛, 即存在 $g(x)\in E$ 使得
+\[\lim_{n\to\infty}\int_0^1|f_n(x)-g(x)|\diff x=0\Rightarrow f_n(x)-g(x)=0\almosteverywhere(n\to\infty).\]
+又 $f_n(x)=0\almosteverywhere (n\to\infty)$, 故$g(x)=0$, 也就是说如果收敛只能收敛到 0, 但
+\[\lim_{n\to\infty}\|f_n(x)-0\|_1=\lim_{n\to\infty}\int_0^{\frac{1}{n}}(n-n^2x)\diff x=\frac{1}{2}\neq 0.\]
+矛盾, 故 $(f_n)_{n\geq 1}$ 在 $(E,\|\cdot\|_1)$ 中不收敛.
+
+两范数在 $E$ 上诱导的拓扑不同, 理由如下:
+
+记$\|\cdot\|_1$诱导的拓扑为$\tau_1$, $N$诱导的拓扑为$\tau_2$, 
+相应的距离分别记为 $d_1,d_2$. 
+由 $N\leq \|\cdot\|_1$ 知 $\tau_2\subset\tau_1$, 
+故我们实际需要证明 $\tau_2$ 是 $\tau_1$ 的真子集, 即
+\[\exists V\in\tau_1,\text{但}\;V\notin\tau_2.\]
+取 $\tau_1$ 中开球 $B_{d_1}(0,\frac{1}{3})\in\tau_1$,
+假设$B_{d_1}(0,\frac{1}{3})\in\tau_2$. 因为 $0\in B_{d_1}(0,\frac{1}{3})$, 
+所以 $\exists\delta>0,s.t.B_{d_2}(0,\delta)\subset B_{d_1}(0,\frac{1}{3})$.
+取前面给出的 $(f_n)_{n\geq 1}$, 由$d_2(f_n,0)\to 0(n\to\infty)$ 知
+\[\exists M>0,s.t.f_M\in B_{d_2}(0,\delta)\subset B_{d_1}(0,\frac{1}{3})\]
+但是 $d_1(f_M,0)=\frac{1}{2}>\frac{1}{3}$, 矛盾, 故假设不成立, 即$B_{d_1}(0,\frac{1}{3})\notin\tau_2$.
+
+(c) 对于 $\forall f\in B$, 有 
+\begin{align*}
+    N(f) & =\int_0^1x|f(x)|\diff x=\int_a^1 x|f(x)|\diff x \\
+         & \geq a\int_a^1|f(x)|\diff x=a\int_0^1|f(x)|\diff x=a\|f\|_1,
+\end{align*} 
+结合 (a) 中给出的 $N\leq\|\cdot\|_1$ 知两范数等价, 因此必在 $B$ 上诱导相同的拓扑.
+\end{proof}
+
+
+\begin{exercise}
+     设 $\varphi:[0,1]\to[0,1]$ 是连续函数并且不恒等于 1. 设 $\alpha\in\FR$, 定义 $C([0,1],\FR)$ 上的映射 $T$ 为
+    \[T(f)(x)=\alpha+\int_0^xf(\varphi(t))\diff t.\]
+    证明 $T$ 是压缩映射.
+
+    根据以上结论证明下面的方程存在唯一解:
+    \[f(0)=\alpha,\quad f'(x)=f(\varphi(x)),\quad x\in[0,1].\]
+\end{exercise}
+
+
+\begin{proof}
+取 $C([0,1])$ 上的范数 $\|\cdot\|$, 定义为
+\[\|f\|=\sup\limits_{x\in [0,1]}|f(x)|\e^{-Mx}.\]
+由 $\varphi([0,1])\subset [0,1]$ 知
+\[\sup\limits_{t\in[0,1]}|f(\varphi(t))-g(\varphi(t))|\e^{-M\varphi(t)}\leq\sup\limits_{x\in[0,1]}|f(x)-g(x)|\e^{-x}=\|f-g\|.\]
+因此
+\begin{align*}
+    \|T(f)-T(g)\| & =\sup\limits_{x\in[0,1]}\left|\int_0^x(f(\varphi(t))-g(\varphi(t)))\diff t\right|\e^{-Mx}\\
+                  & =\sup\limits_{x\in [0,1]}\left|\int_0^x(f(\varphi(t))-g(\varphi(t)))\e^{-M\varphi(t)}\e^{M\varphi(t)}\diff t\right|\e^{-Mx}\\
+                  & \leq\|f-g\|\cdot\sup\limits_{x\in [0,1]}\int_0^x\e^{M\varphi(t)}\diff t\cdot\e^{-Mx}.
+\end{align*}
+
+下面我们说明通过选取合适的 $M>0$, 可以使得 
+\[\lambda\colon=\sup_{0\leq x\leq 1}\int_0^x \e^{M\varphi(t)}\diff t\cdot\e^{-Mx}<1.\]
+令函数
+\[h(x):=\int_0^x \e^{M\varphi(t)}\diff t\cdot\e^{-Mx}.\]
+因 $h(x)$ 在 $[0,1]$ 上连续, 故 $h(x)$ 在 $[0,1]$ 上存在最大值点, 记之为 $x_0$.
+
+若 $x_0<1$, 则
+\[h(x_0)=\int_0^{x_0} \e^{M\varphi(t)}\diff t\cdot\e^{-Mx_0}\leq x_0\e^{M(1-x_0)},\]
+取 $0<M<\frac{-\ln x_0}{1-x_0}$, 则 $h(x_0)<1$.
+
+若 $x_0=1$, 注意到 $\varphi$ 不恒等于 $1$, 则
+\[h(x_0)=\int_0^1 \e^{M\varphi(t)}\diff t\cdot\e^{-M}<\e^M\cdot\e^{-M}=1.\]
+
+综上得知, 通过选择合适的 $M>0$, 可以使得映射 $T$ 为 $C([0,1])$ 上的压缩映射.
+且由 $\e^{-M}\|f\|_{\infty}\leq\|f\|\leq\|f\|_{\infty}$ 
+知 $(C([0,1]),\|\cdot\|)$ 是 Banach 空间, 故根据不动点定理知存在唯一$f\in C([0,1])$ 使得 $T(f)=f$, 即:
+\[\alpha+\int_0^xf(\varphi(t))\diff t=f(x)\Leftrightarrow f(0)=\alpha\text{\ 且\ }f'(x)=f(\varphi(x)).\qedhere\]
+\end{proof}
+
+
+\begin{exercise}
+    设 $\alpha\in\FR,a>0,b>1$. 考察下面的微分方程
+    \begin{equation}
+    f(0)=\alpha,\quad f'(x)=af(x^b),\quad 0\leq x\leq 1.\tag{$*$}
+    \end{equation}
+    \begin{enumerate}[(a)]
+    \item 令 $M>0$. 验证 $E=C([0,1],\FR)$ 上赋予范数
+    \[\|f\|=\sup_{0\leq x\leq 1}|f(x)|\e^{-Mx}\]
+    后成为一个 Banach 空间.
+    \item 设 $g(x)=\alpha+\int_0^x af(t^b)\diff t$, 定义映射 $T:E\to E$ 为 $T(f)=g$. 证明选择合适的 $M$, 可使 $T$ 为压缩映射.
+    \item 证明方程~($*$) 有唯一解.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)容易验证 $\|\cdot\|$ 是$C([0,1],\FR)$ 上的范数, 并且
+\[\e^{-M}\sup\limits_{0\leq x\leq1}|f(x)|\leq\sup\limits_{0\leq x\leq1}|f(x)|\e^{-Mx}\leq\sup\limits_{0\leq x\leq1}|f(x)|,\]
+即
+\[e^{-M}\|f\|_{\infty}\leq\|f\|\leq\|f\|_{\infty}.\]
+因此 $E=C([0,1],\FR)$ 赋予范数 $\|\cdot\|$ 是 Banach 空间.
+
+(b) 因为
+\[(T(f_1)-T(f_2))(x)=\int_0^xa\left(f_1(t^b)-f_2(t^b)\right)\diff t,\]
+所以
+\begin{align*}
+    \|T(f_1)-T(f_2)\| & =\sup\limits_{0\leq x\leq 1}\left|\int_0^x a\left(f_1(t^b)-f_2(t^b)\right)\diff t\right|\cdot \e^{-Mx}\\
+                      & \leq a\sup\limits_{0\leq x\leq 1}\int_0^x|f_1(t^b)-f_2(t^b)|\e^{-Mt^b}\cdot \e^{Mt^b}\diff t\cdot \e^{-Mx}\\
+                      & \leq\|f_1-f_2\|\cdot a\sup\limits_{0\leq x\leq 1}\int_0^x \e^{Mt^b}\diff t\cdot \e^{-Mx}\\
+                      & \leq\|f_1-f_2\|\cdot a\sup\limits_{0\leq x\leq 1}\int_0^x \e^{Mt}\diff t\cdot \e^{-Mx}\\
+                      & =\|f_1-f_2\|\cdot\sup\limits_{0\leq x\leq 1}\frac{a\left(1-\e^{-Mx}\right)}{M}\leq\frac{a}{M}\|f_1-f_2\|.
+\end{align*}
+故当 $M>a$ 时, $\|T(f_1)-T(f_2)\|<\|f_1-f_2\|$, 也就是此时$T$是压缩映射.
+
+(c)压缩映射有唯一不动点, 即存在唯一 $f\in C([0,1],\FR)$ 使得
+\[\alpha+\int_0^xaf\left(t^b\right)\diff t=f(x),\]
+而上述方程等价于方程 $(*)$, 证毕.
+\end{proof}
+
+
+\begin{exercise}
+    设 $E$ 是数域 $\FK$ 上的无限维向量空间. 设 $(e_i)_{i\in I}$
+    是 $E$ 中的一组向量, 若 $E$ 中任一向量可用 $(e_i)_{i\in I}$
+    中的有限个向量唯一线性表示, 即对任意 $x\in E$, 存在唯一一组 $(\alpha_i)_{i\in I}\subset\FK$,
+    使得仅有有限多个 $\alpha_i$ 不等于零且 $x=\sum_{i\in I}\alpha_ie_i$,
+    则称 $(e_i)_{i\in I}$ 是 $E$ 中的 Hamel 基.
+    \begin{enumerate}[(a)]
+        \item 由 Zorn 引理证明 $E$ 有一组 Hamel 基.
+        \item 假设 $E$ 还是一个赋范空间, 证明 $E$ 上必存在不连续的线性泛函.
+        \item 证明在任一无限维赋范空间上, 一定存在一个比原来的范数严格强的范数
+              (即新范数诱导的拓扑一定比原来的范数诱导的拓扑强且不相同).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)首先构造一个偏序集$(\mathcal{F},\subset)$, 这里的$\mathcal{F}$是$E$中一些子集构成的集族,
+满足若 $F\in\mathcal{F}$, 则 $F$ 中任意有限多个向量都线性无关, $\subset$表示集合间的包含关系.
+
+任取$\mathcal{F}$的一个链$\mathcal{A}$,
+令 $G=\bigcup_{A\in\mathcal{A}}A$, 则 $G\in\mathcal{F}$,
+即 $G$ 是 $\mathcal{A}$ 的上界. 由 Zorn 引理知$\mathcal{F}$有极大元,记为 $B$.
+如果存在 $x\in E$, $x$ 不能由 $B$ 中任意有限多个向量线性表达,
+则 $B\bigcup\{x\}\in\mathcal{F}$, 这与 $B$ 是极大元矛盾, 故这个极大元 $B$ 就是 $E$ 的 Hamel 基.
+
+(b) 设 $B$ 是 $E$ 上的一个 Hamel 基, 若 $E$ 还是一个赋范空间,
+则不妨设 Hamel 基中的任一向量 $e$ 的范数为 1,
+由于 $E$ 中的任意向量关于Hamel基的线性表达是唯一的,
+故 $E$ 上的线性泛函 $f$ 由其在 Hamel 基中每一个元素上的取值 $f(e)$ 决定,
+显然 Hamel 基是无限集, 故我们可以选取一个序列 $(e_n)\in B$,
+令 $f(e_n)=n$; 当$e\in B\backslash(e_n)$时,$f(e)=1$,则线性泛函$f$在$E$上不连续.
+
+\textcolor{blue}{注:和课本定理3.2.9对比体会有限维和无限维的区别}.
+
+(c)仍考虑(b)中约定的Hamel基$B$, 并记$E$上原有的范数为$\|\cdot\|$,
+接下来定义$E$上的新范数$\|\cdot\|_1$,取$(e_n)\in B$,令$\|e_n\|_1=n,n\geq 1$;
+当$e\in B\backslash(e_n)$时,令$\|e\|_1=\|e\|$,任取$x\in E$,
+则$x=\sum_{j\in J}\lambda_je_j,J\subset I$是有限集,注意这种表达式唯一,
+令
+\[\|x\|_1=\sum_{j\in J}|\lambda_j|\;\|e_j\|_1\]
+容易验证 $\|\cdot\|_1$确实是 $E$ 上的范数, 并且由三角不等式有
+\[\|x\|=\|\sum_{j\in J}\lambda_je_j\|\leq\sum_{j\in J}|\lambda_j|\,\|e_j\|\leq\sum_{j\in J}|\lambda_j|\,\|e_j\|_1=\|x\|_1\]
+故$\|\cdot\|_1$是在$E$上比$\|\cdot\|$强的范数.另一方面(b)约定的线性泛函$f$满足
+\[|f(x)|\leq\sum_{j\in J}|\lambda_j|\,|f(e_j)|=\sum_{j\in J}|\lambda_j|\,\|e_j\|_1=\|x\|_1\]
+但是$f$关于原来的范数$\|\cdot\|$不连续,这意味着$\|\cdot\|$一定是比$\|\cdot\|$严格强的范数.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 为数域 $\FK$ 上有限维向量空间, 其维数 $\dim E=n$.
+    $\{e_{1},\cdots,e_{n}\}$ 表示 $E$ 上的一组基, 任取 $u\in\mathcal{L}(E)$, 令 $[u]$ 表示 $u$ 在这组基下对应的矩阵.
+
+    (a) 证明映射 $u \mapsto[u]$ 建立了从 $\mathcal{L}(E)$ 到所有 $n \times n$ 矩阵构成的向量空间 
+    $\mathbb{M}_{n}(\FK)$ 之间的同构映射.
+
+    (b) 假设 $E=\mathbb{K}^{n}$ 且 $\{e_1,\cdots,e_n\}$ 是经典基 
+    (即 $e_{k}=(0, \cdots, 0,1,0, \cdots, 0)$, 对应于第 $k$ 个向量, 
+    它仅在第 $k$ 个位置取 1 , 其他位置取 $0$). 
+    并约定 $E=\mathbb{K}^{n}$ 赋予欧氏范数. 证明若 $u$ (或等价地 $[u]$) 可对角化, 
+    则 $\|u\|=\max\{|\lambda_{1}|,\cdots,|\lambda_{n}|\}$, 这里 $\lambda_{1}, \cdots, \lambda_{n}$ 是 $u$ 的特征值.
+
+    (c) $\{e_{1}, \cdots, e_{n}\}$ 如上, 试由 $[u]$ 中的元素分别确定在 $p=1$ 和 $p=\infty$ 时的
+    范数 $\left\|u:\left(\mathbb{K}^{n},\|\cdot\|_{p}\right)\rightarrow\left(\mathbb{K}^{n},\|\cdot\|_{p}\right)\right\|$.
+\end{exercise}
+
+\begin{proof}
+(a)记
+\[u(e_k)=\sum_{m=1}^n u_{mk}e_m,\quad k=1,\cdots,n\]
+并记矩阵 $[u]=(u_{mk})\in\mathbb{M}_n(\mathbb{K})$,
+则 $(u(e_1),\cdots,u(e_n))=(e_1,\cdots,e_n)[u]$.
+任取 $x\in E$, 存在唯一的一组数 $x_1,\cdots,x_n$ 使得 $x=\sum_{k=1}^n x_ke_k$. 则
+\[u(x)=\sum_{k=1}^n x_ku(e_k)=(e_1,\cdots,e_n)[u]
+\begin{pmatrix}
+    x_1\\\vdots\\x_n
+\end{pmatrix}\]
+由此说明映射 $u\mapsto [u]$ 建立了从 $\mathcal{L}(E)$ 到所有 $n\times n$ 
+矩阵构成的向量空间 $\mathbb{M}_n(\mathbb{K})$ 之间的同构映射.
+
+(b) \textcolor{blue}{注: 这一问的题目条件稍微改一下, 将$u$可对角化改为$u$可酉对角化,
+即存在酉矩阵 $P$ 使得 $P[u]P^{*}=\Lambda$, 其中 $\Lambda=\diag\{\lambda_1,\cdots,\lambda_n\}$.}
+
+由题意知此时 $E$ 为有限维赋范空间, 故由定理 3.2.9 知 $\mathcal{L}(E)=\mathcal{B}(E)$,
+即对于任意 $u\in\mathcal{L}(E)$, 都有 $u$ 为有界线性算子.
+对于任意 $x\in E=\mathbb{K}^n$, 由 (a) 知 $u(x)$ 在 $e_1,\cdots,e_n$
+下的坐标为 $[u]x$, 故
+\begin{align*}
+    \|u(x)\|^2
+    & =x^{*}[u]^{*}[u]x\\
+    & =x^{*}P^{*}\Lambda^{*}PP^{*}\Lambda Px\\
+    & =(Px)^{*}\Lambda^{*}\Lambda(Px)\\
+    & =(Px)^{*}\begin{pmatrix}|\lambda_1|^2& & \\ &\ddots& \\ & & |\lambda_n|^2\end{pmatrix}(Px)\\
+    & \leq\max\{|\lambda_1|,\cdots,|\lambda_n|\}^2\|Px\|^2\\&=\max\{|\lambda_1|,\cdots,|\lambda_n|\}^2\|x\|^2,
+\end{align*}
+故 $\|u(x)\|\leq \max\{|\lambda_1|,\cdots,|\lambda_n|\}\|x\|$, 因此$||u||\leq \max\{|\lambda_1|,\cdots,|\lambda_n|\}$.
+
+设$\max\{|\lambda_1|,\cdots,|\lambda_n|\}=|\lambda_k|$, 取$Px=(0,\cdots,0,1,0,\cdots,0)^T,\|x\|=1$,其中1位于第$k$个坐标位置,则
+\[\|u(x)\|^2=|\lambda_k|^2\|x\|^2\Rightarrow \|u(x)\|=|\lambda_k|\|x\|\]
+综上知$\|u\|=\max\{|\lambda_1|,\cdots,|\lambda_n|\}$.
+
+(c)记$\|u\|_p=\|u:(\mathbb{K}^n,\|\cdot\|_p)\to(\mathbb{K}^n,\|\cdot\|_p)\|,p=1,\infty$.
+
+(i) 当 $p=1$ 时, 任取 $x=(x_1,\cdots,x_n)^T\in\mathbb{K}^n$, 则
+\[\begin{split}\|u(x)\|_1
+&=\|[u]x\|_1=\sum_{j=1}^n\left|\sum_{i=1}^nu_{ji}x_i\right|\\
+&\leq \sum_{j=1}^n\sum_{i=1}^n|u_{ji}|\cdot|x_i|=\sum_{i=1}^n\sum_{j=1}^n|u_{ji}|\cdot|x_i|\\
+&=\sum_{i=1}^n\left(|x_i|\sum_{j=1}^n|u_{ji}|\right)\leq\left(\max\limits_{1\leq i\leq n}\sum_{j=1}^n|u_{ji}|\right)\|x\|_1,
+\end{split}\]
+故
+\[\|u\|_1\leq \max\limits_{1\leq i\leq n}\sum_{j=1}^n|u_{ji}|.\]
+设 $\max_{1\leq i\leq n}\sum_{j=1}^n|u_{ji}|=\sum_{j=1}^n|u_{jk}|$, 
+取 $x=(0,\cdots,0,1,0,\cdots,0)^T,\|x\|_1=1$, 其中 1 位于第 $k$ 个坐标位置, 则
+\[\|u(x)\|_1=\left(\sum_{j=1}^n|u_{jk}|\right)\|x\|_1.\]
+综上得知
+\[\|u\|_1=\max\limits_{1\leq i\leq n}\sum_{j=1}^n|u_{ji}|.\]
+
+(ii) 当 $p=\infty$ 时, 同理可证明:
+\[\|u\|_{\infty}=\max\limits_{1\leq j\leq n}\sum_{i=1}^n|u_{ji}|.\qedhere\]
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $E$ 是 Banach 空间.
+    \begin{enumerate}[(a)]
+    \item 设 $u\in\mathcal{B}(E)$ 且 $\|u\|<1$. 证明 $I_E-u$ 在 $\mathcal{B}(E)$ 中可逆.
+    \item 设 $GL(E)$ 表示 $\mathcal{B}(E)$ 中可逆元构成的集合. 证明 $GL(E)$ 关于复合运算构成一个群且是 $\mathcal{B}(E)$ 中的开集.
+    \item 证明 $u\to u^{-1}$ 是 $GL(E)$ 上的同胚映射.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+因为 $\|u\|<1$, 且 $\|u^n\|\leq\|u\|^n$, 所以级数 $\sum_{n=0}^{\infty}\|u^n\|$ 收敛, 
+又因为 $\mathcal{B}(E)$ 完备, 故 $\sum_{n=0}^{\infty}u^n$ 收敛, 记
+\[v=\sum_{n=0}^{\infty}u^n\in\mathcal{B}(E).\]
+则
+\[(I_E-u)v=\lim_{k\to\infty}(I_E-u)\sum_{n=0}^ku^n=I_E.\]
+同理可证 $v(I_E-u)=I_E$, 因此 $I_E-u$ 在 $\mathcal{B}(E)$ 中可逆.
+
+(b)\begin{itemize}
+\item $(uv)w=u(vw)$,即满足结合律
+\item 恒等映射 $id$ 即为单位元
+\item 任意元 $u$ 都存在 $u^{-1}\in GL(E),s.t.u\circ u^{-1}=id$
+\end{itemize}
+故 $GL(E)$ 关于复合运算构成一个群, 
+下证 $GL(E)$ 是 $\mathcal{B}(E)$ 中的开集: 
+任意 $u\in GL(E)$, 考虑 $u$ 的开球 $B(u,\|u^{-1}\|^{-1})$, 
+则 $\forall v\in B(u,\|u^{-1}\|^{-1})$, 有 $\|v-u\|<\|u^{-1}\|^{-1}$, 
+故 $\|u^{-1}(u-v)\|\leq \|u^{-1}\|\cdot\|u-v\|<1$, 从而
+\[I-u^{-1}(u-v)=u^{-1}v\in GL(E).\]
+由群中元素运算封闭性知
+\[u\cdot u^{-1}v=v\in GL(E).\]
+故
+\[B(u,\|u^{-1}\|^{-1})\in GL(E).\]
+由开集的定义知 $GL(E)$ 是 $\mathcal{B}(E)$ 中的开集.
+
+(c)记$\Phi:GL(E)\to GL(E),u\mapsto u^{-1}$.
+\begin{itemize}
+\item 显然映射 $\Phi:u\mapsto u^{-1}$ 是 $GL(E)$ 上的双射;
+\item $\Phi$ 连续: 由前面的证明过程知 $\forall v\in B(u,\|u^{-1}\|^{-1})$ 有
+\[(I-u^{-1}(u-v))^{-1}=\sum_{n=0}^{\infty}(u^{-1}(u-v))^n.\]
+故
+\[v^{-1}=(u-(u-v))^{-1}=(u(I-u^{-1}(u-v)))^{-1}=\sum_{n=0}^{\infty}(u^{-1}(u-v))^nu^{-1}.\]
+因此
+\[\begin{split}
+\|v^{-1}-u^{-1}\|
+&=\|\sum_{n=1}^{\infty}(u^{-1}(u-v))^nu^{-1}\|\\
+&\leq\|u^{-1}\|\cdot\sum_{n=1}^{\infty}(\|u-v\|\cdot\|u^{-1}\|)^n\\
+&=\frac{\|u^{-1}\|^2\|u-v\|}{1-\|u^{-1}\|\cdot\|u-v\|}.
+\end{split}\]
+当 $\|u-v\|\to 0$ 时, $\|u^{-1}-v^{-1}\|\to 0$, 所以 $\Phi$ 连续;
+\item $\Phi=\Phi^{-1}$
+\end{itemize}
+综上知 $\Phi$ 是 $GL(E)$ 上的同胚.
+\end{proof}
+
+
+
+% \setcounter{exercise}{9}
+\begin{exercise}
+    设 $f\in L_2(\FR)$, $g(x)=\frac{1}{x}\mathbbm{1}_{[1,\infty)}(x)$, 
+    证明 $fg\in L_1(\FR)$. 给出例子说明 $f_1,f_2\in L_1(\FR)$, 但是 $f_1f_2\notin L_1(\FR)$.
+\end{exercise}
+
+\begin{proof}
+(1)因为
+\[g(x)=\frac{1}{x}\cdot\mathbbm{1}_{[1,+\infty)}(x),\]
+所以
+\[\int_{\FR} g^2(x)\diff x=\int_1^{\infty}\frac{1}{x^2}\diff x=1.\]
+故 $g\in L_2(\FR)$, 又$f\in L_2(\FR)$, 所以 $fg\in L_1(\FR)$.
+
+(2)取
+\[f_1(x)=f_2(x)=\frac{1}{\sqrt{x}}\mathbbm{1}_{(0,1)}(x),\]
+则
+\[\int_{\FR} |f_1(x)|\diff x=\int_{\FR} |f_2(x)|\diff x=\int_0^1\frac{1}{\sqrt{x}}\diff x=2,\]
+但是
+\[\int_{\FR} |f_1(x)f_2(x)|\diff x=\int_0^1\frac{1}{x}\diff x=+\infty.\qedhere\]
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $(\varOmega,\mathcal{A},\mu)$ 为有限测度空间, 即有 $\mu(\varOmega)<\infty$.
+
+    (a) 证明若 $0<p<q\leq\infty$, 则 $L_q(\varOmega)\subset L_p(\varOmega)$.
+    用反例说明当 $\mu(\varOmega)=\infty$ 时, 结论不成立.
+
+    (b) 证明若 $f\in L_{\infty}(\varOmega)$, 则 $f\in\bigcap\limits_{p<\infty}L_p(\varOmega)$
+    且 $\|f\|_{\infty}=\lim_{p\to\infty}\|f\|_{p}$.
+
+    (c) 设 $f\in\bigcap\limits_{p<\infty}L_p(\varOmega)$ 且满足 $\limsup_{p\to\infty}\|f\|_P<\infty$,
+    证明 $f\in L_{\infty}(\varOmega)$.
+\end{exercise}
+
+\begin{proof}
+    (a) 因 $0<p<q\leq\infty$, 故可设 $\frac{1}{p}=\frac{1}{q}+\frac{1}{r}$, 其中 $r>0$.
+    因 $\mu(\varOmega)<\infty$, 故 $\int_{\varOmega}1^r\diff\mu=\mu(\varOmega)<\infty\Rightarrow 1\in L_r(\varOmega)$.
+    任取 $f\in L_q(\varOmega)$, 由 H\"older 不等式可得 $f=f\cdot 1\in L_p(\varOmega)$, 且
+    \[\|f\|_p\leq\|f\|_q\|1\|_r=\|f\|_q\cdot\big(\mu(\varOmega)\big)^{1/r},\]
+    因此 $L_q(\varOmega)\subset L_p(\varOmega)$.
+
+    当 $\mu(\varOmega)=\infty$ 时, $L_q(\varOmega)\subset L_p(\varOmega)$
+    不一定成立, 例如取 $f(x)=\frac{1}{x}$, 则 $f\in L_2([1,\infty))$,
+    但 $f\notin L_1([1,\infty))$.
+
+    (b) 对于任意 $p<\infty$, 有 $\frac{1}{p}=\frac{1}{\infty}+\frac{1}{p}$.
+    又因为 $f\in L_{\infty}(\varOmega)$, $1\in L_p(\varOmega)$, 所以由 H\"older 不等式
+    知 $f=f\cdot 1\in L_p(\varOmega)$, 从而 $f\in\bigcap\limits_{p<\infty}L_p(\varOmega)$.
+    又因
+    \[\|f\|_p=\biggl(\int_{\varOmega}|f|^p\diff\mu\biggr)^{1/p}\leq\biggl(\int_{\varOmega}\|f\|_{\infty}^p\diff\mu\biggr)^{1/p}=\|f\|_{\infty}\bigl(\mu(\varOmega)\bigr)^{1/p},\]
+    故
+    \begin{equation}
+        \limsup_{p\to\infty}\|f\|_p\leq\|f\|_{\infty}.\tag{$\star$}
+    \end{equation}
+
+    任意固定 $\delta>0$, 令 $\varOmega_{\delta}=\{x\mid |f(x)|>\|f\|_{\infty}-\delta\}$,
+    则 $\mu(\varOmega_{\delta})>0$, 否则的话, 假设 $\mu(\varOmega_{\delta})=0$,
+    则由本性上确界的定义知 $\|f\|_{\infty}\leq\|f\|_{\infty}-\delta$, 矛盾. 故
+    \[\|f\|_p=\biggl(\int_{\varOmega}|f|^p\diff\mu\biggr)^{1/p}\geq\biggl(\int_{\varOmega_{\delta}}(\|f\|_{\infty}-\delta)^p\diff\mu\biggr)^{1/p}=(\|f\|_{\infty}-\delta)\bigl(\mu(\varOmega_{\delta})\bigr)^{1/p},\]
+    两侧取下极限并结合 $\delta$ 的任意性, 得
+    \begin{equation}
+        \liminf_{p\to\infty}\|f\|_p\geq\|f\|_{\infty}.\tag{$\star\star$}
+    \end{equation}
+    由 $(\star)(\star\star)$ 得 $\lim_{p\to\infty}\|f\|_p=\|f\|_{\infty}$.
+
+    (c) 假设 $f\notin L_{\infty}(\varOmega)$, 则对任意 $M>0$,
+    存在 $A\in\mathcal{A}$, 使得 $\mu(A)>0$ 且在 $A$ 上 $|f|>M$, 则
+    \[\|f\|_p=\biggl(\int_{\varOmega}|f|^p\diff\mu\biggr)^{1/p}\geq\biggl(\int_A M^p\diff\mu\biggr)^{1/p}=M\cdot(\mu(A))^{1/p},\]
+    于是
+    \[\limsup_{p\to\infty}\|f\|_p\geq M.\]
+    由于 $M$ 是任意的, 故上式与 $\limsup_{p\to\infty}\|f\|_p<\infty$ 相矛盾.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    设 $0<p<q\leq\infty$, $0\leq\theta\leq 1$. 并令
+    \[\frac{1}{s}=\frac{\theta}{p}+\frac{1-\theta}{q}.\]
+    证明若 $f\in L_p(\varOmega)\cap L_q(\varOmega)$, 则
+    \[f\in L_s(\varOmega)\quad\text{且}\quad \|f\|_s\leq\|f\|_p^{\theta}\|f\|_q^{1-\theta}.\]
+\end{exercise}
+
+\begin{proof}
+    $\theta=0$ 与 $\theta=1$ 的情形是平凡的, 故只需考虑 $0<\theta<1$.
+    因 $f\in L_p(\varOmega)$, 故 $f^{\theta}\in L_{\frac{p}{\theta}}(\varOmega)$.
+    又因 $f\in L_q(\varOmega)$, 故 $f^{1-\theta}\in L_{\frac{q}{1-\theta}}(\varOmega)$.
+    而 $\frac{1}{s}=\frac{1}{p/\theta}+\frac{1}{q/(1-\theta)}$, 故由 H\"older 不等式知
+    $f=f^{\theta}f^{1-\theta}\in L_s(\varOmega)$ 且
+    \[\|f\|_s\leq\|f^{\theta}\|_{\frac{p}{\theta}} \|f^{1-\theta}\|_{\frac{q}{1-\theta}}=\|f\|_p^{\theta} \|f\|_q^{1-\theta}.\qedhere\]
+\end{proof}
+
+
+
+
+\begin{exercise}
+    (\textbf{广义 Minkowski 不等式}) 
+    设 $\left(\varOmega_{1}, \mathcal{A}_{1}, \mu_{1}\right)$ 
+    和 $\left(\varOmega_{2}, \mathcal{A}_{2}, \mu_{2}\right)$ 是两个测度空间, $0<p<q<\infty$. 
+    证明对任意可测函数 
+    $f:\left(\varOmega_{1} \times \varOmega_{2}, \mathcal{A}_{1} \otimes \mathcal{A}_{2}\right) \rightarrow\FK$, 有
+    \begin{align*}
+        &\left(\int_{\varOmega_{2}}\left(\int_{\varOmega_{1}}\left|f\left(x_{1}, x_{2}\right)\right|^{p}\diff\mu_{1}(x_{1})\right)^{\frac{q}{p}}\diff \mu_{2}\left(x_{2}\right)\right)^{\frac{1}{q}} \\
+   \leq &\left(\int_{\varOmega_{1}}\left(\int_{\varOmega_{2}}\left|f\left(x_{1}, x_{2}\right)\right|^{q}\diff\mu_{2}\left(x_{2}\right)\right)^{\frac{p}{q}}\diff\mu_{1}\left(x_{1}\right)\right)^{\frac{1}{p}}.
+    \end{align*}
+\end{exercise}
+
+\begin{proof}
+    首先由 Fubini 定理可得
+    \begin{align*}
+        & \int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2) \\
+    ={} & \int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}-1}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)\diff\mu_2(x_2) \\
+    ={} & \int_{\varOmega_1}\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}-1}\cdot |f(x_1,x_2)|^p\diff\mu_2(x_2)\diff\mu_1(x_1).
+    \end{align*}
+    然后由 H\"older 不等式得
+    \begin{align*}
+        & \int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}-1}\cdot |f(x_1,x_2)|^p\diff\mu_2(x_2) \\
+    \leq{} & \biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{q-p}{q}}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q\diff\mu_2(x_2)\biggr)^{\frac{p}{q}}.
+    \end{align*}
+    故
+    \begin{align*}
+        & \int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2) \\
+    \leq{} & \biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{q-p}{q}}\cdot\int_{\varOmega_1}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q\diff\mu_2(x_2)\biggr)^{\frac{p}{q}}\diff\mu_1(x_1).
+    \end{align*}
+    即
+    \[\biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{p}{q}}\leq\int_{\varOmega_1}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q\diff\mu_2(x_2)\biggr)^{\frac{p}{q}}\diff\mu_1(x_1).\]
+    因此
+    \begin{align*}
+        & \left(\int_{\varOmega_{2}}\left(\int_{\varOmega_{1}}\left|f\left(x_{1}, x_{2}\right)\right|^{p}\diff\mu_{1}(x_{1})\right)^{\frac{q}{p}}\diff \mu_{2}\left(x_{2}\right)\right)^{\frac{1}{q}} \\
+    \leq{} & \left(\int_{\varOmega_{1}}\left(\int_{\varOmega_{2}}\left|f\left(x_{1}, x_{2}\right)\right|^{q}\diff\mu_{2}\left(x_{2}\right)\right)^{\frac{p}{q}}\diff\mu_{1}\left(x_{1}\right)\right)^{\frac{1}{p}}.\qedhere
+    \end{align*}
+\end{proof}
+
+
+
+% \setcounter{exercise}{13}
+\begin{exercise}
+    设 $0<p<\infty$.
+    \begin{enumerate}[(a)]
+        \item 对任意 $x=(x_n)\in\ell_p$ 定义 $(0,1)$ 上如下的函数
+        \[T(x)(t)=\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}x_n\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t).\]
+        证明 $T$ 是 $\ell_p$ 到 $L_p(0,1)$ 的线性等距同构映射.
+        \item 假设 $p\geq 1$ 且 $q$ 是 $p$ 的共轭数. 对任意 $f\in L_p(0,1)$, 定义
+        \[S(f)_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}f(t)\diff t,\;\forall n\geq 1\]
+        证明 $S$ 定义了从 $L_p(0,1)$ 到 $\ell_p$ 上的线性映射并且 $S\circ T$ 等于 $\ell_p$ 上的单位映射.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+(a)\begin{itemize}
+\item \[\begin{split}\int_0^1|T(x)(t)|^p\diff t
+&=\int_0^1\left|\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}x_n\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)\right|^p\diff t\\
+&=\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}\left|[n(n+1)]^{\frac{1}{p}}x_n\right|^p\diff t\\
+&=\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)n(n+1)|x_n|^p=\sum_{n=1}^{\infty}|x_n|^p<\infty
+\end{split}\]
+故$T(x)(t)\in L_p(0,1)$.
+\item 线性:\[T(\lambda x+y)(t)=\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}(\lambda x_n+y_n)\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)=\lambda\cdot T(x)+T(y)\]
+\item 等距:由第一条知$\forall x,y\in\ell_p$:
+\[\|T(x-y)(t)\|_p=\left(\int_0^1(T(x-y)(t))^p\diff t\right)^{\frac{1}{p}}=\left(\sum_{n=1}^{\infty}(x_n-y_n)^p\right)^{\frac{1}{p}}=\|x-y\|_p\]故$T$是等距映射
+\end{itemize}
+注意:题目有一点小问题,$T$不是同构,因为不满足满射,例如$f(x)=x\in L_p(0,1)$不存在原像.
+
+(b)\begin{itemize}
+\item \[\sum_{i=1}^n|S(f)_n|^p=\sum_{n=1}^{\infty}[n(n+1)]^{\frac{p}{q}}\left|\int_{\frac{1}{n+1}}^{\frac{1}{n}}f(t)\diff t\right|^p\leq\sum_{n=1}^{\infty}[n(n+1)]^{p-1}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p\]
+\begin{enumerate}[(i)]
+\item 当$p=1$时:
+\[\sum_{n=1}^{\infty}|S(f)_n|\leq\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t=\int_0^1|f(t)|\diff t<\infty\]
+故$(S(f)_n)_{n\geq 1}\in\ell_1$
+\item 当$p>1$时:
+\[\begin{split}\sum_{n=1}^{\infty}|S(f)_n|^p&\leq\sum_{n=1}^{\infty}\frac{1}{n(n+1)}\cdot (n(n+1))^p\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p\\&=\sum_{n=1}^{\infty}\frac{1}{n(n+1)}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p\end{split}\]
+由 H\"older 不等式得:
+\[\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\leq\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\right)^{\frac{1}{p}}\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}(n(n+1))^q\right)^{\frac{1}{q}}\]
+故\[\begin{split}
+\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p
+&\leq\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot\left((n(n+1))^q\frac{1}{n(n+1)}\right)^{\frac{p}{q}}\\
+&=\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot(n(n+1))^{(p-1)(q-1)}\\
+&=n(n+1)\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t
+\end{split}\]
+从而
+\[\sum_{n=1}^{\infty}|S(f)_n|^p\leq\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t=\int_0^1|f(t)|^p\diff t<\infty\]
+\end{enumerate}
+综上知 $S$ 确实将 $L_p(0,1)$ 中得元素映到 $\ell_p$ 中
+\item 线性:
+\[S(\lambda f+g)_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}(\lambda f(t)+g(t))\diff t=\lambda S(f)_n+S(g)_n\]
+\item 单位映射: $\forall x\in\ell_p$, 有
+\[((S\circ T)(x))_n=(S(T(x)(t)))_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}[n(n+1)]^{\frac{1}{p}}x_n\diff t=x_n\]
+故 $(S\circ T)(x)=x$, 即 $S\circ T$ 是 $\ell_p$ 上的单位映射.
+\end{itemize}
+证毕.
+\end{proof}
+
+
+
+
+\begin{exercise}
+    (a) 证明: 若 $(E,d)$ 是可分的度量空间, $F\subset E$,
+    则 $(F,d)$ 也是可分的度量空间.
+
+    (b) 证明: $\FR^{n}, c_{0}, \ell_{p}, 1 \leq p<\infty, C([a, b], \FR), C_{0}(\FR, \FR)$ 
+    和 $L_{p}(0,1), 1 \leq p<\infty$, 都是可分的.
+
+    (c) 设 $C=\{-1,1\}^{\mathbb{N}}$ 是 $\ell_{\infty}$ 的子集, 
+    它由所有的每项是 $1$ 或 $-1$ 的序列构成. 首先验证若 $x$ 和 $y$ 是 $C$ 中两个不同序列, 
+    则 $\|x-y\|_{\infty}=2$. 再证明 $C$ 不可数, 由此导出 $\ell_{\infty}$ 不可分.
+    类似证明 $L_{\infty}(0,1)$ 不可分.
+\end{exercise}
+
+\begin{proof}
+    (a) 因 $(E,d)$ 可分, 故有可数稠密子集 $A$, 令 $B=A\cap F$,
+    则 $B$ 为 $(F,d)$ 的可数稠密子集, 从而 $(F,d)$ 可分.
+
+    (b) 令 $\FQ^n=\{(q_1,\cdots,q_n)\mid q_i\in\FQ, 1\leq i\leq n\}$, 
+    则 $\FQ^n$ 为 $\FR^n$ 的可数稠密子集.
+
+    $c_0$ 可分: 令 $S_k=\{(a_0,\cdots,a_k,0,\cdots)\mid a_i\in\FQ,1\leq i\leq k\}$,
+    $S=\bigcup_{k\geq 1}S_k$, 则 $S$ 为可数集.
+    任取 $y=(y_n)_{n\geq 1}\in c_0$, 由于 $\lim_{n\to\infty}|y_n|=0$,
+    故对任意 $\epsilon>0$, 存在 $N$, 使得当 $n>N$ 时, $|y_n|<\epsilon$.
+    由 $\FQ$ 在 $\FR$ 中稠密可知存在 $x=(x_1,\cdots,x_N,0,\cdots)\in S_N$,
+    使得 $|x_i-y_i|<\epsilon(1\leq i\leq N)$, 从而 $\|x-y\|_{\infty}<\epsilon$,
+    从而 $S$ 在 $c_0$ 中稠密.
+
+    (c) 我们先说明一个引理:
+    设 $(E,d)$ 为度量空间, $U\subset E$ 为不可数子集且存在 $r>0$,
+    使得对任意 $x,y\in U$, $x\neq y$, 有 $d(x,y)\geq r$,
+    则 $E$ 不可分.
+    \begin{proof}[引理证明]
+        假设 $E$ 存在可数稠密子集 $C$, 即 $C=(x_n)_{n\geq 1}$ 且 $\closure{C}=E$.
+        首先我们有 $E=\bigcup_{n=1}^{\infty}B(x_n,\frac{r}{2})$,
+        事实上, 任取 $x\in E=\closure{C}$, 由闭包的性质知 $B(x,\frac{r}{2})\cap C\neq\emptyset$,
+        即存在 $C$ 中某 $x_n$ 使得 $x_n\in B(x,\frac{r}{2})$,
+        而 $x_n\in B(x,\frac{r}{2})\Leftrightarrow x\in B(x_n,\frac{r}{2})$, 因此
+        $x\in\bigcup_{n=1}^{\infty}B(x_n,\frac{r}{2})$, 从而 $E=\bigcup_{n=1}^{\infty}B(x_n,\frac{r}{2})$. 
+        (从过程可看出, 这里的 $\frac{r}{2}$ 可替换为任意的正常数, 只不过为下面导出矛盾,
+        故选择 $\frac{r}{2}$).
+
+        于是 $U\subset\bigcup_{n=1}^{\infty}B(x_n,\frac{r}{2})$,
+        而 $U$ 为不可数子集, 故必存在不同两点 $x,y\in U$ 包含于同一个球 $B(x_n,\frac{r}{2})$ 中,
+        那么 $d(x,y)<r$, 矛盾. 这就说明 $E$ 不可分.
+    \end{proof}
+    
+    $\ell_{\infty}$ 不可分: 考虑 $\ell_{\infty}$ 的子集 $C=\{1,-1\}^{\FN}$, 
+    若 $x=(x_n)_{n\geq 1}$ 与 $y=(y_n)_{n\geq 1}$ 是 $C$ 中两个不同序列, 
+    则必存在某 $n_0\geq 1$, 使得 $x_{n_0}\neq y_{n_0}\Rightarrow |x_{n_0}-y_{n_0}|=2$,
+    从而 $\|x-y\|_{\infty}=2$. 根据实变函数中的技巧, 将 $C$ 中元素与无限小数表示对应可证
+    $C$ 的基数为 $c$, 即 $C$ 不可数. 因此 $\ell_{\infty}$ 不可分.
+
+    $L_{\infty}(0,1)$ 不可分: 考虑 $L_{\infty}(0,1)$ 的子集
+    $A=(\mathbbm{1}_{(0,r)})_{0<r<1}$, 显然 $A$ 为不可数子集,
+    且对于任意的 $r_1\neq r_2$, 有 $\|\mathbbm{1}_{(0,r_1)}-\mathbbm{1}_{(0,r_2)}\|_{\infty}=1$,
+    故 $L_{\infty}(0,1)$ 不可分. 
+\end{proof}
+
+
+
+
+\begin{exercise}
+     (\textbf{卷积}) 
+     在实数集 $\FR$ 上取 Lebesgue $\sigma$-代数及 Lebesgue 测度, 并设 $f,g\in L_{1}(\FR)$.
+
+     (a) 证明
+    \begin{align*}
+        \int_{\FR\times\FR} f(u)g(v)\diff u\diff v 
+        & =\left[\int_{\FR} f(u) \diff u\right]\left[\int_{\FR} g(v) \diff v\right] \\
+        & =\int_{\FR}\left[\int_{\FR} f(x-y)g(y) \diff y\right] \diff x.
+    \end{align*}
+    由此导出函数 $x\mapsto\int_{\FR} f(x-y)g(y)\diff y$ 在 $\FR$ 上几乎处处有定义.
+
+    (b) 我们定义 $f$ 和 $g$ 的卷积 $f*g$ 为
+    \[
+    f*g(x)= \begin{cases}
+        \int_{\FR} f(x-y)g(y) \diff y, & \text{当积分存在, } \\ 
+        0, & \text{其他.}\end{cases}
+    \]
+    证明 $f*g\in L_{1}(\FR)$ 且 $\|f*g\|_1\leq\|f\|_1\|g\|_1$.
+
+    (c) 取 $f=\mathbbm{1}_{[0,1]}$, 计算 $f*f$.
+\end{exercise}
+
+\begin{proof}
+    首先容易验证 $f(x-y)g(y)$ 为可测函数, 故由 Tonelli 定理得
+    \begin{align*}
+        \int_{\FR^2} |f(x-y)g(y)|\diff(x,y)
+        & =\int_{\FR}\int_{\FR} |f(x-y)g(y)|\diff x\diff y \\
+        & =\int_{\FR}|g(y)|\int_{\FR} |f(x-y)|\diff x\diff y \\
+        & =\|f\|_{L_1}\int_{\FR}|g(y)|\diff y=\|f\|_{L_1}\|g\|_{L_1}<\infty.
+    \end{align*}
+    故 $f(x-y)g(y)$ 在 $\FR^2$ 上可积, 由 Fubini 定理立即可得对于几乎处处的 $x\in\FR$, 有
+    \[\int_{\FR}f(x-y)g(y)\diff y<\infty,\]
+    也即函数 $x\mapsto\int_{\FR}f(x-y)g(y)\diff y$ 在 $\FR$ 上几乎处处有定义.
+
+    (b) 由 (a) 中结论知
+    \begin{align*}
+        \int_{\FR}|f*g(x)|\diff x
+        & =\int_{\FR}\left|\int_{\FR}f(x-y)g(y)\diff y\right|\diff x \\
+        & \leq\int_{\FR}\int_{\FR}|f(x-y)g(y)|\diff y\diff x \\
+        & =\|f\|_{L_1}\|g\|_{L_1}<\infty.
+    \end{align*}
+    故 $f*g\in L_1(\FR)$ 且 $\|f*g\|_{L_1}\leq\|f\|_{L_1}\|g\|_{L_1}$.
+
+    (c) 由定义
+    \begin{align*}
+        f*f(x)
+        & =\int_{\FR} f(x-y)f(y)\diff y=\int_{\FR} \mathbbm{1}_{[0,1]}(x-y)\mathbbm{1}_{[0,1]}(y)\diff y \\
+        & =\int_0^1 \mathbbm{1}_{[0,1]}(x-y)\diff y.
+    \end{align*}
+    分类讨论可得, 当 $x<0$ 时, $f*f(x)=0$;
+    当 $0\leq x\leq 1$ 时, $f*f(x)=x$;
+    当 $1<x\leq 2$ 时, $f*f(x)=2-x$;
+    当 $x>2$ 时, $f*f(x)=0$.
+\end{proof}
+
+
+
+\begin{exercise}
+    在 $\FR$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
+    \[
+    F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.
+    \]
+    本题的目标是证明 Hardy 不等式:
+    \begin{equation}
+    \|F\|_{p} \leq \frac{p}{p-1}\|f\|_{p}, \forall f \in L_{p}(0,+\infty). \tag{$\star$}
+    \end{equation}
+
+    (a) 首先说明 $F$ 在 $(0,+\infty)$ 上的定义是合理的, 并且
+    \[
+    |x_1 F(x_1)-x_2 F(x_2)| \leq|x_1-x_2|^{\frac{1}{q}}\|f\|_{p}, \quad \forall x_{1}, x_{2}>0.
+    \]
+    这里 $q$ 是 $p$ 的共轭数. 并由此证明 $F$ 在 $(0,+\infty)$ 上连续, 故可测.
+
+    (b) 假设 $f$ 是有紧支撑的连续函数且 $f \geq 0$. 证明 $F$ 在 $(0, \infty)$ 上连续可导且 有
+    \[
+    (p-1)\int_{0}^{+\infty} F(x)^{p}\diff x = p\int_{0}^{+\infty} F(x)^{p-1}f(x)\diff x.
+    \]
+    并由此导出公式 $(\star)$.
+
+    (c) 证明公式 $(\star)$ 对所有的 $f \in L_{p}(0,+\infty)$ 成立.
+
+    (d) 用反例说明当 $p=1$ 时, $(\star)$ 不成立, 即不存在任何常数 $C>0$, 使得
+    \[
+    \|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty).
+    \]
+
+    (e) 证明 $\frac{p}{p-1}$ 是使得 $(\star)$ 式成立的最优常数. 也就是说, 若有 $C>0$ 使得
+    \[
+    \|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty),
+    \]
+    则 $C\geq\frac{p}{p-1}$.
+
+    提示: 考虑函数 $f(x)=x^{-\frac{1}{p}} \mathbbm{1}_{[1, n]}(x)$ 和极限
+    \[
+    \left\|F \mathbbm{1}_{[1, n]}(x)\right\|_{p} /\|f\|_{p}, n \rightarrow \infty.
+    \]
+\end{exercise}
+
+\begin{proof}
+    (a) 不妨设 $x_1\leq x_2$, 则
+    \begin{align*}
+        |x_1f(x_1)-x_2f(x_2)|
+        & =\left|\int_0^{x_1}f(t)\diff t-\int_0^{x_2}f(t)\diff t\right| \\
+        & =\left|\int_{x_1}^{x_2} f(t)\diff t\right| \\
+        & \leq \int_{x_1}^{x_2}|f(t)|\diff t \\
+        & \leq\biggl(\int_{x_1}^{x_2}|f(t)|^p\diff t\biggr)^{\frac{1}{p}}\biggl(\int_{x_1}^{x_2} 1 \diff t\biggr)^{\frac{1}{q}} \\
+        & \leq |x_1-x_2|^{\frac{1}{q}}\|f\|_p.
+    \end{align*}
+
+    (b) 注意到 $(xF(x))'=f(x)$, 故由分部积分得
+    \begin{align*}
+        p\int_0^{+\infty} F(x)^{p-1}f(x)\diff x
+        & =p\int_0^{+\infty} F(x)^{p-1}\diff (xF(x)) \\
+        & =pxF(x)^p|_0^{+\infty}-p\int_0^{+\infty} xF(x)(p-1)F(x)^{p-2}\diff F(x) \\
+        & =-p(p-1)\int_0^{+\infty}xF(x)^{p-1}\diff F(x) \\
+        & =-(p-1)\int_0^{+\infty}x\diff F(x)^p \\
+        & =-(p-1)xF(x)^p|_0^{+\infty}+(p-1)\int_0^{+\infty} F(x)^p\diff x \\
+        & =(p-1)\int_0^{+\infty}F(x)^p\diff x.
+    \end{align*}
+\end{proof}
+
+
+
+\begin{exercise}
+    令 $2 \leq p<\infty$, 在本题中 $L_{p}(\mathbb{R})$ 简单记作 $L_{p}$.
+
+    (a) 我们的第一个目标是证明 \textbf{Clarkson 不等式}:
+    \[
+    \left\|\frac{f+g}{2}\right\|_{p}^{p}+\left\|\frac{f-g}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left(\|f\|_{p}^{p}+\|g\|_{p}^{p}\right), \quad \forall f, g \in L_{p}.
+    \]
+    \begin{enumerate}[(i)]
+        \item 任取 $s, t \in[0,+\infty)$, 证明 $s^{p}+t^{p} \leq\left(s^{2}+t^{2}\right)^{\frac{p}{2}}$.
+        \item 任取 $a, b \in \FR$, 证明
+        \[
+        \left|\frac{a+b}{2}\right|^{p}+\left|\frac{a-b}{2}\right|^{p} \leq \frac{1}{2}\left(|a|^{p}+|b|^{p}\right).
+        \]
+        \item 导出 Clarkson 不等式.
+    \end{enumerate}
+
+    (b) 设 $C$ 是 $L_{p}$ 空间中的非空门凸集, 
+    且 $f \in L_{p}$, 并记 $d=d(f, C)$. 我们的第二个目标是证明: 
+    存在唯一的函数 $g_{0} \in C$, 使得 $d=\left\|f-g_{0}\right\|_{p}$.
+    \begin{enumerate}[(i)]
+        \item 解释为什么存在 $C$ 中的序列 $\left(g_{n}\right)_{n \geq 1}$, 使得
+        \[
+        \left\|f-g_{n}\right\|_{p}^{p} \leq d^{p}+\frac{1}{n}, \quad \forall n \in \mathbb{N}^{*}.
+        \]
+        \item 运用 Clarkson 不等式证明
+        \[
+        \left\|\frac{g_{n}-g_{m}}{2}\right\|_{p}^{p} \leq \frac{1}{2n}+\frac{1}{2m}, \quad \forall n, m \in \mathbb{N}^{*}.
+        \]
+        \item 导出: 存在函数 $g_{0} \in C$, 使得 $d(f, C)=\left\|f-g_{0}\right\|_{p}$.
+        \item 证明这样的函数 $g_{0} \in C$ 是唯一的. 当证明了该命题后, 将 $g_{0}$ 记为 $P_{C}(f)$.
+    \end{enumerate}
+
+    (c) 最后我们的目标是证明映射 $P_{C}: L_{p} \rightarrow C$ 的连续性.
+    \begin{enumerate}[(i)]
+        \item 证明
+        \[
+        \left\|g-P_{C}(g)\right\|_{p} \leq\|f-g\|_{p}+\left\|f-P_{C}(f)\right\|_{p}, \quad \forall f, g \in L_{p}.
+        \]
+        \item 运用 Clarkson 不等式, 证明
+        \[
+        \left\|\frac{P_{C}(f)-P_{C}(g)}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left\|f-P_{C}(g)\right\|_{p}^{p}-\frac{1}{2}\left\|f-P_{C}(f)\right\|_{p}^{p}, \quad \forall f, g \in L_{p}.
+        \]
+        \item 最后导出 $P_{C}$ 的连续性.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+     (a)(i) 当 $t=0$ 时不等式显然成立, 当 $t\neq 0$ 时, 原不等式等价于
+     \[\left(\frac{s}{t}\right)^p+1\leq\left(\left(\frac{s}{t}\right)^2+1\right)^{\frac{p}{2}}.\]
+     令 $f(x)=(x^2+1)^{\frac{p}{2}}-x^p$, $x\geq 0$, 则
+     $f'(x)=px(x^2+1)^{\frac{p}{2}-1}-px^{p-1}\geq 0$,
+     故 $f(x)\geq f(0)=1$, 此蕴含所证不等式.
+
+     (ii) 由 (i) 中结论和 $x\mapsto x^{\frac{p}{2}}$ 的凸性得
+     \begin{align*}
+         \left|\frac{a+b}{2}\right|^p+\left|\frac{a-b}{2}\right|^p
+         & \leq\biggl(\left|\frac{a+b}{2}\right|^2+\left|\frac{a-b}{2}\right|^2\biggr)^{\frac{p}{2}}  =\biggl(\frac{a^2+b^2}{2}\biggr)^{\frac{p}{2}} \\
+         & \leq\frac{1}{2}\left[(a^2)^{\frac{p}{2}}+(b^2)^{\frac{p}{2}}\right] =\frac{1}{2}(|a|^p+|b|^p).
+     \end{align*}
+
+     (iii) 由 (ii) 中结论可得
+     \begin{align*}
+        \left\|\frac{f+g}{2}\right\|_{p}^{p}+\left\|\frac{f-g}{2}\right\|_{p}^{p}
+        & =\int_{\FR}\left|\frac{f(x)+g(x)}{2}\right|^p+\left|\frac{f(x)-g(x)}{2}\right|^p\diff x \\
+        & \leq\frac{1}{2}\int_{\FR} |f(x)|^p+|g(x)|^p \diff x \\
+        & =\frac{1}{2}(\|f\|_p^p+\|g\|_p^p).
+     \end{align*} 
+
+     (b)(i) 因 $d^p=d^p(f,C)=\inf\{\|f-g\|_p^p\mid g\in C\}$, 故由下确界的定义知
+     对于任意 $n\in\FN^*$, 存在 $g_n\in C$, 使得
+     \[\|f-g_n\|_p^p\leq d^p+\frac{1}{n}.\]
+
+     (ii) 由于
+     \[\|f-g_m\|_p^p\leq d^p+\frac{1}{m},\quad \|f-g_n\|_p^p\leq d^p+\frac{1}{n}.\]
+     故结合 Clarkson 不等式得
+     \[\left\| f-\frac{g_m+g_n}{2}\right\|_p^p+\left\|\frac{g_m-g_n}{2}\right\|_p^p\leq\frac{1}{2}\left(\|f-g_m\|_p^p+\|f-g_n\|_p^p\right)\leq d^p+\frac{1}{2m}+\frac{1}{2n}.\]
+     因 $C$ 为凸集, 故 $\frac{g_m+g_n}{2}\in C$, 从而 $\left\|f-\frac{g_m+g_n}{2}\right\|_p^p\geq d^p$,
+     代入上述不等式得
+     \[\left\|\frac{g_m-g_n}{2}\right\|_p^p\leq\frac{1}{2m}+\frac{1}{2n}.\]
+
+     (iii) 由 (ii) 知 $\|\frac{g_n-g_m}{2}\|_p^p\to 0$ ($m,n\to\infty$),
+     故 $(g_n)_{n\geq 1}$ 为 $C$ 中 Cauchy 序列. 注意到 $C$ 为 Banach 空间 $L_p$
+     的闭子集, 故 $C$ 完备, 从而 $(g_n)_{n\geq 1}$ 在 $C$ 中收敛, 记收敛值为 $g_0$.
+     在 $\|f-g_n\|_p^p\leq d^p+\frac{1}{n}$ 两侧取极限, 即得 $\|f-g_0\|_p=d$.
+
+     (iv) 假设存在 $g_1\in C$, 使得 $d(f,C)=\|f-g_1\|_p$, 则由 Clarkson 不等式得
+     \begin{align*}
+         d^p
+         & =\frac{1}{2}\left(\|f-g_0\|_p^p+\|f-g_1\|_p^p\right) \\
+         & \geq\left\|f-\frac{g_0+g_1}{2}\right\|_p^p+\left\|\frac{g_0-g_1}{2}\right\|_p^p\geq d^p+\left\|\frac{g_0-g_1}{2}\right\|_p^p.
+     \end{align*}
+     故 $g_0=g_1$, 唯一性得证.
+
+     (c)(i) 由 Minkowski 不等式得
+     \[\|g-P_C(g)\|_p\leq\|g-P_C(f)\|_p\leq\|f-g\|_p+\|f-P_C(f)\|_p.\]
+
+     (ii) 由 Clarkson 不等式知
+     \[\left\|f-\frac{P_C(f)+P_C(g)}{2}\right\|_p^p+\left\|\frac{P_C(f)-P_C(g)}{2}\right\|_p^p\leq\frac{1}{2}\left(\|f-P_C(f)\|_p^p+\|f-P_C(g)\|_p^p\right).\]
+     结合 $\left\|f-\frac{P_C(f)+P_C(g)}{2}\right\|_p^p\geq \|f-P_C(f)\|_p^p$, 即得
+     \[
+         \left\|\frac{P_{C}(f)-P_{C}(g)}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left\|f-P_{C}(g)\right\|_{p}^{p}-\frac{1}{2}\left\|f-P_{C}(f)\right\|_{p}^{p}.
+     \]
+
+     (iii) 
+\end{proof}
