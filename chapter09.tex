@@ -1,44 +1,275 @@
 \chapter{Banach空间的对偶理论}
-线性映射$x\to B(x,\cdot)$是从$E$到$E^{**}$的等距映射($E\hookrightarrow E^{**}$),但是不一定是满的(可以取$E$不完备,但是不管怎样,$E^*$和$E^{**}$都是完备的,因此$E$与$E^{**}$不可能等距同构),这就说明自反空间必是Banach空间\\\\
-1.解:(a)由定义$\|f_n\|=\sup_{\|x\|\leq1}|f_n(x)|$,故存在序列$(x_n)$使得$f_n(x_n)\geq\frac{\|f_n\|}{2}$\\
-(b)因$(f_n)$在$E^*$中稠密,故\[\forall n\geq1,\exists f_n,s.t.\|f_n-f\|<\frac{1}{n}\]
-又\[\|f_n-f\|\geq|f_n(x_n)-f(x_n)|=|f_n(x_n)|\geq\frac{\|f_n\|}{2}\]
-故\[\|f\|\leq\|f-f_n\|+\|f_n\|<\frac{1}{n}+\frac{2}{n}\to0(n\to\infty)\]
-因此$f=0$\\
-(c)记$A=\overline{span(x_1,x_2,\cdots)}$,显然$A$是$E$的闭向量子空间,假设$A\neq E$,则存在$x_0\in E\backslash A$,由推论8.1.16知
-\[\exists f\in E^*,s.t.f|_A=0,f(x_0)=d(x_0,A)>0\]
-这与(b)中结论矛盾,故假设不成立,所以$\overline{span(x_1,x_2,\cdots)}=E$,下面证明$E$是可分的:\\
-记$\mathbb{Q}=\{q_i\}_{i=1}^{\infty}$,则$\{\sum_{i=1}^nq_ix_i,n\geq1\}$是$E$的可数稠密子集\\
-(d)设$E$是可分且自反的Banach空间,则$E^{**}=E$可分,由(c)中结论知$E^*$可分,当$E^*$是可分且自反的,显然$E$是可分且自反的\\
-(e)$\ell_1$可分,但$\ell_1^*=\ell_{\infty}$不可分\\\\
-10.\textit{Proof}:任取$a=(a_i)_{i\geq1}\in\ell_q$,令
-\[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in\ell_p\]
-则由$H\ddot{o}lder$不等式得
-\[|f_a(x)|\leq\|x\|_{\ell_p}\|a\|_{\ell_q},x=(x_i)\in\ell_p\]
-即得$f_a\in\ell_p^*$,下面任取$f\in\ell_p^*$,证明反向的结论成立\\
-对任意$x=(x_1,x_2,\cdots)\in\ell_p$,记$x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$,则$x^{(n)}\xrightarrow{\|\cdot\|_p}x$.用$e_1,e_2,\cdots$表示$\ell_p$中的标准基,因为$f\in\ell_p^*$,所以
-\[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}\sum_{i=1}^nf(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i\]
-下证$(a_i)_{i\geq1}\in\ell_q.\forall n\geq 1$,令$a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$,取
-\[x^{(n)}=\left(\frac{|a_1|^{q-1}\sgn a_1}{\|a^{(n)}\|^{\frac{q}{p}}_q},\cdots,\frac{|a_n|^{q-1}\sgn a_n}{\|a^{(n)}\|^{\frac{q}{p}}_q},0,\cdots\right)\]
-则由$p(q-1)=q$知
-\[\|x^{(n)}\|_{\ell_p}=\left(\frac{|a_1|^q}{\|a^{(n)}\|^q_q}+\cdots+\frac{|a_n|^q}{\|a^{(n)}\|^q_q}\right)^{1/p}=1\]
-并且由$\sgn a_i\cdot f(e_i)=|a_i|$得
-\[f(x^{(n)})=\frac{|a_1|^{q-1}\cdot|a_1|}{\|a^{(n)}\|^{\frac{q}{p}}_q}+\cdots+\frac{|a_n|^{q-1}\cdot|a_n|}{\|a^{(n)}\|^{\frac{q}{p}}_q}=\frac{\|a^{(n)}\|_q^q}{\|a^{(n)}\|_q^\frac{q}{p}}=\|a^{(n)}\|_q\]
-因此有$\|a^{(n)}\|_q\leq\|f\|\Rightarrow\|a\|_q\leq\|f\|$,于是建立了$\ell_p^*$到$\ell_q$的等距同构映射:
-\[J:\ell_p^*\to\ell_q,f\mapsto a=(a_1,a_2,\cdots)\]
-下面证明$c_0^*=\ell_1,c_0=\{x=(x_n)_{n\geq1}:\lim_{n\to\infty}x_n=0\}\subset\ell_{\infty}$,这里的证明方法与上面证明$\ell_p^*=\ell_q(1\leq p<\infty)$是完全类似的.\\
-$\forall a=(a_i)_{i\geq 1}\in\ell_1$,令
-\[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in c_0\]
-则\[|f_a(x)|\leq\|a\|_{\ell_1}\|x\|_{c_0},x=(x_i)\in c_0\]
-故$f_a\in c_0^*$且$\|f_a\|\leq\|a\|_{\ell_1}$\\
-再任取$f\in c_0^*,\forall x=(x_1,x_2,\cdots)\in c_0$,记$x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$,用$e_1,e_2,\cdots$表示$c_0$中的标准基,则
-\[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}f(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i\]
-下证$a=(a_i)_{i\geq 1}\in\ell_1.\forall n\geq1$,令$a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$,取
-\[x^{(n)}=(\sgn a_1,\cdots,\sgn a_n,0,\cdots)\]
-则\[\|x^{(n)}\|_{c_0}=1\]
-且\[f(x^{(n)})=\sum_{i=1}^nf(e_i)\sgn a_i=\sum_{i=1}^n|a_i|=\|a^{(n)}\|_{\ell_1}\]
-故$\|a^{(n)}\|_{\ell_1}\leq\|f\|\Rightarrow\|a\|_{\ell_1}\leq\|f\|$,这样就建立了等距同构映射:
-\[J:c_0^*\to\ell_1,f\mapsto a=(a_1,a_2,\cdots)\]
-因$c_0^{**}=\ell_1^*=\ell_{\infty}$,故$c_0,\ell_1,\ell_{\infty}$不自反
-\chapter{紧算子}
-\thispagestyle{empty}
+
+
+
+\begin{exercise}
+    设 $E$ 是赋范空间, 并设 $E^*$ 是可分的.
+    \begin{enumerate}[(a)]
+        \item 令 $(f_n)_{n\geq 1}$ 是 $E^*$ 中的稠密子集. 选出 $E$ 中的序列 $(x_n)$ 使得 $f_n(x_n)\geq\frac{\|f_n\|}{2}$.
+        \item 任取 $f\in E^*$. 证明: 若对每个 $x_n$ 有 $f(x_n)=0$, 则 $f=0$.
+        \item 由此导出$\Span(x_1, x_2, \cdots)$在 $E$ 中稠密且 $E$ 是可分的. 
+        \item 证明: 一个 Banach 空间是可分且自反的当且仅当它的对偶空间是可分且自反的. 
+        \item 举一个可分赋范空间但其对偶空间不可分的例子.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) 由定义 $\|f_n\|=\sup\limits_{\|x\|\leq 1}|f_n(x)|$, 
+    故存在序列 $(\widetilde{x_n})_{n\geq 1}\subset\closure{B_E}$, 
+    使得 $|f_n(\widetilde{x_n})|\geq\frac{\|f_n\|}{2}$.
+    令 $x_n=\widetilde{x_n}\sgn f_n(\widetilde{x_n})$, 则 $f_n(x_n)\geq\frac{\|f_n\|}{2}$.
+
+    (b) 任意取定 $\varepsilon>0$, 因 $(f_n)$ 在 $E^*$ 中稠密, 
+    故存在 $f_n$, 使得 $\|f_n-f\|<\varepsilon$, 又
+    \[\|f_n-f\|\geq |f_n(x_n)-f(x_n)|=|f_n(x_n)|\geq\frac{\|f_n\|}{2}.\]
+    故 $\|f_n\|<2\varepsilon$, 从而 $\|f\|\leq\|f-f_n\|+\|f_n\|<3\varepsilon$,
+    由 $\varepsilon$ 的任意性即得 $f=0$.
+
+    (c)记$A=\closure{\Span(x_1,x_2,\cdots)}$, 显然 $A$ 是 $E$ 的闭向量子空间,
+    假设 $A\neq E$, 则存在 $x_0\in E\setminus A$, 由推论 8.1.16 知
+    存在 $f\in E^*$, 使得 $f|_A=0$ 且 $f(x_0)=d(x_0,A)>0$.
+    这与 (b) 中结论矛盾, 故假设不成立, 所以 $\closure{\Span(x_1,x_2,\cdots)}=E$.
+
+    另法: $F:=\Span(x_1,x_2,\cdots)$ 为 $E$ 的向量子空间. 任取 $f\in E^*$ 且 $f|_F=0$,
+    由 (b) 知 $f=0$, 由推论 8.2.7 知 $\Span(x_1,x_2,\cdots)$ 在 $E$ 中稠密.
+
+    记 $\FQ=\{q_i\}_{i=1}^{\infty}$, 
+    则 $\{\sum_{i=1}^nq_ix_i,n\geq 1\}$ 是 $E$ 的可数稠密子集, 故 $E$ 可分.
+
+    (d) \necessary
+    因为 $E$是可分且自反的 Banach 空间, 所以 $E^{**}=E$ 可分,由 (c) 中结论知 $E^*$ 可分且自反.
+    \sufficient
+    当 $E^*$ 是可分且自反的, 直接由 (c) 中结论知 $E$ 是可分且自反的.
+
+    (e) $\ell_1$ 可分, 但$\ell_1^*=\ell_{\infty}$ 不可分.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是 Banach 空间, $B\subset E^*$.
+
+    (a) 证明 $B$ 是相对 $w^*-$ 紧的当且仅当 $B$ 是有界的.
+
+    (b) 假设 $B$ 是有界的且 $E$ 是可分的. 证明 $(B, \sigma(E^*,E))$可度量化. 
+    
+    $\Bigl($提示, 对于 $E$ 的闭单位球中稠密序列 $(x_n)$, 考虑如下距离
+    \[d(x^*, y^*) = \sum_{n\geq 1} 2^{-n}|\lrangle{x^*-y^*}{x_n}|,\;\forall x^*,y^*\in B.\Bigr)\]
+\end{exercise}
+
+\begin{proof}
+    (a) \sufficient 若 $B$ 有界, 则存在 $r>0$, 使得 $B\subset r\closure{B}_{E^*}$,
+    但 $\closure{B}_{E^*}$ 是 $w^*$-紧的, 故 $r\closure{B}_{E^*}$ 是 $w^*$-紧的,
+    从而 $B$ 是相对 $w^*$-紧的.
+
+    \necessary
+    若 $B$ 是相对 $w^*$-紧的, 则 $\closure{B}$ 是 $w^*$-紧的,
+    而对任意 $x\in E$, $\hat{x}\in E\hookrightarrow E^{**}$ 连续,
+    从而 $\hat{x}(\closure{B})$ 是 $\FK$ 中紧集, 有界, 故
+    \[\sup_{f\in\closure{B}}|f(x)|=\sup_{f\in\closure{B}}|\hat{x}(f)|<\infty.\]
+    由共鸣定理得
+    \[\sup_{f\in\closure{B}}\|f\|<\infty.\]
+    故 $\closure{B}$ 有界, 从而 $B$ 有界.
+
+    (b) 设 $(x_n)_{n\geq 1}$ 是 $\closure{B}_E$ 中的稠密序列, 并考虑如下距离
+    \[d(x^*,y^*)=\sum_{n=1}^{\infty}2^{-n}|\innerp{x^*-y^*}{x_n}|,\quad\forall x^*,y^*\in B.\]
+
+    先证明 $d$ 是 $B$ 上的距离:
+    \begin{itemize}
+        \item 非负性: $d\geq 0$.
+        \item 正定性: $d(x^*,y^*)=0\Rightarrow\forall n\geq 1,\innerp{x^*-y^*}{x_n}=0\Rightarrow\forall x\in\closure{B}_E,\innerp{x^*-y^*}{x}=0\Rightarrow x^*-y^*=0\Rightarrow x^*=y^*$.
+        \item 对称性: $d(x^*,y^*)=d(y^*,x^*)$ 显然.
+        \item 三角不等式:
+              \begin{align*}
+                  d(x^*,y^*)+d(y^*,z^*)
+                  & =\sum_{n=1}^{\infty}2^{-n}\bigl(|\innerp{x^*-y^*}{x_n}|+|\innerp{y^*-z^*}{x_n}|\bigr) \\
+                  & \geq\sum_{n=1}^{\infty}2^{-n}|\innerp{x^*-z^*}{x_n}|=d(x^*,z^*).
+              \end{align*}
+    \end{itemize}
+
+    再证明 $d$ 诱导的拓扑恰是 $\sigma(E^*,E)|_B$.
+
+    一方面, 对于任意 $\forall n\geq 1$, 有
+    \[|\innerp{\widehat{x_n}}{x^*-y^*}|=|\innerp{x^*-y^*}{x_n}|\leq 2^n d(x^*,y^*).\]
+    故 $\widehat{x_n}$ 关于 $d$ 连续.
+
+    再任取 $\widehat{x}\in\widehat{E}$, 存在子列 $\widehat{x_{n_k}}\to\widehat{x}$,
+    即 $\|\widehat{x_{n_k}}-\widehat{x}\|=\|x_{n_k}-x\|\to 0$, 于是
+    \[|\widehat{x_{n_k}}(x^*)-\widehat{x}(x^*)|=|\innerp{x^*}{x_{n_k}}-x|\leq\sup_{x^*\in B}\|x^*\|\|x_{n_k}-x\|\to 0.\]
+    因此 $\widehat{x_{n_k}}$ 在 $B$ 上一致收敛于 $\widehat{x}$, 故 $\widehat{x}$ 关于 $d$ 连续.
+
+    另一方面, 任取 $B$ 上关于 $d$ 连续的线性泛函 $f$, 则任取 $B$ 中序列 $y_m^*\to 0$,
+    即 $\|y_m^*\|\to 0$, 则有
+    \[d(y_m^*,0)=\sum_{n=1}^{\infty}2^{-n}|\innerp{y_m^*}{x_n}|\leq\sum_{n=1}^{\infty}\|y_m^*\|=\|y_m^*\|\to 0.\]
+    故 $|f(y_m^*)|\to 0$, 因此 $f$ 关于 $E^*$ 原拓扑连续.
+
+    故 $d$ 诱导的恰是 $\sigma(E^*,E)|_B$.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $E$ 是赋范空间, $A\subset E$.
+
+    (a) 假设 $A$ 是弱紧的. 证明: 若对任意 $f\in E^*$, $\{\lrangle{f}{x}; x\in A\}$ 是有界的, 则 $A$ 是有界的.
+
+    (b) 假设 $A$ 有界且 $E^*$ 可分. 证明: $(A, \sigma(E, E^*))$ 可度量化.
+\end{exercise}
+
+\begin{proof}
+    (a) Let $\varphi_x : E^*\to \mathbb R,f\mapsto \lrangle{f}{x}$, and we obtain $\|\varphi_x\| = \|x\| < +\infty$ which means $\varphi_x\in E^{**}$. Since $A$ is compact in weak topology, then $f(A)$ is compact in $\mathbb R$ and 
+    \[ \sup_{x\in A}|\lrangle{\varphi_x}{f}| = \sup_{x\in A} |\lrangle{f}{x}| < +\infty, \forall f \in E^* \]
+    By Uniform Boundedness Principle, we have $\sup_{x\in A}\|x\| = \sup_{x\in A} \|\varphi_x\| < +\infty$. 
+        
+    (b)Denote $J$ as the canonical projection from $E$ to $E^{**}$. Then $A$'s boundedness means $J(A)$'s boundedness. By the conclution of Ex 9.2, we find that $(J(A), \sigma(E^{**}, E^{*}))$ is metrizable. And then $(A, \sigma(E, E^*))$ is metrizable. 
+\end{proof}
+
+
+
+\begin{exercise}[7]
+    设 $E$ 和 $F$ 是两个 Banach 空间, $u: E^{*} \rightarrow F^{*}$ 是线性映射. 证明: 映射
+    \[
+    u:(E^{*},\sigma(E^{*}, E)) \rightarrow(F^{*}, \sigma(F^{*}, F)).
+    \]
+    连续的充分必要条件是存在 $v\in\mathcal{B}(F, E)$, 使得 $u=v^{*}$. 
+\end{exercise}
+
+\begin{proof}
+    Let $J_X$ denote the canonial injection from $X$ to $X^{**}$. 
+    
+    If $\exists v\in B(F, E)$ s.t. $u = v^*$, we immediately find $u = v^*\in B(E^*, F^*)$. It suffices to check that $\forall x\in F$, $J_F(x)\circ u$ is continous from $E$ weak$^*$ to $\mathbb R$. We obtain  
+    \[ \begin{aligned}
+        J_F(x)\circ u(f) = \lrangle{uf}{x}_{F^*, F}=\lrangle{f}{vx}_{E^*, E}
+    \end{aligned} \]
+    and $vx\in E$, hence $J_F(x)\circ u = J_E(vx)$ is continous on $\sigma(E^*, E)$. Therefore $u$ is continous from $(E, \sigma(E^*, E))$ to $(F, \sigma(F^*, F))$. 
+
+    Conversely, $\forall x \in F$, denote $g_x: E^*\to \mathbb R, f\mapsto \lrangle{u(f)}{x}$. We obtain that $g_x\in E^{**}$ is w$^*$ continous on $E^*$. Then exists $x^*\in E$ s.t. 
+    \[\lrangle{g_x}{f^*}_{E^{**}, E^*} = \lrangle{f^*}{x^*}, \forall f^*\in E^*. \]
+    Let $v: x\in F\mapsto x^*\in E$. 
+    It remains to prove that $v\in B(F, E)$. $\forall (x_n, y_n)\in G(v)\to (x_0, y_0)\in F\times E$, where $x_n\in F, y_n = v(x_n)\in E$, we obtain
+    \[ \lrangle{f}{y_0} = \lim\lrangle{f}{y_n} = \lim\lrangle{uf}{x_n} = \lrangle{uf}{x_0} = \lrangle{f}{vx_0}, \forall f\in E^*. \]
+    Then $y_0 = vx_0$, $G(v)$ is close which means $v\in B(F, E)$.
+\end{proof}
+
+
+
+\begin{exercise}[9]
+    构造空间 $\ell_{\infty}^{*}$ 的单位球面上的一个序列, 使其没有 $w^{*}-$收敛的子序列. 
+    这是否与 Banach-Alaoglu 定理矛盾? 如果在 $\ell_{\infty}$ 上有什么结论?
+\end{exercise}
+
+\begin{proof}
+    It can be happened that $B$ is compact but $(f_n)\subset B$ has no converge subsequence 
+    if $B$ is not metrizable. However, if $B\subset \ell_\infty = \ell_1^*$, $\ell_1$ is separable 
+    which means every bounded subsets of $\ell_1^*$ are metrizable. Therefore for any bounded subset 
+    $B$ of $\ell_\infty$, any sequence $(x_n)\subset B$ has a converge subsequence in $(\ell_1^*, \sigma(\ell_1^*, \ell_1))$.  
+
+    Denote $e_n = (0, \cdots, 0, 1, 0, \cdots)$, and $\{e_n\}\subset \ell_1\subset \ell_\infty^*$. 
+    $\|e_n\|_{\ell_1} = 1$, and then $e_n\in S(\ell_\infty^*)$. Assume that exists $n_k$ such that 
+    $e_{n_k}\to f\in \ell_\infty^*$ in $\sigma(\ell_\infty^*, \ell_1)$. Then $\forall (x_n)\in \ell^\infty$ 
+    such that $x_n$ is not converged, $\lrangle{e_{n_k}}{x} = x_{n_k}\to \lrangle{f}{x}$ but $x_n$ is not converged. 
+    Therefore $(e_{n})$ has not any $w^*$-converge subsequence. 
+\end{proof}
+
+
+
+\begin{exercise}
+    刻画 $\ell_p$ 的对偶空间比刻画 $L_p$ 的对偶要容易. 试不用课程中的结论, 直接导出
+    \[\ell_{p}^{*} \cong \ell_{q},\;1\leq p<\infty,\quad\frac{1}{p}+\frac{1}{q}=1.\]
+    并且证明
+    \[c_{0}^{*} \cong \ell_{1}.\]
+    由此导出 $c_{0}, \ell_{1}$ 和 $\ell_{\infty}$ 都不是自反的.
+\end{exercise}
+
+\begin{proof}
+    任取$a=(a_i)_{i\geq1}\in\ell_q$,令
+    \[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in\ell_p.\]
+    则由 H\"older 不等式得
+    \[|f_a(x)|\leq\|x\|_{\ell_p}\|a\|_{\ell_q},x=(x_i)\in\ell_p.\]
+    即得 $f_a\in\ell_p^*$,下面任取 $f\in\ell_p^*$,证明反向的结论成立.
+    对任意 $x=(x_1,x_2,\cdots)\in\ell_p$,
+    记 $x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$, 则$x^{(n)}\xrightarrow{\|\cdot\|_p}x$.
+    用 $e_1,e_2,\cdots$ 表示 $\ell_p$ 中的标准基, 因为$f\in\ell_p^*$, 所以
+    \[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}\sum_{i=1}^nf(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i.\]
+    下证 $(a_i)_{i\geq1}\in\ell_q.\forall n\geq 1$, 令 $a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$, 取
+    \[x^{(n)}=\left(\frac{|a_1|^{q-1}\sgn a_1}{\|a^{(n)}\|^{\frac{q}{p}}_q},\cdots,\frac{|a_n|^{q-1}\sgn a_n}{\|a^{(n)}\|^{\frac{q}{p}}_q},0,\cdots\right)\]
+    则由$p(q-1)=q$知
+    \[\|x^{(n)}\|_{\ell_p}=\left(\frac{|a_1|^q}{\|a^{(n)}\|^q_q}+\cdots+\frac{|a_n|^q}{\|a^{(n)}\|^q_q}\right)^{1/p}=1\]
+    并且由$\sgn a_i\cdot f(e_i)=|a_i|$得
+    \[f(x^{(n)})=\frac{|a_1|^{q-1}\cdot|a_1|}{\|a^{(n)}\|^{\frac{q}{p}}_q}+\cdots+\frac{|a_n|^{q-1}\cdot|a_n|}{\|a^{(n)}\|^{\frac{q}{p}}_q}=\frac{\|a^{(n)}\|_q^q}{\|a^{(n)}\|_q^\frac{q}{p}}=\|a^{(n)}\|_q\]
+    因此有$\|a^{(n)}\|_q\leq\|f\|\Rightarrow\|a\|_q\leq\|f\|$,于是建立了$\ell_p^*$到$\ell_q$的等距同构映射:
+    \[J:\ell_p^*\to\ell_q,f\mapsto a=(a_1,a_2,\cdots)\]
+    下面证明$c_0^*=\ell_1,c_0=\{x=(x_n)_{n\geq1}:\lim_{n\to\infty}x_n=0\}\subset\ell_{\infty}$,
+    这里的证明方法与上面证明$\ell_p^*=\ell_q(1\leq p<\infty)$是完全类似的.
+    $\forall a=(a_i)_{i\geq 1}\in\ell_1$,令
+    \[f_a(x)=\sum_{i=1}^{\infty}a_ix_i,x=(x_i)\in c_0\]
+    则
+    \[|f_a(x)|\leq\|a\|_{\ell_1}\|x\|_{c_0},x=(x_i)\in c_0\]
+    故 $f_a\in c_0^*$且$\|f_a\|\leq\|a\|_{\ell_1}$.
+
+    再任取$f\in c_0^*,\forall x=(x_1,x_2,\cdots)\in c_0$,记$x^{(n)}=(x_1,\cdots,x_n,0,\cdots)$,用$e_1,e_2,\cdots$表示$c_0$中的标准基,则
+    \[f(x)=\lim_{n\to\infty}f(x^{(n)})=\lim_{n\to\infty}f(e_i)x_i=\sum_{i=1}^{\infty}a_ix_i\]
+    下证$a=(a_i)_{i\geq 1}\in\ell_1.\forall n\geq1$,令$a^{(n)}=(a_1,\cdots,a_n,0,\cdots)$,取
+    \[x^{(n)}=(\sgn a_1,\cdots,\sgn a_n,0,\cdots)\]
+    则\[\|x^{(n)}\|_{c_0}=1\]
+    且\[f(x^{(n)})=\sum_{i=1}^nf(e_i)\sgn a_i=\sum_{i=1}^n|a_i|=\|a^{(n)}\|_{\ell_1}\]
+    故$\|a^{(n)}\|_{\ell_1}\leq\|f\|\Rightarrow\|a\|_{\ell_1}\leq\|f\|$,这样就建立了等距同构映射:
+    \[J:c_0^*\to\ell_1,f\mapsto a=(a_1,a_2,\cdots)\]
+    因$c_0^{**}=\ell_1^*=\ell_{\infty}$,故$c_0,\ell_1,\ell_{\infty}$不自反.
+\end{proof}
+
+
+
+\begin{exercise}[12]
+    (a) 设 $E$ 是自反 Banach 空间. 证明: 每个 $\varphi \in E^{*}$ 可以达到范数, 
+    即存在 $x_{0} \in E$, 使得 $\left|\varphi\left(x_{0}\right)\right|=\|\varphi\|$.
+    
+    (b) 由此导出已知的事实: $\ell_{1}, L_{1}(0,1)$ 和 $C([0,1])$ 都不是自反的. 
+    (提示: 对空间 $C([0,1])$ 考察泛函 $\varphi=\int_{0}^{\frac{1}{2}}-\int_{\frac{1}{2}}^{1}$.)
+
+    (c) 证明: $C^{1}([0,1])$ 不是自反的, 
+    这里 $C^{1}([0,1])$ 上赋予的范数是 $\|f\|=$ $\|f\|_{\infty}+\left\|f^{\prime}\right\|_{\infty}$ .
+    (提示: 可以考虑 $C^{1}([0,1])$ 中由在原点处取零值的函数构成的子空间.)
+\end{exercise}
+
+\begin{proof}
+    (a) 由 Hahn-Banach 延拓定理知
+    \[\|\varphi\|=\sup_{x^{**}\in E^{**},\|x^{**}\|\leq 1}|\lrangle{x^{**}}{\varphi}|\]
+    中上确界可以达到, 又 $E$ 自反, 故
+    \[\|\varphi\|=\sup_{x\in E,\|x\|\leq 1}|\varphi(x)|\]
+    中上确界可以达到, 即存在 $x_0\in E$, 使得 $|\varphi(x_0)|=\|\varphi\|$.
+
+    (b) 若 $\ell_1$ 自反, 则每个 $y\in\ell_1^*\cong\ell_{\infty}$ 可以达到范数,
+    即存在 $x\in\ell_1$, $\|x\|_{\ell_1}\leq 1$, 使得 $|\sum_{n=1}^{\infty}x_ny_n|=\|y\|_{\infty}$, 因此不等式链
+    \[\left|\sum_{n=1}^{\infty}x_ny_n\right|\leq\sum_{n=1}^{\infty}|x_ny_n|\leq\|y\|_{\infty}\sum_{n=1}^{\infty}|x_n|\leq\|y\|_{\infty}\]
+    处处取等, 故对任意 $n\geq 1$, 有 $|y_n|=\|y\|_{\infty}$, 这与 $y$ 的任意性相矛盾, 故 $\ell_1$ 非自反.
+
+    若 $L_1(0,1)$ 自反, 则每个 $g\in L_1(0,1)^*\cong L_{\infty}(0,1)$ 可以达到范数,
+    即存在 $f\in L_1(0,1)$, $\|f\|_1\leq 1$, 使得 $|\int_0^1 fg|=\|g\|_{\infty}$, 故不等式链
+    \[\left|\int_0^1 fg\right|\leq\int_0^1 |fg|\leq\|g\|_{\infty}\int_0^1 |f|\leq\|g\|_{\infty}\]
+    处处取等, 故有 $|g|=\|g\|_{\infty},\almosteverywhere$, 这与 $g$ 的任意性相矛盾, 故 $L_1(0,1)$ 非自反.
+
+    若 $C([0,1])$ 自反, 则考察其上线性泛函 $\varphi=\int_0^{\frac{1}{2}}-\int_{\frac{1}{2}}^1$.
+    对于任意 $f\in C([0,1])$, 有 $|\varphi(f)|\leq\|f\|$, 故 $\varphi\in C([0,1])^*$, 且 $\|\varphi\|\leq 1$.
+    另一方面, 对任意 $\varepsilon>0$, 取 $f\in C([0,1])$ 满足
+    \[f(x)=\begin{cases}
+        1, & 0\leq x\leq\frac{1}{2}-\varepsilon, \\
+        \frac{1}{\varepsilon}\left(\frac{1}{2}-x\right), & \frac{1}{2}-\varepsilon<x<\frac{1}{2}+\varepsilon, \\
+        -1, & \frac{1}{2}+\varepsilon\leq x\leq 1.
+    \end{cases}\]
+    则有 $|\varphi(f)|>1-2\varepsilon$, 故 $\|\varphi\|=1$.
+
+    由于 $C([0,1])$ 自反, 故 $\varphi$ 可以达到范数, 即存在 $f\in C([0,1])$, $\|f\|\leq 1$, 使得
+    $|\int_0^{\frac{1}{2}}f-\int_{\frac{1}{2}}^1 f|=1$, 于是不等式链
+    \[\left|\int_0^{\frac{1}{2}}f-\int_{\frac{1}{2}}^1f\right|\leq\int_0^{\frac{1}{2}}|f|+\int_{\frac{1}{2}}^1 |f|\leq 1\]
+    处处取等, 故必须 $f|_{[0,\frac{1}{2})}=1,\almosteverywhere$, $f|_{(\frac{1}{2},1]}=-1,\almosteverywhere$,
+    矛盾, 故 $C([0,1])$ 非自反.
+
+    (c) 若 $E=C^1([0,1])$ 自反, 考虑闭子空间 $F=\{f\in E\mid f(0)=0\}$, 则 $F$ 自反.
+    考虑
+    \[\varphi: C([0,1])\to F,\;\varphi(f)=\int_0^x f(t)\diff t.\]
+    则 $\varphi$ 为线性双射, 且有
+    \[\|\varphi(f)\|=\|\varphi(f)\|_{\infty}+\|f\|_{\infty}\leq 2\|f\|_{\infty}.\]
+    故 $\varphi$ 为连续线性双射, 由开映射定理知 $\varphi$ 是同构, 但 $C([0,1])$ 不自反,
+    矛盾, 故 $C^1([0,1])$ 不自反.
+\end{proof}

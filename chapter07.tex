@@ -1,24 +1,24 @@
 \chapter{拓扑向量空间}
 \thispagestyle{empty}
-% 设$(x,y)\in\mathbb{R}^2$,令$p(x,y)=|x|$,则$p$是半范数;设$f\in C(\mathbb{R})$,令$p_N(f)=\sup\limits_{x\in [-N,N]}|f(x)|$,则$p_N$是半范数\\\\
+% 设$(x,y)\in\FR^2$,令$p(x,y)=|x|$,则$p$是半范数;设$f\in C(\FR)$,令$p_N(f)=\sup\limits_{x\in [-N,N]}|f(x)|$,则$p_N$是半范数\\\\
 % 怎样证明定理7.2.6中半范数族$(p_i)_{i\in I}$诱导的拓扑$\tau$与$E$的线性结构相容?
 
 
 % 1.\textit{Proof}:
-% (a)容易验证$d$满足正定性和对称性,故只需要说明$d$满足三角形不等式:即证明对于任意$f,g,h\in C(\mathbb{R},\mathbb{R})$,有
-% \[\begin{split}\min\left\{1,\sup_{x\in\mathbb{R}}|f(x)-g(x)|\right\}\leq\min\bigg\{&1,\sup_{x\in\mathbb{R}}|f(x)-h(x)|\bigg\}+\min\left\{1,\sup_{x\in\mathbb{R}}|g(x)-h(x)|\right\}\\
-% =\min\bigg\{&2,\sup_{x\in\mathbb{R}}|f(x)-h(x)|+1,\sup_{x\in\mathbb{R}}|g(x)-h(x)|+1,\\
-% &\sup_{x\in\mathbb{R}}|g(x)-h(x)|+\sup_{x\in\mathbb{R}}|g(x)-h(x)|\bigg\}\end{split}\]
-% 将$\min\{1,\sup_{x\in\mathbb{R}}|f(x)-g(x)|\}$与右侧括号里面四项逐一比较知此不等式显然成立\\
-% 下面证明距离$d$是完备的:取$C(\mathbb{R},\mathbb{R})$中的柯西序列$(f_n)_{n\geq 1}$,即
+% (a)容易验证$d$满足正定性和对称性,故只需要说明$d$满足三角形不等式:即证明对于任意$f,g,h\in C(\FR,\FR)$,有
+% \[\begin{split}\min\left\{1,\sup_{x\in\FR}|f(x)-g(x)|\right\}\leq\min\bigg\{&1,\sup_{x\in\FR}|f(x)-h(x)|\bigg\}+\min\left\{1,\sup_{x\in\FR}|g(x)-h(x)|\right\}\\
+% =\min\bigg\{&2,\sup_{x\in\FR}|f(x)-h(x)|+1,\sup_{x\in\FR}|g(x)-h(x)|+1,\\
+% &\sup_{x\in\FR}|g(x)-h(x)|+\sup_{x\in\FR}|g(x)-h(x)|\bigg\}\end{split}\]
+% 将$\min\{1,\sup_{x\in\FR}|f(x)-g(x)|\}$与右侧括号里面四项逐一比较知此不等式显然成立\\
+% 下面证明距离$d$是完备的:取$C(\FR,\FR)$中的柯西序列$(f_n)_{n\geq 1}$,即
 % \[\forall\varepsilon>0(\mbox{不妨设}\varepsilon<1),\exists N>0,\forall m,n>N,d(f_m,f_n)<\varepsilon\]
-% 从而\[\sup_{x\in\mathbb{R}}|f_m(x)-f_n(x)|<\varepsilon(m,n>N)\]
-% 那么对任意给定的$x\in\mathbb{R}$,$(f_n(x))_{n\geq 1}$是$\mathbb{R}$中的Cauchy序列,从而必然收敛,记为
-% \[f_n(x)\to f(x)\in\mathbb{R}(n\to\infty)\]
-% 这样就得到一个映射$f:\mathbb{R}\to\mathbb{R}$,由$f(x)-f(y)=\lim_{n\to\infty}(f_n(x)-f_n(y))$知$f\in C(\mathbb{R},\mathbb{R})$,又$d(f_n,f)=\min\{1,\sup_{x\in\mathbb{R}}|f_n(x)-f(x)|\}\to0(n\to\infty)$,故$f_n\to f(n\to\infty)$,所以$d$是完备的\\
+% 从而\[\sup_{x\in\FR}|f_m(x)-f_n(x)|<\varepsilon(m,n>N)\]
+% 那么对任意给定的$x\in\FR$,$(f_n(x))_{n\geq 1}$是$\FR$中的Cauchy序列,从而必然收敛,记为
+% \[f_n(x)\to f(x)\in\FR(n\to\infty)\]
+% 这样就得到一个映射$f:\FR\to\FR$,由$f(x)-f(y)=\lim_{n\to\infty}(f_n(x)-f_n(y))$知$f\in C(\FR,\FR)$,又$d(f_n,f)=\min\{1,\sup_{x\in\FR}|f_n(x)-f(x)|\}\to0(n\to\infty)$,故$f_n\to f(n\to\infty)$,所以$d$是完备的\\
 % (b)\\\\
-\setcounter{exer}{1}
-\begin{exercise}
+
+\begin{exercise}[2]
     设 $E$ 是拓扑向量空间, $A,B\subset E$.
 
     (a) 证明: 若 $A$ 是开集, 则 $A+B$ 也是开集.
@@ -69,7 +69,7 @@
     因此 $E\setminus f^{-1}(1)$ 为开集.
 
     (c) (反证法) 假设存在 $x\in V$, 使得 $|f(x)|=\lambda>1$,
-    则由 $V$ 是平衡的可得 $\frac{x}{\lambda}\in V$ 且 $|f(\frac{x}{\lambda})|=1$, \
+    则由 $V$ 是平衡的可得 $\frac{x}{\lambda}\in V$ 且 $|f(\frac{x}{\lambda})|=1$,
     这与 $V\subset E\setminus f^{-1}(1)$ 相矛盾.
     因此在 $V$ 上, $|f|<1$, 由推论 7.1.11 知 $f$ 连续.
 \end{proof}
@@ -102,8 +102,8 @@
 % 故$\conv(A)$是平衡集\\
 % (c)考虑凸集$\{(x,y)|x^2+y^2=1,x\geq0,y\geq0\}$,显然其平衡包是$\{(x,y)|x^2+y^2=1,xy\geq0\}$,其不是凸集\\\\
 
-\setcounter{exer}{4}
-\begin{exercise}
+
+\begin{exercise}[5]
     设 $\varOmega$ 表示开圆盘 $\{z\in\FC\mid |z|<3\}$, $K$ 表示闭单位圆盘 $\{z\in\FC\mid |z\leq 1|\}$.
     对 $f\in H(\varOmega)$ 定义
     \[p(f)=\sup_{z\in K}|f(z)|.\]
@@ -117,19 +117,20 @@
 \begin{proof}
     (a) 直接按定义验证.
 
-    (b) 
+    (b) 考虑 $f_n(z)=\e^{n(z-2)}$, 则在 $K$ 上有
+    \[\sup_{z\in K}|f_n(z)|=\sup_{z\in K}\left|\e^{n(z-2)}\right|=\e^{-n}\to 0.\]
+    故 $(f_n)_{n\geq 1}$ 依 $p$ 范数收敛于 $0$.
+    但在紧子集 $\{z\in\FC: |z|\leq 2\}$ 上, $f_n(2)=1$, 故 $(f_n)_{n\geq 1}$ 不是一致收敛的.
 \end{proof}
 
 
 
 \begin{exercise}
     设 $A$ 是 $[0,1]$ 的可数子集, 且映射 $\alpha: A \rightarrow(0,+\infty)$ 
-    满足 $\sum_{t\in A}\alpha(t)<+\infty$. 对 $f\in C([0,1],\mathbb{R})$ 定义
-    \[
-    \|f\|_{A,\alpha}=\sum_{t\in A}\alpha(t)|f(t)|.
-    \]
+    满足 $\sum_{t\in A}\alpha(t)<+\infty$. 对 $f\in C([0,1],\FR)$ 定义
+    \[\|f\|_{A,\alpha}=\sum_{t\in A}\alpha(t)|f(t)|.\]
 
-    (a) 证明: $\|\cdot\|_{A,\alpha}$ 是 $C([0,1],\mathbb{R})$ 上的半范数. 什么时候它是一个范数? 
+    (a) 证明: $\|\cdot\|_{A,\alpha}$ 是 $C([0,1],\FR)$ 上的半范数. 什么时候它是一个范数? 
     什么时候它等价于一致范数 $\|\cdot\|_{\infty}$?
 
     (b) 证明: 两个半范数 $\|\cdot\|_{A, \alpha}$ 和 $\|\cdot\|_{A',\alpha'}$ 诱导相同的拓扑当且仅当 $A=A'$ 且
@@ -139,7 +140,7 @@
 \end{exercise}
 
 \begin{proof}
-    (a) 首先由 $f \in C([0,1], \mathbb{R})$, 知 $\sup_{t \in A}|f(t)|<\infty$. 那么
+    (a) 首先由 $f \in C([0,1], \FR)$, 知 $\sup_{t \in A}|f(t)|<\infty$. 那么
     \[\|f\|_{A,\alpha}=\sum_{t\in A}\alpha(t)|f(t)|\leq\sup_{t\in A}|f(t)|\sum_{t \in A} \alpha(t)<+\infty.\]
     并且容易验证 $\|\cdot\|_{A, \alpha}$ 是满足半范数满足的其它公理. 
     而且可以看到, 若取 $A=\{1,\frac{1}{2},\ldots,\frac{1}{n},\ldots\}$, 
@@ -153,7 +154,7 @@
     反过来, 假设 $A$ 在 $[0,1]$ 中不稠密, 那么存在点 $t\in[0,1]$
     及 $t$ 的开邻域 $I$, 使得 $A\cap I=\emptyset$, 即 $A \subset[0,1]\setminus I$.
     那么可取 $[0,1]$ 上的连续函数 $f$ 在 $[0,1]\setminus I$ 上为 $0$ , 而在 $I$ 上不为 $0$, 
-    这与 $\|\cdot\|_{A,\alpha}$ 是一个范数相予盾.
+    这与 $\|\cdot\|_{A,\alpha}$ 是一个范数相矛盾.
 
     最后, 我们来证明: 对任意一个半范数 $\|\cdot\|_{A,\alpha}$, 它都不等价于一致范数 $\|\cdot\|_{\infty}$.
     对可列集 $A$ 中的元素排序, 记 $A=(t_{i})_{i\geq 1}$. 
@@ -229,8 +230,8 @@
 
 
 
-\setcounter{exer}{15}
-\begin{exercise}
+
+\begin{exercise}[16]
     令 $0<p<1$, 考虑空间 $L_p=L_p(0,1)$, 并在 $L_p$ 上赋予距离 $d_{p}(f, g)=\|f-g\|_p^p$. 
     本习题的目标是证明 $L_p$ 不是局部凸的且没有非零线性泛函.
 
@@ -301,8 +302,8 @@
 
     (f)同 (c) 的构造亦可得 $L_p(0<p<1)$ 是非局部凸的.
 
-    (g) 设 $f:L_p\to\mathbb{R}$ 是连续的线性泛函,
-    则 $\forall r>0$, $(-r,r)$ 为 $\mathbb{R}$ 中开凸集,
+    (g) 设 $f:L_p\to\FR$ 是连续的线性泛函,
+    则 $\forall r>0$, $(-r,r)$ 为 $\FR$ 中开凸集,
     由 $f$ 的线性性知 $f^{-1}((-r,r))$ 为 $L_p$ 中凸集, 
     由 $f$ 的连续性知 $f^{-1}((-r,r))$ 为 $L_p$ 中的开集, 结合(f)中结论知
     \[f^{-1}(-r,r)=L_p.\]

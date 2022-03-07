@@ -5,25 +5,38 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mathexercise}[2021/09/24 class file to write mathematical exercise solutions]
-\LoadClassWithOptions{report}
-% 加载常用宏包
+
+%%% 选项设置
+%%% Settle withinchap and withinsec options
+\DeclareOption{withinchap}{\def\exercounter@within{chapter}}
+\DeclareOption{withinsec}{\def\exercounter@within{section}}
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+
+
+\ExecuteOptions{withinchap}
+\ProcessOptions\relax
+\LoadClass{report} % should go after processing options
+
+\RequirePackage[shortlabels]{enumitem}
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{amsthm}
 \RequirePackage{extarrows}
 \RequirePackage{xcolor}
-\RequirePackage[heading=true]{ctex}
-\RequirePackage[shortlabels]{enumitem}
 \RequirePackage{tcolorbox}
 \RequirePackage[width=14cm]{geometry}
 \RequirePackage{tikz}
 \usetikzlibrary{intersections,decorations.text}
+% \RequirePackage{tcolorbox}
+% \tcolorboxenvironment{exercise}{arc is angular,colback=white,colframe=blue!50!black}
 \definecolor{c1}{RGB}{62, 97, 127}
 \definecolor{c2}{RGB}{104, 182, 182}
 \definecolor{c3}{RGB}{107, 190, 190}
 \definecolor{c4}{RGB}{100, 172, 174}
 \definecolor{c5}{RGB}{95, 162, 162}
 % 章标题定制
+\RequirePackage[heading=true]{ctex}
 \ctexset {
 chapter = {
 beforeskip = 0pt,
@@ -37,11 +50,8 @@ aftertitle = \par\bigskip\nointerlineskip\rule{\linewidth}{2bp}\par
 }
 \newcommand\chapternamebox[1]{%
 \parbox{\ccwd}{\linespread{1}\selectfont\centering #1}}
-
-
 % 中文设置
 \setCJKmainfont[BoldFont=FandolHei,ItalicFont=FandolKai]{FandolSong}
-
 
 %%% 定义常用命令
 % Roman Font
@@ -54,6 +64,7 @@ aftertitle = \par\bigskip\nointerlineskip\rule{\linewidth}{2bp}\par
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\diam}{diam} % diameter
+\DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\spt}{spt} % support set
@@ -79,7 +90,7 @@ aftertitle = \par\bigskip\nointerlineskip\rule{\linewidth}{2bp}\par
 \newcommand{\closure}[1]{\overline{#1}} % the closure of a set
 \newcommand{\almosteverywhere}{\;\mathrm{a.e.}}
 \newcommand{\diag}{\mathrm{diag}}
-\newcommand{\innerp}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\innerp}[2]{\langle#1,#2\rangle}
 \newcommand{\conjugate}[1]{\overline{#1}}
 \newcommand{\cont}[1]{\mathrm{Cont}(#1)}
 \newcommand{\id}{\mathrm{id}}
@@ -132,31 +143,32 @@ aftertitle = \par\bigskip\nointerlineskip\rule{\linewidth}{2bp}\par
 % 定制列表
 \setlist{nosep,left=\parindent}
 
-%%% Exercise counter
-\newcounter{chapexer}[chapter]
-\newcounter{secexer}[section]
-\setcounter{chapexer}{0}
-\setcounter{secexer}{0}
 
-%%% Exercise environment
-\DeclareOption{withinchap}{%
-    \newcounter{exer}[chapter]%
-	\setcounter{exer}{0}}
-\DeclareOption{withinsec}{%
-    \newcounter{exer}[section]%
-    \setcounter{exer}{0}}
-\ExecuteOptions{withinchap}
-\ProcessOptions\relax
+\newcounter{exercounter}
+\counterwithin*{exercounter}{\exercounter@within}
 
-\newenvironment{exercise}%
-               {\refstepcounter{exer}\par\textbf{\theexer.}}%
-			   {\par\ignorespacesafterend}
+% \newenvironment{exercise}[1]%
+%                {\refstepcounter{exercounter}\par\textbf{\theexercounter.}}%
+% 			   {\par\ignorespacesafterend}
+\NewDocumentEnvironment{exercise}{o d() +b}
+  {%
+    \IfNoValueTF{#1}
+      {\stepcounter{exercounter}}
+      {\setcounter{exercounter}{#1}}
+    \par\textbf{\theexercounter.}\hspace{.333em}%
+	\IfNoValueTF{#2}
+	  {#3}
+	  {\textbf{(#2)}\hspace{.333em}#3}
+  }
+  {\ignorespacesafterend}
+
 
 %---------tasks--------
 \RequirePackage{tasks}
 \settasks{after-item-skip=0.5ex plus 0.5ex minus 1ex}
-\NewTasksEnvironment[label={(\arabic*)}, item-indent=4em, label-offset=1em]{exer}[\item](2)
-\NewTasksEnvironment[label={(\arabic*)}, item-indent=4em, label-offset=1em]{exer3}[\item](3)
+\NewTasksEnvironment[label=(\arabic*), item-indent=3.3333em]{mathtasks}[\item]
+\NewTasksEnvironment[label=(\arabic*), item-indent=3.3333em]{mathtasks2}[\item](2)
+\NewTasksEnvironment[label=(\arabic*), item-indent=3.3333em]{mathtasks3}[\item](3)
 
 % hyperref
 \RequirePackage{hyperref}

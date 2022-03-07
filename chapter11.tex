@@ -1,0 +1,376 @@
+\setcounter{chapter}{10}
+\chapter{紧算子}
+
+
+
+
+\begin{exercise}
+    设 $E$ 是 Banach 空间, $T\in\mathcal{B}(E)$.
+    并设 $(\lambda_n)$ 是 $\rho(T)$ 中收敛到 $\lambda\in\FK$ 的数列.
+    证明: 若 $(R(\lambda_n,T))$ 在 $\mathcal{B}(E)$ 中有界, 则 $\lambda\in\rho(T)$.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $E$ 是 Banach 空间, $T\in\mathcal{B}(E)$.
+    证明: 对任意 $\varepsilon>0$, 存在 $\delta>0$, 使得对任意 $S\in\mathcal{B}(E)$, 有
+    \[\|T-S\|<\delta\Rightarrow\sigma(S)\subset\{\lambda\in\FK\mid d(\lambda,\sigma(T))<\varepsilon\}.\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $1\leq p\leq\infty$, 定义 $\ell_p$ 上的算子 $S$ (前移算子) 为 $S(x)(n)=x(n+1)$,
+    这里 $x=(x(n))_n\in\ell_p$.
+
+    (a) 证明: 当 $p<\infty$ 时, $\sigma_p(S)=\{\lambda\in\FK\mid |\lambda|<1\}$;
+    当 $p=\infty$ 时, $\sigma_p(S)=\{\lambda\in\FK\mid |\lambda|\leq 1\}$.
+
+    (b) 由此导出 $\sigma(S)=\{\lambda\in\FK\mid |\lambda|\leq 1\}$.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $E$ 是 Banach 空间, $T$ 是 $E$ 上的线性等距映射. 并记
+    \[D=\{\lambda\in\FK\mid |\lambda|<1\},\quad C=\{\lambda\in\FK\mid |\lambda|=1,\quad\closure{D}=D\cup C\}.\]
+
+    (a) 证明: $\sigma_p(T)\subset C$, $\sigma(T)\subset\closure{D}$; 并且当 $\lambda\in D$ 时, 有
+    \[\lambda\in\rho(T)\Leftrightarrow (\lambda-T)(E)=E.\]
+
+    (b) 假设 $(\lambda_n)\subset D\cap\rho(T)$ 收敛到 $D$ 中元素 $\lambda$. 证明 $\lambda\in\rho(T)$.
+
+    (c) 证明: $D\cap\rho(T)$ 在 $D$ 中既是开集又是闭集. 由此导出 $D\cap\rho(T)$ 是空集或者 $D\cap\rho(T)=D$.
+
+    (d) 证明: $\sigma(T)$ 或者包含于 $C$ 中或者等于 $\closure{D}$, 并且前者成立的充分必要条件是 $T$ 为满射.
+
+    (e) 假设 $E=\ell_p$, $1\leq p\leq\infty$, 且 $T$ 为 $E$ 的后移算子:
+    \[T(x)(1)=0\quad]\text{且}\quad T(x)(n)=x(n-1),\; n>1.\]
+    证明: $\sigma(T)=\closure{D}$ 并且 $\sigma_p(T)=\varnothing$.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $X$ 是紧 Hausdorff 空间, 并有 $\varphi\in C(X)$.
+    设 $M_{\varphi}$ 表示 $C(X)$ 上由 $\varphi$ 确定的乘法算子: $M_{\varphi}(f)=\varphi f$.
+    证明: $\sigma(M_{\varphi})=\varphi(X)$, 并且 $\sigma_p(M_{\varphi})$ 由满足如下性质的 $\lambda$ 构成:
+    $\{\varphi=\lambda\}$ 内部是空集.
+
+    此外, 当 $M_{\varphi}$ 定义在 $L_p(\mu)$ 上, $1\leq p\leq\infty$, 其中 $\mu$ 是 $X$ 上的正则测度,
+    我们有什么结论?
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $X$ 是度量空间, $E=C_b(X)$ 是 $X$ 上的有界连续复函数构成的 Banach 空间, 其上赋予范数:
+    \[\|f\|_{\infty}=\sup_{x\in X}|f(x)|.\]
+    并设 $T$ 是 $E$ 上的正算子, 即对每个 $f\geq 0$, 有 $T(f)\geq 0$.
+
+    (a) 证明: 任取 $f\in E$, 有 $|T(f)|\leq T(|f|)$.
+
+    (b) 设 $\lambda\in\FC$ 且 $|\lambda|>r(T)$. 证明
+    \[|R(\lambda,T)(f)|\leq R(|\lambda|,T)(|f|).\]
+    由此导出
+    \[\|R(\lambda,T)\|\leq\|R(|\lambda|,T)\|.\]
+
+    (c) 证明: $r(T)\in\sigma(T)$.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间, $E$ 和 $F$ 是 $H$ 的两个闭的正交补子空间.
+    假设 $T\in\mathcal{B}(E)$ 且 $T(E)\subset E$, $T(F)\subset F$. 证明
+    \[\sigma(T)=\sigma(T|_E)\cup\sigma(T|_F).\]
+    作为应用, 确定 $\sigma(T)$, 其中 $T\in\mathcal{B}(\ell_2)$ 定义为
+    \[T(x)(n)=x(n+2)+\frac{1+(-1)^n}{2}x(n),\quad\forall n\geq 1,\forall x=(x(n))_{n\geq 1}\in\ell_2.\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    设$E$和$F$是赋范空间.证明下面的命题成立:
+
+    (a) 若$(x_n)$是$E$的弱收敛序列, 则$(x_n)$有界.
+
+    (b) 若$T\in\mathcal{B}(E,F)$且$x_n$弱收敛到$x$, 则$T(x_n)$弱收敛到$T(x)$.
+
+    (c) 若$T\in\mathcal{B}(E,F)$是紧算子且$x_n$弱收敛到$x$, 则$T(x_n)$依范数收敛到$T(x)$.
+
+    (d) 若$E$自反, $T\in\mathcal{B}(E,F)$且当$x_n$弱收敛到$x$时, 有$T(x_n)$依范数收敛到 $T(x)$, 则$T$是紧算子.
+
+    (e) 若$E$自反, 且$T\in\mathcal{B}(E,\ell_1)$或$T\in\mathcal{B}(c_0,E)$, 则$T$是紧算子. 
+\end{exercise}
+
+\begin{proof}
+    (a) 若 $(x_n)$ 是 $E$ 中的弱收敛序列, 设其极限为$x$, 
+    则对任意 $f\in E^*$, 有 $\lim\limits_{n\rightarrow \infty}f(x_n)=f(x)$.
+    令 $\widehat{x_n}(f)=f(x_n)$, 则$\widehat{x_n}\in\mathcal{B}(E^*,\mathbb{R})$, 
+    且对任意 $f\in E^*$, $(\widehat{x_n}(f))_{n\geq 1}$有界. 因此由Banach-Steinhaus定理, 
+    $\sup\limits_{n\geq 1}\|x_n\|=\sup\limits_{n\geq 1}\|\widehat{x_n}\|<\infty$, 
+    从而$(x_n)_{n\geq 1}$有界. 
+
+    (b) 若$T\in\mathcal{B}(E,F)$, 则$T^*\in\mathcal{B}(F^*,E^*)$, 则对任意$f\in F^*$, 
+    \[\lim_{n\rightarrow \infty}\langle f,T(x_n)\rangle=\lim_{n\rightarrow \infty}\langle T^*(f),x_n\rangle=\langle T^*(f),x\rangle=\langle f,T(x)\rangle.\] 
+
+    (c) 由(a)知$(x_n)_{n\geq 1}$有界, 而 $T$ 是紧算子, 故 $(T(x_n))_{n\geq 1}$ 相对紧, 
+    从而 $(T(x_n))_{n\geq 1}$ 任意子列有收敛子列 $(T(x_{n_k}))_{k\geq 1 }$, 
+    且该子列必依范数收敛于 $T(x)$, 这是因为若$(T(x_{n_k}))_{k\geq 1}$依范数收敛到$y$, 
+    则对任意$f\in F^*$, 我们有
+    \[|f(T(x_{n_k}))-f(y)|\leq \|f\|\|T(x_{n_k})-y\|.\]
+    因此 $T(x_{n_k})$ 弱收敛于 $y$, 但由 (b) 知, $T(x_n)$ 弱收敛于 $T(x)$, 
+    因此$y=f(x)$. 若$T(x_n)$不依范数收敛于$T(x)$, 则对任意正整数$N$, 存在$n_0>N$, 使得$\|T(x_{n_0})-T(x)\|>1$, 
+    从而可选取一子列$(T(x_{n_k}))_{k\geq 1}$, 使得$\|T(x_{n_k})-T(x)\|\geq1$, 
+    但由上述讨论可知$T((x_{n_k}))_{k\geq 1}$有收敛于$T(x)$的子列, 矛盾! 因此$T(x_n)$依范数收敛于$T(x)$.
+
+    (d)由第九章第4题的结论, 若 $E$ 是自反的, 设$(x_n)_{n\geq 1}\subset B_E$, 则存在子列$(x_{n_k})_{k\geq 1}$,
+    使得$(x_{n_k})_{k\geq1}$弱收敛于$x$.由题目条件知$T(x_{n_k})$依范数收敛到$T(x)$, 这说明$T(B_E)$相对紧, 从而$T$是紧算子.
+
+    (e)由第八章第22题的结论知, $\ell_1$的依范数收敛与弱收敛等价.故若$\ell_1$中的序列$(x_n)$弱收敛到$x$, 
+    则$(x_n)$依范数收敛到$x$, 从而$T(x_n)$依范数收敛到$T(x)$, 由(d)知, $T$是紧算子. 
+    若$T\in \mathcal{B}(c_0,E)$, 则 $T^*\in \mathcal{B}(E^*,\ell_1)=\mathcal{B}(\ell_1,E)$, 
+    故由上一段讨论知 $T^*$ 是紧算子, 从而$T$是紧算子.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $(e_n)$ 是 $\ell_2$ 中的标准基. 定义算子 $T:\ell_2\rightarrow \ell_2$ 为
+    \[T\biggl(\sum_{n\geq 1}x_n e_n\biggr)=\sum_{n\geq 1}\dfrac{x_n}{n}e_n,\quad (x_n)_{n\geq 1}\in \ell_2.\]
+    证明: $T\in \mathcal{K}(\ell_2)$.
+\end{exercise}
+
+\begin{proof}
+    定义
+    \[T_N\biggl(\sum_{n\geq 1}x_n e_n\biggr)=\sum_{n=1}^{N}\dfrac{x_n}{n}e_n.\]
+    因 $T_N$ 为连续线性算子且 $\dim T_N(\ell_2)<\infty$, 故 $T_N$ 是有限秩算子, 
+    且对任意 $x=(x_n)_{n\geq 1}\in\ell_2$, 有
+    \[\begin{aligned}
+        \left\|T\biggl(\sum_{n\geq 1}x_n e_n\biggr)-T_N \biggl(\sum_{n\geq 1}x_n e_n\biggr)\right\|_{}^2
+        & =\left\|\sum_{n=N+1}^{\infty}\dfrac{x_n}{n}e_n\right\|^2=\sum_{n=N+1}^\infty \dfrac{|x_n|^2}{n^2}\\
+        & \leq\frac{1}{(N+1)^2}\sum_{n=N+1}^\infty |x_n|^2\\
+        & \leq\frac{1}{(N+1)^2}\sum_{n=1}^\infty |x_n|^2=\frac{1}{(N+1)^2}\|x\|_{}^2.
+    \end{aligned}\]
+    故
+    \[\|T-T_N\|=\sup_{x\in\ell_2,x\neq 0}\frac{\|T(x)-T_N(x)\|_{}}{\|x\|_{}}\leq\frac{1}{N+1}.\]
+    因此
+    \[\lim_{N\rightarrow \infty}\|T-T_N\|\leq\lim_{N\to\infty}\frac{1}{N+1}=0.\] 
+    从而 $T$ 是紧算子.
+\end{proof}
+
+
+
+\begin{exercise}
+    设$(\alpha_n)_{n\geq 1}\subset\FC$. 定义算子$T\in \mathcal{B}(c_0)$为
+    \[T(x)=(\alpha_n x_n)_{n\geq1},\quad x=(x_n)_{n\geq 1}\in c_0.\]
+    证明: $T\in \mathcal{K}(c_0)$ 当且仅当 $\lim\limits_{n\rightarrow \infty}\alpha_n=0$.
+\end{exercise}
+
+\begin{proof}
+    \necessary
+    若$\lim\limits_{n\rightarrow \infty} \alpha_n\not=0$, 
+    则存在 $\varepsilon_0>0$ 和子列 $(\alpha_{n_k})_{k\geq 1}$, 
+    使得对任意 $k\geq 1$, 都有 $|\alpha_{n_k}|\geq\varepsilon_0$. 
+    设 $e_i=(0,\cdots,0,1,0,\cdots)$ (在第$i$个坐标处是 $1$, 其余坐标都是 $0$),  
+    则 $A=\left\{e_i\colon i\geq 1\right\}$在$c_0$中有界, 且 $T(e_{n_i})=\alpha_{n_i}e_{n_i}$,
+    但对任意 $i\neq j$, 
+    \[\|T(e_{n_i})-T(e_{n_j})\|=\max\left\{|\alpha_{n_i}|,|\alpha_{n_j}|\right\}>\varepsilon_0,\]
+    故 $(Te_{n_j})_{j\geq1}$ 的任一子列都不是 Cauchy 列, 从而不收敛, 
+    这说明 $T(A)$ 在 $c_0$ 不是相对紧的. 这与 $T$ 是紧算子矛盾, 故 $\lim\limits_{n\rightarrow \infty}\alpha_n=0$.
+
+    \sufficient
+    设 $T_N(x)=\sum_{n=1}^N x_n T(e_n)$, 则 $T_N$ 是有限秩算子, 且
+    \[\|T(x)-T_N(x)\|=\sup_{n\geq N+1}|\alpha_n x_n|\leq \sup_{n\geq N+1}|\alpha_n| \sup_{n\geq 1}|x_n|.\]
+    由于 $\lim\limits_{N\rightarrow \infty} \sup\limits_{n\geq N+1}|\alpha_n|=\limsup\limits_{n\rightarrow \infty}|\alpha_n|=\lim\limits_{n\rightarrow \infty}|\alpha_n|=0$.故
+    \[\lim\limits_{N\rightarrow \infty}\|T-T_N\|\leq  \lim\limits_{N\rightarrow \infty}\sup_{n\geq N+1}|\alpha_n|=0.\]
+    从而 $T$ 是紧算子.
+\end{proof}
+
+
+
+\begin{exercise}
+    设 $(\varOmega,\mathcal{A},\mu)$ 是测度空间, $p\in [1,\infty)$.
+    设 $\mathcal{P}$ 是由所有有限个两两不相交的具有有限正测度的可测子集构成的集合.
+
+    (a) 对任意 $\pi=\{A_k\}_{1\leq k\leq n}\in\mathcal{P}$, 定义 $L_p(\varOmega,\mathcal{A},\mu)$ 上的算子 $P_{\pi}$ 为
+    \[P_{\pi}(f)=\sum_{k=1}^n \Bigl(\frac{1}{\mu(A_k)}\int_{A_k}f\diff\mu\Bigr)\mathbbm{1}_{A_k}.\]
+    证明: $P_{\pi}\in\mathcal{B}(L_p(\varOmega,\mathcal{A},\mu))$ 且 $\|P_{\pi}\|=1$.
+
+    (b) 证明: 对任意 $L_p(\varOmega,\mathcal{A},\mu)$ 中的紧子集 $K$ 及 $\varepsilon>0$, 存在 $\pi\in P$, 使得
+    \[\|P_{\pi}(f)-f\|_p<\varepsilon,\quad\forall f\in K.\]
+
+    (c) 导出 $\mathcal{F}_r(L_p(\varOmega,\mathcal{A},\mu))$ 在 $\mathcal{K}(L_p(\varOmega,\mathcal{A},\mu))$ 中稠密.
+
+    (d) 假设 $X$ 是一个局部紧的 Hausdorff 空间. 证明在空间 $C_0(X)$ 上有和上面类似的结果.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $E=C([0,1])$ 上赋予一致范数 $\|\cdot\|_{\infty}$, 且 $\varPhi$ 是 $[0,1]\times [0,1]$
+    上的连续函数. 定义算子 $T:E\to E$ 为
+    \[T(f)(s)=\int_0^1 \varPhi(s,t)f(t)\diff t,\quad s\in [0,1].\]
+    证明: $T$ 是紧的.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $E=L_2(0,1)$ 且 $\varPhi\in L_2([0,1]\times [0,1])$. 定义算子 $T:E\to E$ 为
+    \[T(f)(s)=\int_0^1 \varPhi(s,t)f(t)\diff t,\quad s\in [0,1].\]
+    证明: $T$ 是紧的.
+\end{exercise}
+
+
+
+\begin{exercise}
+    定义 $C([0,1])$ 上的算子 $T$:
+    \[Tf(x)=\int_0^{1-x} f(t)\diff t,\quad x\in [0,1].\]
+    证明 $T$ 是紧的并确定 $\sigma(T)$.
+
+    设 $1\leq p\leq\infty$, 在 $L_p([0,1])$ 上定义和上面一样的算子 $T$, 回答同样的问题.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $E$ 是空间 $C([0,1])$ 或 $L_p(0,1)$, 其中 $p\in [1,\infty]$.
+
+    (a) 在 $E$ 上定义算子 $T$ 如下:
+    \[Tf(x)=\int_0^1 \min\{x,y\}f(y)\diff y,\quad x\in [0,1].\]
+    求 $T$ 的谱集.
+
+    (b) 在 $L_2(0,1)$ 上定义如下的算子 $S$:
+    \[Sf(x)=\int_0^x f(y)\diff y.\]
+    确定 $S^*$, 证明 $SS^*$ 和上面的算子 $T$ 在空间 $E=L_2(0,1)$ 上相同, 求出 $\|S\|$.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $H$ 是 Hilbert 空间, 并有 $T\in\mathcal{B}(H)$. 令
+    \[W(T)=\{\innerp{T(x)}{x}\colon x\in H,\|x\|=1\}.\]
+    设 $\sigma_{pa}(T)$ 满足如下性质的所有 $\lambda\in\FC$ 构成的集合:
+    $H$ 的单位球中存在一个序列 $(x_n)$, 使得 $\innerp{T(x_n)}{x_n}\to\lambda$.
+
+    (a) 证明: $\sigma(T)=\sigma_{pa}(T)\cup\closure{\sigma_p(T^*)}$.
+
+    (b) 证明: $\sigma(T)\subset\closure{W(T)}$.
+
+    (c) 在 $\FK=\FC$ 的情形下, 导出
+    \[r(T)\leq\sup_{\|x\|=1}|\innerp{T(x)}{x}|\leq\|T\|.\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $H$ 是复 Hilbert 空间. 称 $T\in\mathcal{B}(H)$ 是正规的, 若 $T^*T=TT^*$.
+
+    (a) 证明: $T$ 是正规的当且仅当对任意 $x\in H$, 有 $\|T(x)\|=\|T^*(x)\|$.
+
+    (b) 假设 $T$ 是正规的. 证明: 对任意 $\lambda\in\FC$, 有
+    \[\ker(\lambda-T)=\ker(\conjugate{\lambda}-T^*).\]
+    由此导出: $\lambda\in\sigma_p(T)$ 等价于 $\conjugate{\lambda}\in\sigma_p(T^*)$.
+
+    (c) 证明: $T$ 的相应于不同特征值的特征子空间相互正交.
+
+    (d) 依然假设 $T$ 是正规的.
+    (i) 证明: $r(T)=\|T\|$; (ii) 导出结论:
+    \[\|T\|=\sup_{\|x\|=1}|\innerp{T(x)}{x}|.\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    试把谱分解定理扩展到复 Hilbert 空间的正规算子上.
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $T$ 是 Hilbert 空间上的紧算子, $\lambda\in\FK$ 且 $\lambda\neq 0$. 证明: 方程
+    \[\lambda x-T(x)=y\]
+    或者对每一个 $y\in E$ 有唯一解, 或者对某些 $y$ 有无穷多个解但对其他的 $y$ 无解(Fredholm 选择定理).
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $(\lambda_n)$ 是有界数列, 并定义算子 $T:\ell_2\to\ell_2$ 为 $(x_n)\mapsto (\lambda_n x_n)$.
+
+    (a) 证明 $T\in\mathcal{B}(\ell_2)$, 确定 $\|T\|$ 和 $\sigma(T)$.
+
+    (b) 什么情况下 $T$ 是紧的?
+\end{exercise}
+
+
+
+\begin{exercise}
+    定义 Hilbert 算子 $u:\ell_2\to\ell_2$ 为
+    \[u(x)=\biggl(\sum_{k=1}^{\infty}\frac{x_k}{j+k}\biggr)_{j\geq 1},\forall x=(x_k)_{k\geq 1}\in\ell_2.\]
+    对每个 $n\geq 1$, 令 $a_n=\bigl(1,\frac{1}{\sqrt{2}},\cdots,\frac{1}{\sqrt{n}},0,0,\cdots\bigr)$, $b_n=\frac{a_n}{\|a_n\|}$.
+    证明:
+    \begin{enumerate}[(a)]
+        \item $b_n$ 弱收敛到 $0$.
+        \item $\innerp{u(a_n)}{a_n}\geq\pi\ln n+O(1)$.
+        \item $\liminf_{n\to\infty}\|u(b_n)\|\geq\pi$.
+        \item $\liminf_{n\to\infty}\|(u-v)(b_n)\|\geq\pi$, $\forall v\in\mathcal{K}(\ell_2)$.
+        \item $\dist(u,\mathcal{K}(\ell_2))=\pi$, 结论意味着 $u$ 不是紧的.
+    \end{enumerate}
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $T$ 是 Hilbert 空间 $H$ 上的自伴紧算子, $\lambda$ 是 $T$ 的非零特征值. 证明:
+    \[\ker(\lambda-T)\cap (\lambda-T)(H)=\{0\}.\]
+    由此导出: $\ker(\lambda-T)=\ker(\lambda-T)^2$ 且
+    \[H=\ker(\lambda-T)\oplus(\lambda-T)(H).\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $T$ 是 Hilbert 空间 $H$ 上的自伴紧算子. 对 $T$ 的每个非零特征值 $\lambda$,
+    令 $P_{\lambda}$ 表示相应的特征子空间上的正交投影. 取 $x\in H$, 证明:
+    \begin{equation}
+        T(y)=x\tag{$\star$}
+    \end{equation}
+    有解当且仅当 $x\in(\ker T)^{\perp}$ 且
+    \[\sum_{\lambda\in\sigma_p(T)\setminus\{0\}} \frac{\|P_{\lambda}(x)\|^2}{\lambda^2}<\infty.\]
+    并证明: 若以上充分条件成立, 则 $(\star)$ 式的通解为
+    \[y=z+\sum_{\lambda\in\sigma_p(T)\setminus\{0\}} \frac{P_{\lambda}(x)}{\lambda^2},\text{\ 其中\ }z\in\ker T.\]
+\end{exercise}
+
+
+
+\begin{exercise}
+    设 $H$ 是一个可分的 Hilbert 空间.
+    
+    (a) 设 $(e_n)_n$ 和 $(f_n)_n$ 是 $H$ 中的两个规范正交基. 证明: 任取 $T\in\mathcal{B}(H)$, 都有
+    \[\sum_n \|Te_n\|^2=\sum_n \|Tf_n\|^2.\]
+    后面我们固定 $H$ 中的规范正交基为 $(e_n)$.
+    设 $\mathcal{S}_2(H)$ 为满足如下条件的算子 $T$ 构成的集合:
+    \[\|T\|^2=\biggl(\sum_n \|Te_n\|^2\biggr)^{\frac{1}{2}}<\infty.\]
+    我们称这样的算子为\emph{Hilbert-Schmidt 算子}.
+
+    (b) 假设 $\dim H=N<\infty$. 利用算子 $T$ 在基 $(e_1,\cdots,e_N)$ 下的矩阵形式,
+    给出范数 $\|T\|_2$ 的一个具体刻画.
+
+    (c) 证明: $\mathcal{S}_2(H)$ 是 $\mathcal{B}(H)$ 的双边理想并包含所有的有限秩算子.
+
+    (d) 证明: 任取 $T\in\mathcal{S}_2)(H)$, 有 $\|T\|\leq\|T\|_2$, 并且 $(\mathcal{S}_2(T),\|\cdot\|_2)$
+    是一个 Hilbert 空间.
+
+    (e) $P_n$ 表示到空间 $\Span(e_1,\cdots,e_n)$ 上的正交投影.
+    证明: 在 $\dim H=\infty$ 时, 有
+    \[\lim_n \|T-TP_n\|_2=0,\forall T\in\mathcal{S}_2(H).\]
+    因而, 任意的 Hilbert-Schmidt 算子是紧的.
+
+    (f) 假设 $T$ 是自伴紧算子. 对每个 $\lambda\in\sigma_p(T)\setminus\{0\}$,
+    令 $d_{\lambda}=\dim\ker(\lambda-T)$. 证明: $T\in\mathcal{S}_2(H)$ 当且仅当
+    \[\sum_{\lambda\in\sigma_p(T)\setminus\{0\}}d_{\lambda}\lambda^2<\infty.\]
+\end{exercise}

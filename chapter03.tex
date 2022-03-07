@@ -170,32 +170,23 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 知 $L$ 是线性映射. 又因为
 \begin{align*}
 |L(P)|
-&=\left|\int_0^1\frac{P(x)}{x}\diff x\right|\leq\int_0^1\left|\frac{P(x)}{x}\right|\diff x\leq\left\|\frac{P(x)}{x}\right\|_{\infty}\\
-&=\left\lvert\frac{P(x_0)}{x_0}\right\rvert\quad(\exists x_0\in [0,1])\\
+&=\left|\int_0^1\frac{P(x)}{x}\diff x\right|\leq\int_0^1\left|\frac{P(x)}{x}\right|\diff x\leq\left\|\frac{P(x)}{x}\right\|_{\infty}=\left\lvert\frac{P(x_0)}{x_0}\right\rvert\quad(\exists x_0\in [0,1])\\
 &=\left\lvert\frac{P(x_0)-P(0)}{x_0-0}\right\rvert=|P'(\theta)|\leq\|P'\|_{\infty}=N(P),
 \end{align*}
 即 $|L(P)|\leq N(P)$.
 故 $L$ 是 $E_0$ 关于 $N$ 的连续线性泛函, 且 $\|L\|=1$.
 
-(c) 对于 $\forall C>0$, 取 $M>\frac{3}{2}C-\frac{1}{2}$, 令 $\delta=e^{-M}\in (0,1)$,取
-\[f(x)=\begin{cases}
-\frac{1}{\delta}, & 0\leq x\leq\delta\\ 
-\frac{1}{x}, & \delta\leq x\leq 1.
-\end{cases}\]
-由 Weierstrass 多项式逼近定理知, 存在多项式函数 $p_n(x)\in P_n$ 使得
-\[\lim\limits_{n\to\infty}\max\limits_{0\leq x\leq 1}|p_n(x)-f(x)|=0.\]
-故 $\exists N$, 使得对于 $\forall n>N$, 
-有 $-\frac{1}{2}<p_n(x)-f(x)<\frac{1}{2}$, 记 $q_n(x)=xp_n(x)\in E_0$, 则:
-\[|L(q_n)|=\left\lvert\int_0^1p_n(x)dx\right\rvert>\int_0^1\left(f(x)-\frac{1}{2}\right)dx=\frac{1}{2}+M.\]
-而
-\[\|q_n\|_{\infty}<\|x(f(x)+\frac{1}{2})\|_{\infty}=\max_{0\leq x\leq 1}\left\lvert x(f(x)+\frac{1}{2})\right\rvert=\frac{3}{2}.\]
-所以 $|L(q_n)|>C\|q_n\|_{\infty}$, 故 $L$ 关于范数 $\|\cdot\|_{\infty}$ 不连续.
+(c) 取 $P_n(x)=-x^2+\frac{2}{n}x$, 则
+\[\|P_n\|_{\infty}=\max_{x\in [0,1]}|P(x)|=\frac{1}{n^2}\to 0,\quad n\to\infty.\]
+但是
+\[L(P_n)=\int_0^1 \frac{P_n(x)}{x}\diff x=\int_0^1 \biggl(-x+\frac{2}{n}\biggr)\diff x=-1+\frac{2}{n}\to -1,\quad n\to\infty.\]
+故 $L$ 关于范数 $\|\cdot\|_{\infty}$ 不连续.
 
 (d) $\|\cdot\|_{\infty}$ 与 $N$ 在 $E_0$ 上不等价.
 反证法证明: 
 假设存在常数 $C_1 $和 $C_2$ 使得对于 $\forall P\in E_0$ 
-有 $C_1N(p)\leq\|p\|_{\infty}\leq C_2N(p)$. 取$n>\frac{1}{C_1}$ 且$p(x)=x^n$, 则
-\[N(p)=\max_{0\leq x\leq 1}|nx^{n-1}|=n>\frac{1}{C_1}=\frac{1}{C_1}\|p\|_{\infty}.\]
+有 $C_1N(p)\leq\|p\|_{\infty}\leq C_2N(p)$. 取 $n>\frac{1}{C_1}$ 且 $P(x)=x^n$, 则
+\[N(P)=\max_{0\leq x\leq 1}|nx^{n-1}|=n>\frac{1}{C_1}=\frac{1}{C_1}\|P\|_{\infty}.\]
 矛盾, 证毕.
 \end{proof}
 
@@ -590,7 +581,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 
-\begin{exercise}
+\begin{exercise}(插值不等式)
     设 $0<p<q\leq\infty$, $0\leq\theta\leq 1$. 并令
     \[\frac{1}{s}=\frac{\theta}{p}+\frac{1-\theta}{q}.\]
     证明若 $f\in L_p(\varOmega)\cap L_q(\varOmega)$, 则
@@ -609,8 +600,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 
-\begin{exercise}
-    (\textbf{广义 Minkowski 不等式}) 
+\begin{exercise}(广义 Minkowski 不等式) 
     设 $\left(\varOmega_{1}, \mathcal{A}_{1}, \mu_{1}\right)$ 
     和 $\left(\varOmega_{2}, \mathcal{A}_{2}, \mu_{2}\right)$ 是两个测度空间, $0<p<q<\infty$. 
     证明对任意可测函数 
@@ -770,8 +760,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 
-\begin{exercise}
-     (\textbf{卷积}) 
+\begin{exercise}(卷积) 
      在实数集 $\FR$ 上取 Lebesgue $\sigma$-代数及 Lebesgue 测度, 并设 $f,g\in L_{1}(\FR)$.
 
      (a) 证明

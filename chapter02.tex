@@ -3,28 +3,6 @@
 
 
 
-\begin{corollary}[推论 2.5.7]
-    若度量空间 $(E,d)$ 完备, 则 $A\subset E$ 是相对紧的当且仅当 $A$ 是预紧的.
-\end{corollary}
-
-\begin{proof}
-    \necessary
-    设 $A\subset E$ 相对紧, 则 $\closure{A}$ 是 $E$ 中紧集, 故 $\closure{A}$
-    预紧, 从而 $A\subset\closure{A}$ 也是预紧的.
-
-    \sufficient
-    设 $A$ 是预紧的, 则对任意 $\epsilon>0$, $A$ 存在有限的 $\frac{\epsilon}{2}$-网
-    $\{x_i\}_{i=1}^n$, 故 $A\subset\bigcup_{i=1}^n B(x_i,\frac{\epsilon}{2})$.
-    注意到有限个闭集的并仍为闭集, 故
-    \[\closure{A}\subset\bigcup_{i=1}^n\closure{B\left(x_i,\frac{\epsilon}{2}\right)}\subset\bigcup_{i=1}^n B(x_i,\epsilon).\]
-    所以 $\{x_i\}_{i=1}^n$ 为 $A$ 的有限 $\epsilon$-网, 从而 $\closure{A}$ 预紧
-    (从上述证明过程中可以看出 $A$ 预紧 $\iff\closure{A}$ 预紧).
-    由于完备度量空间的闭子集完备, 故 $\closure{A}$ 完备, 结合 $\closure{A}$
-    完备和预紧即知 $\closure{A}$ 为紧集, 从而 $A$ 相对紧.
-\end{proof}
-
-
-
 \begin{exercise}
     完备性不是一个拓扑概念, 我们用两个例子说明这一点.
 

@@ -23,13 +23,13 @@
     \[\|\tilde{f}\|=\sup_{x\in\FR^2,x\neq 0}\frac{|\tilde{f}(x)|}{\|x\|_1}=\sup_{x\in\FR^2,x\neq 0}\frac{|x_1+x_2\tilde{f}(e_2)|}{|x_1|+|x_2|}.\]
     要使得 $\|\tilde{f}\|=\|f\|=1$, 即
     \[\sup_{x\in\FR^2,x\neq 0}\frac{|x_1+x_2\tilde{f}(e_2)|}{|x_1|+|x_2|}=1.\]
-    容易验证当 $|\tilde{f}(e_2)|\leq 1$ 时, 上面等式得以成立, 
+    容易验证当且仅当 $|\tilde{f}(e_2)|\leq 1$ 时, 上式得以成立, 
     因此当 $\FR^2$ 上赋予 $\|\cdot\|_1$ 范数时, $f$ 从 $F$ 到 $\FR^2$ 的所有保范延拓为:
-    \[\left\{\tilde{f}:\tilde{f}(x)=x_1+x_2\tilde{f}(e_2),|\tilde{f}(e_2)|\leq1\right\}.\]
+    \[\left\{\tilde{f}\colon\tilde{f}(x)=x_1+x_2\tilde{f}(e_2),|\tilde{f}(e_2)|\leq1\right\}.\]
 
     (b) 当 $1<p<\infty$ 时, 此时目标是:
     \[\|\tilde{f}\|=\sup_{x\in\FR^2,x\neq0}\frac{|x_1+x_2\tilde{f}(e_2)|}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}=1.\]
-    为叙述简便, 记 $t=|\tilde{f}(e_2)|$, 则$x_1x_2\tilde{f}(e_2)\geq 0$ 时
+    为叙述简便, 记 $t=|\tilde{f}(e_2)|$, 则$x_1\cdot x_2\tilde{f}(e_2)\geq 0$ 时
     \[\begin{split}\frac{|x_1+x_2\tilde{f}(e_2)|}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}\leq 1
     &\Leftrightarrow \frac{|x_1|+|x_2|\cdot t}{\left(|x_1|^p+|x_2|^p\right)^{\frac{1}{p}}}\leq1\\
     &\Leftrightarrow (|x_1|+|x_2|\cdot t)^p\leq|x_1|^p+|x_2|^p(\mbox{不妨}|x_2|\neq0)\\
@@ -48,36 +48,36 @@
 
 
 
-\begin{exercise}
-    通过 $\FR^2$ 上的反例说明在几何形式的 Hahn-Banach 定理中, 一个凸子集是开集的条件是必要的.
-\end{exercise}
+% \begin{exercise}
+%     通过 $\FR^2$ 上的反例说明在几何形式的 Hahn-Banach 定理中, 一个凸子集是开集的条件是必要的.
+% \end{exercise}
 
-\begin{proof}
-将四个点$(\pm1,\pm1)$围成的正方形用$x$轴分成两部分,
-上半部分去掉线段 $\{(x,y)|-1\leq x\leq0,y=0\}$, 得到区域 $A$,
-下半部分去掉线段 $\{(x,y)|0\leq x\leq 1,y=0\}$, 得到区域$B$, 易知$A,B$无法被隔离.
-\end{proof}
-
-
-
-\begin{exercise}
-    设 $E$ 是数域 $\FK$ 上的赋范空间, $A\subset E$, 并设 $f:A\to\FK$
-    以及常数 $\lambda\geq 0$. 证明: 存在 $\widehat{f}\in E^*$, 使得
-    $\widehat{f}|_A=f\quad\text{且}\quad\|\widehat{f}\|\leq\lambda$
-    的充分必要条件是
-    \[\left|\sum_{k=1}^n \alpha_kf(a_k)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|,\forall n\in\FN^*,
-    \forall(a_1,\cdots,a_n)\in A^n,\forall (\alpha_1,\cdots,\alpha_n)\in\FK^n.\]
-\end{exercise}
-
-\begin{proof}
-    必要性显然,下面证明充分性. 由
-    \[\left|\sum_{k=1}^n\alpha_kf(a_k)\right|=\left|f\left(\sum_{k=1}^n\alpha_ka_k\right)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|.\]
-    知 $f$ 是连续线性泛函, 由 Hahn-Banach 定理知存在 $\hat{f}\in E^{*}$, 使得 $\hat{f}|_A=f,\|\hat{f}\|\leq\lambda$.
-\end{proof}
+% \begin{proof}
+% 将四个点$(\pm1,\pm1)$围成的正方形用$x$轴分成两部分,
+% 上半部分去掉线段 $\{(x,y)|-1\leq x\leq0,y=0\}$, 得到区域 $A$,
+% 下半部分去掉线段 $\{(x,y)|0\leq x\leq 1,y=0\}$, 得到区域$B$, 易知$A,B$无法被隔离.
+% \end{proof}
 
 
 
-\begin{exercise}
+% \begin{exercise}
+%     设 $E$ 是数域 $\FK$ 上的赋范空间, $A\subset E$, 并设 $f:A\to\FK$
+%     以及常数 $\lambda\geq 0$. 证明: 存在 $\widehat{f}\in E^*$, 使得
+%     $\widehat{f}|_A=f\quad\text{且}\quad\|\widehat{f}\|\leq\lambda$
+%     的充分必要条件是
+%     \[\left|\sum_{k=1}^n \alpha_kf(a_k)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|,\forall n\in\FN^*,
+%     \forall(a_1,\cdots,a_n)\in A^n,\forall (\alpha_1,\cdots,\alpha_n)\in\FK^n.\]
+% \end{exercise}
+
+% \begin{proof}
+%     必要性显然,下面证明充分性. 由
+%     \[\left|\sum_{k=1}^n\alpha_kf(a_k)\right|=\left|f\left(\sum_{k=1}^n\alpha_ka_k\right)\right|\leq\lambda\left\|\sum_{k=1}^n\alpha_ka_k\right\|.\]
+%     知 $f$ 是连续线性泛函, 由 Hahn-Banach 定理知存在 $\hat{f}\in E^{*}$, 使得 $\hat{f}|_A=f,\|\hat{f}\|\leq\lambda$.
+% \end{proof}
+
+
+
+\begin{exercise}[4]
     设 $E$ 是 Hausdorff 拓扑向量空间, $A$ 是 $E$ 中包含原点的开凸集以及 $x_0\in E\setminus A$.
 
     (a) 证明: 存在 $f\in E^*$, 使得
@@ -177,22 +177,125 @@
     因此
     \[E=H+\mathbb{K}x_1,\quad\forall x_1\in E\setminus H.\]
 
-    (b)由定理7.1.6知$\overline{H}$是向量子空间, 又$\dim (E\setminus H)=1$, 故只可能有两种情况:
+    (b) 由定理 7.1.6 知 $\closure{H}$ 是向量子空间, 又 $\dim (E\setminus H)=1$, 故只可能有两种情况:
     当 $\closure{H}=H$ 时, $H$ 为闭集; 当 $\closure{H}=E$ 时, $H$ 在 $E$ 中稠密.
 
-    (c) $(\Leftarrow)$假设存在$E$上的非零线性泛函$f$,使得$H=\ker f$,首先因$f\not\equiv0$,故存在$x_0\in E\setminus\ker f,s.t.f(x_0)=1$,则$\forall x\in E$,有
-    \[x=x-f(x)x_0+f(x)x_0\]
-    因为$f(x-f(x)x_0)=f(x)-f(x)f(x_0)=0$,所以$x-f(x)x_0\in\ker f$,并且$f(x)x_0\in\mathbb{K}x_0$,又容易验证表示$x=h+kx_0,h\in\ker f,k\in\mathbb{K}$是唯一的,因此
-    \[E=H+\mathbb{K}x_0\]也即$H$是超平面\\
-    $(\Rightarrow)$因为$H$是超平面,所以$\exists x_0\in E\setminus H,s.t.E=H+\mathbb{K}x_0$,故$\forall x\in E,x=h+kx_0$\\
-    定义泛函:\[f:E\to\mathbb{K},x=h+kx_0\mapsto k\]
-    容易验证$f$是合理定义的线性泛函且$\ker f=H$\\
-    当$f$连续时,因为$\{0\}\subset\mathbb{K}$是闭集,所以$H=\ker f=f^{-1}(0)$是闭集.
+    (c) \sufficient
+    假设存在 $E$ 上的非零线性泛函 $f$, 使得 $H=\ker f$, 首先因 $f\not\equiv 0$,
+    故存在 $x_0\in E\setminus\ker f$, 使得 $f(x_0)=1$, 则$\forall x\in E$, 有
+    \[x=x-f(x)x_0+f(x)x_0.\]
+    因为 $f(x-f(x)x_0)=f(x)-f(x)f(x_0)=0$, 所以 $x-f(x)x_0\in\ker f$,
+    并且 $f(x)x_0\in\mathbb{K}x_0$, 又容易验证表示 $x=h+kx_0$, $h\in\ker f,k\in\mathbb{K}$ 是唯一的, 因此
+    \[E=H+\mathbb{K}x_0.\]
+    也即 $H$ 是超平面.
+
+    \necessary
+    因为 $H$ 是超平面, 所以存在 $x_0\in E\setminus H$, 使得 $E=H+\mathbb{K}x_0$, 
+    故对于 $\forall x\in E$, $x=h+kx_0$, 定义泛函
+    \[f:E\to\mathbb{K},x=h+kx_0\mapsto k.\]
+    容易验证 $f$ 是合理定义的线性泛函且 $\ker f=H$.
+    当 $f$ 连续时, 因为 $\{0\}\subset\mathbb{K}$ 是闭集, 所以 $H=\ker f=f^{-1}(0)$ 是闭集.
 \end{proof}
-% 11.\textit{Proof}:(a)由题目条件知$C$是$X$中原点的凸平衡闭邻域,同定理7.3.4的证明结合$C$有界可知$p$是$X$上的范数,下证其与$\|\cdot\|_X$等价:\\
-% 因为$\frac{x}{\|x\|}\in\overline{B}_X\subset C$,所以$\|x\|\geq p(x)$,又因为
-% \[\frac{x}{\frac{1}{K}\|x\|}=\frac{Kx}{\|x\|}\in\partial\left(K\overline{B}_X\right)\mbox{且}C\subset K\overline{B}_X\]
-% 故$\frac{1}{K}\|x\|\leq p(x)$,因此$p$与$\|\cdot\|_X$等价\\
-% (b)令\[I(x)=\left\{\lambda>0:\frac{x}{\lambda}\in C\right\}\]
-% 由$C$是闭集知$I(x)$是$\FR$上的闭集,即$I(x)=[p(x),+\infty)$,因此(i)(ii)(iii)都是显然的\\
-% (c)\\
+
+
+
+\begin{exercise}
+    设 $(X,\|\cdot\|_X)$ 是实赋范空间, $\closure{B}_X$ 表示该空间中的闭单位球.
+    假设 $K\geq 1$, $C$ 是 $X$ 中闭凸对称子集 ($C$ 对称是指 $x\in C\Rightarrow -x\in C$), 且满足
+    \[B_X\subset C\subset K\closure{B}_X.\]
+    定义
+    \[p(x)=\inf\Bigl\{\lambda>0\colon\frac{x}{\lambda}\in C\Bigr\},\;\forall x\in X.\]
+
+    (a) 证明: $p$ 是 $X$ 上和 $\|\cdot\|_X$ 等价的范数. 更确切地说, 证明:
+    \[\frac{1}{K}\|x\|\leq p(x)\leq\|x\|,\;\forall x\in X.\]
+
+    (b) 设 $x\in X$. 证明:
+    \begin{enumerate}[(i)]
+        \item $x\in X\setminus C\Longleftrightarrow p(x)>1$.
+        \item $x\in\mathring{C}\Longleftrightarrow p(x)<1$.
+        \item $x\in\partial C\Longleftrightarrow p(x)=1$.
+    \end{enumerate}
+
+    (c) 任取 $x\in\partial C$. 证明: 存在 $X$ 上的连续线性泛函 $f$, 使得 $f(x)=1$ 且在集合 $C$ 上, $|f|\leq 1$.
+\end{exercise}
+
+\begin{proof}
+    (a) 任取 $\varepsilon>0$, 对于任意 $x,y\in X$, 有 $\frac{x}{p(x)+\varepsilon}\in C$, $\frac{y}{p(y)+\varepsilon}\in C$, 于是
+    \[\frac{x + y}{p(x) + p(y) + 2\varepsilon} = \frac{p(x) + \varepsilon}{p(x) + p(y) + 2\varepsilon}\frac{x}{p(x) + \varepsilon} + \frac{p(y) + \varepsilon}{p(x) + p(y) + 2\varepsilon}\frac{y}{p(y) + \varepsilon}\in C,\]
+    因此 $p(x+y)\leq p(x)+p(y)+2\varepsilon$, 由 $\varepsilon$ 的任意性得 $p(x+y)\leq p(x)+p(y)$.
+
+    任取 $\lambda\in\FR$ 和 $x\in X$, 当 $\lambda=0$ 时, $p(\lambda x)=|\lambda|p(x)$
+    显然成立, 当 $\lambda\neq 0$ 时, 有
+    \[\frac{\lambda x}{p(\lambda x)+\varepsilon}\in C.\]
+    由 $C$ 对称得
+    \[\frac{x}{\frac{1}{|\lambda|}(p(\lambda x)+\varepsilon)}\in C.\]
+    故 $p(x)\leq\frac{1}{|\lambda|}(p(\lambda x)+\varepsilon)\Rightarrow|\lambda|p(x)\leq p(\lambda x)$.
+
+    又因 $\frac{x}{p(x)+\varepsilon}\in C$, 由 $C$ 对称可得 $\frac{\lambda x}{|\lambda|(p(x)+\varepsilon)}\in C$,
+    故 $p(\lambda x)\leq |\lambda|(p(x)+\varepsilon)$, 从而$p(\lambda x)\leq|\lambda|p(x)$.
+    因此 $p(\lambda x)=|\lambda|p(x)$.
+
+    任取 $x\in X$, 有 $\frac{x}{\|x\|}\in\closure{B}_X\subset C$, 故 $p(x)\leq\|x\|$.
+    又 $\frac{x}{p(x)+\varepsilon}\in C\subset K\closure{B}_X$, 故
+    $\|\frac{x}{p(x)+\varepsilon}\|\leq K\Rightarrow \frac{1}{K}\|x\|\leq p(x)$.
+
+    综上可知 $p$ 是在 $X$ 上和 $\|\cdot\|$ 等价的范数且满足
+    \[\frac{1}{K}\|x\|\leq p(x)\leq\|x\|,\;\forall x\in X.\]
+
+    (b) (i) \sufficient 因 $p(x)>1$, 故 $x=\frac{x}{1}\notin C$, 即 $x\in X\setminus C$.
+    \necessary 因 $x\in X\setminus C$ 且 $X\setminus C$ 为开集,
+    故存在 $\mu\in(0,1)$, 使得 $(1-\mu)x\in X\setminus C$, 即 $\frac{x}{1/(1-\mu)}\notin C$,
+    因此 $p(x)\geq\frac{1}{1-\mu}>1$.
+
+    (ii) \necessary 因 $x\in\mathring{C}$ 且 $\mathring{C}$ 为开集,
+    故存在 $\mu>0$, 使得 $(1+\mu)x\in\mathring{C}\subset C$, 故 $p(x)\leq\frac{1}{1+\mu}<1$.
+    \sufficient 因 $p(x)<1$, 故存在 $\lambda$ 使得 $p(x)<\lambda<1$,
+    于是 $\frac{x}{\lambda}\in C\Rightarrow x\in\lambda C\subset\mathring{C}$.
+
+    (iii) 由 (i)(ii) 即得 $x\in\partial C\Longleftrightarrow p(x)=1$.
+
+    (c) 由教材推论 8.1.10 知存在 $X$ 上的连续线性泛函 $f$, 使得 $f(x)=1$ 且在集合 $C$ 上, $|f(x)|\leq p(x)\leq 1$.
+\end{proof}
+
+
+
+\begin{exercise}
+    考虑空间 $\ell_{\infty}$ 和它的子空间 $F$:
+    \[F=\bigl\{x\in\ell_{\infty}\colon \lim_{n\to\infty}m_n(x)\text{\ 存在}\bigr\},\quad\text{其中\ }m_n(x)=\frac{1}{n}\sum_{k=1}^n x_k.\]
+
+    (a) 定义 $f:F\to\FR$ 为 $f(x)=\lim_{n\to\infty}m_n(x)$. 证明: $f\in F^*$.
+
+    (b) 证明: 存在 $\ell_{\infty}$ 上的连续线性泛函 $m$ 满足下面的性质:
+    \begin{enumerate}[(i)]
+        \item $\liminf_{n\to\infty}x_n\leq m(x)\leq\limsup_{n\to\infty}x_n$, $\forall x\in\ell_{\infty}$.
+        \item $m\circ\tau=m$, 这里 $\tau:\ell_{\infty}\to\ell_{\infty}$ 是右移算子, 即 $\tau(x)_n=x_{n+1}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) 线性性 $f(\lambda x+y)=\lambda f(x)+f(y)$ 直接验证. 下证 $f$ 有界, 对任意 $n\geq 1$,
+    \[|m_n(x)|\leq\frac{1}{n}\sum_{k=1}^n |x_k|\leq\|x\|_{\infty}.\]
+    故对任意 $x\in F$, 有 $|f(x)|=\lim_{n\to\infty}|m_n(x)|\leq\|x\|_{\infty}$.
+
+    (b)
+\end{proof}
+
+\begin{proof}
+    (a) We can obtain it from definition easily that 
+    \[ |m_n(x)| \leq \frac1n\sum_{k=1}^n |x_k|\leq \|x\|_\infty. \]
+    Then $|f(x)| = |\lim m_n(x)|\leq \|x_\infty\|.$
+    (b) Define $p: l^\infty\to \mathbb R, (x_n)\mapsto \overline\lim \frac1n|\sum_{k = 1}^nx_k|$, and we can obtain $p(x) \geq 0, p(x + y)\leq p(x) + p(y)$ and $|\lambda|p(x) = p(\lambda x)$. Since $p(x) \leq \|x\|_\infty$, $p$ is a continous seminorm. Therefore, $\exists m\in (l^\infty)^*$ s.t. $m = f$ on $F$ and $|m|\leq p$ on $l^\infty$. 
+    
+    Let $x^*$ denote $\overline\lim x_n$, and $x_*$ denote $\underline \lim x_n$. Set $e = (1, \cdots)\in F$, and then $\lrangle{m}{e} = 1$. We obtain that 
+    \[ \langle m, x\rangle  = \langle m, x-x_*e\rangle + x_* \leq p(x-x_*e) + x_*.\]
+    We claim that $p(x-x_*)\leq \overline\lim |x_n - x_*|$. Indeed, there exist $N>0$ such that $\forall n > N$, $|x_n - x_*| \leq \overline\lim |x_n - x_*| + \varepsilon$ for any $\varepsilon>0$. Thus 
+    \[ \frac1n|\sum_{k=1}^n x_k - x_*|\leq \frac1n \sum_{k=1}^N |x_k - x_*| + \frac{n-N}{n}\overline\lim|x_n - x_*| + \varepsilon. \]
+    Since $\exists n_k$ such that $\overline\lim |x_n - x_*|=\lim |x_{n_k} - x_*| = |\lim x_{n_k} - x_*| \leq x^*-x_*$,  we have 
+    \[ \lrangle{m}{x}\leq p(x - x_*e) + x_*\leq x^* - x_* + x_* = x^*. \]
+    
+    Conversely, we have $\langle m, -x\rangle \leq -x_*$, and it follows that $x_*\leq \langle m, x\rangle \leq x^*$.
+
+    Since
+    \[ p(\tau x - x) = \overline\lim \frac1n |\sum_{k = 1}^nx_k - x_{k+1}| = \overline\lim\frac1n(|x_{n+1}-x_1|)\leq \overline\lim \frac{2\|x\|_\infty}{n} = 0, \]
+    and then $|\langle m, \tau x - x\rangle|\leq p(\tau x - x) = 0$, $\langle m, \tau x\rangle = \langle m, x\rangle$. 
+\end{proof}
