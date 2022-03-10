@@ -924,7 +924,23 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
     称 $A$ 是正的, 若对任一 $x\in H$, 有 $\innerp{A(x)}{x}\geq 0$.
 
     (a) 证明 $H$ 上任意压缩正算子 $A$ 满足
-    \[\|x-A(x)\|^2\leq\|x\|^2-\|A(x)\|^2,\quad x\in H.\]
+    \[\|x-A(x)\|^2\leq\|x\|^2-\|A(x)\|^2,\quad\forall x\in H.\]
+
+    (b) 设 $T=A_1\cdots A_r$ 是 $H$ 上 $r$ 个压缩正算子的乘积. 记 $N=\ker(I-T)$,
+    并且 $P$ 是 $N$ 上的正交投影. 我们的目的是证明: 在强算子拓扑下, $T^n\to P$, 即有
+    \begin{equation}
+        \lim_{n\to\infty} \|T^n(x)-P(x)\|=0,\quad\forall x\in H. \tag{$*$}
+    \end{equation}
+    \begin{enumerate}[(i)]
+        \item 证明 \[\|x-T(x)\|^2\leq r\bigl(\|x\|^2-\|T(x)\|^2\bigr),\quad\forall x\in H.\]
+              由此导出: 对任意有界序列 $(x_n)\subset H$, 有
+              \[\lim_{n\to\infty}(\|x_n\|-\|T(x_n)\|)=0\Rightarrow\lim_{n\to\infty} \|x_n-T(x_n)\|=0.\]
+        \item 证明 ($*$) 式: 先对 $x\in N$ 证明, 再对 $x\in\closure{(I-T)(H)}$ 证明.
+        \item 证明 \[N=\bigcap_{j=1}^r \ker(I-A_j).\]
+    \end{enumerate}
+
+    (c) 设 $P_1,\cdots,P_r$ 分别是 $H$ 的 $r$ 个闭向量子空间 $E_1,\cdots,E_r$ 上的投影算子,
+    并令 $T=P_1\cdots P_r$. 证明 $(T^n)_{n\geq 1}$ 在强算子拓扑下收敛到一个投影算子.
 \end{exercise}
 
 \begin{proof}
@@ -959,6 +975,39 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
         & \geq 0.
     \end{align*}
     最后用到了 $A$ 和 $I-A$ 皆为正算子, 证毕.
+
+    (b) (i) 利用范数的三角不等式、Cauchy-Schwarz 不等式以及 (a) 中所得不等式得
+    \begin{align*}
+               & \|x-T(x)\|^2 \\
+        ={}    & \|x-A_r(x)+A_r(x)-A_{r-1}A_r(x)+\cdots+A_2\cdots A_r(x)-A_1A_2\cdots A_r(x)\|^2 \\
+        \leq{} & (\|x-A_r(x)\|+\|A_r(x)-A_{r-1}A_r(x)\|+\cdots+\|A_2\cdots A_r(x)-A_1A_2\cdots A_r(x)\|)^2 \\
+        \leq{} & r\bigl(\|x-A_r(x)\|^2+\|A_r(x)-A_{r-1}A_r(x)\|^2+\cdots+\|A_2\cdots A_r(x)-A_1A_2\cdots A_r(x)\|^2\bigr) \\
+        \leq{} & r\bigl(\|x\|^2-\|A_r(x)\|^2+\|A_r(x)\|^2-\|A_{r-1}A_r(x)\|^2+\cdots+\|A_2\cdots A_r(x)\|^2-\|T(x)\|^2\bigr) \\
+        ={}    & r\bigl(\|x\|^2-\|T(x)\|^2\bigr).
+    \end{align*}
+    由
+    \[\|x_n-T(x_n)\|^2\leq r\bigl(\|x_n\|^2-\|T(x_n)\|^2\bigr)\leq 2r\|x_n\|(\|x_n\|-\|T(x_n)\|)\]
+    知当 $(x_n)$ 为有界序列且 $\|x_n\|-\|T(x_n)\|\to 0$ 时, 有
+    \[\lim_{n\to\infty} \|x_n-T(x_n)\|=0.\]
+
+    (ii) 当 $x\in N$ 时, $T(x)=P(x)=x$, 故 $\|T^n(x)-P(x)\|=\|x-x\|=0$;
+    当 $x\in\closure{(I-T)(H)}$ 且 $x\ne 0$ 时, 必有 $\|T(x)\|<\|x\|$,
+    否则 $\|T(x)\|=\|x\|$, 由 (i) 中结论知 $T(x)=x$, 则
+    $x\in\ker(I-T)\cap\closure{(I-T)(H)}=\{0\}$, 矛盾. 因此存在 $0<\lambda<1$,
+    使得 $\|T(x)\|\leq\lambda\|x\|$, 从而
+    \[\|T^n(x)-P(x)\|=\|T^n(x)\|\leq\lambda^n\|x\|\to 0\quad n\to\infty.\]
+
+    对于一般的 $x\in H$, 将其正交分解并利用三角不等式即得 $\lim\limits_{n\to\infty}\|T^n(x)-P(x)\|=0$.
+
+    (iii) 首先容易验证
+    \[\bigcap_{j=1}^r \ker(I-A_j)\subset N.\]
+    下证反向包含关系, 任取 $x\in N$, 则 $T(x)=A_1A_2\cdots A_{r}(x)=x$, 故
+    \[\|x\|=\|A_1A_2\cdots A_r(x)\|\leq\|A_r(x)\|\leq\|x\|,\]
+    由上式知 $\|A_r(x)\|=\|x\|$, 结合 (a) 中结论得 $A_r(x)=x$, 依此下来可推得
+    $A_i(x)=x$, $i=r-1,\cdots,1$. 从而
+    \[x\in\bigcap_{i=1}^r \ker(I-A_j).\]
+    由此便证明了
+    \[N=\bigcup_{j=1}^r \ker(I-A_j).\qedhere\]
 \end{proof}
 
 \begin{remark}
