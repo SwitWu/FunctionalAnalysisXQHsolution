@@ -1,1 +1,4 @@
-# FunctionalAnalysisXQHsolution
+## Introduction
+本仓库用于存储泛函分析讲义（许全华、马涛、尹智编著）课后习题参考解答，
+目前已完成大部分习题，且都是通过 $\rm\LaTeX$ 编写，需要 PDF 文件请直接下载并编译源文件，
+或者去我的个人主页下载。
