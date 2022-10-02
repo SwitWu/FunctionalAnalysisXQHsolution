@@ -273,3 +273,49 @@
     故 $\varphi$ 为连续线性双射, 由开映射定理知 $\varphi$ 是同构, 但 $C([0,1])$ 不自反,
     矛盾, 故 $C^1([0,1])$ 不自反.
 \end{proof}
+
+
+\begin{exercise}[16]
+  称 Banach 空间 $E$ 为一致凸的, 若对任意 $\varepsilon>0$, 存在 $\delta>0$ 使得
+  \[x,y\in\closure{B}_E, \|x-y\|\geq\varepsilon
+    \Longrightarrow\biggl\|\frac{x+y}{2}\biggr\|\leq 1-\delta.\]
+  设 $(x_n)$ 是一致凸空间 $E$ 中弱收敛到 $x$ 的序列, 并有 $\lim_n\|x_n\| = \|x\|$.
+  证明: $(x_n)$ 依范数收敛到 $x$. 举例说明条件 $\lim_n\|x_n\|=\|x\|$ 是必需的.
+\end{exercise}
+
+\begin{proof}
+  若 $x = 0$, 则结论显然成立, 下面假设 $x\neq 0$. 令
+  \[\lambda_n = \max(\|x_n\|, \|x\|),\quad y_n = \lambda_n^{-1}x_n,
+    \quad y = \|x\|^{-1}x.\]
+  由于 $\lim_{n\to\infty}\|x_n\| = \|x\|$,
+  故 $\lambda_n\to \|x\|$, 且在弱拓扑 $\sigma(E,E^*)$ 中 $y_n\rightharpoonup y$. 因此
+  \[\|y\| \leq \liminf_{n\to\infty} \|(y_n+y)/2\|.\]
+  注意到 $\|y\|=1$ 且 $\|y_n\|\leq 1$, 结合上式可知 $\|(y_n+y)/2\|\to 1$.
+  而 $E$ 是一致凸的, 从而必有 $\|y_n-y\|\to 0$. 因此 $x_n\to x$.
+\end{proof}
+
+
+\begin{exercise}
+  \begin{enumerate}[(a)]
+    \item 证明: Hilbert 空间是一致凸的.
+    \item 用 Clarkson 不等式证明: 若 $2\leq p<\infty$, 则 $L_p$ 空间是一致凸的.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  (a) 对于任意的 $\varepsilon>0$, 由平行四边形公式
+  \[\|x\|^2 + \|y\|^2 = 2\biggl(\biggl\|\frac{x+y}{2}\biggr\|^2
+    + \biggl\|\frac{x-y}{2}\biggr\|^2\biggr),\]
+  知当 $x,y\in\closure{B}_E$ 且 $\|x-y\|\geq\varepsilon$ 时, 有
+  \[\biggl\|\frac{x-y}{2}\biggr\|^2 \leq 1-\varepsilon^2.\]
+  故 $\bigl\|\frac{x-y}{2}\bigr\| < 1-\delta$, 其中 $\delta = 1-(1-\varepsilon^2)^{1/2}$.
+\end{proof}
+
+
+\begin{exercise}<Milman Pettis>
+  证明一致凸空间是自反的.
+\end{exercise}
+
+\begin{proof}
+  直接见 Brezis 三合一 Theorem 3.31.
+\end{proof}
