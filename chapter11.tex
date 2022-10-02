@@ -290,12 +290,24 @@
 
 
 
-\begin{exercise}
+\begin{exercise}(Fredholm 选择定理)
     设 $T$ 是 Hilbert 空间上的紧算子, $\lambda\in\FK$ 且 $\lambda\neq 0$. 证明: 方程
     \[\lambda x-T(x)=y\]
-    或者对每一个 $y\in E$ 有唯一解, 或者对某些 $y$ 有无穷多个解但对其他的 $y$ 无解(Fredholm 选择定理).
+    或者对每一个 $y\in E$ 有唯一解, 或者对某些 $y$ 有无穷多个解但对其他的 $y$ 无解.
 \end{exercise}
 
+\begin{proof}
+  由于 $T$ 为紧算子, 故
+  \[\ker(I-T) = \{0\}\iff R(I-T) = E.\]
+
+  当 $\ker(I-T) = \{0\}$ 时, $I-T\colon E\to E$ 为双射, 此时对于 $\forall y\in E$,
+  方程 $x-T(x)=y$ 有唯一解.
+
+  当 $\ker(I-T) \neq \{0\}$ 时, $R(I-T)\neq E$, 故当 $y\in E\setminus R(I-T)$ 时,
+  方程 $x-T(x)=y$ 无解; 当 $y\in R(I-T)$ 时, 方程 $x-T(x)=y$ 有无穷多解并且可表示为
+  \[x = \sum_{i=1}^n k_ie_i,\quad k_i\in\FK,\]
+  其中 $\{e_i\}$ 为 $n$ 维空间 $\ker(I-T)$ 的一组基.
+\end{proof}
 
 
 \begin{exercise}
