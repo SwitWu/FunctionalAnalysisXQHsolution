@@ -150,7 +150,7 @@ aftertitle = \par\bigskip\nointerlineskip\rule{\linewidth}{2bp}\par
 % \newenvironment{exercise}[1]%
 %                {\refstepcounter{exercounter}\par\textbf{\theexercounter.}}%
 % 			   {\par\ignorespacesafterend}
-\NewDocumentEnvironment{exercise}{o d() +b}
+\NewDocumentEnvironment{exercise}{o d<> +b}
   {%
     \IfNoValueTF{#1}
       {\stepcounter{exercounter}}
