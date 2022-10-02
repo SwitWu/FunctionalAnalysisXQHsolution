@@ -399,15 +399,18 @@ $\cdots$\\
 
 \begin{proof}
     考虑线性泛函
-    \[f_x:H\to\mathbb{K},y\mapsto\langle u(y),u(x)\rangle.\]
-    记 $H$ 中的闭单位球为 $\closure{B_H}$, 对于任意 $y\in H$,由 Cauchy-Schwarz 不等式有
-    \[\sup_{x\in\closure{B_H}}|f_x(y)|=\sup_{x\in\closure{B_H}}|\innerp{u(y)}{u(x)}|=\sup_{x\in \closure{B_H}}|\innerp{u(u(y))}{x}|\leq\|u(u(y))\|<\infty.\]
+    \[f_x\colon H\to\mathbb{K},\quad y\mapsto\langle u(y),u(x)\rangle.\]
+    记 $H$ 中的闭单位球为 $\closure{B}_H$, 对于任意 $y\in H$,由 Cauchy-Schwarz 不等式有
+    \[\sup_{x\in\closure{B}_H}|f_x(y)|
+      = \sup_{x\in\closure{B}_H}|\innerp{u(y)}{u(x)}|
+      = \sup_{x\in \closure{B}_H}|\innerp{u(u(y))}{x}|\leq\|u(u(y))\|<\infty.\]
     故由 Banach-Steinhaus 定理知
-    \[\sup_{x\in \closure{B_H}}\|f_x\|<\infty.\]
+    \[\sup_{x\in \closure{B}_H}\|f_x\|<\infty.\]
     即
-    \[\sup_{x\in \closure{B_H}}\sup_{y\in \closure{B_H}}|\langle u(y),u(x )\rangle|<\infty.\]
+    \[\sup_{x\in \closure{B}_H}\sup_{y\in \closure{B_H}}|\langle u(y),u(x)\rangle|<\infty.\]
     因此
-    \[\|u\|^2=\sup_{x\in\closure{B_H}}\|u(x)\|^2=\sup_{x\in \closure{B_H}}\langle u(x),u(x)\rangle<\infty.\]
+    \[\|u\|^2=\sup_{x\in\closure{B}_H}\|u(x)\|^2
+      = \sup_{x\in \closure{B}_H}\langle u(x),u(x)\rangle < \infty.\]
     从而 $u$ 为有界算子, 亦即为连续算子.
 \end{proof}
 % 18.\textit{Proof}:(a)显然$u$是线性的,且当$\|(a_n)_{n\geq 1}\|\leq 1$时,有$\|u((a_n)_{n\geq 1})\|=\|\sum_{n\geq 1}a_nx_n\|\leq\sum_{n\geq 1}|a_n|\cdot\|x_n\|\leq\sum_{n\geq 1}|a_n|\leq 1$
