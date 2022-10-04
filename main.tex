@@ -1,4 +1,4 @@
-\documentclass{mathexercise}
+\documentclass[tikzcover, chinese]{mathexercise}
 \usepackage{bbm}
 \title{Functional Analysis Solutions}
 \date{2021/09/25}
@@ -6,6 +6,19 @@
 \textbook{泛函分析讲义}
 \textbookauthor{许全华，马涛，尹智}
 \textbookversion{第一版}
+
+\newcommand{\necessary}{$(\Rightarrow)$}
+\newcommand{\sufficient}{$(\Leftarrow)$}
+\newcommand{\FR}{\mathbb{R}}
+\newcommand{\FK}{\mathbb{K}}
+\newcommand{\FQ}{\mathbb{Q}}
+\newcommand{\FN}{\mathbb{N}}
+\newcommand{\FZ}{\mathbb{Z}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\FC}{\mathbb{C}}
+\DeclareMathOperator{\cont}{Cont}
+\setCJKmainfont{FandolSong}
+
 \begin{document}
 \maketitle
 \tableofcontents
@@ -20,5 +33,6 @@
 \input{chapter08.tex}
 \input{chapter09.tex}
 \input{chapter11.tex}
+\input{supplement.tex}
 
 \end{document}

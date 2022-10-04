@@ -120,21 +120,21 @@ U\in\tau'|_F&\Leftrightarrow\exists V\in\tau',s.t.U=V\cap F\\
 \item 任意并性质: 设$(U_i)_{i\in I}\subset\tau$, 需要证明$\bigcup_{i\in I}U_i\in\tau$.
 首先验证其满足条件(i): 对于每个 $i\in I$, 因为 $U_i\cap\mathbb{R}^*$ 在 $\mathbb{R}^*$ 中是开的, 
 所以存在$\mathbb{R}$中的开集$U_i^*$使得$U_i\cap\mathbb{R}^*=U_i^*\cap\mathbb{R}^*$, 故
-\[\left(\bigcup_{i\in I}U_i\right)\cap\mathbb{R}^*=\bigcup_{i\in I}\left(U_i\cap\mathbb{R}^*\right)=\left(\bigcup_{i\in I}U_i^*\right)\cap\mathbb{R}^*\text{\ 在\ }\FR^*\text{\ 中是开的}.\]
+\[\left(\bigcup_{i\in I}U_i\right)\cap\mathbb{R}^*=\bigcup_{i\in I}\left(U_i\cap\mathbb{R}^*\right)=\left(\bigcup_{i\in I}U_i^*\right)\cap\mathbb{R}^*\text{\ 在\ }\mathbb{R}^*\text{\ 中是开的}.\]
 
 再验证其满足条件(ii): 不妨设$-\infty\in\bigcup_{i\in I}U_i$, 则存在某个$i_0\in I,s.t.-\infty\in U_{i_0}$,
-则 $U_{i_0}$ 包含一个形如 $\FR^*\cap V$的集合,$V$是$\FR$中零点的一个邻域,
-从而 $\bigcup_{i\in I}U_i$ 必然包含此 $\FR^*\cap V$.
+则 $U_{i_0}$ 包含一个形如 $\mathbb{R}^*\cap V$的集合,$V$是$\mathbb{R}$中零点的一个邻域,
+从而 $\bigcup_{i\in I}U_i$ 必然包含此 $\mathbb{R}^*\cap V$.
 \item 有限交性质: 验证方法与上面方法类似.
 \end{itemize}
 
 (b)考虑 $+\infty$ 和 $-\infty$ 这两个特殊的点, 由条件 (ii) 可知 $+\infty$ 与 $-\infty$
 不存在不相交的开邻域, 故 $\tau$ 不是 Hausdorff 空间.
 
-(c) 若 $x\in\FR^*$, 则由于 $\FR^*$ 是 Housdorff 空间, 故 $x$ 的所有邻域的交集为 $\{x\}$;
-若 $x\in E\setminus\FR^*$, 如 $x=-\infty$, 取 $-\infty$ 的一列邻域
-$\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\FR^*)\right)_{n\geq 1}$. 显然
-\[\bigcap_{n=1}^{\infty}\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\FR^*)\right)=-\infty.\]
+(c) 若 $x\in\mathbb{R}^*$, 则由于 $\mathbb{R}^*$ 是 Housdorff 空间, 故 $x$ 的所有邻域的交集为 $\{x\}$;
+若 $x\in E\setminus\mathbb{R}^*$, 如 $x=-\infty$, 取 $-\infty$ 的一列邻域
+$\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\mathbb{R}^*)\right)_{n\geq 1}$. 显然
+\[\bigcap_{n=1}^{\infty}\left(-\infty\cap((-\frac{1}{n},\frac{1}{n})\cap\mathbb{R}^*)\right)=-\infty.\]
 因此 $-\infty$ 的所有邻域的交集必为单点集 $\{-\infty\}$.
 \end{proof}
 
@@ -284,8 +284,9 @@ $y_1,y_2,\cdots,y_k\in A$, 使得 $A\subset\bigcup_{i=1}^k U_{y_i}$, 令
 \end{proof}
 
 \begin{proof}[命题 (3) 证明]
-记 $\FR^n$ 上的自然拓扑为 $\tau_1$, $\FR\times\cdots\times\FR$ 上的乘积拓扑为 $\tau_2$, 
-为叙述方便, 记 $E:=\FR^n=\FR\times\cdots\times\FR$.
+记 $\mathbb{R}^n$ 上的自然拓扑为 $\tau_1$, 
+$\mathbb{R}\times\cdots\times\mathbb{R}$ 上的乘积拓扑为 $\tau_2$, 
+为叙述方便, 记 $E:=\mathbb{R}^n=\mathbb{R}\times\cdots\times\mathbb{R}$.
 
 首先证明 $\tau_1\subset\tau_2$. 只需证明 $(E,\tau_1)$ 中的任意开球为 $(E,\tau_2)$ 中的开集即可.
 任取 $x\in E$ 和开球 $B(x,r)$, 选取 $(E,\tau_2)$ 中含 $x$ 的开集 $O=\prod_{i=1}^nB_i(x_i,\frac{r}{\sqrt{n}})$,
@@ -321,9 +322,10 @@ $y_1,y_2,\cdots,y_k\in A$, 使得 $A\subset\bigcup_{i=1}^k U_{y_i}$, 令
 
 
 \begin{exercise}
-    设 $E=\{x=(x_n)_{n=1}^{\infty}\mid \forall n\geq 1, x_n=0\text{\ 或\ }1\}=\{0,1\}^{\FN*}$.
-    对每个 $x=(x_n)_{n\geq 1}\in E$, 令
-    \[\phi(x)=\sum_{n=1}^{\infty}\frac{2x_n}{3^n}.\]
-    在 $\{0,1\}$ 上赋予离散拓扑(这实际上对应着自然的距离 $d(0,1)=1$), 则在 $E$
-    上有相应的乘积拓扑. 证明 $\phi$ 是 $E$ 到 $\FR$ 的紧子集 $C=\phi(E)$ 上的同胚.
+  设 $E=\{x=(x_n)_{n=1}^{\infty}\mid \forall n\geq 1,
+  x_n=0\text{\ 或\ }1\}=\{0,1\}^{\mathbb{N}*}$.
+  对每个 $x=(x_n)_{n\geq 1}\in E$, 令
+  \[\phi(x)=\sum_{n=1}^{\infty}\frac{2x_n}{3^n}.\]
+  在 $\{0,1\}$ 上赋予离散拓扑(这实际上对应着自然的距离 $d(0,1)=1$), 则在 $E$
+  上有相应的乘积拓扑. 证明 $\phi$ 是 $E$ 到 $\mathbb{R}$ 的紧子集 $C=\phi(E)$ 上的同胚.
 \end{exercise}

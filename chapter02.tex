@@ -6,14 +6,16 @@
 \begin{exercise}
     完备性不是一个拓扑概念, 我们用两个例子说明这一点.
 
-    (a) 设有函数 $\phi(x)=\frac{x}{1+|x|}$, $x\in\FR$, 并定义
-    \[d(x,y)=|\phi(x)-\phi(y)|,\quad x,y\in\FR.\]
-    证明由此定义的 $d$ 是 $\FR$ 上的距离并和 $\FR$ 上通常意义下的拓扑一致, 但 $d$ 不完备.
+    (a) 设有函数 $\phi(x)=\frac{x}{1+|x|}$, $x\in\mathbb{R}$, 并定义
+    \[d(x,y)=|\phi(x)-\phi(y)|,\quad x,y\in\mathbb{R}.\]
+    证明由此定义的 $d$ 是 $\mathbb{R}$ 上的距离并和 $\mathbb{R}$ 上通常意义下的拓扑一致,
+    但 $d$ 不完备.
 
     (b) 更一般地, 设 $O$ 是完备度量空间 $(E,d)$ 上的开子集, 且 $O\neq E$.
-    映射 $\phi:O\to E\times\FR$ 定义为
+    映射 $\phi:O\to E\times\mathbb{R}$ 定义为
     \[\phi(x)=\left(x,\frac{1}{d(x,O^c)}\right):=(x,\rho(x)),\quad\forall x\in O.\]
-    证明 $\phi$ 是从 $O$ 到 $E\times\FR$ 的一个闭子集上的同胚. 并由此导出 $O$ 上存在一个完备的距离,
+    证明 $\phi$ 是从 $O$ 到 $E\times\mathbb{R}$ 的一个闭子集上的同胚.
+    并由此导出 $O$ 上存在一个完备的距离,
     由其所诱导的拓扑和 $d$ 在 $O$ 上所诱导的拓扑一致 (注意, $(O,d_O)$ 一般并不完备).
 \end{exercise}
 
@@ -157,7 +159,7 @@
     设 $(E,d)$ 是度量空间, 而 $(x_n)$ 是 $E$ 中发散的 Cauchy 序列. 证明
     \begin{enumerate}[(a)]
         \item 任取 $x\in E$, 序列 $(d(x,x_n))$ 收敛于一个正数, 记为 $g(x)$.
-        \item 函数 $x\mapsto\frac{1}{g(x)}$ 是从 $E$ 到 $\FR$ 的连续函数.
+        \item 函数 $x\mapsto\frac{1}{g(x)}$ 是从 $E$ 到 $\mathbb{R}$ 的连续函数.
         \item 上面的函数无界.
     \end{enumerate}
 \end{exercise}
@@ -165,8 +167,8 @@
 \begin{proof}
     (a) 由 $(x_n)_{n\geq 1}$ 是 Cauchy 序列和三角不等式得
     \[|d(x,x_m)-d(x,x_n)|\leq d(x_m,x_n)\to 0,\quad m,n\to\infty,\]
-    故序列 $(d(x,x_n))_{n\geq 1}$ 是 $\FR$ 中的 Cauchy 序列, 
-    由 $\FR$ 的完备性知 $(d(x,x_n))_{n\geq 1}$ 收敛, 记收敛值为 $g(x)$.
+    故序列 $(d(x,x_n))_{n\geq 1}$ 是 $\mathbb{R}$ 中的 Cauchy 序列, 
+    由 $\mathbb{R}$ 的完备性知 $(d(x,x_n))_{n\geq 1}$ 收敛, 记收敛值为 $g(x)$.
 
     显然 $g(x)\geq 0$, 若 $g(x)=0$, 则 $\lim_{n\to\infty}d(x,x_n)=0$, 
     故 $x_n\to x$, 与 $(x_n)_{n\geq 1}$ 发散相矛盾, 因此 $g(x)>0$.
@@ -211,20 +213,20 @@
 
 
 \begin{exercise}
-    设 $f:\FR^n\to\FR$ 是一致连续函数. 证明存在两个非负常数 $a$ 和 $b$, 使得
+    设 $f:\mathbb{R}^n\to\mathbb{R}$ 是一致连续函数. 证明存在两个非负常数 $a$ 和 $b$, 使得
     \[|f(x)|\leq a\|x\|+b,\]
     这里 $\|x\|$ 是 $x$ 的欧氏范数.
 \end{exercise}
 
 \begin{proof}
-    为强调自变量为 $\FR^n$ 中向量, 下面记 $x\in\FR^n$ 为 $\vec{x}$.
+    为强调自变量为 $\mathbb{R}^n$ 中向量, 下面记 $x\in\mathbb{R}^n$ 为 $\vec{x}$.
 
 
     因为 $f(\vec{x})$ 一致连续, 所以对于任意 $\varepsilon>0$, 存在 $\delta>0$,
     使得当 $\|\vec{x}-\vec{y}\|<\delta$ 时, 有 $|f(\vec{x})-f(\vec{y})|<\varepsilon$.
 
     固定 $\varepsilon$ 和 $\delta$, 取定某 $0<\delta'<\delta$.
-    则对于任意 $\vec{x}\in\FR^n$, 可将其表为
+    则对于任意 $\vec{x}\in\mathbb{R}^n$, 可将其表为
     \[\vec{x}=\delta'\frac{\vec{x}}{\|\vec{x}\|}\cdot N+\vec{x}_0,\quad\|\vec{x}_0\|<\delta',\]
     其中 $N=\frac{\|\vec{x}-\vec{x}_0\|}{\delta'}$. 可以将 $f(\vec{x})$ 进行如下和式分解:
     \[f(\vec{x})=\sum_{k=1}^N\left[f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}k+\vec{x}_0\biggr)-f\biggl(\delta'\frac{\vec{x}}{\|\vec{x}\|}(k-1)+\vec{x}_0\biggr)\right]+f(\vec{x}_0),\]

@@ -6,12 +6,12 @@
 \thispagestyle{empty}
 
 \begin{exercise}
-     设 $C([0,1],\FR)$ 表示 $[0,1]$ 上的所有连续实函数构成的空间. 定义
+     设 $C([0,1],\mathbb{R})$ 表示 $[0,1]$ 上的所有连续实函数构成的空间. 定义
     \[\|f\|_{\infty}=\sup_{0\leq x\leq 1}|f(t)|\quad\text{且}\quad \|f\|_1=\int_0^1|f(t)|\diff t\]
     \begin{enumerate}[(a)]
-        \item 证明 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\FR)$ 上的范数.
-        \item 证明 $C([0,1],\FR)$ 关于范数 $\|\cdot\|_{\infty}$ 是完备的.
-        \item 证明 $C([0,1],\FR)$ 关于范数 $\|\cdot\|_1$ 不完备.
+        \item 证明 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\mathbb{R})$ 上的范数.
+        \item 证明 $C([0,1],\mathbb{R})$ 关于范数 $\|\cdot\|_{\infty}$ 是完备的.
+        \item 证明 $C([0,1],\mathbb{R})$ 关于范数 $\|\cdot\|_1$ 不完备.
     \end{enumerate}
 \end{exercise}
 
@@ -27,9 +27,9 @@
 \item $\|\lambda f\|_1=\int_0^1 |\lambda f(t)|\diff t=|\lambda|\cdot\|f\|_1$
 \item $\|f+g\|_1=\int_0^1 |f(t)+g(t)|\diff t\leq\int_0^1|f(t)|\diff t+\int_0^1|g(t)|\diff t=\|f\|_1+\|g\|_1$
 \end{itemize}
-知 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\FR)$ 上的范数.
+知 $\|\cdot\|_{\infty}$ 和 $\|\cdot\|_1$ 都是 $C([0,1],\mathbb{R})$ 上的范数.
 
-(b)任取 $C([0,1],\FR)$ 中的 Cauchy 序列 $(f_n)_{n\geq 1}$, 
+(b)任取 $C([0,1],\mathbb{R})$ 中的 Cauchy 序列 $(f_n)_{n\geq 1}$, 
 即对于 $\forall\epsilon>0$, 存在$N>0$, 对于 $\forall m,n>N$, 有
 \[\|f_m-f_n\|_{\infty}=\max_{0\leq x\leq 1}|f_m(x)-f_n(x)|<\epsilon,\]
 所以对任意 $t\in[0,1]$, 序列 $(f_n(t))_{n\geq 1}$ 为 Cauchy 序列, 其必收敛. 令
@@ -60,17 +60,17 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{proof}
 
 \begin{remark}
-证明度量空间的完备性基本都是转化为基本的完备空间(如($\FR,d_{\FR}$))来考虑.
+证明度量空间的完备性基本都是转化为基本的完备空间(如($\mathbb{R},d_{\mathbb{R}}$))来考虑.
 \end{remark}
 
 
 \begin{exercise}
-     设 $E$ 是 $\FR$ 上所有的实系数多项式构成的向量空间. 对任意 $P\in E$, 定义
+     设 $E$ 是 $\mathbb{R}$ 上所有的实系数多项式构成的向量空间. 对任意 $P\in E$, 定义
     \[\|P\|_{\infty}=\max_{x\in[0,1]}|P(x)|.\]
     \begin{enumerate}[(a)]
     \item 证明 $\|\cdot\|_{\infty}$ 是 $E$ 上的范数.
-    \item 任取一个 $a\in\FR$ 定义线性映射 $L_a:E\to\FR$ 满足 $L_a(P)=P(a)$. 证明 $L_a$ 连续当且仅当 $a\in[0,1]$, 并且给出该连续线性映射的范数.
-    \item 设 $a<b$ 并定义 $L_{a,b}:E\to\FR$ 满足
+    \item 任取一个 $a\in\mathbb{R}$ 定义线性映射 $L_a:E\to\mathbb{R}$ 满足 $L_a(P)=P(a)$. 证明 $L_a$ 连续当且仅当 $a\in[0,1]$, 并且给出该连续线性映射的范数.
+    \item 设 $a<b$ 并定义 $L_{a,b}:E\to\mathbb{R}$ 满足
     \[L_{a,b}(P)=\int_a^bP(x)\diff x.\]
     给出 $a,b$ 的范围, 使其成为 $L_{a,b}$ 连续的充分必要条件, 然后确定 $L_{a,b}$ 的范数.
     \end{enumerate}
@@ -215,8 +215,8 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \[N(f_n)=\int_0^{\frac{1}{n}}x(n-n^2x)\diff x=\frac{1}{6n}\rightarrow 0(n\to\infty),\]
 故 $(f_n)_{n\geq 1}$ 在 $(E,N)$ 中收敛到 $0$. 
 假设函数列在 $(E,\|\cdot\|_1)$ 中收敛, 即存在 $g(x)\in E$ 使得
-\[\lim_{n\to\infty}\int_0^1|f_n(x)-g(x)|\diff x=0\Rightarrow f_n(x)-g(x)=0\almosteverywhere(n\to\infty).\]
-又 $f_n(x)=0\almosteverywhere (n\to\infty)$, 故$g(x)=0$, 也就是说如果收敛只能收敛到 0, 但
+\[\lim_{n\to\infty}\int_0^1|f_n(x)-g(x)|\diff x=0\Rightarrow f_n(x)-g(x)=0\text{ a.e. }(n\to\infty).\]
+又 $f_n(x)=0$ a.e. $(n\to\infty)$, 故$g(x)=0$, 也就是说如果收敛只能收敛到 0, 但
 \[\lim_{n\to\infty}\|f_n(x)-0\|_1=\lim_{n\to\infty}\int_0^{\frac{1}{n}}(n-n^2x)\diff x=\frac{1}{2}\neq 0.\]
 矛盾, 故 $(f_n)_{n\geq 1}$ 在 $(E,\|\cdot\|_1)$ 中不收敛.
 
@@ -244,7 +244,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-     设 $\varphi:[0,1]\to[0,1]$ 是连续函数并且不恒等于 1. 设 $\alpha\in\FR$, 定义 $C([0,1],\FR)$ 上的映射 $T$ 为
+     设 $\varphi:[0,1]\to[0,1]$ 是连续函数并且不恒等于 1. 设 $\alpha\in\mathbb{R}$, 定义 $C([0,1],\mathbb{R})$ 上的映射 $T$ 为
     \[T(f)(x)=\alpha+\int_0^xf(\varphi(t))\diff t.\]
     证明 $T$ 是压缩映射.
 
@@ -286,12 +286,12 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    设 $\alpha\in\FR,a>0,b>1$. 考察下面的微分方程
+    设 $\alpha\in\mathbb{R},a>0,b>1$. 考察下面的微分方程
     \begin{equation}
     f(0)=\alpha,\quad f'(x)=af(x^b),\quad 0\leq x\leq 1.\tag{$*$}
     \end{equation}
     \begin{enumerate}[(a)]
-    \item 令 $M>0$. 验证 $E=C([0,1],\FR)$ 上赋予范数
+    \item 令 $M>0$. 验证 $E=C([0,1],\mathbb{R})$ 上赋予范数
     \[\|f\|=\sup_{0\leq x\leq 1}|f(x)|\e^{-Mx}\]
     后成为一个 Banach 空间.
     \item 设 $g(x)=\alpha+\int_0^x af(t^b)\diff t$, 定义映射 $T:E\to E$ 为 $T(f)=g$. 证明选择合适的 $M$, 可使 $T$ 为压缩映射.
@@ -300,11 +300,11 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{exercise}
 
 \begin{proof}
-(a)容易验证 $\|\cdot\|$ 是$C([0,1],\FR)$ 上的范数, 并且
+(a)容易验证 $\|\cdot\|$ 是$C([0,1],\mathbb{R})$ 上的范数, 并且
 \[\e^{-M}\sup\limits_{0\leq x\leq1}|f(x)|\leq\sup\limits_{0\leq x\leq1}|f(x)|\e^{-Mx}\leq\sup\limits_{0\leq x\leq1}|f(x)|,\]
 即
 \[e^{-M}\|f\|_{\infty}\leq\|f\|\leq\|f\|_{\infty}.\]
-因此 $E=C([0,1],\FR)$ 赋予范数 $\|\cdot\|$ 是 Banach 空间.
+因此 $E=C([0,1],\mathbb{R})$ 赋予范数 $\|\cdot\|$ 是 Banach 空间.
 
 (b) 因为
 \[(T(f_1)-T(f_2))(x)=\int_0^xa\left(f_1(t^b)-f_2(t^b)\right)\diff t,\]
@@ -318,7 +318,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{align*}
 故当 $M>a$ 时, $\|T(f_1)-T(f_2)\|<\|f_1-f_2\|$, 也就是此时$T$是压缩映射.
 
-(c)压缩映射有唯一不动点, 即存在唯一 $f\in C([0,1],\FR)$ 使得
+(c)压缩映射有唯一不动点, 即存在唯一 $f\in C([0,1],\mathbb{R})$ 使得
 \[\alpha+\int_0^xaf\left(t^b\right)\diff t=f(x),\]
 而上述方程等价于方程 $(*)$, 证毕.
 \end{proof}
@@ -504,23 +504,23 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 % \setcounter{exercise}{9}
 \begin{exercise}
-    设 $f\in L_2(\FR)$, $g(x)=\frac{1}{x}\mathbbm{1}_{[1,\infty)}(x)$, 
-    证明 $fg\in L_1(\FR)$. 给出例子说明 $f_1,f_2\in L_1(\FR)$, 但是 $f_1f_2\notin L_1(\FR)$.
+    设 $f\in L_2(\mathbb{R})$, $g(x)=\frac{1}{x}\mathbbm{1}_{[1,\infty)}(x)$, 
+    证明 $fg\in L_1(\mathbb{R})$. 给出例子说明 $f_1,f_2\in L_1(\mathbb{R})$, 但是 $f_1f_2\notin L_1(\mathbb{R})$.
 \end{exercise}
 
 \begin{proof}
 (1)因为
 \[g(x)=\frac{1}{x}\cdot\mathbbm{1}_{[1,+\infty)}(x),\]
 所以
-\[\int_{\FR} g^2(x)\diff x=\int_1^{\infty}\frac{1}{x^2}\diff x=1.\]
-故 $g\in L_2(\FR)$, 又$f\in L_2(\FR)$, 所以 $fg\in L_1(\FR)$.
+\[\int_{\mathbb{R}} g^2(x)\diff x=\int_1^{\infty}\frac{1}{x^2}\diff x=1.\]
+故 $g\in L_2(\mathbb{R})$, 又$f\in L_2(\mathbb{R})$, 所以 $fg\in L_1(\mathbb{R})$.
 
 (2)取
 \[f_1(x)=f_2(x)=\frac{1}{\sqrt{x}}\mathbbm{1}_{(0,1)}(x),\]
 则
-\[\int_{\FR} |f_1(x)|\diff x=\int_{\FR} |f_2(x)|\diff x=\int_0^1\frac{1}{\sqrt{x}}\diff x=2,\]
+\[\int_{\mathbb{R}} |f_1(x)|\diff x=\int_{\mathbb{R}} |f_2(x)|\diff x=\int_0^1\frac{1}{\sqrt{x}}\diff x=2,\]
 但是
-\[\int_{\FR} |f_1(x)f_2(x)|\diff x=\int_0^1\frac{1}{x}\diff x=+\infty.\qedhere\]
+\[\int_{\mathbb{R}} |f_1(x)f_2(x)|\diff x=\int_0^1\frac{1}{x}\diff x=+\infty.\qedhere\]
 \end{proof}
 
 
@@ -702,7 +702,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
     (a) 证明: 若 $(E,d)$ 是可分的度量空间, $F\subset E$,
     则 $(F,d)$ 也是可分的度量空间.
 
-    (b) 证明: $\FR^{n}, c_{0}, \ell_{p}, 1 \leq p<\infty, C([a, b], \FR), C_{0}(\FR, \FR)$ 
+    (b) 证明: $\mathbb{R}^{n}, c_{0}, \ell_{p}, 1 \leq p<\infty, C([a, b], \mathbb{R}), C_{0}(\mathbb{R}, \mathbb{R})$ 
     和 $L_{p}(0,1), 1 \leq p<\infty$, 都是可分的.
 
     (c) 设 $C=\{-1,1\}^{\mathbb{N}}$ 是 $\ell_{\infty}$ 的子集, 
@@ -716,13 +716,13 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
     则 $B$ 为 $(F,d)$ 的可数稠密子集, 从而 $(F,d)$ 可分.
 
     (b) 令 $\FQ^n=\{(q_1,\cdots,q_n)\mid q_i\in\FQ, 1\leq i\leq n\}$, 
-    则 $\FQ^n$ 为 $\FR^n$ 的可数稠密子集.
+    则 $\FQ^n$ 为 $\mathbb{R}^n$ 的可数稠密子集.
 
     $c_0$ 可分: 令 $S_k=\{(a_0,\cdots,a_k,0,\cdots)\mid a_i\in\FQ,1\leq i\leq k\}$,
     $S=\bigcup_{k\geq 1}S_k$, 则 $S$ 为可数集.
     任取 $y=(y_n)_{n\geq 1}\in c_0$, 由于 $\lim_{n\to\infty}|y_n|=0$,
     故对任意 $\epsilon>0$, 存在 $N$, 使得当 $n>N$ 时, $|y_n|<\epsilon$.
-    由 $\FQ$ 在 $\FR$ 中稠密可知存在 $x=(x_1,\cdots,x_N,0,\cdots)\in S_N$,
+    由 $\FQ$ 在 $\mathbb{R}$ 中稠密可知存在 $x=(x_1,\cdots,x_N,0,\cdots)\in S_N$,
     使得 $|x_i-y_i|<\epsilon(1\leq i\leq N)$, 从而 $\|x-y\|_{\infty}<\epsilon$,
     从而 $S$ 在 $c_0$ 中稠密.
 
@@ -761,23 +761,23 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}(卷积) 
-     在实数集 $\FR$ 上取 Lebesgue $\sigma$-代数及 Lebesgue 测度, 并设 $f,g\in L_{1}(\FR)$.
+     在实数集 $\mathbb{R}$ 上取 Lebesgue $\sigma$-代数及 Lebesgue 测度, 并设 $f,g\in L_{1}(\mathbb{R})$.
 
      (a) 证明
     \begin{align*}
-        \int_{\FR\times\FR} f(u)g(v)\diff u\diff v 
-        & =\left[\int_{\FR} f(u) \diff u\right]\left[\int_{\FR} g(v) \diff v\right] \\
-        & =\int_{\FR}\left[\int_{\FR} f(x-y)g(y) \diff y\right] \diff x.
+        \int_{\mathbb{R}\times\mathbb{R}} f(u)g(v)\diff u\diff v 
+        & =\left[\int_{\mathbb{R}} f(u) \diff u\right]\left[\int_{\mathbb{R}} g(v) \diff v\right] \\
+        & =\int_{\mathbb{R}}\left[\int_{\mathbb{R}} f(x-y)g(y) \diff y\right] \diff x.
     \end{align*}
-    由此导出函数 $x\mapsto\int_{\FR} f(x-y)g(y)\diff y$ 在 $\FR$ 上几乎处处有定义.
+    由此导出函数 $x\mapsto\int_{\mathbb{R}} f(x-y)g(y)\diff y$ 在 $\mathbb{R}$ 上几乎处处有定义.
 
     (b) 我们定义 $f$ 和 $g$ 的卷积 $f*g$ 为
     \[
     f*g(x)= \begin{cases}
-        \int_{\FR} f(x-y)g(y) \diff y, & \text{当积分存在, } \\ 
+        \int_{\mathbb{R}} f(x-y)g(y) \diff y, & \text{当积分存在, } \\ 
         0, & \text{其他.}\end{cases}
     \]
-    证明 $f*g\in L_{1}(\FR)$ 且 $\|f*g\|_1\leq\|f\|_1\|g\|_1$.
+    证明 $f*g\in L_{1}(\mathbb{R})$ 且 $\|f*g\|_1\leq\|f\|_1\|g\|_1$.
 
     (c) 取 $f=\mathbbm{1}_{[0,1]}$, 计算 $f*f$.
 \end{exercise}
@@ -785,28 +785,28 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \begin{proof}
     首先容易验证 $f(x-y)g(y)$ 为可测函数, 故由 Tonelli 定理得
     \begin{align*}
-        \int_{\FR^2} |f(x-y)g(y)|\diff(x,y)
-        & =\int_{\FR}\int_{\FR} |f(x-y)g(y)|\diff x\diff y \\
-        & =\int_{\FR}|g(y)|\int_{\FR} |f(x-y)|\diff x\diff y \\
-        & =\|f\|_{L_1}\int_{\FR}|g(y)|\diff y=\|f\|_{L_1}\|g\|_{L_1}<\infty.
+        \int_{\mathbb{R}^2} |f(x-y)g(y)|\diff(x,y)
+        & =\int_{\mathbb{R}}\int_{\mathbb{R}} |f(x-y)g(y)|\diff x\diff y \\
+        & =\int_{\mathbb{R}}|g(y)|\int_{\mathbb{R}} |f(x-y)|\diff x\diff y \\
+        & =\|f\|_{L_1}\int_{\mathbb{R}}|g(y)|\diff y=\|f\|_{L_1}\|g\|_{L_1}<\infty.
     \end{align*}
-    故 $f(x-y)g(y)$ 在 $\FR^2$ 上可积, 由 Fubini 定理立即可得对于几乎处处的 $x\in\FR$, 有
-    \[\int_{\FR}f(x-y)g(y)\diff y<\infty,\]
-    也即函数 $x\mapsto\int_{\FR}f(x-y)g(y)\diff y$ 在 $\FR$ 上几乎处处有定义.
+    故 $f(x-y)g(y)$ 在 $\mathbb{R}^2$ 上可积, 由 Fubini 定理立即可得对于几乎处处的 $x\in\mathbb{R}$, 有
+    \[\int_{\mathbb{R}}f(x-y)g(y)\diff y<\infty,\]
+    也即函数 $x\mapsto\int_{\mathbb{R}}f(x-y)g(y)\diff y$ 在 $\mathbb{R}$ 上几乎处处有定义.
 
     (b) 由 (a) 中结论知
     \begin{align*}
-        \int_{\FR}|f*g(x)|\diff x
-        & =\int_{\FR}\left|\int_{\FR}f(x-y)g(y)\diff y\right|\diff x \\
-        & \leq\int_{\FR}\int_{\FR}|f(x-y)g(y)|\diff y\diff x \\
+        \int_{\mathbb{R}}|f*g(x)|\diff x
+        & =\int_{\mathbb{R}}\left|\int_{\mathbb{R}}f(x-y)g(y)\diff y\right|\diff x \\
+        & \leq\int_{\mathbb{R}}\int_{\mathbb{R}}|f(x-y)g(y)|\diff y\diff x \\
         & =\|f\|_{L_1}\|g\|_{L_1}<\infty.
     \end{align*}
-    故 $f*g\in L_1(\FR)$ 且 $\|f*g\|_{L_1}\leq\|f\|_{L_1}\|g\|_{L_1}$.
+    故 $f*g\in L_1(\mathbb{R})$ 且 $\|f*g\|_{L_1}\leq\|f\|_{L_1}\|g\|_{L_1}$.
 
     (c) 由定义
     \begin{align*}
         f*f(x)
-        & =\int_{\FR} f(x-y)f(y)\diff y=\int_{\FR} \mathbbm{1}_{[0,1]}(x-y)\mathbbm{1}_{[0,1]}(y)\diff y \\
+        & =\int_{\mathbb{R}} f(x-y)f(y)\diff y=\int_{\mathbb{R}} \mathbbm{1}_{[0,1]}(x-y)\mathbbm{1}_{[0,1]}(y)\diff y \\
         & =\int_0^1 \mathbbm{1}_{[0,1]}(x-y)\diff y.
     \end{align*}
     分类讨论可得, 当 $x<0$ 时, $f*f(x)=0$;
@@ -818,7 +818,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    在 $\FR$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
+    在 $\mathbb{R}$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
     \[
     F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.
     \]
@@ -892,7 +892,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
     \]
     \begin{enumerate}[(i)]
         \item 任取 $s, t \in[0,+\infty)$, 证明 $s^{p}+t^{p} \leq\left(s^{2}+t^{2}\right)^{\frac{p}{2}}$.
-        \item 任取 $a, b \in \FR$, 证明
+        \item 任取 $a, b \in \mathbb{R}$, 证明
         \[
         \left|\frac{a+b}{2}\right|^{p}+\left|\frac{a-b}{2}\right|^{p} \leq \frac{1}{2}\left(|a|^{p}+|b|^{p}\right).
         \]
@@ -946,8 +946,8 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
      (iii) 由 (ii) 中结论可得
      \begin{align*}
         \left\|\frac{f+g}{2}\right\|_{p}^{p}+\left\|\frac{f-g}{2}\right\|_{p}^{p}
-        & =\int_{\FR}\left|\frac{f(x)+g(x)}{2}\right|^p+\left|\frac{f(x)-g(x)}{2}\right|^p\diff x \\
-        & \leq\frac{1}{2}\int_{\FR} |f(x)|^p+|g(x)|^p \diff x \\
+        & =\int_{\mathbb{R}}\left|\frac{f(x)+g(x)}{2}\right|^p+\left|\frac{f(x)-g(x)}{2}\right|^p\diff x \\
+        & \leq\frac{1}{2}\int_{\mathbb{R}} |f(x)|^p+|g(x)|^p \diff x \\
         & =\frac{1}{2}(\|f\|_p^p+\|g\|_p^p).
      \end{align*} 
 

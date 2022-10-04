@@ -103,7 +103,7 @@ $\cdots\cdots$
 $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 当 $\alpha=0$时, 显然 $E$ 与 $F$ 正交;
 当 $\alpha>0$时, 需证  $\dim E=\dim F=1$, 
-反证法, 当 $\FK=\FR$ 时, 假设 $\dim F\geq 2$, 取 $F$ 中
+反证法, 当 $\FK=\mathbb{R}$ 时, 假设 $\dim F\geq 2$, 取 $F$ 中
 两个不共线的单位向量 $e_1,e_2$, 取 $E$ 中一个单位向量 $e$,
 则 $\innerp{e}{e_1}=\innerp{e}{e_2}=\alpha$, 且
 \[\innerp{e}{e_1+e_2}=2\alpha=\alpha\|e_1+e_2\|,\]
@@ -337,7 +337,7 @@ $\cdots\cdots$
 \begin{exercise}
     将上一习题中的条件换成 $A$ 和 $B$ 无界, 但假设 $\|x\|$
     和 $\|y\|$ 都趋向 $\infty$ 时, 必有 $d(x,y)$ 趋向 $\infty$.
-    证明结论仍然成立. 在 $\FR^2$ 中用反例说明若条件不符合假设时, 结论不成立.
+    证明结论仍然成立. 在 $\mathbb{R}^2$ 中用反例说明若条件不符合假设时, 结论不成立.
 \end{exercise}
 
 \begin{proof}
@@ -534,7 +534,7 @@ $B=\{(x,y)|xy\geq1,x>0\}$,
 \begin{proof}
     (a) 任取一列 $(f_n)\subset E_0$ 且 $f_n\rightarrow f$,
     则 $\int_0^1 f_n(t)\diff t=0$, $\int_0^1|f_n(t)-f(t)|^2\diff t\rightarrow0$,
-    故 $f_n(t)-f(t)=0\almosteverywhere$ $(n\to\infty)$,
+    故 $f_n(t)-f(t)=0$ a.e. $(n\to\infty)$,
     因此 $\int_0^1 f(t)\diff t=0$, 也即 $f\in E_0$,
     从而说明 $E_0$ 是闭子空间, 故 $H_0=E_0\cap H$ 是 $H$ 的闭子空间.
     取 $f(t)=1-t$, 显然 $f(t)\in H$, 但是 $f(t)\notin H_0$, 故 $H_0$ 是 $H$ 的真子空间.
@@ -749,9 +749,9 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
     因为 $f\in L_2(0,1)$, 所以
     \[\int_0^1|f(y)|^2\diff y<\infty.\]
     因为 $K\in L_2([0,1]\times [0,1])$, 所以
-    \[\int_0^1\int_0^1|K(x,y)|^2\diff y\diff x<\infty\Rightarrow\int_0^1|K(x,y)|^2\diff y<\infty, \almosteverywhere\]
+    \[\int_0^1\int_0^1|K(x,y)|^2\diff y\diff x<\infty\Rightarrow\int_0^1|K(x,y)|^2\diff y<\infty, \text{ a.e.}\]
     结合以上三式得
-    \[\left|\int_0^1K(x,y)f(y)\diff y\right|^2<\infty, \almosteverywhere\]
+    \[\left|\int_0^1K(x,y)f(y)\diff y\right|^2<\infty, \text{ a.e.}\]
     也就证明了 $T_K(f)$ 在 $[0,1]$ 上几乎处处有定义.
 
     (b) 由 (a) 中结论知: $\forall f\in H$, $T_K(f)\in H$.
@@ -945,14 +945,14 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
 
 \begin{proof}
     (a) 先证明 $A$ 是自伴算子, 即 $\innerp{A(x)}{y}=\innerp{x}{A(y)}$, $\forall x,y\in H$. 因
-    \[\innerp{A(x+y)}{x+y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\FR,\]
-    故 $\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\FR$, 故
+    \[\innerp{A(x+y)}{x+y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\mathbb{R},\]
+    故 $\innerp{A(y)}{x}+\innerp{A(x)}{y}\in\mathbb{R}$, 故
     \begin{equation}
             \innerp{A(y)}{x}+\innerp{A(x)}{y}=\conjugate{\innerp{A(y)}{x}}+\conjugate{\innerp{A(x)}{y}}=\innerp{x}{A(y)}+\innerp{y}{A(x)}.\tag{$\star$}
     \end{equation}
     又因
-    \[\innerp{A(x-\ii y)}{x-\ii y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\FR,\]
-    故 $\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\FR$, 故
+    \[\innerp{A(x-\ii y)}{x-\ii y}=\innerp{A(x)}{x}+\innerp{A(y)}{y}+\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\mathbb{R},\]
+    故 $\ii\innerp{A(x)}{y}-\ii\innerp{A(y)}{x}\in\mathbb{R}$, 故
     \[\ii(\innerp{A(x)}{y}-\innerp{A(y)}{x})=(-\ii)(\innerp{y}{A(x)}-\innerp{x}{A(y)}),\]
     从而
     \begin{equation}

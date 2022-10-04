@@ -7,10 +7,10 @@
     对任意 $x\in [0,1]$, 设 $f_n(x)=x^n$. 在 $[0,1]$ 上的哪些点处, $(f_n)_{n\geq 1}$ 等度连续?
 \end{exercise}
 
-\begin{solve}
+\begin{solution}
     因为$(f_n)_{n\geq 1}$在区间$[0,1)$上一致收敛到常值函数$f\equiv0$,
     所以$(f_n)_{n\geq 1}$在$[0,1)$上等度连续,并且容易看出$(f_n)_{n\geq 1}$在$x=1$处不是等度连续的.
-\end{solve}
+\end{solution}
 
 
 
@@ -21,7 +21,7 @@
     进而证明如果 $(f_{n}(x))_{n\geq 1}$ 在 $E$ 中收敛到 $y$, 
     那么对任一收敛到 $x$ 的点列 $(x_{n})_{n\geq 1}$, $(f_{n}(x_{n}))_{n\geq 1}$ 也收敛到 $y$.
 
-    取 $f_{n}(x)=\sin(nx)$. 证明 $(f_{n})_{n\geq 1}$ 在 $\FR$ 上每一点都不等度连续.
+    取 $f_{n}(x)=\sin(nx)$. 证明 $(f_{n})_{n\geq 1}$ 在 $\mathbb{R}$ 上每一点都不等度连续.
 \end{exercise}
 
 \begin{proof}
@@ -113,9 +113,9 @@
 
     (a) 证明 $(f_{n})$ 等度连续并且逐点收敛到 $0$ 函数.
 
-    (b) $C_{b}([0,\infty),\FR)$ 表示 $[0, \infty)$ 上所有有界连续实函数构成的空间, 并赋予范数
+    (b) $C_{b}([0,\infty),\mathbb{R})$ 表示 $[0, \infty)$ 上所有有界连续实函数构成的空间, 并赋予范数
     \[\|f\|_{\infty}=\sup_{t\geq 0}|f(t)|.\]
-    $(f_n)$ 在 $C_b([0,\infty),\FR)$ 中是否相对紧?
+    $(f_n)$ 在 $C_b([0,\infty),\mathbb{R})$ 中是否相对紧?
 \end{exercise}
 
 \begin{proof}
@@ -164,13 +164,13 @@
 
 
 \begin{exercise}[9]
-    设 $(K,d)$ 是紧度量空间. 证明所有从 $K$ 到 $\FR$ 的 Lipschitz 函数构成的集合在 $(C(K,\FR),\|\cdot\|_{\infty})$ 中稠密.
+    设 $(K,d)$ 是紧度量空间. 证明所有从 $K$ 到 $\mathbb{R}$ 的 Lipschitz 函数构成的集合在 $(C(K,\mathbb{R}),\|\cdot\|_{\infty})$ 中稠密.
 \end{exercise}
 
 \begin{proof}
-    记所有从 $K$ 到 $\FR$ 的 Lipschitz 函数构成的集合为 $\mathcal{A}$.
+    记所有从 $K$ 到 $\mathbb{R}$ 的 Lipschitz 函数构成的集合为 $\mathcal{A}$.
     \begin{itemize}
-    \item $\mathcal{A}$是 $C(K,\FR)$的子代数:
+    \item $\mathcal{A}$是 $C(K,\mathbb{R})$的子代数:
     容易验证 $\mathcal{A}$ 中元素关于加法和数乘封闭,下面说明关于乘法封闭,
     任意 $f,g\in\mathcal{A}$, 存在 $\lambda_1>0,\lambda_2>0$ 使得对任意 $x,y\in K$, 有
     \[|f(x)-f(y)|\leq\lambda_1d(x,y).\]
@@ -188,7 +188,7 @@
     \item 常值函数 $1\in\mathcal{A}$.
     \item 任意取定 $y\in K$, 取 $f(x)=d(x,y)\in\mathcal{A}$, 则当 $x\neq y$ 时, $f(x)\neq f(y)$.
     \end{itemize}
-    由 Stone-Weierstrass 定理知 $\mathcal{A}$ 在 $C(K,\FR)$ 中稠密.
+    由 Stone-Weierstrass 定理知 $\mathcal{A}$ 在 $C(K,\mathbb{R})$ 中稠密.
 \end{proof}
 
 
@@ -220,25 +220,25 @@
     因此$\mathcal{A}$是可分点的
     \item $\mathcal{A}$是自伴的
     \end{enumerate}
-    综上知$\mathcal{A}$在$C(K_1\times K_2,\FR)$中稠密.
+    综上知$\mathcal{A}$在$C(K_1\times K_2,\mathbb{R})$中稠密.
 \end{proof}
 
 
 
 \begin{exercise}
-    $[0,1]$ 上所有的偶多项式构成的集合 $\mathcal{Q}$ 是否在 $C([0,1], \FR)$ 上稠密?
-    $[-1,1]$ 上所有的偶多项式构成的集合 $\mathcal{R}$ 是否在 $C([-1,1], \FR)$ 上稠密?
+    $[0,1]$ 上所有的偶多项式构成的集合 $\mathcal{Q}$ 是否在 $C([0,1], \mathbb{R})$ 上稠密?
+    $[-1,1]$ 上所有的偶多项式构成的集合 $\mathcal{R}$ 是否在 $C([-1,1], \mathbb{R})$ 上稠密?
 \end{exercise}
 
-\begin{solve}
-    $\mathcal{Q}$在$C([0,1],\FR)$中稠密,理由:
+\begin{solution}
+    $\mathcal{Q}$在$C([0,1],\mathbb{R})$中稠密,理由:
     \begin{enumerate}[(i)]
     \item $\mathcal{Q}$ 是子代数.
     \item $1\in\mathcal{Q}$.
     \item $\forall x,y\in [0,1]$, 取 $f(x)=x^2$, 则 $f(x)\neq f(y)$.
     \end{enumerate}
-    但是 $\mathcal{R}$ 在 $C([-1,1],\FR)$ 中不稠密, 因为 $[-1,1]$ 中的任意一个非零点和其相反数不可分.
-\end{solve}
+    但是 $\mathcal{R}$ 在 $C([-1,1],\mathbb{R})$ 中不稠密, 因为 $[-1,1]$ 中的任意一个非零点和其相反数不可分.
+\end{solution}
 
 
 
