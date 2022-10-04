@@ -1,0 +1,71 @@
+\chapter*{补充题目}
+
+
+\begin{exercise}[1]
+  设 $E$ 是赋范空间.
+  \begin{enumerate}[(a)]
+    \item 设 $A, B\subset E$, 且 $A$ 是紧的, $B$ 是闭的, 证明 $A+B$ 也是闭的.
+    \item 设 $F$ 是 $E$ 的有限维子空间, $G$ 是 $E$ 的闭子空间, $F\cap G=\{0\}$.
+      证明投影算子
+      \[\mathcal{P}\colon F+G \to F,\quad f+g\mapsto f\]
+      是连续线性算子.
+    \item 在上一命题的条件下, 证明 $F+G$ 是 $E$ 中的闭子空间.
+    \item 构造 $\mathbb{R}$ 上的例子, 说明 $A$ 和 $B$ 是闭集, 但 $A+B$ 不是闭集.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  (a) 略.
+
+  (b) 考虑映射
+  \[\alpha\colon F\oplus G \to E,\quad (f,g) \mapsto f+g.\]
+  显然 $\alpha$ 是连续线性映射. 下面断言, 存在常数 $\delta>0$, 使得
+  \[\norm{f+g} \geq \delta\norm{(f,g)}.\]
+  否则的话, 存在序列 $(f_n)$ 和 $(g_n)$ 使得 $\norm{(f_n, g_n)} = \|f_n\|+\|g_n\| = 1$ 且
+  $\norm{f_n+g_n}\to 0$.
+  由于 $F$ 为有限维的, 故由 Riesz 定理知 $F$ 中的闭单位球是紧的, 从而序列
+  $(f_n)$ 存在收敛子列 $f_{n_k}\to f_0\in F$.
+  结合 $\norm{f_{n_k}+g_{n_k}}\to 0$ 知 $g_{n_k}\to -f_0\in G$.
+  从而 $f_0\in F\cap G=\{0\}$. 然而, 我们由 $\|f_{n_k}\|+\|g_{n_k}\| = 1$
+  知 $\|f_0\|=\frac{1}{2}$, 矛盾. 因此断言成立, 由此便有
+  \[\|f\| \leq \|(f,g)\| \leq \frac{1}{\delta}\|f+g\|.\]
+  因此 $\mathcal{P}$ 是有界线性算子.
+
+  (c) 假设 $F+G$ 中的序列 $(f_n+g_n)$ 满足 $f_n+g_n\to x\in E$, 下证 $x\in F+G$.
+  由于 $(f_n+g_n)$ 为 Cauchy 序列, 即
+  \[\|(f_n+g_n) - (f_m+g_m)\| \to 0\quad\text{as } m,n\to\infty.\]
+  而由 (b) 中结论知
+  \[\|(f_n+g_n) - (f_m+g_m)\| \geq \delta \|(f_n-f_m, g_n-g_m)\|.\]
+  从而 $(f_n)$ 和 $(g_n)$ 皆为 Cauchy 序列, 记 $f_n\to f\in F$, $g_n\to g\in G$.
+  则 $x = f+g \in F+G$.
+
+  (d) 令 $A=\{-1,-2,\ldots\}$, $B=\{n+\frac{1}{2^n}\mid n\geq 1\}$,
+  则 $A$, $B$ 都为闭集, 但 $A+B$ 不是闭集.
+\end{proof}
+
+
+\begin{exercise}
+  设 $E$ 是向量空间, $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 是 $E$ 上两个范数. 证明:
+  \begin{enumerate}[(a)]
+    \item 若 $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 等价, 即存在常数 $C_1$, $C_2>0$ 使得
+      \[C_1\|x\|_1 \leq \|x\|_2 \leq C_2\|x\|_1\quad\forall x\in E,\]
+      则 $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 在 $E$ 上诱导相同的拓扑.
+    \item 若 $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 在 $E$ 上诱导相同的拓扑, 则 $\norm{\cdot}_1$
+      和 $\norm{\cdot}_2$ 等价.
+    \item 假设 $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 都是完备的. 那么, 若 $\norm{\cdot}_1$
+      和 $\norm{\cdot}_2$ 在 $E$ 上诱导的拓扑可以比较, 则 $\norm{\cdot}_1$ 和 $\norm{\cdot}_2$ 等价.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  (a) trivial.
+
+  (b) 取 $(E,\norm{\cdot}_2)$ 中的单位球 $B_2(0,1)$, 存在 $r>0$
+  使得 $B_1(0,r)\subset B_2(0,1)$.
+  对于任意 $x\in E\setminus\{0\}$, 令 $y = \frac{rx}{2\|x\|_1}$, 有
+  $\|y\|_1 = \frac{r}{2} < r$, 故 $\|y\|_2 < 1$, 由此得 $\|x\|_2\leq\frac{2}{r}\|x\|_1$.
+  同理可得另一方向的不等式, 于是两范数等价.
+
+  (c) 考虑恒等映射 $\id\colon (E,\norm{\cdot}_1)\to (E,\norm{\cdot}_2)$
+  并运用 Banach 定理.
+\end{proof}
