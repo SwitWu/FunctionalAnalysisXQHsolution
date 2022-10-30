@@ -5,7 +5,8 @@
 \begin{exercise}
     设 $E$ 是赋范空间, 并设 $E^*$ 是可分的.
     \begin{enumerate}[(a)]
-        \item 令 $(f_n)_{n\geq 1}$ 是 $E^*$ 中的稠密子集. 选出 $E$ 中的序列 $(x_n)$ 使得 $f_n(x_n)\geq\frac{\|f_n\|}{2}$.
+        \item 令 $(f_n)_{n\geq 1}$ 是 $E^*$ 中的稠密子集.
+          选出 $E$ 中的序列 $(x_n)$ 使得 $f_n(x_n)\geq\frac{\|f_n\|}{2}$.
         \item 任取 $f\in E^*$. 证明: 若对每个 $x_n$ 有 $f(x_n)=0$, 则 $f=0$.
         \item 由此导出$\Span(x_1, x_2, \cdots)$在 $E$ 中稠密且 $E$ 是可分的. 
         \item 证明: 一个 Banach 空间是可分且自反的当且仅当它的对偶空间是可分且自反的. 
@@ -47,14 +48,11 @@
 
 
 \begin{exercise}
-    设 $E$ 是 Banach 空间, $B\subset E^*$.
-
-    (a) 证明 $B$ 是相对 $w^*-$ 紧的当且仅当 $B$ 是有界的.
-
-    (b) 假设 $B$ 是有界的且 $E$ 是可分的. 证明 $(B, \sigma(E^*,E))$可度量化. 
-    
-    $\Bigl($提示, 对于 $E$ 的闭单位球中稠密序列 $(x_n)$, 考虑如下距离
-    \[d(x^*, y^*) = \sum_{n\geq 1} 2^{-n}|\lrangle{x^*-y^*}{x_n}|,\;\forall x^*,y^*\in B.\Bigr)\]
+  设 $E$ 是 Banach 空间, $B\subset E^*$.
+  \begin{enumerate}[(a)]
+    \item 证明 $B$ 是相对 $w^*$-紧的当且仅当 $B$ 是有界的.
+    \item 假设 $B$ 是有界的且 $E$ 是可分的. 证明 $(B, \sigma(E^*,E))$可度量化. 
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -71,49 +69,60 @@
     \[\sup_{f\in\closure{B}}\|f\|<\infty.\]
     故 $\closure{B}$ 有界, 从而 $B$ 有界.
 
-    (b) 设 $(x_n)_{n\geq 1}$ 是 $\closure{B}_E$ 中的稠密序列, 并考虑如下距离
-    \[d(x^*,y^*)=\sum_{n=1}^{\infty}2^{-n}|\innerp{x^*-y^*}{x_n}|,\quad\forall x^*,y^*\in B.\]
+    (b) (See H.~Brezis \cite[Theorem 3.28]{brezis_functional_2011})
+    从下面的证明当中可以看出, 我们只需要证明 $B=B_{E^*}$ 的情形即可.
 
-    先证明 $d$ 是 $B$ 上的距离:
-    \begin{itemize}
-        \item 非负性: $d\geq 0$.
-        \item 正定性: $d(x^*,y^*)=0\Rightarrow\forall n\geq 1,\innerp{x^*-y^*}{x_n}=0\Rightarrow\forall x\in\closure{B}_E,\innerp{x^*-y^*}{x}=0\Rightarrow x^*-y^*=0\Rightarrow x^*=y^*$.
-        \item 对称性: $d(x^*,y^*)=d(y^*,x^*)$ 显然.
-        \item 三角不等式:
-              \begin{align*}
-                  d(x^*,y^*)+d(y^*,z^*)
-                  & =\sum_{n=1}^{\infty}2^{-n}\bigl(|\innerp{x^*-y^*}{x_n}|+|\innerp{y^*-z^*}{x_n}|\bigr) \\
-                  & \geq\sum_{n=1}^{\infty}2^{-n}|\innerp{x^*-z^*}{x_n}|=d(x^*,z^*).
-              \end{align*}
-    \end{itemize}
+    取 $B_E$ 中的可数稠密子集 $(x_n)_{n\geq 1}$. 对于每个 $f\in E^*$, 令
+    \[[f] = \sum_{n=1}^{\infty} \frac{1}{2^n} |f(x_n)|.\]
+    显然 $[\quad]$ 是 $E^*$ 上的范数且 $[f]\leq\norm{f}$.
+    记 $d(f,g) = [f-g]$ 为相应的度量, 我们下面证明 $d$ 在 $B_{E^*}$
+    上诱导的度量和 $\sigma(E^*,E)$ 在 $B_{E^*}$ 上的限制是一样的.
 
-    再证明 $d$ 诱导的拓扑恰是 $\sigma(E^*,E)|_B$.
+    一方面, 任取 $f_0\in B_{E^*}$ 和 $f_0$ 在 $\sigma(E^*,E)$ 中的邻域 $V$.
+    我们需要找到某个 $r>0$ 使得
+    \[U = \{f\in B_{E^*}\colon d(f, f_0) < r\} \subset V.\]
+    可以假设 $V$ 具有如下形式
+    \[V = \{f\in B_{E^*}\colon |(f-f_0)(y_i)|<\epsilon
+      \quad \forall i=1,2,\ldots,k\},\]
+    其中 $\epsilon>0$, $y_1,y_2,\ldots,y_k\in E$.
+    不失一般性, 可以假设 $\norm{y_i}\leq 1$ ($\forall i=1,2,\ldots,k$).
+    对于每个 $i$, 存在某个整数 $n_i$ 使得
+    \[\norm{y_i - x_{n_i}} < \epsilon/4.\]
+    选取 $r>0$ 足够小使得
+    \[2^{n_i}r < \epsilon/2\quad\forall i=1,2,\ldots,k.\]
+    我们断言对于这样的 $r$, 有 $U\subset V$. 事实上, 因为 $d(f,f_0)<r$, 故
+    \[\frac{1}{2^{n_i}}|(f-f_0)(x_{n_i})| < r\quad\forall i=1,2,\dots,k.\]
+    因此
+    \[|(f-f_0)(y_i)| = |(f-f_0)(y_i-x_{n_i}) + (f-f_0)(x_{n_i})|
+      < \frac{\epsilon}{2} + \frac{\epsilon}{2}.\]
+    从而 $f\in V$.
 
-    一方面, 对于任意 $\forall n\geq 1$, 有
-    \[|\innerp{\widehat{x_n}}{x^*-y^*}|=|\innerp{x^*-y^*}{x_n}|\leq 2^n d(x^*,y^*).\]
-    故 $\widehat{x_n}$ 关于 $d$ 连续.
-
-    再任取 $\widehat{x}\in\widehat{E}$, 存在子列 $\widehat{x_{n_k}}\to\widehat{x}$,
-    即 $\|\widehat{x_{n_k}}-\widehat{x}\|=\|x_{n_k}-x\|\to 0$, 于是
-    \[|\widehat{x_{n_k}}(x^*)-\widehat{x}(x^*)|=|\innerp{x^*}{x_{n_k}}-x|\leq\sup_{x^*\in B}\|x^*\|\|x_{n_k}-x\|\to 0.\]
-    因此 $\widehat{x_{n_k}}$ 在 $B$ 上一致收敛于 $\widehat{x}$, 故 $\widehat{x}$ 关于 $d$ 连续.
-
-    另一方面, 任取 $B$ 上关于 $d$ 连续的线性泛函 $f$, 则任取 $B$ 中序列 $y_m^*\to 0$,
-    即 $\|y_m^*\|\to 0$, 则有
-    \[d(y_m^*,0)=\sum_{n=1}^{\infty}2^{-n}|\innerp{y_m^*}{x_n}|\leq\sum_{n=1}^{\infty}\|y_m^*\|=\|y_m^*\|\to 0.\]
-    故 $|f(y_m^*)|\to 0$, 因此 $f$ 关于 $E^*$ 原拓扑连续.
-
-    故 $d$ 诱导的恰是 $\sigma(E^*,E)|_B$.
+    另一方面, 任取 $f_0\in B_{E^*}$ 和 $r>0$, 我们需要找到 $f_0$ 在
+    $\sigma(E^*,E)$ 中的某个邻域 $V$ 使得
+    \[V\subset U=\{f\in B_{E^*}\colon d(f,f_0)<r\}.\]
+    取 $V$ 为
+    \[V = \{f\in B_{E^*}\colon |(f-f_0)(x_i)|<\epsilon
+      \quad\forall i=1,2,\dots,k\},\]
+    其中 $\epsilon$ 和 $k$ 待定. 对于 $f\in V$, 我们有
+    \begin{align*}
+      d(f,f_0)
+      & = \sum_{n=1}^k \frac{1}{2^n}|(f-f_0)(x_n)|
+          + \sum_{n=k+1}^{\infty} \frac{1}{2^n}|(f-f_0)(x_n)| \\
+      & < \epsilon + 2\sum_{n=k+1}^{\infty} \frac{1}{2^n}
+        = \epsilon + \frac{1}{2^{k-1}}.
+    \end{align*}
+    因此只需要选取 $\epsilon=\frac{r}{2}$ 以及 $k$ 充分大 (使得 $\frac{1}{2^{k-1}}<\frac{r}{2}$)
+    就可以了.
 \end{proof}
-
 
 
 \begin{exercise}
     设 $E$ 是赋范空间, $A\subset E$.
-
-    (a) 假设 $A$ 是弱紧的. 证明: 若对任意 $f\in E^*$, $\{\lrangle{f}{x}; x\in A\}$ 是有界的, 则 $A$ 是有界的.
-
-    (b) 假设 $A$ 有界且 $E^*$ 可分. 证明: $(A, \sigma(E, E^*))$ 可度量化.
+  \begin{enumerate}[(a)]
+    \item 假设 $A$ 是弱紧的. 证明: 若对任意 $x^*\in E^*$,
+      $\{x^*(x)\colon x\in A\}$ 是有界的, 则 $A$ 是有界的.
+    \item 假设 $A$ 有界且 $E^*$ 可分. 证明: $(A, \sigma(E, E^*))$ 可度量化.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -121,10 +130,17 @@
     \[ \sup_{x\in A}|\lrangle{\varphi_x}{f}| = \sup_{x\in A} |\lrangle{f}{x}| < +\infty, \forall f \in E^* \]
     By Uniform Boundedness Principle, we have $\sup_{x\in A}\|x\| = \sup_{x\in A} \|\varphi_x\| < +\infty$. 
         
-    (b)Denote $J$ as the canonical projection from $E$ to $E^{**}$. Then $A$'s boundedness means $J(A)$'s boundedness. By the conclution of Ex 9.2, we find that $(J(A), \sigma(E^{**}, E^{*}))$ is metrizable. And then $(A, \sigma(E, E^*))$ is metrizable. 
+    (b) (See H.~Brezis \cite[Theorem 3.29]{brezis_functional_2011}) 
 \end{proof}
 
 
+\begin{exercise}
+  设 $E$ 是自反空间. 证明: $E$ 中的每个有界序列 $(x_n)$ 有弱收敛子列.
+\end{exercise}
+
+\begin{proof}
+  See H.~Brezis \cite[Theorem 3.18]{brezis_functional_2011}.
+\end{proof}
 
 \begin{exercise}[7]
     设 $E$ 和 $F$ 是两个 Banach 空间, $u: E^{*} \rightarrow F^{*}$ 是线性映射. 证明: 映射
@@ -317,5 +333,5 @@
 \end{exercise}
 
 \begin{proof}
-  直接见 Brezis 三合一 Theorem 3.31.
+  See H.~Brezis \cite[Theorem 3.31]{brezis_functional_2011}.
 \end{proof}
