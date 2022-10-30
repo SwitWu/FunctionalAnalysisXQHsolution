@@ -2,8 +2,6 @@
 \chapter{紧算子}
 
 
-
-
 \begin{exercise}
     设 $E$ 是 Banach 空间, $T\in\mathcal{B}(E)$.
     并设 $(\lambda_n)$ 是 $\rho(T)$ 中收敛到 $\lambda\in\FK$ 的数列.
@@ -116,15 +114,17 @@
     (b) 若$T\in\mathcal{B}(E,F)$, 则$T^*\in\mathcal{B}(F^*,E^*)$, 则对任意$f\in F^*$, 
     \[\lim_{n\rightarrow \infty}\langle f,T(x_n)\rangle=\lim_{n\rightarrow \infty}\langle T^*(f),x_n\rangle=\langle T^*(f),x\rangle=\langle f,T(x)\rangle.\] 
 
-    (c) 由(a)知$(x_n)_{n\geq 1}$有界, 而 $T$ 是紧算子, 故 $(T(x_n))_{n\geq 1}$ 相对紧, 
+    (c) 由 (a) 知 $(x_n)_{n\geq 1}$有界, 而 $T$ 是紧算子, 故 $(T(x_n))_{n\geq 1}$ 相对紧, 
     从而 $(T(x_n))_{n\geq 1}$ 任意子列有收敛子列 $(T(x_{n_k}))_{k\geq 1 }$, 
-    且该子列必依范数收敛于 $T(x)$, 这是因为若$(T(x_{n_k}))_{k\geq 1}$依范数收敛到$y$, 
-    则对任意$f\in F^*$, 我们有
+    且该子列必依范数收敛于 $T(x)$, 这是因为若$(T(x_{n_k}))$ 依范数收敛到 $y$, 
+    则对任意 $f\in F^*$, 我们有
     \[|f(T(x_{n_k}))-f(y)|\leq \|f\|\|T(x_{n_k})-y\|.\]
     因此 $T(x_{n_k})$ 弱收敛于 $y$, 但由 (b) 知, $T(x_n)$ 弱收敛于 $T(x)$, 
-    因此$y=f(x)$. 若$T(x_n)$不依范数收敛于$T(x)$, 则对任意正整数$N$, 存在$n_0>N$, 使得$\|T(x_{n_0})-T(x)\|>1$, 
-    从而可选取一子列$(T(x_{n_k}))_{k\geq 1}$, 使得$\|T(x_{n_k})-T(x)\|\geq1$, 
-    但由上述讨论可知$T((x_{n_k}))_{k\geq 1}$有收敛于$T(x)$的子列, 矛盾! 因此$T(x_n)$依范数收敛于$T(x)$.
+    因此 $y=f(x)$. 若$T(x_n)$不依范数收敛于$T(x)$, 则对任意正整数$N$,
+    存在 $n_0>N$, 使得 $\|T(x_{n_0})-T(x)\|>1$, 
+    从而可选取一子列 $(T(x_{n_k}))_{k\geq 1}$, 使得 $\|T(x_{n_k})-T(x)\|\geq1$, 
+    但由上述讨论可知 $T((x_{n_k}))_{k\geq 1}$ 有收敛于 $T(x)$ 的子列, 矛盾!
+    因此$T(x_n)$依范数收敛于$T(x)$.
 
     (d)由第九章第4题的结论, 若 $E$ 是自反的, 设$(x_n)_{n\geq 1}\subset B_E$, 则存在子列$(x_{n_k})_{k\geq 1}$,
     使得$(x_{n_k})_{k\geq1}$弱收敛于$x$.由题目条件知$T(x_{n_k})$依范数收敛到$T(x)$, 这说明$T(B_E)$相对紧, 从而$T$是紧算子.

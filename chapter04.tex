@@ -21,12 +21,14 @@
 \begin{itemize}
 \item $v(x+y)=v(x)+v(y)$ $(\forall x,y\in H)$:
 \begin{align*}
-    &\langle v(x+y)-v(x)-v(y),v(x+y)-v(x)-v(y)\rangle\\
-    &=\|v(x+y)\|^2+\|v(x)\|^2+\|v(y)\|^2-2\langle v(x+y),v(x)\rangle-2\langle v(x+y),v(y)\rangle+2\langle v(x),v(y)\rangle\\
-    &=\|x+y\|^2+\|x\|^2+\|y\|^2-2\langle x+y,x\rangle-2\langle x+y,y\rangle+2\langle x,y\rangle\\
-    &=\|x+y\|^2+\|x\|^2+\|y\|^2-2\|x+y\|^2+2\langle x,y\rangle\\
-    &=0\\
-    &\Rightarrow v(x+y)=v(x)+v(y).
+    & \langle v(x+y)-v(x)-v(y),v(x+y)-v(x)-v(y)\rangle\\
+    & = \|v(x+y)\|^2+\|v(x)\|^2+\|v(y)\|^2-2\langle v(x+y),v(x)\rangle \\
+    & \quad -2\langle v(x+y),v(y)\rangle+2\langle v(x),v(y)\rangle\\
+    & = \|x+y\|^2+\|x\|^2+\|y\|^2-2\langle x+y,x\rangle
+      -2\langle x+y,y\rangle+2\langle x,y\rangle\\
+    & = \|x+y\|^2+\|x\|^2+\|y\|^2-2\|x+y\|^2+2\langle x,y\rangle\\
+    & = 0 \\
+    & \Rightarrow v(x+y)=v(x)+v(y).
 \end{align*}
 \item $v(\lambda x)=\lambda v(x)$ $(\forall\lambda\in\mathbb{R},x\in H)$:
 \begin{align*}
@@ -279,13 +281,14 @@ $\cdots\cdots$
 存在收敛子列$(\langle x_m,x_{n_k^m}\rangle)_{k\geq 1}$
  
 依此下来, 并运用对角线选择法取出 $(x_n)$ 的子列 $(x_{n_k^k})_{k\geq 1}$,
-不妨将其简记为 $(x_{n_k})_{k\geq 1}$.
+不妨将其简记为 $(x_{n_k})$.
 
-设 $E=span((x_n)_{n\geq 1})$, 
-则任意 $y\in E,(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
-进一步容易验证对 $\forall y\in\overline{E},(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
-最后任意 $y\in H$, 由正交分解定理得 $y=y_1+y_2,y_1\in\overline{E},y_2\in E^{\perp}$, 故
-\[\langle y,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle+\langle y_2,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle.\]
+设 $E = \Span((x_n)_{n\geq 1})$, 
+则任意 $y\in E$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+进一步容易验证对 $\forall y\in\overline{E}$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+最后任意 $y\in H$, 由正交分解定理得 $y=y_1+y_2$, $y_1\in\overline{E}$, $y_2\in E^{\perp}$, 故
+\[\langle y,x_{n_k}\rangle
+  = \langle y_1,x_{n_k}\rangle+\langle y_2,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle.\]
 因此对任意 $y\in H,\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 存在, 而且
 \[\left|\lim_{k\to\infty}\langle y,x_{n_k}\rangle\right|\leq\limsup_{k\to\infty}|\langle y,x_{n_k}\rangle|\leq M\|y\|.\]
 因此 $y\mapsto\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 是连续线性泛函, 
@@ -431,7 +434,8 @@ $B=\{(x,y)|xy\geq1,x>0\}$,
         &\geq 4d(x,C)^2+\|P_{C_n}(x)-P_{C_m}(x)\|^2.
     \end{align*}
     由上式知 $(P_{C_n}(x))_{n\geq 1}$ 是 Cauchy 序列, 
-    由 $C$ 的完备性知其在 $C$ 中收敛, 记为 $\lim_{n\to\infty}P_{C_n}(x)=y\in C$.
+    由 $C$ 的完备性知其在 $C$ 中收敛, 记为
+    \[\lim_{n\to\infty}P_{C_n}(x)=y\in C.\]
     
     $y=P_C(x)$: 
     对于任意 $\forall\varepsilon>0$,
@@ -637,7 +641,10 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
     且
     \[x^{(m)}+y^{(m)}\xrightarrow{\ell_2}\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}.\]
     但 $\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}\notin E+F$, 事实上, 若存在
-    $x=\sum_{n=1}^{\infty}x_n e_{2n}\in E$ 和 $y=\sum_{n=1}^{\infty}y_n\frac{n}{\sqrt{n^2+1}}(e_{2n}+\frac{1}{n}e_{2n+1})\in F$,
+    \[x=\sum_{n=1}^{\infty}x_n e_{2n}\in E\]
+    和
+    \[y=\sum_{n=1}^{\infty}y_n\frac{n}{\sqrt{n^2+1}}
+      \biggl(e_{2n}+\frac{1}{n}e_{2n+1}\biggr)\in F\]
     使得 $x+y=\sum_{n=1}^{\infty}\frac{1}{n}e_{2n+1}$, 则
     \[x_n+\frac{ny_n}{\sqrt{n^2+1}}=0,\quad\frac{y_n}{\sqrt{n^2+1}}=\frac{1}{n}\Longrightarrow x_n=-1,y_n=\frac{\sqrt{n^2+1}}{n}.\]
     但此时 $x=\sum_{n=1}^{\infty}-e_{2n}\notin\ell_2$, 矛盾.

@@ -39,8 +39,9 @@
     另一方面,
     \begin{align*}
     U\in\tau
-    & \Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y\mid |y-x|<r\}\subset U\\
-    & \Rightarrow\forall x\in U,\text{取\ }s=\min\{\phi(x)-\phi(x-r),\phi(x+r)-\phi(x)\},\text{则\ }\{y\mid |\phi(y)-\phi(x)|<s\}\subset U\\
+    & \Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y\mid |y-x|<r\}\subset U \\
+    & \Rightarrow\forall x\in U,\text{取\ }s=\min\{\phi(x)-\phi(x-r),\phi(x+r)-\phi(x)\}, \\
+    & \qquad\text{则\ }\{y\mid |\phi(y)-\phi(x)|<s\}\subset U \\
     & \Rightarrow U\in\tau_d.
     \end{align*}
     综合两个方向知 $\tau=\tau_d$.
@@ -499,46 +500,65 @@
     综合两点知 $h(A,B)=\inf Q=\inf\{\varepsilon\geq 0\mid A\subset B_{\varepsilon}, B\subset A_{\varepsilon}\}$.
 
     (c) 任取 $\mathcal{C}$ 中的 Cauchy 序列 $(A_n)_{n\geq 1}$,
-    即 $\forall\varepsilon >0,\exists N>0,s.t.\forall m,n>N_1,h(A_m,A_n)<\varepsilon /2$.
+    即 $\forall\varepsilon >0$, 存在 $N>0$, 
+    使得对于任意 $m,n>N_1$, $h(A_m,A_n)<\varepsilon /2$.
 
     定义集合 $A$ 为:
-    \[A=\{x\mid\text{存在序列\ }(x_k) s.t. x_k\in A_k\text{\ 且\ }x_k\rightarrow x\}.\]
-    $\forall x\in A,\exists (x_k)(x_k\in A_k),s.t.x_k\rightarrow x$故$\exists N_2>0,\forall k>N_2,d(x_k,x)<\varepsilon /2$\\
-    若$k>max\{N_1,N_2\}$,则$h(A_k,A_n)<\varepsilon /2$,故$\exists y\in A_n,s.t.d(x_k,y)<\varepsilon /2$,故$d(y,x)\leq d(x_k,y)+d(x_k,x)<\varepsilon\Rightarrow x\in (A_n)_\varepsilon\Rightarrow A\subset (A_n)_\varepsilon$\\
-    另一方面,$\forall y\in A_n$,选取一列整数$n=k_1<k_2<\cdots$使得\[h(A_{k_j},A_m)<2^{-j}\varepsilon (\forall m\geq k_j)\]
-    然后我们如下定义序列$(y_k)_{k\geq 1}(y_k\in A_k)$:
-    $k<n$时,$y_k$任意选取,选择$y_n=y$,如果$y_{k_j}$已经选择了,且$k_j<k\leq k_{j+1}$,
-    选择$y_k\in A_k,s.t.d(y_{k_j},y_k)<2^{-j}\varepsilon$,则$(y_k)_{k\geq 1}$是Cauchy序列,
-    故$y_k\rightarrow x\in A$
+    \[A = \{x\mid\text{存在序列\ }(x_k) \text{\ 使得\ } x_k\in A_k
+        \text{\ 且\ }x_k\rightarrow x\}.\]
+    对 $\forall x\in A$, 存在 $(x_k)(x_k\in A_k)$, 
+    使得 $x_k\rightarrow x$ 故 $\exists N_2>0,\forall k>N_2,d(x_k,x)<\varepsilon /2$.
+
+    若 $k>max\{N_1,N_2\}$, 则 $h(A_k,A_n)<\varepsilon /2$, 
+    故 $\exists y\in A_n$ 使得 $d(x_k,y)<\varepsilon /2$,
+    故 $d(y,x)\leq d(x_k,y)+d(x_k,x)<\varepsilon\Rightarrow x\in (A_n)_\varepsilon\Rightarrow A\subset (A_n)_\varepsilon$.
+
+    另一方面, $\forall y\in A_n$, 选取一列整数 $n=k_1<k_2<\cdots$ 使得
+    \[h(A_{k_j},A_m)<2^{-j}\varepsilon (\forall m\geq k_j).\]
+    然后我们如下定义序列 $(y_k)_{k\geq 1}(y_k\in A_k)$:
+    $k<n$ 时, $y_k$任意选取, 选择 $y_n=y$, 如果 $y_{k_j}$ 已经选择了, 且 $k_j<k\leq k_{j+1}$,
+    选择 $y_k\in A_k$, 使得 $d(y_{k_j},y_k)<2^{-j}\varepsilon$, 
+    则 $(y_k)_{k\geq 1}$是Cauchy序列, 故 $y_k\rightarrow x\in A$
     由
-    \[d(y,x)=\lim_{k\to\infty}d(y,y_k)=\lim_{j\to\infty}d(y,y_{k_j})\leq\lim_{j\to\infty}(2^{-1}\varepsilon +\cdots +2^{-j+1}\varepsilon)=\varepsilon\]
-    知$ y\in (A)_\varepsilon\Rightarrow A_n\subset (A)_\varepsilon$,
-    所以$h(A,A_n)<\varepsilon$,这就证明了$A_n\xrightarrow{h}A$
+    \[d(y,x)=\lim_{k\to\infty}d(y,y_k)
+        = \lim_{j\to\infty}d(y,y_{k_j})\leq\lim_{j\to\infty}(2^{-1}\varepsilon 
+        + \cdots +2^{-j+1}\varepsilon)=\varepsilon,\]
+    知 $ y\in (A)_\varepsilon\Rightarrow A_n\subset (A)_\varepsilon$,
+    所以 $h(A,A_n)<\varepsilon$, 这就证明了$A_n\xrightarrow{h}A$
     
-    下面还需证明$A$是紧的,为此,需要证明$A$是闭集且完全有界:
+    下面还需证明 $A$ 是紧的, 为此, 需要证明$A$是闭集且完全有界:
 
-    i)假设$x\in\bar{A}$,则$\forall n\geq 1,\exists y_n\in A,s.t.d(x,y_n)<2^{-n}$,
-    又因为$\forall n\geq 1,\exists z_n\in A_n,s.t.d(z_n,y_n)\leq h(A_n,A)$,
-    故\[d(z_n,x)\leq d(z_n,y_n)+d(x,y_n)<h(A_n,A)+2^{-n}\rightarrow 0\]
-    所以$z_n\rightarrow x$,故$x\in A$,因而$A$是闭集.
+    i) 假设 $x\in\bar{A}$, 则 $\forall n\geq 1$, 存在 $y_n\in A$, 使得 $d(x,y_n)<2^{-n}$,
+    又因为 $\forall n\geq 1$, 存在 $z_n\in A_n$, 使得 $d(z_n,y_n)\leq h(A_n,A)$,
+    故
+    \[d(z_n,x)\leq d(z_n,y_n)+d(x,y_n)<h(A_n,A)+2^{-n}\rightarrow 0.\]
+    所以 $z_n\rightarrow x$, 故 $x\in A$, 因而 $A$ 是闭集.
 
-    ii)$\forall\varepsilon >0,\exists n\geq 1,s.t.h(A_n,A)<\varepsilon/3$,
-    由于$A_n$紧,故$A_n$存在有限的$\varepsilon/3$网,
-    即存在$\{y_1,y_2,\cdots,y_m\}\subset A_n,s.t.A_n\subset\bigcup_{i=1}^mB(y_i,\varepsilon/3),\forall y_i,\exists x_i\in A,s.t.d(x_i,y_i)<\varepsilon/3$,
-    我们断言$\{x_1,x_2,\cdots,x_m\}$构成了$A$的一个有限$\varepsilon$网
-    (反证法:假设$\exists x_0\in A,s.t.d(x_0,x_i)\geq\varepsilon(\forall i=1,2,\cdots,m)$,
-    设$x_0$与$A_n$中的$y_0$距离最近,且$y_0$所在的开球球心为$y_i$,
-    则$d(x_0,x_i)\leq d(x_0,y_0)+d(y_0,y_i)+d(y_i,x_i)<\varepsilon$,矛盾)因此$A$是完全有界的.
+    ii) $\forall\varepsilon >0,\exists n\geq 1$, 使得 $h(A_n,A)<\varepsilon/3$,
+    由于 $A_n$ 紧, 故 $A_n$ 存在有限的 $\varepsilon/3$ 网,
+    即存在 $\{y_1,y_2,\cdots,y_m\}\subset A_n$,
+    使得 $A_n\subset\bigcup_{i=1}^m B(y_i,\varepsilon/3)$.
+    对 $\forall y_i$, $\exists x_i\in A$, 使得 $d(x_i,y_i)<\varepsilon/3$,
+    我们断言 $\{x_1,x_2,\cdots,x_m\}$ 构成了 $A$ 的一个有限 $\varepsilon$ 网
+    (反证法: 假设 $\exists x_0\in A$, 使得 $d(x_0,x_i)\geq\varepsilon(\forall i=1,2,\cdots,m)$,
+    设 $x_0$ 与 $A_n$ 中的 $y_0$ 距离最近, 且 $y_0$所在的开球球心为 $y_i$,
+    则 $d(x_0,x_i)\leq d(x_0,y_0)+d(y_0,y_i)+d(y_i,x_i)<\varepsilon$, 矛盾)
+    因此 $A$ 是完全有界的.
 
-    (d)将$\{f_i\}$的压缩系数分别记为$\lambda_1,\cdots,\lambda_n$,
-    令$\lambda=\max\{\lambda_1,\cdots,\lambda_n\}$,下面证明$T$是以$\lambda$为压缩系数的压缩映射,
-    即证:$\forall A,B\in C,h(T(A),T(B))\leq\lambda h(A,B)$
+    (d) 将 $\{f_i\}$ 的压缩系数分别记为 $\lambda_1,\cdots,\lambda_n$,
+    令 $\lambda=\max\{\lambda_1,\cdots,\lambda_n\}$,
+    下面证明 $T$ 是以 $\lambda$ 为压缩系数的压缩映射,
+    即证: $\forall A,B\in C,h(T(A),T(B))\leq\lambda h(A,B)$.
 
-    任取$r>h(A,B),\forall x\in T(A),\exists 1\leq i\leq n,a\in A,s.t.x=f_i(a)$,
-    因为$h(A,B)<r$,所以$\exists b\in B,s.t.d(a,b)<r$,令$y=f_i(b)\in T(B)$,
-    我们有\[d(x,y)=d(f_i(a),f_i(b))\leq\lambda_i d(a,b)<\lambda r\]
-    所以\[d(x,T(B))<\lambda r\Rightarrow\sup_{x\in T(A)}d(x,T(B))\leq\lambda r\]
+    任取 $r>h(A,B)$, 对于 $\forall x\in T(A)$, $\exists 1\leq i\leq n$ 和 $a\in A$,
+    使得 $x=f_i(a)$, 因为 $h(A,B)<r$, 所以 $\exists b\in B$,
+    使得 $d(a,b)<r$, 令$y=f_i(b)\in T(B)$,
+    我们有
+    \[d(x,y)=d(f_i(a),f_i(b))\leq\lambda_i d(a,b)<\lambda r.\]
+    所以
+    \[d(x,T(B))<\lambda r\Rightarrow\sup_{x\in T(A)}d(x,T(B))\leq\lambda r.\]
     同理可得
-    \[\sup_{y\in T(B)}d(y,T(A))\leq\lambda r\]
-    因此$h(T(A),T(B))\leq\lambda r$,令$r\to h(A,B)$,即得$h(T(A),T(B))\leq\lambda h(A,B)$,从而说明$T$是压缩映射.
+    \[\sup_{y\in T(B)}d(y,T(A))\leq\lambda r.\]
+    因此 $h(T(A),T(B))\leq\lambda r$, 令 $r\to h(A,B)$,
+    即得 $h(T(A),T(B))\leq\lambda h(A,B)$, 从而说明 $T$ 是压缩映射.
 \end{proof}

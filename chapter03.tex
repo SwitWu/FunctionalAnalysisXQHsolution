@@ -626,7 +626,10 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
     故
     \begin{align*}
         & \int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2) \\
-    \leq{} & \biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{q-p}{q}}\cdot\int_{\varOmega_1}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q\diff\mu_2(x_2)\biggr)^{\frac{p}{q}}\diff\mu_1(x_1).
+    \leq{} & \biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_,x_2)|^p
+             \diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{q-p}{q}} \\
+        & \quad\cdot\int_{\varOmega_1}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q
+          \diff\mu_2(x_2)\biggr)^{\frac{p}{q}}\diff\mu_1(x_1).
     \end{align*}
     即
     \[\biggl[\int_{\varOmega_2}\biggl(\int_{\varOmega_1}|f(x_1,x_2)|^p\diff\mu_1(x_1)\biggr)^{\frac{q}{p}}\diff\mu_2(x_2)\biggr]^{\frac{p}{q}}\leq\int_{\varOmega_1}\biggl(\int_{\varOmega_2}|f(x_1,x_2)|^q\diff\mu_2(x_2)\biggr)^{\frac{p}{q}}\diff\mu_1(x_1).\]
@@ -653,46 +656,60 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{exercise}
 
 \begin{proof}
-(a)\begin{itemize}
-\item \[\begin{split}\int_0^1|T(x)(t)|^p\diff t
-&=\int_0^1\left|\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}x_n\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)\right|^p\diff t\\
-&=\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}\left|[n(n+1)]^{\frac{1}{p}}x_n\right|^p\diff t\\
-&=\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)n(n+1)|x_n|^p=\sum_{n=1}^{\infty}|x_n|^p<\infty
-\end{split}\]
-故$T(x)(t)\in L_p(0,1)$.
-\item 线性:\[T(\lambda x+y)(t)=\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}(\lambda x_n+y_n)\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)=\lambda\cdot T(x)+T(y)\]
-\item 等距:由第一条知$\forall x,y\in\ell_p$:
-\[\|T(x-y)(t)\|_p=\left(\int_0^1(T(x-y)(t))^p\diff t\right)^{\frac{1}{p}}=\left(\sum_{n=1}^{\infty}(x_n-y_n)^p\right)^{\frac{1}{p}}=\|x-y\|_p\]故$T$是等距映射
-\end{itemize}
-注意:题目有一点小问题,$T$不是同构,因为不满足满射,例如$f(x)=x\in L_p(0,1)$不存在原像.
+    (a)
+    \begin{itemize}
+    \item \[\begin{split}\int_0^1|T(x)(t)|^p\diff t
+    &=\int_0^1\left|\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}x_n\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)\right|^p\diff t\\
+    &=\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}\left|[n(n+1)]^{\frac{1}{p}}x_n\right|^p\diff t\\
+    &=\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+1}\right)n(n+1)|x_n|^p=\sum_{n=1}^{\infty}|x_n|^p<\infty
+    \end{split}\]
+    故 $T(x)(t)\in L_p(0,1)$.
+    \item 线性:
+        \[T(\lambda x+y)(t)=\sum_{n\geq 1}[n(n+1)]^{\frac{1}{p}}
+        (\lambda x_n+y_n)\mathbbm{1}_{(\frac{1}{n+1},\frac{1}{n})}(t)
+        = \lambda\cdot T(x)+T(y)\]
+    \item 等距:由第一条知$\forall x,y\in\ell_p$:
+    \[\|T(x-y)(t)\|_p=\left(\int_0^1(T(x-y)(t))^p\diff t\right)^{\frac{1}{p}}=\left(\sum_{n=1}^{\infty}(x_n-y_n)^p\right)^{\frac{1}{p}}=\|x-y\|_p\]故$T$是等距映射
+    \end{itemize}
+    注意:题目有一点小问题, $T$不是同构, 因为不满足满射, 例如 $f(x)=x\in L_p(0,1)$不存在原像.
 
-(b)\begin{itemize}
-\item \[\sum_{i=1}^n|S(f)_n|^p=\sum_{n=1}^{\infty}[n(n+1)]^{\frac{p}{q}}\left|\int_{\frac{1}{n+1}}^{\frac{1}{n}}f(t)\diff t\right|^p\leq\sum_{n=1}^{\infty}[n(n+1)]^{p-1}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p\]
-\begin{enumerate}[(i)]
-\item 当$p=1$时:
-\[\sum_{n=1}^{\infty}|S(f)_n|\leq\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t=\int_0^1|f(t)|\diff t<\infty\]
-故$(S(f)_n)_{n\geq 1}\in\ell_1$
-\item 当$p>1$时:
-\[\begin{split}\sum_{n=1}^{\infty}|S(f)_n|^p&\leq\sum_{n=1}^{\infty}\frac{1}{n(n+1)}\cdot (n(n+1))^p\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p\\&=\sum_{n=1}^{\infty}\frac{1}{n(n+1)}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p\end{split}\]
-由 H\"older 不等式得:
-\[\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\leq\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\right)^{\frac{1}{p}}\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}(n(n+1))^q\right)^{\frac{1}{q}}\]
-故\[\begin{split}
-\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p
-&\leq\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot\left((n(n+1))^q\frac{1}{n(n+1)}\right)^{\frac{p}{q}}\\
-&=\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot(n(n+1))^{(p-1)(q-1)}\\
-&=n(n+1)\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t
-\end{split}\]
-从而
-\[\sum_{n=1}^{\infty}|S(f)_n|^p\leq\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t=\int_0^1|f(t)|^p\diff t<\infty\]
-\end{enumerate}
-综上知 $S$ 确实将 $L_p(0,1)$ 中得元素映到 $\ell_p$ 中
-\item 线性:
-\[S(\lambda f+g)_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}(\lambda f(t)+g(t))\diff t=\lambda S(f)_n+S(g)_n\]
-\item 单位映射: $\forall x\in\ell_p$, 有
-\[((S\circ T)(x))_n=(S(T(x)(t)))_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}[n(n+1)]^{\frac{1}{p}}x_n\diff t=x_n\]
-故 $(S\circ T)(x)=x$, 即 $S\circ T$ 是 $\ell_p$ 上的单位映射.
-\end{itemize}
-证毕.
+    (b)
+    \begin{itemize}
+    \item 
+      \[\sum_{i=1}^n|S(f)_n|^p = \sum_{n=1}^{\infty}[n(n+1)]^{\frac{p}{q}}\left|\int_{\frac{1}{n+1}}^{\frac{1}{n}}f(t)\diff t\right|^p\leq\sum_{n=1}^{\infty}[n(n+1)]^{p-1}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p.\]
+    \begin{enumerate}[(i),left=0pt]
+    \item 当 $p=1$ 时:
+      \[\sum_{n=1}^{\infty}|S(f)_n| 
+          \leq \sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t
+          = \int_0^1|f(t)|\diff t<\infty.\]
+      故 $(S(f)_n)_{n\geq 1}\in\ell_1$.
+    \item 当$p>1$时:
+      \[\begin{split}
+        \sum_{n=1}^{\infty}|S(f)_n|^p
+        & \leq\sum_{n=1}^{\infty}\frac{1}{n(n+1)}\cdot (n(n+1))^p\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|\diff t\right)^p \\
+        & = \sum_{n=1}^{\infty}\frac{1}{n(n+1)}\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p
+      \end{split}\]
+    由 H\"older 不等式得:
+    \[\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t
+      \leq \left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\right)^{\frac{1}{p}}\cdot\left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}(n(n+1))^q\right)^{\frac{1}{q}}.\]
+    故
+    \[\begin{split}
+      \left(\int_{\frac{1}{n+1}}^{\frac{1}{n}}n(n+1)|f(t)|\diff t\right)^p
+      &\leq\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot\left((n(n+1))^q\frac{1}{n(n+1)}\right)^{\frac{p}{q}}\\
+      &=\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t\cdot(n(n+1))^{(p-1)(q-1)}\\
+      &=n(n+1)\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t.
+    \end{split}\]
+    从而
+    \[\sum_{n=1}^{\infty}|S(f)_n|^p\leq\sum_{n=1}^{\infty}\int_{\frac{1}{n+1}}^{\frac{1}{n}}|f(t)|^p\diff t=\int_0^1|f(t)|^p\diff t<\infty.\]
+    \end{enumerate}
+    综上知 $S$ 确实将 $L_p(0,1)$ 中得元素映到 $\ell_p$ 中
+    \item 线性:
+    \[S(\lambda f+g)_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}(\lambda f(t)+g(t))\diff t=\lambda S(f)_n+S(g)_n\]
+    \item 单位映射: $\forall x\in\ell_p$, 有
+    \[((S\circ T)(x))_n=(S(T(x)(t)))_n=[n(n+1)]^{\frac{1}{q}}\int_{\frac{1}{n+1}}^{\frac{1}{n}}[n(n+1)]^{\frac{1}{p}}x_n\diff t=x_n\]
+    故 $(S\circ T)(x)=x$, 即 $S\circ T$ 是 $\ell_p$ 上的单位映射.
+    \end{itemize}
+    证毕.
 \end{proof}
 
 
@@ -816,40 +833,30 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{proof}
 
 
-
 \begin{exercise}
     在 $\mathbb{R}$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
-    \[
-    F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.
-    \]
+    \[F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.\]
     本题的目标是证明 Hardy 不等式:
     \begin{equation}
     \|F\|_{p} \leq \frac{p}{p-1}\|f\|_{p}, \forall f \in L_{p}(0,+\infty). \tag{$\star$}
     \end{equation}
 
     (a) 首先说明 $F$ 在 $(0,+\infty)$ 上的定义是合理的, 并且
-    \[
-    |x_1 F(x_1)-x_2 F(x_2)| \leq|x_1-x_2|^{\frac{1}{q}}\|f\|_{p}, \quad \forall x_{1}, x_{2}>0.
-    \]
+    \[|x_1 F(x_1)-x_2 F(x_2)| \leq|x_1-x_2|^{\frac{1}{q}}\|f\|_{p},
+      \quad \forall x_{1}, x_{2}>0.\]
     这里 $q$ 是 $p$ 的共轭数. 并由此证明 $F$ 在 $(0,+\infty)$ 上连续, 故可测.
 
     (b) 假设 $f$ 是有紧支撑的连续函数且 $f \geq 0$. 证明 $F$ 在 $(0, \infty)$ 上连续可导且 有
-    \[
-    (p-1)\int_{0}^{+\infty} F(x)^{p}\diff x = p\int_{0}^{+\infty} F(x)^{p-1}f(x)\diff x.
-    \]
+    \[(p-1)\int_{0}^{+\infty} F(x)^{p}\diff x = p\int_{0}^{+\infty} F(x)^{p-1}f(x)\diff x.\]
     并由此导出公式 $(\star)$.
 
     (c) 证明公式 $(\star)$ 对所有的 $f \in L_{p}(0,+\infty)$ 成立.
 
     (d) 用反例说明当 $p=1$ 时, $(\star)$ 不成立, 即不存在任何常数 $C>0$, 使得
-    \[
-    \|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty).
-    \]
+    \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty).\]
 
     (e) 证明 $\frac{p}{p-1}$ 是使得 $(\star)$ 式成立的最优常数. 也就是说, 若有 $C>0$ 使得
-    \[
-    \|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty),
-    \]
+    \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty),\]
     则 $C\geq\frac{p}{p-1}$.
 
     提示: 考虑函数 $f(x)=x^{-\frac{1}{p}} \mathbbm{1}_{[1, n]}(x)$ 和极限

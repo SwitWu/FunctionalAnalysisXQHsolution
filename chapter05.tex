@@ -82,9 +82,14 @@
 \end{exercise}
 
 \begin{proof}
-    设$(f_n)_{n\geq 1}$一致收敛到$f$,容易验证$f\in C(K,E)$,则$\forall\varepsilon>0,\exists N>0,s.t.\forall n>N,sup_{x\in K}d(f_n(x),f(x))<\varepsilon/3$,任取$x\in K$,因为$f\in C(K,E)$,所以存在$V\in\mathcal{N}(x)$,使得当$y\in V$时,$d(f(y),f(x))<\varepsilon/3$\\
-    因此对于上述的$\varepsilon,N$,当$n>N$且$y\in V$时,有
-    \[d(f_n(y),f_n(x))\leq d(f_n(y),f(y))+d(f(y),f(x))+d(f(x),f_n(x))<\varepsilon\]
+    设 $(f_n)_{n\geq 1}$ 一致收敛到 $f$, 容易验证 $f\in C(K,E)$,
+    则对 $\forall\varepsilon>0$, 存在 $N>0$, 使得当 $n>N$ 时,
+    $\sup_{x\in K}d(f_n(x),f(x))<\varepsilon/3$,
+    任取 $x\in K$, 因为 $f\in C(K,E)$, 所以存在 $V\in\mathcal{N}(x)$,
+    使得当 $y\in V$时, $d(f(y),f(x))<\varepsilon/3$.
+
+    因此对于上述的 $\varepsilon,N$, 当 $n>N$ 且 $y\in V$ 时, 有
+    \[d(f_n(y),f_n(x))\leq d(f_n(y),f(y))+d(f(y),f(x))+d(f(x),f_n(x))<\varepsilon.\]
     从而集合$(f_n)_{n>N}$是等度连续的,而增加有限个元素不改变等度连续性,因此$(f_n)_{n\geq 1}$等度连续.
 \end{proof}
 
