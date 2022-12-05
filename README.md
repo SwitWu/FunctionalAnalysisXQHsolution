@@ -4,5 +4,8 @@
 
 ## PDF 文件的获取
 + 方法一：下载并编译源文件，主文件为 `main.tex`，编译命令为 `xelatex main.tex`。
-  > 注意：文档类文件 `mathexercise.cls` 需要从我的另一个仓库 [MathExercise](https://github.com/SwitWu/MathExercise) 中下载。
 + 方法二：直接去我的个人主页下载。
+
+## 说明
+
+`main.tex` 所使用的文档类 `mathexercise.cls` 在单独的[仓库](https://github.com/SwitWu/MathExercise)中，请自行下载。
