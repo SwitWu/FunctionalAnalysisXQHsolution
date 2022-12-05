@@ -15,3 +15,5 @@
 *.blg
 *.pdf
 *.sh
+*.json
+.DS_Store/
