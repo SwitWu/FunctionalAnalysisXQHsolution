@@ -282,26 +282,37 @@
 \end{exercise}
 
 \begin{proof}
-(a)引入二项分布$X\sim B(n,x)$,则:
-\[\sum_{k=0}^nC_n^kkx^k(1-x)^{n-k}=E(X)=nx\]
-\[\sum_{k=0}^nC_n^kk^2x^k(1-x)^{n-k}=E(X^2)=Var(X)+E^2(X)=nx+n(n-1)x^2\]
-\[\mbox{故}\sum_{k=0}^nC_n^k(k-nx)^2x^k(1-x)^{n-k}=nx+n(n-1)x^2-2nx\cdot nx+n^2x^2=nx(1-x)\]
+(a)引入二项分布 $X\sim B(n,x)$, 则:
+\[\sum_{k=0}^nC_n^kkx^k(1-x)^{n-k} = E(X) = nx.\]
+\[\sum_{k=0}^nC_n^kk^2x^k(1-x)^{n-k}=E(X^2)=\operatorname{Var}(X)+E^2(X)=nx+n(n-1)x^2.\]
+故
+\[\sum_{k=0}^nC_n^k(k-nx)^2x^k(1-x)^{n-k}=nx+n(n-1)x^2-2nx\cdot nx+n^2x^2=nx(1-x).\]
 
-(b)\[\begin{split}
-|f(x)-B_n(f)(x)|&=\left|f(x)-\sum_{k=0}^nC_n^kf\left(\frac{k}{n}\right)x^k(1-x)^{n-k}\right|\\
-&=\left|\sum_{k=0}^nC_n^k\left(f(x)-f\left(\frac{k}{n}\right)\right)x^k(1-x)^{n-k}\right|\\
-&\leq\sum_{k=0}^nC_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k}\\
-&<\varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}+\sum_{k\in J}C_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k}\\
-&\leq\varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}+\frac{2\|f\|_{\infty}}{\delta^2}\sum_{k\in J}C_n^k\left(x-\frac{k}{n}\right)^2x^k(1-x)^{n-k}
+(b)
+\begin{align*}
+  |f(x)-B_n(f)(x)|
+  & = \left|f(x)-\sum_{k=0}^nC_n^kf\left(\frac{k}{n}\right)x^k(1-x)^{n-k}\right| \\
+  & = \left|\sum_{k=0}^nC_n^k\left(f(x)-f\left(\frac{k}{n}\right)\right)x^k(1-x)^{n-k}\right| \\
+  & \leq \sum_{k=0}^nC_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k} \\
+  & < \varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}
+      + \sum_{k\in J}C_n^k\left|f(x)-f\left(\frac{k}{n}\right)\right|x^k(1-x)^{n-k} \\
+  & \leq \varepsilon\sum_{k\in I}C_n^kx^k(1-x)^{n-k}
+      + \frac{2\|f\|_{\infty}}{\delta^2}
+        \sum_{k\in J}C_n^k\left(x-\frac{k}{n}\right)^2x^k(1-x)^{n-k}
+\end{align*}
+由 (a) 知 $\sum_{k=0}^nC_n^k(x-k/n)^2x^k(1-x)^{n-k}=x(1-x)/n$, 故
+\[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}.\]
+
+(c) 由 (b) 中所得不等式知:
+\[\begin{split}
+  \lim_{n\to\infty}\|f-B_n(f)\|_{\infty}
+  & =\lim_{n\to\infty}\sup\limits_{0\leq x\leq 1}|f(x)-B_n(f)(x)| \\
+  & \leq \lim_{n\to\infty}\sup \limits_{0\leq x\leq 1}
+    \left(\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}\right) \\
+  & = \varepsilon.
 \end{split}\]
-由(a)知$\sum_{k=0}^nC_n^k(x-k/n)^2x^k(1-x)^{n-k}=x(1-x)/n$,故
-\[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}\]
-
-(c)由(b)中所得不等式知:
-\[\begin{split}\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}
-&=\lim_{n\to\infty}\sup\limits_{0\leq x\leq 1}|f(x)-B_n(f)(x)|\\
-&\leq\lim_{n\to\infty}\sup\limits_{0\leq x\leq 1}\left(\varepsilon+\frac{2\|f\|_{\infty}}{\delta^2}\frac{x(1-x)}{n}\right)\\&=\varepsilon\end{split}\]
-由$\varepsilon$的任意性知\[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0\]
+由$\varepsilon$的任意性知
+\[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0.\qedhere\]
 \end{proof}
 
 
@@ -324,9 +335,52 @@
     % (b)假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是Fourier级数,则由(a)中结论知级数
     % \[\sum_{n\geq 2}\frac{1}{n\log n}\mbox{收敛}\]
     % 显然矛盾,因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$不是Fourier级数\\\\
-    % 17.\textit{Proof}:因为$C_{2\pi}$在$L_{2\pi}^p$中稠密,所以存在函数序列$(f_n)\subset C_{2\pi}$,使得
-    % \[\|f-f_n\|_p\to0(n\to\infty)\]
-    % 不妨设$p\geq 1(0<p<1\mbox{的情形同理可证})$,由Minkowski不等式得
-    % \[\|\tau_a(f)-f\|_p\leq\|\tau_a(f)-\tau_a(f_n)\|_p+\|\tau_a(f_n)-f_n\|_p+\|f_n-f\|_p\]
-    % 由$f_n$是一致连续函数且$\tau_a$是连续变换不难知:
-    % \[\lim_{a\to0}\|\tau_a(f)-f\|_p=0\]
+
+\begin{exercise}[17]
+  对任意 $a\in\mathbb{R}$, 相应的平移变换 $\tau_a(f)(x) = f(x-a)$.
+  证明对任意 $f\in L_{2\pi}^p$, $0<p<\infty$, 有
+  \[\lim_{a\to 0} \|\tau_a(f) - f\|_p = 0.\]
+\end{exercise}
+
+\begin{proof}
+  因为 $C_{2\pi}$ 在 $L_{2\pi}^p$ 中稠密, 所以存在函数序列$(f_n)\subset C_{2\pi}$,使得
+  \[\|f-f_n\|_p\to0(n\to\infty).\]
+  不妨设 $p\geq 1$ ($0<p<1$ 的情形同理可证), 由 Minkowski 不等式得
+  \[\|\tau_a(f)-f\|_p\leq\|\tau_a(f)-\tau_a(f_n)\|_p+\|\tau_a(f_n)-f_n\|_p+\|f_n-f\|_p.\]
+  由 $f_n$ 是一致连续函数且 $\tau_a$ 是连续变换不难知:
+  \[\lim_{a\to0}\|\tau_a(f)-f\|_p=0.\qedhere\]
+\end{proof}
+
+
+\begin{exercise}[18]
+(...)
+\end{exercise}
+
+\begin{proof}
+  (a) (i) 由于
+  \[\sum_{n=0}^{N-1} \sin \biggl(n+\frac{1}{2}\biggr)t 
+    = \biggl(\sin\frac{Nt}{2}\biggr)^2 \bigg/ \sin\frac{t}{2},\]
+  所以
+  \[F_N(t) = \frac{1}{N} \sum_{n=0}^{N-1} D_n
+    = \frac{1}{N} \sum_{n=0}^{N-1} \frac{\sin (n+\frac{1}{2})t}{\sin\frac{t}{2}}
+    = \frac{1}{N} \biggl(\frac{\sin\frac{Nt}{2}}{\sin\frac{t}{2}}\biggr)^2.\]
+  (ii) 由于
+  \[F_N(t) = \frac{1}{N} \sum_{n=0}^{N-1} \sum_{k=-n}^n \e^{\upi kx}.\]
+  故
+  \begin{align*}
+    \frac{1}{2\pi} \int_0^{2\pi} F_N(t) \diff t
+    & = \frac{1}{2\pi} \int_0^{2\pi} \frac{1}{N} \sum_{n=0}^{N-1}\sum_{k=-n}^n
+        \e^{\upi kt} \diff t \\
+    & = \frac{1}{N} \sum_{n=0}^{N-1}\sum_{k=-n}^n 
+        \biggl[\frac{1}{2\pi} \int_0^{2\pi} \e^{\upi kt} \diff t\biggr].
+  \end{align*}
+  当 $k\neq 0$ 时, $\int_0^{2\pi} \e^{\upi kt} \diff t = 0$;
+  当 $k = 0$ 时, $\int_0^{2\pi} \e^{\upi kt} \diff t = 2\pi$, 故
+  \[\frac{1}{2\pi} \int_0^{2\pi} F_N(t) \diff t
+    = \frac{1}{N} \sum_{n=0}^{N-1} 1 = 1.\]
+  (iii) 当 $\delta\leq |t| \leq\pi$ 时, $\frac{1}{\sin^2(t/2)} \leq \frac{1}{\sin^2(\delta/2)}$,
+  因此
+  \[F_N(t) \leq \frac{1}{N} \frac{1}{\sin^2(\delta/2)},\quad \delta\leq |t|\leq \pi.\]
+  显然当 $N\to\infty$ 时, $F_N(t)$ 一致收敛于 $0$, 于是
+  \[\lim_{N\to\infty} \int_{\delta\leq |t|\leq \pi} F_N(t) \diff t = 0.\]
+\end{proof}
