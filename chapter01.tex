@@ -315,6 +315,54 @@ $\mathbb{R}\times\cdots\times\mathbb{R}$ 上的乘积拓扑为 $\tau_2$,
     证明由 $\delta$ 诱导的拓扑也与乘积拓扑相同.
 \end{exercise}
 
+\begin{proof}
+  Denote by $\tau$ the product topology and denote by $\tau_\delta$ the topology
+  induced by $\delta$. As usual we may without loss of generality assume that $d_n\leq 1$
+  for all $n\geq 1$.
+
+  Choose any $B_{\delta}(x,r)\subset\tau_{\delta}$ and $y\in B_{\delta}(x,r)$.
+  Let
+  \[U:= \prod_{n=1}^m B_n(y_n,s) \times \prod_{n=m+1}^{\infty} E_n,\]
+  where $s$ and $m$ are selected such that $s + \frac{1}{2^m} < r - \delta(x,y)$.
+
+  Thus for any $z\in U$, we have
+  \begin{align*}
+    \delta(x,z)
+    & \leq \delta(x,y) + \delta(y,z) \\
+    & \leq \delta(x,y) + \sum_{n=1}^\infty \frac{1}{2^n} d_n(y_n, z_n) \\
+    & \leq \delta(x,y) + \sum_{n=1}^m \frac{1}{2^n} d_n(y_n,z_n)
+      +\sum_{n=m+1}^{\infty} \frac{1}{2^n} d_n(y_n, z_n) \\
+    & \leq \delta(x,y) + \sum_{n=1}^m \frac{1}{2^n} s + \sum_{n=m+1}^{\infty} \frac{1}{2^n} \\
+    & \leq \delta(x,y) + s + \frac{1}{2^m} \\
+    & < r.
+  \end{align*}
+  It follows that $y\in U \subset B_\delta (x,r)$. Therefore $B_\delta(x,r)$
+  is an open set in $\tau$ and thus $\tau_\delta \subset \tau$.
+
+  Conversely, choose any
+  \[U = \prod_{i\in J} B_{d_i}(x_i,r_i) \times \prod_{i\notin J} E_i \in \tau,\]
+  where $J$ is a finite index set and choose any $y\in U$.
+  Then we have $d_i(x_i, y_i) < r_i$ for all $i\in J$.
+
+  Choose some ball $B_\delta(y,r) \subset \tau_\delta$ where
+  $r$ is selected so small that
+  \[0 < r < \min_{i\in J} \frac{1}{2^i} \bigl(r_i - d_i(x_i,y_i)\bigr).\]
+  Then for any $z\in B_\delta (y,r)$, we have that
+  \[\sum_{n=1}^\infty \frac{1}{2^n} d_n(y_n, z_n) < r,\]
+  and so for all $i\in J$,
+  \[\frac{1}{2^i} d_i(y_i, z_i) < r < \frac{1}{2^i} \bigl(r_i - d_i(x_i, y_i)\bigr),\]
+  i.e.,
+  \[d_i(y_i, z_i) < r_i - d_i(x_i, y_i).\]
+  Therefore
+  \begin{align*}
+    d_i(x_i, z_i)
+    & \leq d_i(x_i, y_i) + d_i(y_i, z_i) \\
+    & < d_i(x_i, y_i) + r_i - d_i(x_i, y_i) = r_i,
+  \end{align*}
+  for all $i\in J$, which means $z\in U$ and thus $B_\delta(y,r)\subset U$.
+  This completes the proof that $\tau\subset\tau_\delta$.
+\end{proof}
+
 
 \begin{exercise}
     证明一列紧度量空间的乘积空间(赋予乘积拓扑)是紧的可度量化空间.
