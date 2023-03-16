@@ -4,7 +4,7 @@
 
 ## PDF 文件的获取
 + 方法一：下载并编译源文件，主文件为 `main.tex`，编译命令为 `xelatex main.tex`。
-+ 方法二：直接去我的个人主页下载。
++ 方法二：直接去我的[个人主页](https://switwu.github.io)下载。
 
 ## 说明
 
