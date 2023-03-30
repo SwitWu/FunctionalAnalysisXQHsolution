@@ -139,55 +139,64 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-     设 $(E,\|\cdot\|_{\infty})$ 是习题~2 中定义的赋范空间. 
-     设 $E_0$ 是 $E$ 中没有常数项的多项式构成的向量子空间(即多项式 $P\in E_0$ 等价于 $P(0)=0$).
-    \begin{enumerate}[(a)]
-        \item 证明 $N(P)=\|P'\|_{\infty}$ 定义了 $E_0$ 上的一个范数, 并且对任意 $P\in E_0$, 有 $\|P\|_{\infty}\leq N(P)$.
-        \item 证明 $L(P)=\int_0^1\frac{P(x)}{x}\diff x$ 定义了 $E_0$ 关于 $N$ 的连续线性泛函, 并求它的范数.
-        \item 上面定义的 $L$ 是否关于范数 $\|\cdot\|_{\infty}$ 连续?
-        \item 范数 $\|\cdot\|_{\infty}$ 和 $N$ 在 $E_0$ 上是否等价?
-    \end{enumerate}
+  设 $(E,\|\cdot\|_{\infty})$ 是习题~2 中定义的赋范空间. 
+  设 $E_0$ 是 $E$ 中没有常数项的多项式构成的向量子空间(即多项式 $P\in E_0$ 等价于 $P(0)=0$).
+  \begin{enumerate}[(a)]
+    \item 证明 $N(P)=\|P'\|_{\infty}$ 定义了 $E_0$ 上的一个范数,
+      并且对任意 $P\in E_0$, 有 $\|P\|_{\infty}\leq N(P)$.
+    \item 证明 $L(P)=\int_0^1\frac{P(x)}{x}\diff x$ 定义了 $E_0$ 关于 $N$ 的连续线性泛函,
+      并求它的范数.
+    \item 上面定义的 $L$ 是否关于范数 $\|\cdot\|_{\infty}$ 连续?
+    \item 范数 $\|\cdot\|_{\infty}$ 和 $N$ 在 $E_0$ 上是否等价?
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
-(a) 由
-\begin{itemize}
-\item $N(P)=\|P'\|_{\infty}=\max\limits_{0\leq x\leq 1}|P'(x)|\geq 0$ 且 $N(P)=0$ 当且仅当 $P\equiv 0$
-\item $N(\lambda P)=\max_{0\leq x\leq 1}|\lambda P'(x)|=|\lambda|\max_{0\leq x\leq 1}|P'(x)|=|\lambda|N(P)$
-\item $N(P+Q)=\max\limits_{0\leq x\leq 1}|P'(x)+Q'(x)|\leq\max\limits_{0\leq x\leq 1}(|P'(x)|+|Q'(x)|)=N(P)+N(Q)$
-\end{itemize}
-知 $N(\cdot)$ 是 $E_0$ 上的范数.
+  (a) 由
+  \begin{itemize}
+  \item $N(P)=\|P'\|_{\infty}=\max\limits_{0\leq x\leq 1}|P'(x)|\geq 0$
+    且 $N(P)=0$ 当且仅当 $P\equiv 0$
+  \item $N(\lambda P)=\max_{0\leq x\leq 1}|\lambda P'(x)|=|\lambda|\max_{0\leq x\leq 1}|P'(x)|=|\lambda|N(P)$
+  \item $N(P+Q)=\max\limits_{0\leq x\leq 1}|P'(x)+Q'(x)|\leq\max\limits_{0\leq x\leq 1}(|P'(x)|+|Q'(x)|)=N(P)+N(Q)$
+  \end{itemize}
+  知 $N(\cdot)$ 是 $E_0$ 上的范数.
 
-由中值定理知: $P(x)-P(0)=P(x)=xP'(\theta),\forall x\in (0,1],\exists\theta\in (0,x)$. 故
-\[|P(x)|\leq |P'(\theta)|\Rightarrow\max_{0\leq x\leq 1}|P(x)|\leq\max_{0\leq x\leq 1}|P'(x)|\Rightarrow \|P\|_{\infty}\leq N(P).\]
+  由中值定理知: $P(x)-P(0)=P(x)=xP'(\theta),\forall x\in (0,1],\exists\theta\in (0,x)$. 故
+  \[|P(x)|\leq |P'(\theta)|\Rightarrow\max_{0\leq x\leq 1}|P(x)|\leq\max_{0\leq x\leq 1}|P'(x)|\Rightarrow \|P\|_{\infty}\leq N(P).\]
 
-(b)由
-\begin{align*}
-    L(\lambda P+Q)
-    & =\int_0^1\frac{\lambda P(x)+Q(x)}{x}\diff x \\
-    & =\lambda\int_0^1\frac{P(x)}{x}\diff x+\int_0^1\frac{Q(x)}{x}\diff x=\lambda L(P)+L(Q)
-\end{align*}
-知 $L$ 是线性映射. 又因为
-\begin{align*}
-|L(P)|
-&=\left|\int_0^1\frac{P(x)}{x}\diff x\right|\leq\int_0^1\left|\frac{P(x)}{x}\right|\diff x\leq\left\|\frac{P(x)}{x}\right\|_{\infty}=\left\lvert\frac{P(x_0)}{x_0}\right\rvert\quad(\exists x_0\in [0,1])\\
-&=\left\lvert\frac{P(x_0)-P(0)}{x_0-0}\right\rvert=|P'(\theta)|\leq\|P'\|_{\infty}=N(P),
-\end{align*}
-即 $|L(P)|\leq N(P)$.
-故 $L$ 是 $E_0$ 关于 $N$ 的连续线性泛函, 且 $\|L\|=1$.
+  (b)由
+  \begin{align*}
+      L(\lambda P+Q)
+      & =\int_0^1\frac{\lambda P(x)+Q(x)}{x}\diff x \\
+      & =\lambda\int_0^1\frac{P(x)}{x}\diff x+\int_0^1\frac{Q(x)}{x}\diff x=\lambda L(P)+L(Q)
+  \end{align*}
+  知 $L$ 是线性映射. 又因为
+  \begin{align*}
+  |L(P)|
+  &=\left|\int_0^1\frac{P(x)}{x}\diff x\right|\leq\int_0^1\left|\frac{P(x)}{x}\right|\diff x\leq\left\|\frac{P(x)}{x}\right\|_{\infty}=\left\lvert\frac{P(x_0)}{x_0}\right\rvert\quad(\exists x_0\in [0,1])\\
+  &=\left\lvert\frac{P(x_0)-P(0)}{x_0-0}\right\rvert=|P'(\theta)|\leq\|P'\|_{\infty}=N(P),
+  \end{align*}
+  即 $|L(P)|\leq N(P)$.
+  故 $L$ 是 $E_0$ 关于 $N$ 的连续线性泛函, 且 $\|L\|=1$.
 
-(c) 取 $P_n(x)=-x^2+\frac{2}{n}x$, 则
-\[\|P_n\|_{\infty}=\max_{x\in [0,1]}|P(x)|=\frac{1}{n^2}\to 0,\quad n\to\infty.\]
-但是
-\[L(P_n)=\int_0^1 \frac{P_n(x)}{x}\diff x=\int_0^1 \biggl(-x+\frac{2}{n}\biggr)\diff x=-1+\frac{2}{n}\to -1,\quad n\to\infty.\]
-故 $L$ 关于范数 $\|\cdot\|_{\infty}$ 不连续.
+  (c) 取 $P_n(x) = 1 - (x-1)^{2n}$, 直接求导知 $P_n(x)$ 在 $[0,1]$
+  上单调递增, 故 $(P_n(x))_{\min} = P_n(0) = 0$, $(P_n(x))_{\max} = P_n(1) = 1$.
+  因此 $P_n\in E_0$ 且 $\|P_n\|_{\infty} = 1$. 而
+  \begin{align*}
+    L(P_n)
+    & = \int_0^1 \frac{1-(x-1)^{2n}}{x} \diff x
+      = \int_0^1 \frac{1-x^{2n}}{1-x} \diff x \\
+    & = \int_0^1 \bigl(1 + x + x^2 + x^3 + \cdots + x^{2n-1}\bigr) \diff x \\
+    & = 1 + \frac12 + \frac13 + \cdots + \frac{1}{2n} \to \infty,\quad n\to\infty,
+  \end{align*}
+  因此 $L$ 关于范数 $\|\cdot\|_\infty$ 不连续.
 
-(d) $\|\cdot\|_{\infty}$ 与 $N$ 在 $E_0$ 上不等价.
-反证法证明: 
-假设存在常数 $C_1 $和 $C_2$ 使得对于 $\forall P\in E_0$ 
-有 $C_1N(p)\leq\|p\|_{\infty}\leq C_2N(p)$. 取 $n>\frac{1}{C_1}$ 且 $P(x)=x^n$, 则
-\[N(P)=\max_{0\leq x\leq 1}|nx^{n-1}|=n>\frac{1}{C_1}=\frac{1}{C_1}\|P\|_{\infty}.\]
-矛盾, 证毕.
+  (d) $\|\cdot\|_{\infty}$ 与 $N$ 在 $E_0$ 上不等价.
+  反证法证明: 
+  假设存在常数 $C_1 $和 $C_2$ 使得对于 $\forall P\in E_0$ 
+  有 $C_1N(p)\leq\|p\|_{\infty}\leq C_2N(p)$. 取 $n>\frac{1}{C_1}$ 且 $P(x)=x^n$, 则
+  \[N(P)=\max_{0\leq x\leq 1}|nx^{n-1}|=n>\frac{1}{C_1}=\frac{1}{C_1}\|P\|_{\infty}.\]
+  矛盾, 证毕.
 \end{proof}
 
 
