@@ -131,9 +131,9 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     故
     \begin{align*}
         \|x+y\|^2
-        &=\|x\|^2+\|y\|^2+2\Re\innerp{x}{y}\geq \|x\|^2+\|y\|^2-2|\innerp{x}{y}| \\
-        &\geq \|x\|^2+\|y\|^2-m\left(\|x\|^2+\|y\|^2\right) \\
-        &=(1-m)\left(\|x\|^2+\|y\|^2\right).
+        & = \|x\|^2+\|y\|^2+2\Re\innerp{x}{y}\geq \|x\|^2+\|y\|^2-2|\innerp{x}{y}| \\
+        & \geq \|x\|^2+\|y\|^2-m\left(\|x\|^2+\|y\|^2\right) \\
+        & = (1-m)\left(\|x\|^2+\|y\|^2\right).
     \end{align*}
     在上式中取 $c=1-m>0$ 即得所证.
 
@@ -224,8 +224,6 @@ d_n(x)^2+\frac{1}{4}\|z-w\|^2
 \end{proof}
 
 
-
-
 \begin{exercise}
     设 $H$ 是内积空间, $x_n,x\in H$. 并假设
     \[\lim_{n\to\infty}\|x_n\|=\|x\|\quad\text{且}\quad \lim_{n\to\infty}\innerp{y}{x_n}=\innerp{y}{x}, \forall y\in H.\]
@@ -253,103 +251,100 @@ d_n(x)^2+\frac{1}{4}\|z-w\|^2
 \end{proof}
 
 
-
-
 \begin{exercise}
-    设 $(x_n)$ 是 Hilbert 空间 $H$ 中的有界序列. 证明存在
-    $(x_n)$ 的子序列 $(x_{n_k})$ 及 $x\in H$, 使得对任意 $y\in H$, 有
-    $\lim_k\innerp{y}{x_{n_k}}=\innerp{y}{x}$.
+  设 $(x_n)$ 是 Hilbert 空间 $H$ 中的有界序列. 证明存在
+  $(x_n)$ 的子序列 $(x_{n_k})$ 及 $x\in H$, 使得对任意 $y\in H$, 有
+  $\lim_k\innerp{y}{x_{n_k}}=\innerp{y}{x}$.%
+  \footnote{其实这个是 Eberlein-\v Smulian 定理的推论:
+    在自反 Banach 空间中, 任何有界序列都存在弱收敛的子列.}
 \end{exercise}
 
 \begin{proof}
-(本题考查对角线选择法和Riesz表示定理)设$\|x_n\|\leq M(\forall n\in\mathbb{N^{*}})$,故对任意$m,n\in \mathbb{N^{*}},|\langle x_m,x_n\rangle|\leq\|x_m\|\cdot\|x_n\|\leq M^2$,考虑下面的一族有界内积序列
-\[\begin{array}{ccccc}
-\langle x_1,x_1\rangle&\langle x_1,x_2\rangle&\cdots&\langle x_1,x_n\rangle&\cdots\\
-\langle x_2,x_1\rangle&\langle x_2,x_2\rangle&\cdots&\langle x_2,x_n\rangle&\cdots\\
-\vdots&\vdots&\vdots&\vdots\\
-\langle x_m,x_1\rangle&\langle x_m,x_2\rangle&\cdots&\langle x_m,x_n\rangle&\cdots\\
-\vdots&\vdots&\vdots&\vdots\\
-\end{array}\]
+  (本题考查对角线选择法和Riesz表示定理)设$\|x_n\|\leq M(\forall n\in\mathbb{N^{*}})$,故对任意$m,n\in \mathbb{N^{*}},|\langle x_m,x_n\rangle|\leq\|x_m\|\cdot\|x_n\|\leq M^2$,考虑下面的一族有界内积序列
+  \[\begin{array}{ccccc}
+  \langle x_1,x_1\rangle&\langle x_1,x_2\rangle&\cdots&\langle x_1,x_n\rangle&\cdots\\
+  \langle x_2,x_1\rangle&\langle x_2,x_2\rangle&\cdots&\langle x_2,x_n\rangle&\cdots\\
+  \vdots&\vdots&\vdots&\vdots\\
+  \langle x_m,x_1\rangle&\langle x_m,x_2\rangle&\cdots&\langle x_m,x_n\rangle&\cdots\\
+  \vdots&\vdots&\vdots&\vdots\\
+  \end{array}\]
 
-第一行序列$(\langle x_1,x_n\rangle)_{n\geq 1}$存在收敛子列$(\langle x_1,x_{n_k^1}\rangle)_{k\geq 1}$
+  第一行序列$(\langle x_1,x_n\rangle)_{n\geq 1}$存在收敛子列$(\langle x_1,x_{n_k^1}\rangle)_{k\geq 1}$
 
-第二行子列$(\langle x_2,x_{n_k^1}\rangle)_{k\geq 1}$存在收敛子列$(\langle x_2,x_{n_k^2}\rangle)_{k\geq 1}$
+  第二行子列$(\langle x_2,x_{n_k^1}\rangle)_{k\geq 1}$存在收敛子列$(\langle x_2,x_{n_k^2}\rangle)_{k\geq 1}$
 
-$\cdots\cdots$
+  $\cdots\cdots$
 
-第$m$行子列$(\langle x_m,x_{n_k^{m-1}}\rangle)_{k\geq 1}$
-存在收敛子列$(\langle x_m,x_{n_k^m}\rangle)_{k\geq 1}$
- 
-依此下来, 并运用对角线选择法取出 $(x_n)$ 的子列 $(x_{n_k^k})_{k\geq 1}$,
-不妨将其简记为 $(x_{n_k})$.
+  第$m$行子列$(\langle x_m,x_{n_k^{m-1}}\rangle)_{k\geq 1}$
+  存在收敛子列$(\langle x_m,x_{n_k^m}\rangle)_{k\geq 1}$
+  
+  依此下来, 并运用对角线选择法取出 $(x_n)$ 的子列 $(x_{n_k^k})_{k\geq 1}$,
+  不妨将其简记为 $(x_{n_k})$.
 
-设 $E = \Span((x_n)_{n\geq 1})$, 
-则任意 $y\in E$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
-进一步容易验证对 $\forall y\in\overline{E}$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
-最后任意 $y\in H$, 由正交分解定理得 $y=y_1+y_2$, $y_1\in\overline{E}$, $y_2\in E^{\perp}$, 故
-\[\langle y,x_{n_k}\rangle
-  = \langle y_1,x_{n_k}\rangle+\langle y_2,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle.\]
-因此对任意 $y\in H,\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 存在, 而且
-\[\left|\lim_{k\to\infty}\langle y,x_{n_k}\rangle\right|\leq\limsup_{k\to\infty}|\langle y,x_{n_k}\rangle|\leq M\|y\|.\]
-因此 $y\mapsto\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 是连续线性泛函, 
-由 Riesz 表示定理知存在 $x\in H$ 使得 $\lim_{k\to\infty}\langle y,x_{n_k}\rangle=\langle y,x\rangle(\forall y\in H)$.
+  设 $E = \Span((x_n)_{n\geq 1})$, 
+  则任意 $y\in E$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+  进一步容易验证对 $\forall y\in\overline{E}$, $(\langle y,x_{n_k}\rangle)_{k\geq 1}$ 收敛,
+  最后任意 $y\in H$, 由正交分解定理得 $y=y_1+y_2$, $y_1\in\overline{E}$, $y_2\in E^{\perp}$, 故
+  \[\langle y,x_{n_k}\rangle
+    = \langle y_1,x_{n_k}\rangle+\langle y_2,x_{n_k}\rangle=\langle y_1,x_{n_k}\rangle.\]
+  因此对任意 $y\in H,\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 存在, 而且
+  \[\left|\lim_{k\to\infty}\langle y,x_{n_k}\rangle\right|\leq\limsup_{k\to\infty}|\langle y,x_{n_k}\rangle|\leq M\|y\|.\]
+  因此 $y\mapsto\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 是连续线性泛函, 
+  由 Riesz 表示定理知存在 $x\in H$ 使得 $\lim_{k\to\infty}\langle y,x_{n_k}\rangle=\langle y,x\rangle(\forall y\in H)$.
 \end{proof}
 
 
-
-
 \begin{exercise}
-    设 $A$ 和 $B$ 都是 Hilbert 空间 $H$ 的非空闭凸子集,
-    并设它们其中一个有界. 证明存在 $a\in A$ 和 $b\in B$,
-    使得 $d(a,b)=d(A,B)$, 这里
-    \[d(A,B)=\inf\{d(x,y)\mid x\in A, y\in B\}.\]
+  设 $A$ 和 $B$ 都是 Hilbert 空间 $H$ 的非空闭凸子集,
+  并设它们其中一个有界. 证明存在 $a\in A$ 和 $b\in B$,
+  使得 $d(a,b)=d(A,B)$, 这里
+  \[d(A,B)=\inf\{d(x,y)\mid x\in A, y\in B\}.\]
 \end{exercise}
 
 \begin{proof}
-    不妨设$A$有界, 由距离的定义知对任意 $n\geq1,\exists x_n\in A$ 使得
-    \[d(x_n,B)<d(A,B)+\frac{1}{n}.\]
-    因为 $(x_n)_{n\geq1}$ 是有界序列, 故由上一题结论知存在
-    $a\in H$ 及$(x_n)_{n\geq 1}$ 的子列 (不妨仍记为 $(x_n)_{n\geq 1}$) 使得
-    \[\lim_{n\to\infty}\innerp{x_n}{y}=\innerp{a}{y},\quad\forall y\in H.\]
-    下面证明 $a\in A$, 由投影的性质知
-    \begin{align*}
-        \|a-P_A(a)\|^2
-        &=\langle a-P_A(a),a-P_A(a)\rangle\\
-        &=\lim_{n\to\infty}\langle a-P_A(a),x_n-P_A(a)\rangle\quad(\text{注意到虚部的极限为}\ 0)\\
-        &=\lim_{n\to\infty}\Re\innerp{a-P_A(a)}{x_n-P_A(a)}\leq 0.
-    \end{align*}
-    故 $a=P_A(a)$, 从而 $a\in A$, 又
-    \[\begin{split}
-    \|x_n-P_B(x_n)\|^2=
-    &\|x_n-a+a-P_B(a)+P_B(a)-P_B(x_n)\|^2\\
-    =&\|a-P_B(a)\|^2+\|x_n-a+P_B(a)-P_B(x_n)\|^2\\
-    &+2\langle a-P_B(a),x_n-a\rangle+2\langle a-P_B(a),P_B(a)-P_B(x_n)\rangle\\
-    \geq
-    &\|a-P_B(a)\|^2+2\langle a-P_B(a),x_n-a\rangle\end{split}\]
-    故
-    \[\begin{split}
+  不妨设 $A$ 有界, 由距离的定义知对任意 $n\geq 1$, 存在 $x_n\in A$ 使得
+  \[d(x_n,B) < d(A,B) + \frac{1}{n}.\]
+  因为 $(x_n)_{n\geq1}$ 是有界序列, 故由上一题结论知存在
+  $a\in H$ 及$(x_n)_{n\geq 1}$ 的子列 (不妨仍记为 $(x_n)_{n\geq 1}$) 使得
+  \[\lim_{n\to\infty}\innerp{x_n}{y}=\innerp{a}{y},\quad\forall y\in H.\]
+  下面证明 $a\in A$, 由投影的性质知
+  \begin{align*}
+    \|a-P_A(a)\|^2
+    & = \langle a-P_A(a),a-P_A(a)\rangle\\
+    & = \lim_{n\to\infty}\langle a-P_A(a),x_n-P_A(a)\rangle\quad(\text{注意到虚部的极限为}\ 0)\\
+    & = \lim_{n\to\infty}\Re\innerp{a-P_A(a)}{x_n-P_A(a)}\leq 0.
+  \end{align*}
+  故 $a=P_A(a)$, 从而 $a\in A$. 又
+  \begin{align*}
+    \|x_n-P_B(x_n)\|^2
+    & = \|x_n-a+a-P_B(a)+P_B(a)-P_B(x_n)\|^2 \\
+    & = \|a-P_B(a)\|^2+\|x_n-a+P_B(a)-P_B(x_n)\|^2 \\
+    & \quad + 2\Re\langle a-P_B(a),x_n-a\rangle
+      + 2\Re\langle a-P_B(a),P_B(a)-P_B(x_n)\rangle \\
+    & \geq \|a-P_B(a)\|^2 + 2\Re\langle a-P_B(a),x_n-a\rangle.
+  \end{align*}
+  故
+  \begin{align*}
     (d(A,B))^2
-    &\leq \|a-P_B(a)\|^2\leq\|x_n-P_B(x_n)\|^2-2\langle a-P_B(a),x_n-a\rangle\\
-    &<\left(d(A,B)+\frac{1}{n}\right)^2-2\langle a-P_B(a),x_n-a\rangle\to(d(A,B))^2(n\to\infty)\end{split}\]
-    因此 $\|a-P_B(a)\|=d(A,B)$, 记 $b=P_B(a)\in B$, 即得 $d(a,b)=d(A,B)$.
+    & \leq \|a-P_B(a)\|^2\leq\|x_n-P_B(x_n)\|^2 - 2\Re\langle a-P_B(a),x_n-a\rangle\\
+    & < \biggl(d(A,B)+\frac{1}{n}\biggr)^2 - 2\Re\langle a-P_B(a),x_n-a\rangle \\
+    & \quad \to (d(A,B))^2 \qquad \text{as } n\to\infty.
+  \end{align*}
+  因此 $\|a-P_B(a)\|=d(A,B)$, 记 $b=P_B(a)\in B$, 即得 $d(a,b)=d(A,B)$.
 \end{proof}
-
-
 
 
 \begin{exercise}
-    将上一习题中的条件换成 $A$ 和 $B$ 无界, 但假设 $\|x\|$
-    和 $\|y\|$ 都趋向 $\infty$ 时, 必有 $d(x,y)$ 趋向 $\infty$.
-    证明结论仍然成立. 在 $\mathbb{R}^2$ 中用反例说明若条件不符合假设时, 结论不成立.
+  将上一习题中的条件换成 $A$ 和 $B$ 无界, 但假设 $\|x\|$
+  和 $\|y\|$ 都趋向 $\infty$ 时, 必有 $d(x,y)$ 趋向 $\infty$.
+  证明结论仍然成立. 在 $\mathbb{R}^2$ 中用反例说明若条件不符合假设时, 结论不成立.
 \end{exercise}
 
 \begin{proof}
-反例: 取 $\mathbb{R}^2$ 中的区域 $A=\{(x,y)\mid xy\leq-1,x<0\}$,
-$B=\{(x,y)|xy\geq1,x>0\}$, 
-则 $d(A,B)=0$, 但是不存在 $a\in A,b\in B$ 使得 $d(a,b)=0$.
+  反例: 取 $\mathbb{R}^2$ 中的区域 $A=\{(x,y)\mid xy\leq -1, x < 0\}$,
+  $B=\{(x,y) \mid xy\geq 1, x > 0\}$, 
+  则 $d(A,B)=0$, 但是不存在 $a\in A,b\in B$ 使得 $d(a,b)=0$.
 \end{proof}
-
-
 
 
 \begin{exercise}
