@@ -178,56 +178,65 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 \end{exercise}
 
 \begin{proof}
-(a)假设存在 $x_0\in H,s.t.d(x_0)<\infty$, 记$y_n=P_{A_n}(x_0)$, 则
-\[d_n(x_0)=d(x_0,A_n)=d(x_0,y_n)<\infty\]
-故 $\forall x\in H$
-\[d_n(x)=d(x,A_n)\leq d(x,y_n)\leq d(x,x_0)+d(x_0,y_n)<\infty\]
-因此 $d(x)<\infty(\forall x\in H)$.
+  (a) 假设存在 $x_0\in H$, 使得 $d(x_0)<\infty$, 记 $y_n=P_{A_n}(x_0)$, 则
+  \[d_n(x_0) = d(x_0,A_n) = d(x_0,y_n) < \infty.\]
+  故 $\forall x\in H$
+  \[d_n(x) = d(x,A_n) \leq d(x,y_n)\leq d(x,x_0)+d(x_0,y_n) < \infty.\]
+  因此 $d(x)<\infty$ $(\forall x\in H)$.
 
-(b)仍记 $y_n=P_{A_n}(x)$, 则 $d_n(x)=d(x,y_n)\leq d(x)$, 因此$y_n\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$. 由于$d_n(x)=d(x,y_n)\leq d(x)<\infty$, 故对于$\forall\varepsilon>0,\exists N(\varepsilon),s.t.\forall n\geq N(\varepsilon),d(x)<d_n(x)+\varepsilon$. 因此对$\forall z,w\in A_n\cap\overline{B}(x,d(x)+\varepsilon),\forall n\geq N(\varepsilon)$, 有:
-\[d_n(x)\leq d(x,z)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon\]
-\[d_n(x)\leq d(x,w)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon\]
-由 $A_n$ 及 $\overline{B}(x,d(x)+\varepsilon)$ 均为凸集知 $\frac{z+w}{2}\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$, 从而:
-\[d_n(x)\leq d\left(x,\frac{z+w}{2}\right)\]
-结合以上三式并根据平行四边形公式得:
-\[\begin{split}
-d_n(x)^2+\frac{1}{4}\|z-w\|^2
-&\leq\left\|x-\frac{z+w}{2}\right\|^2+\left\|\frac{z-w}{2}\right\|^2\\
-&=2\left(\left\|\frac{x-z}{2}\right\|^2+\left\|\frac{x-w}{2}\right\|^2\right)\\
-&\leq (d_n(x)+2\varepsilon)^2\end{split}\]
-即
-\[\|z-w\|^2\leq 16\varepsilon(d_n(x)+\varepsilon)\]
-对所有的 $z,w\in A(x,\varepsilon,n)$ 取上确界得:
-\[\diam A(x,\varepsilon,n)\leq 16\varepsilon(d_n(x)+\varepsilon)(n\geq N(\varepsilon))\]
-从而
-\[\lim\limits_{\varepsilon\to 0,n\to\infty}\diam A(x,\varepsilon,n)=0\]
+  (b)仍记 $y_n=P_{A_n}(x)$, 则 $d_n(x)=d(x,y_n)\leq d(x)$,
+  因此 $y_n\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$.
+  由于 $d_n(x)=d(x,y_n)\leq d(x)<\infty$, 故对于 $\forall\varepsilon>0$,
+  存在 $N(\varepsilon)$, 使得 $\forall n\geq N(\varepsilon)$, $d(x)<d_n(x)+\varepsilon$.
+  因此对 $\forall z,w\in A_n\cap\overline{B}(x,d(x)+\varepsilon),\forall n\geq N(\varepsilon)$, 有
+  \[d_n(x)\leq d(x,z)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon,\]
+  \[d_n(x)\leq d(x,w)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon.\]
+  由 $A_n$ 及 $\overline{B}(x,d(x)+\varepsilon)$ 均为凸集知 $\frac{z+w}{2}\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$, 从而
+  \[d_n(x)\leq d\left(x,\frac{z+w}{2}\right).\]
+  结合以上三式并根据平行四边形公式得
+  \[\begin{split}
+    d_n(x)^2+\frac{1}{4}\|z-w\|^2
+    & \leq \left\|x-\frac{z+w}{2}\right\|^2+\left\|\frac{z-w}{2}\right\|^2 \\
+    & = 2\left(\left\|\frac{x-z}{2}\right\|^2+\left\|\frac{x-w}{2}\right\|^2\right) \\
+    & \leq (d_n(x)+2\varepsilon)^2.
+  \end{split}\]
+  即
+  \[\|z-w\|^2\leq 16\varepsilon(d_n(x)+\varepsilon).\]
+  对所有的 $z,w\in A(x,\varepsilon,n)$ 取上确界得
+  \[\diam A(x,\varepsilon,n)\leq 16\varepsilon(d_n(x)+\varepsilon)
+    \quad (n\geq N(\varepsilon))\]
+  从而
+  \[\lim\limits_{\varepsilon\to 0,n\to\infty}\diam A(x,\varepsilon,n) = 0.\]
 
-(c)取 $H$ 中集列 $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$, 则
-\begin{itemize}
-\item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$是单调递减的闭集列
-\item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$非空
-\item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$(在(b)中取$\varepsilon=1/n$知此式成立)
-\end{itemize}
-因为 $H$ 是完备的, 所以
-\[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right)\text{是单点集}\]
-又 $\left(A(x,\frac{1}{n},n)\right)\subset A_n$, 故$A=\bigcap_{n\geq 1}A_n$非空.
+  (c)取 $H$ 中集列 $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$, 则
+  \begin{itemize}
+  \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$是单调递减的闭集列
+  \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$非空
+  \item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$(在(b)中取$\varepsilon=1/n$知此式成立)
+  \end{itemize}
+  因为 $H$ 是完备的, 所以
+  \[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right)\text{是单点集}.\]
+  又 $\left(A(x,\frac{1}{n},n)\right)\subset A_n$, 故$A=\bigcap_{n\geq 1}A_n$非空.
 
-下证$d(x)=d(x,A)$:
+  下证 $d(x)=d(x,A)$:
 
-因为 $d_n(x)=d(x,A_n)\leq d(x,A)$, 所以$d(x)\leq d(x,A)$, 假设$d(x)<d(x,A)$, 则存在$\delta,s.t.d(x,A_n)\leq d(x)<\delta<d(x,A)$, 同理可知:
-\[\bigcap_{n\geq 1}A\left(x,\frac{\delta-d(x)}{n},n\right)=\bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,d(x)+\frac{\delta-d(x)}{n}\right)\right)\text{是单点集}\]
-故
-\[\bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,\delta\right)\right)=A\cap\overline{B}(x,\delta)\text{非空}\]
-但事实是
-\[A\cap\overline{B}(x,\delta)=\emptyset\]
-故假设不成立, 即得$d(x)=d(x,A)$.
+  因为 $d_n(x)=d(x,A_n)\leq d(x,A)$, 所以$d(x)\leq d(x,A)$, 假设$d(x)<d(x,A)$,
+  则存在 $\delta$, 使得 $d(x,A_n)\leq d(x)<\delta<d(x,A)$, 同理可知:
+  \[\bigcap_{n\geq 1}A\left(x,\frac{\delta-d(x)}{n},n\right)
+    = \bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,d(x)+\frac{\delta-d(x)}{n}\right)\right)\text{ 是单点集}.\]
+  故
+  \[\bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,\delta\right)\right)=A\cap\overline{B}(x,\delta)\text{ 非空},\]
+  但事实是
+  \[A\cap\overline{B}(x,\delta) = \emptyset.\]
+  故假设不成立, 即得 $d(x) = d(x,A)$.
 \end{proof}
 
 
 \begin{exercise}
     设 $H$ 是内积空间, $x_n,x\in H$. 并假设
-    \[\lim_{n\to\infty}\|x_n\|=\|x\|\quad\text{且}\quad \lim_{n\to\infty}\innerp{y}{x_n}=\innerp{y}{x}, \forall y\in H.\]
-    证明 $\lim_{n\to\infty} \|x_n-x\|=0$.
+    \[\lim_{n\to\infty}\|x_n\|=\|x\|\quad\text{且}\quad \lim_{n\to\infty}\innerp{y}{x_n}
+      = \innerp{y}{x}, \forall y\in H.\]
+    证明 $\lim_{n\to\infty} \|x_n-x\| = 0$.
 \end{exercise}
 
 \begin{proof}
@@ -341,7 +350,24 @@ d_n(x)^2+\frac{1}{4}\|z-w\|^2
 \end{exercise}
 
 \begin{proof}
-  反例: 取 $\mathbb{R}^2$ 中的区域 $A=\{(x,y)\mid xy\leq -1, x < 0\}$,
+  令 $M = d(A, B) + 1$, 由假设条件知存在 $r_1>0$, 使得
+  \[\forall x\in A, \forall y\in B :
+    (\|x\|\geq r_1 \text{ and } \|y\|\geq r_2 \Longrightarrow d(x,y)\geq M).\]
+  令 $r_2 := r_1 + M$, $A_0 := A\cap B(0, r_2)$, $B_0 := B\cap B(0, r_2)$.
+
+  取 $x\in A$, $y\in B$ 满足 $x\in A\setminus A_0$ 或 $y\in B\setminus B_0$,
+  \begin{enumerate}[(1)]
+    \item 若 $\|x\|, \|y\|\geq r_1$, 则 $d(x,y) \geq M$.
+    \item 若 $\|x\| < r_1$, 则 $x\in A_1$, 从而必有 $y\notin B_0$, 故
+      \[\|x - y\| \geq \|y\| - \|x\| > r_2 - r_1 = M.\]
+    \item 若 $\|y\| < r_1$, 同理可得 $\|x-y\| > M$.
+  \end{enumerate}
+  综上可知
+  \[d(A,B) = \inf\{d(x,y) : x\in A_0, y\in B_0\}.\]
+  注意到 $A_0$, $B_0$ 都是非空有界凸集, 由上一题结论知存在 $a\in A_0$, $b\in B_0$ 使得
+  \[d(a,b) = d(A,B).\]
+  
+  若条件不符合假设时, 取 $\mathbb{R}^2$ 中的区域 $A=\{(x,y)\mid xy\leq -1, x < 0\}$,
   $B=\{(x,y) \mid xy\geq 1, x > 0\}$, 
   则 $d(A,B)=0$, 但是不存在 $a\in A,b\in B$ 使得 $d(a,b)=0$.
 \end{proof}
@@ -356,10 +382,14 @@ d_n(x)^2+\frac{1}{4}\|z-w\|^2
     (b) 设 $(X,\|\cdot\|)$ 是 Banach 空间, 并假设有一个 $X$ 上的内积范数 $|\cdot|$ 
     等价于 $\|\cdot\|$. 证明存在正常数 $a$ 和 $b$, 使得
     \[
-    a\sum_{k=1}^{n}\left\|x_{k}\right\|^{2}\leq\frac{1}{2^{n}} \sum_{\left(\varepsilon_{k}\right) \in D_{n}}\left\|\sum_{k=1}^{n} \varepsilon_{k} x_{k}\right\|^{2} \leq b \sum_{k=1}^{n}\left\|x_{k}\right\|^{2}, \quad \forall x_{1}, \cdots, x_{n} \in X.
+      a\sum_{k=1}^{n}\left\|x_{k}\right\|^{2}
+      \leq\frac{1}{2^{n}} \sum_{\left(\varepsilon_{k}\right) \in D_{n}}
+        \left\|\sum_{k=1}^{n} \varepsilon_{k} x_{k}\right\|^{2}
+      \leq b \sum_{k=1}^{n}\left\|x_{k}\right\|^{2}, \quad \forall x_{1}, \cdots, x_{n} \in X.
     \]
 
-    (c) 设 $1 \leq p \neq 2 \leq \infty$, 证明空间 $c_{0}, \ell_{p}$ 和 $L_{p}(0,1)$ 没有等价的内积范数.
+    (c) 设 $1 \leq p \neq 2 \leq \infty$, 证明空间 $c_{0}$, $\ell_{p}$ 和 $L_{p}(0,1)$
+    没有等价的内积范数.
 \end{exercise}
 
 \begin{proof}
@@ -368,11 +398,11 @@ d_n(x)^2+\frac{1}{4}\|z-w\|^2
     上式左边
     \begin{align*}
         \mathrm{RHS}
-        &=\sum_{(\varepsilon_k)\in D_n}\innerp{\sum_{i=1}^n\varepsilon_ix_i}{\sum_{i=1}^n\varepsilon_ix_i} \\
-        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\sum_{j=1}^n \varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
-        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\varepsilon_i^2\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
-        &=\sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
-        &=2^n\sum_{i=1}^n \|x_i\|^2+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j}.
+        & = \sum_{(\varepsilon_k)\in D_n} \innerp*{\sum_{i=1}^n\varepsilon_ix_i}{\sum_{i=1}^n\varepsilon_ix_i} \\
+        & = \sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\sum_{j=1}^n \varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        & = \sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\varepsilon_i^2\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        & = \sum_{(\varepsilon_k)\in D_n}\sum_{i=1}^n\innerp{x_i}{x_i}+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j} \\
+        & = 2^n\sum_{i=1}^n \|x_i\|^2+\sum_{(\varepsilon_k)\in D_n}\sum_{\substack{1\leq i,j\leq n \\ i\neq j}}\varepsilon_i\varepsilon_j\innerp{x_i}{x_j}.
     \end{align*}
     观察最后一项中 $\innerp{x_i}{x_j}$ 的系数:
     $\varepsilon_i=\varepsilon_j=1$ 有 $2^{n-2}$ 项,
