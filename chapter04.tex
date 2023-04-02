@@ -178,21 +178,25 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 \end{exercise}
 
 \begin{proof}
-  (a) 假设存在 $x_0\in H$, 使得 $d(x_0)<\infty$, 记 $y_n=P_{A_n}(x_0)$, 则
-  \[d_n(x_0) = d(x_0,A_n) = d(x_0,y_n) < \infty.\]
-  故 $\forall x\in H$
-  \[d_n(x) = d(x,A_n) \leq d(x,y_n)\leq d(x,x_0)+d(x_0,y_n) < \infty.\]
-  因此 $d(x)<\infty$ $(\forall x\in H)$.
+  (a) 假设存在 $x_0\in H$, 使得 $d(x_0) < \infty$, 则对任意 $x\in H$,
+  \begin{align*}
+    d_n(x)
+    & = d(x, A_n) \leq d(x, P_{A_n}(x_0)) \\
+    & \leq d(x, x_0) + d(x_0, P_{A_n}(x_0)) = d(x, x_0) + d_n(x_0).
+  \end{align*}
+  上式两侧取极限得
+  \[d(x) = \lim_{n\to\infty} d_n(x) \leq d(x,x_0) + d(x_0) < \infty.\]
 
-  (b)仍记 $y_n=P_{A_n}(x)$, 则 $d_n(x)=d(x,y_n)\leq d(x)$,
+  (b) 仍记 $y_n=P_{A_n}(x)$, 则 $d_n(x)=d(x,y_n)\leq d(x)$,
   因此 $y_n\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$.
   由于 $d_n(x)=d(x,y_n)\leq d(x)<\infty$, 故对于 $\forall\varepsilon>0$,
   存在 $N(\varepsilon)$, 使得 $\forall n\geq N(\varepsilon)$, $d(x)<d_n(x)+\varepsilon$.
   因此对 $\forall z,w\in A_n\cap\overline{B}(x,d(x)+\varepsilon),\forall n\geq N(\varepsilon)$, 有
   \[d_n(x)\leq d(x,z)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon,\]
   \[d_n(x)\leq d(x,w)\leq d(x)+\varepsilon\leq d_n(x)+2\varepsilon.\]
-  由 $A_n$ 及 $\overline{B}(x,d(x)+\varepsilon)$ 均为凸集知 $\frac{z+w}{2}\in A_n\cap\overline{B}(x,d(x)+\varepsilon)$, 从而
-  \[d_n(x)\leq d\left(x,\frac{z+w}{2}\right).\]
+  由 $A_n$ 及 $\overline{B}(x,d(x)+\varepsilon)$ 均为凸集
+  知 $(z+w)/2 \in A_n\cap\overline{B}(x,d(x)+\varepsilon)$, 从而
+  \[d_n(x)\leq d\biggl(x,\frac{z+w}{2}\biggr).\]
   结合以上三式并根据平行四边形公式得
   \[\begin{split}
     d_n(x)^2+\frac{1}{4}\|z-w\|^2
@@ -204,15 +208,16 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
   \[\|z-w\|^2\leq 16\varepsilon(d_n(x)+\varepsilon).\]
   对所有的 $z,w\in A(x,\varepsilon,n)$ 取上确界得
   \[\diam A(x,\varepsilon,n)\leq 16\varepsilon(d_n(x)+\varepsilon)
-    \quad (n\geq N(\varepsilon))\]
+    \quad \forall n\geq N(\varepsilon).\]
   从而
   \[\lim\limits_{\varepsilon\to 0,n\to\infty}\diam A(x,\varepsilon,n) = 0.\]
 
   (c)取 $H$ 中集列 $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$, 则
   \begin{itemize}
-  \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$是单调递减的闭集列
-  \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$非空
-  \item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$(在(b)中取$\varepsilon=1/n$知此式成立)
+    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 是单调递减的闭集列
+    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 非空
+    \item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$
+      (在 (b) 中取 $\varepsilon=1/n$ 知此式成立)
   \end{itemize}
   因为 $H$ 是完备的, 所以
   \[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right)\text{是单点集}.\]
@@ -220,8 +225,8 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 
   下证 $d(x)=d(x,A)$:
 
-  因为 $d_n(x)=d(x,A_n)\leq d(x,A)$, 所以$d(x)\leq d(x,A)$, 假设$d(x)<d(x,A)$,
-  则存在 $\delta$, 使得 $d(x,A_n)\leq d(x)<\delta<d(x,A)$, 同理可知:
+  因为 $d_n(x)=d(x,A_n)\leq d(x,A)$, 所以$d(x)\leq d(x,A)$.
+  假设$d(x)<d(x,A)$, 则存在 $\delta$, 使得 $d(x,A_n)\leq d(x)<\delta<d(x,A)$, 同理可知:
   \[\bigcap_{n\geq 1}A\left(x,\frac{\delta-d(x)}{n},n\right)
     = \bigcap_{n\geq 1}\left(A_n\cap\overline{B}\left(x,d(x)+\frac{\delta-d(x)}{n}\right)\right)\text{ 是单点集}.\]
   故
@@ -235,8 +240,9 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 \begin{exercise}
     设 $H$ 是内积空间, $x_n,x\in H$. 并假设
     \[\lim_{n\to\infty}\|x_n\|=\|x\|\quad\text{且}\quad \lim_{n\to\infty}\innerp{y}{x_n}
-      = \innerp{y}{x}, \forall y\in H.\]
-    证明 $\lim_{n\to\infty} \|x_n-x\| = 0$.
+      = \innerp{y}{x},\ \forall y\in H.\]
+    证明 $\lim_{n\to\infty} \|x_n-x\| = 0$.%
+    \footnote{此结论有更一般的表述: 见 Brezis~\cite[Proposition 3.32]{brezis_functional_2011}.}
 \end{exercise}
 
 \begin{proof}
