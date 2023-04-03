@@ -1,10 +1,13 @@
-## 仓库介绍
-本仓库用于存储泛函分析讲义（许全华、马涛、尹智编著）课后习题参考解答，
-目前已完成大部分习题，且都是通过 $\rm\LaTeX$ 编写。
+## 介绍
 
-## PDF 文件的获取
-+ 方法一：下载并编译源文件，主文件为 `main.tex`，编译命令为 `xelatex main.tex`。
+泛函分析讲义（许全华、马涛、尹智编著）课后习题参考解答，
+目前已完成大部分习题。习题解答会不定期更新，请保持关注。
+
+## PDF 文件
+
++ 方法一：在 [Releases](https://github.com/SwitWu/FunctionalAnalysisXQHsolution/releases) 中下载最新版本。
 + 方法二：直接去我的[个人主页](https://switwu.github.io)下载。
+
 
 ## 说明
 
