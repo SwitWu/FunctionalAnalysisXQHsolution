@@ -214,14 +214,14 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 
   (c)取 $H$ 中集列 $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$, 则
   \begin{itemize}
-    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 是单调递减的闭集列
-    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 非空
+    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 是单调递减的闭集列;
+    \item $\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}$ 非空;
     \item $\lim_{n\to\infty}\diam\left(A(x,\frac{1}{n},n)\right)_{n\geq 1}=0$
-      (在 (b) 中取 $\varepsilon=1/n$ 知此式成立)
+      (在 (b) 中取 $\varepsilon=1/n$ 知此式成立).
   \end{itemize}
   因为 $H$ 是完备的, 所以
-  \[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right)\text{是单点集}.\]
-  又 $\left(A(x,\frac{1}{n},n)\right)\subset A_n$, 故$A=\bigcap_{n\geq 1}A_n$非空.
+  \[\bigcap_{n\geq 1}A\left(x,\frac{1}{n},n\right) \text{ 是单点集}.\]
+  又 $\left(A(x,\frac{1}{n},n)\right)\subset A_n$, 故 $A=\bigcap_{n\geq 1} A_n$ 非空.
 
   下证 $d(x)=d(x,A)$:
 
@@ -539,7 +539,33 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     从而 
     \[G(x_1,\cdots,x_n)=\det(MM^\T)=\det(M)\det(M^\T)=(\det(M))^2>0.\]
 
-    (b) 略.
+    (b) 设 $x$ 在 $E$ 上的正交投影为 $y$, 则
+    \begin{align*}
+      \det G(x,x_1,\ldots,x_n)
+      & = \begin{vmatrix}
+            (x,x)   & (x,x_1)   & \cdots & (x,x_n)   \\
+            (x_1,x) & (x_1,x_1) & \cdots & (x_1,x_n) \\
+            \vdots  & \vdots    &        & \vdots    \\
+            (x_n,x) & (x_n,x_1) & \cdots & (x_n,x_n)
+          \end{vmatrix} \\
+      & = \begin{vmatrix}
+            (x,x-y)   & (x,x_1)   & \cdots & (x,x_n)   \\
+            (x_1,x-y) & (x_1,x_1) & \cdots & (x_1,x_n) \\
+            \vdots    & \vdots    &        & \vdots    \\
+            (x_n,x-y) & (x_n,x_1) & \cdots & (x_n,x_n)
+          \end{vmatrix} \\
+      & \quad +
+          \begin{vmatrix}
+            (x,y)   & (x,x_1)   & \cdots & (x,x_n)   \\
+            (x_1,y) & (x_1,x_1) & \cdots & (x_1,x_n) \\
+            \vdots  & \vdots    &        & \vdots    \\
+            (x_n,y) & (x_n,x_1) & \cdots & (x_n,x_n)
+          \end{vmatrix}. \\
+      & =: A + B.
+    \end{align*}
+    注意到 $(x_i,x-y) = 0$ $\forall 1\leq i\leq n$ 且 $(x,x-y) = \|x-y\|^2 = d(x,E)^2$,
+    故 $A = d(x,E)^2\det G(x_1,\ldots,x_n)$.
+    又由于 $y,x_1,\ldots,x_p$ 线性相关, 故 $B = 0$.
 \end{proof}
 
 
