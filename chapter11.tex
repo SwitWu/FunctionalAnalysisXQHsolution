@@ -8,6 +8,16 @@
     证明: 若 $(R(\lambda_n,T))$ 在 $\mathcal{B}(E)$ 中有界, 则 $\lambda\in\rho(T)$.
 \end{exercise}
 
+\begin{proof}
+  Use
+  \[R(\lambda_m, T) - R(\lambda_n T) = (\lambda_n - \lambda_m)
+    R(\lambda_m, T) R(\lambda_n, T)\]
+  and the fact that $(R(\lambda_n, T))$ is bounded to deduce that
+  $R(\lambda_n, T)$ is a Cauchy sequence in $\mathcal{B}(E)$
+  and therefore converges to some limit $S\in\mathcal{B}(E)$.
+  Then show $S = (\lambda I-T)^{-1}$.
+\end{proof}
+
 
 
 \begin{exercise}

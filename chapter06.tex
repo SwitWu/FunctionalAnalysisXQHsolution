@@ -1,31 +1,6 @@
 \setcounter{chapter}{5}
 \chapter{Baire定理及其应用}
 \thispagestyle{empty}
-% $A$在$E$中稠密$\Leftrightarrow A^C$在$E$中无内点(由此得到Baire空间的等价定义:可数多个无内点的闭子集的并集仍无内点)\\
-% \textit{Proof}:\[\begin{split}A\mbox{在}E\mbox{中稠密}&\Leftrightarrow\forall x\in E,\forall U\in\mathcal{N}(x),U\cap A\neq\emptyset\\&\Leftrightarrow\forall x\in E,\mbox{不存在}U\in\mathcal{N}(x),\mbox{使得}U\cap A=\emptyset,i.e.U\subset A^C\\&\Leftrightarrow A^C\mbox{在}E\mbox{中无内点}\end{split}\]
-% \newline
-% 设$E_1,E_2,\cdots,E_n$和$F$都是赋范空间,$B:E_1\times E_2\times\cdots\times E_n\to F$是多线性映射(即关于每个分量都是线性的).\\
-% (a)证明下列命题等价:
-% \begin{enumerate}[(1)]
-% \item $B$在$E_1\times E_2\times\cdots\times E_n$上连续
-% \item $B$在$E_1\times E_2\times\cdots\times E_n$的原点连续
-% \item 存在常数$C\geq0$,使得$\forall(x_1,x_2,\cdots,x_n)\in E_1\times E_2\times\cdots\times E_n$,有
-% \[\|B(x_1,x_2,\cdots,x_n)\|\leq C\|x_1\|\|x_2\|\cdots\|x_n\|.\]
-% \end{enumerate}
-% (b)若$E_1,\cdots,E_n$都是Banach空间,证明以上命题还等价于$B$关于每个分量连续\\
-% \textit{Proof}:(a)\\
-% (1)$\Rightarrow$(2)显然\\
-% (2)$\Rightarrow$(3)因为$B$在原点连续,所以存在$r>0$,使得当$x\in B(0,r)$时,$\|B(x)\|\leq1$\\
-% 任取$x=(x_1,x_2,\cdots,x_n)\in E_1\times E_2\times\cdots\times E_n$且$x\neq0$,有
-% \[\left\|\left(\frac{x_1}{\|x_1\|},\frac{x_2}{\|x_2\|},\cdots,\frac{x_n}{\|x_n\|}\right)\right\|=1\Rightarrow r\left(\frac{x_1}{\|x_1\|},\frac{x_2}{\|x_2\|},\cdots,\frac{x_n}{\|x_n\|}\right)\in B(0,r)\]
-% 故\[\left\|B\left(\frac{rx_1}{\|x_1\|},\frac{rx_2}{\|x_2\|},\cdots,\frac{rx_n}{\|x_n\|}\right)\right\|\leq1\]
-% 由$B$的线性性得
-% \[\|B(x_1,x_2,\cdots,x_n)\|\leq\frac{1}{r^n}\|x_1\|\|x_2\|\cdots\|x_n\|\]
-% 令$C=\frac{1}{r^n}$即可\\
-% (3)$\Rightarrow$(1)若$x^{(m)}\to x$,则$x^{(m)}_i\to x_i(1\leq i\leq n)$,故存在$M>0,s.t.\|x^{(m)}_i\|\leq M$,再利用添项及三角形不等式得
-% \[\|B(x^{(m)})-B(x)\|\to0(m\to\infty)\]
-% (b)利用Banach-Steinhaus定理\\
-
 
 
 \begin{exercise}
@@ -41,46 +16,48 @@
 \end{exercise}
 
 \begin{proof}
-    (a)记 $\FQ=\{r_k\}_{k=1}^{\infty}$, 对于每一个 $k$, 令
-    \[U_k=\FR\setminus\{r_k\}=(-\infty,r_k)\cup(r_k,+\infty).\]
-    显然 $U_k$ 是开集并且
-    \[\bigcap_{k=1}^{\infty}U_k=\FR\setminus\FQ.\]
-    因此 $\FR\setminus\FQ$ 是 $\FR$ 上的 $\mathcal{G}_{\delta}$集.
-    假设 $\FQ$ 也是 $\mathcal{G}_{\delta}$ 集, 则存在一列开集 $\{V_k\}_{k=1}^{\infty}$,使得
-    \[\FQ=\bigcap_{k=1}^{\infty}V_k.\]
-    每个 $V_k$ 包含 $\FQ$, 故必在 $\FR$ 中稠密, 由 Baire 定理可知集合
-    \[\biggl(\bigcap_{k=1}^{\infty}U_k\biggr)\bigcap\biggl(\bigcap_{k=1}^{\infty}V_k\biggr)\]
-    在 $\FR$ 中稠密, 然而
-    \[\biggl(\bigcap_{k=1}^{\infty}U_k\biggr)\bigcap\biggl(\bigcap_{k=1}^{\infty}V_k\biggr)=(\FR\setminus\FQ)\cap\FQ=\varnothing.\]
-    矛盾, 从而假设不成立, 说明 $\FQ$ 不是 $\mathcal{G}_{\delta}$集,
-    由于任一映射的连续点集都是 $\mathcal{G}_{\delta}$ 集,
-    所以不存在函数 $f:\FR\to\FR$使得$\textrm{Cont}(f)=\FQ$.
+  \begin{enumerate}[(a)]
+    \item 记 $\FQ=\{r_k\}_{k=1}^{\infty}$, 对于每一个 $k$, 令
+      \[U_k=\FR\setminus\{r_k\}=(-\infty,r_k)\cup(r_k,+\infty).\]
+      显然 $U_k$ 是开集并且
+      \[\bigcap_{k=1}^{\infty}U_k=\FR\setminus\FQ.\]
+      因此 $\FR\setminus\FQ$ 是 $\FR$ 上的 $\mathcal{G}_{\delta}$集.
+      假设 $\FQ$ 也是 $\mathcal{G}_{\delta}$ 集, 则存在一列开集 $\{V_k\}_{k=1}^{\infty}$,使得
+      \[\FQ=\bigcap_{k=1}^{\infty}V_k.\]
+      每个 $V_k$ 包含 $\FQ$, 故必在 $\FR$ 中稠密, 由 Baire 定理可知集合
+      \[\biggl(\bigcap_{k=1}^{\infty}U_k\biggr)\bigcap\biggl(\bigcap_{k=1}^{\infty}V_k\biggr)\]
+      在 $\FR$ 中稠密, 然而
+      \[\biggl(\bigcap_{k=1}^{\infty}U_k\biggr)\bigcap\biggl(\bigcap_{k=1}^{\infty}V_k\biggr)=(\FR\setminus\FQ)\cap\FQ=\varnothing.\]
+      矛盾, 从而假设不成立, 说明 $\FQ$ 不是 $\mathcal{G}_{\delta}$集,
+      由于任一映射的连续点集都是 $\mathcal{G}_{\delta}$ 集,
+      所以不存在函数 $f:\FR\to\FR$使得$\textrm{Cont}(f)=\FQ$.
 
-    (b)容易验证该函数是周期为 $1$ 的函数, 因此只需要考虑该函数在区间 $[0,1]$ 上的情况:
+    \item 容易验证该函数是周期为 $1$ 的函数, 因此只需要考虑该函数在区间 $[0,1]$ 上的情况:
    
-    首先, $f$在无理数点处连续: 任意取定 $x_0\in\FR\setminus\FQ$,
-    有 $f(x_0)=0$. 对于 $\forall\varepsilon>0$, 在 $[0,1]$ 上至多只有有限个 $\frac{p}{q}$
-    使得 $f(\frac{p}{q})=\frac{1}{q}\geq\varepsilon$, 取 $\delta>0$, 
-    使得 $U(x_0,\delta)$ 不包含上述有限个有理数(这样的 $\delta$ 显然是可以取到的), 则当 $x\in U(x_0,\delta)$ 时,
-    \[|f(x)-f(x_0)|=|f(x)|<\varepsilon.\]
+      首先, $f$在无理数点处连续: 任意取定 $x_0\in\FR\setminus\FQ$,
+      有 $f(x_0)=0$. 对于 $\forall\varepsilon>0$, 在 $[0,1]$ 上至多只有有限个 $\frac{p}{q}$
+      使得 $f(\frac{p}{q})=\frac{1}{q}\geq\varepsilon$, 取 $\delta>0$, 
+      使得 $U(x_0,\delta)$ 不包含上述有限个有理数(这样的 $\delta$ 显然是可以取到的), 则当 $x\in U(x_0,\delta)$ 时,
+      \[|f(x)-f(x_0)|=|f(x)|<\varepsilon.\]
 
-    其次, $f$ 在有理数点处不连续: 同理可证.
+      其次, $f$ 在有理数点处不连续: 同理可证.
 
-    因此 $\cont{f}=\FR\setminus\FQ$.
+      因此 $\cont{f}=\FR\setminus\FQ$.
 
-    (c)参见Elements of functional analysis by Francis P65.
+    \item 见 Hirsch-Lacombe \cite[Page 65]{hirsch2012elements}.
 
-    假设 $f=\mathbbm{1}_{\FQ}$ 是第一纲的, 则由定理6.1.7知 $\cont{f}$ 是
-    $\FR$ 中稠密的 $\mathcal{G}_{\delta}$ 集, 但是 $f$ 在任意点处都不连续, 
-    从而矛盾, 故 $f=\mathbbm{1}_{\FQ}$ 不是第一纲的. 取
-    \[f_m(x)=\lim_{n\to+\infty}\cos(m!\pi x)^{2n}.\]
-    由定义知 $(f_m)_{m\geq 1}$ 是一列第一纲的函数, 下面我们证明 $(f_m)_{m\geq 1}$ 逐点收敛到 $f$:
-    \begin{itemize}
-    \item 若$x\in\FQ$, 则可表示为 $x=\frac{p}{q}$, 当 $m\geq q$时,
-          $m!\pi x=k\pi\Rightarrow f_m(x)=\lim_{n\to\infty}1=1=\mathbbm{1}_{\FQ}(x)$.
-    \item 若 $x\in\FR\setminus\FQ$, 必有 $\cos(m!\pi x)\in(-1,1)\Rightarrow f_m(x)=0=\mathbbm{1}_{\FQ}(x)$.
-    \end{itemize}
-    综上知 $\lim_{m\to\infty}f_m=\mathbbm{1}_{\FQ}$.
+      假设 $f=\mathbbm{1}_{\FQ}$ 是第一纲的, 则由定理6.1.7知 $\cont{f}$ 是
+      $\FR$ 中稠密的 $\mathcal{G}_{\delta}$ 集, 但是 $f$ 在任意点处都不连续, 
+      从而矛盾, 故 $f=\mathbbm{1}_{\FQ}$ 不是第一纲的. 取
+      \[f_m(x)=\lim_{n\to+\infty}\cos(m!\pi x)^{2n}.\]
+      由定义知 $(f_m)_{m\geq 1}$ 是一列第一纲的函数, 下面我们证明 $(f_m)_{m\geq 1}$ 逐点收敛到 $f$:
+      \begin{itemize}
+      \item 若$x\in\FQ$, 则可表示为 $x=\frac{p}{q}$, 当 $m\geq q$时,
+            $m!\pi x=k\pi\Rightarrow f_m(x)=\lim_{n\to\infty}1=1=\mathbbm{1}_{\FQ}(x)$.
+      \item 若 $x\in\FR\setminus\FQ$, 必有 $\cos(m!\pi x)\in(-1,1)\Rightarrow f_m(x)=0=\mathbbm{1}_{\FQ}(x)$.
+      \end{itemize}
+      综上知 $\lim_{m\to\infty}f_m=\mathbbm{1}_{\FQ}$. \qedhere
+    \end{enumerate}
 \end{proof}
 
 
@@ -90,17 +67,21 @@
 \end{exercise}
 
 \begin{proof}
-设$X$是局部紧的Hausdorff空间,我们来证明$X$是Baire空间:
+  设$X$是局部紧的Hausdorff空间,我们来证明$X$是Baire空间:
 
-已有定理:局部紧的Hausdorff空间中每一点都有一个紧邻域基.
+  已有定理:局部紧的Hausdorff空间中每一点都有一个紧邻域基.
 
-设$\{U_n\}_{n\geq 1}$是一列在$X$中稠密的开子集,且$D=\bigcap_{n\geq 1}U_n$,设$U$是任一非空开集,需证$D\cap U\neq\varnothing$\\
-因为$U\cap U_1$是非空开集,所以存在非空开集$V_1$,使得$\bar{V}_1$紧且\[\bar{V}_1\subset U\cap U_1\]
-因为$V_1\cap U_2$是非空开集,所以存在非空开集$V_2$,使得$\bar{V}_2$紧且\[\bar{V}_2\subset V_1\cap U_2\subset U\cap U_1\cap U_2\]
-$\cdots$\\
-因为$V_{n-1}\cap U_n$是非空开集,所以存在非空开集$V_n$,使得$\bar{V}_n$紧且\[\bar{V}_n\subset V_{n-1}\cap U_n\subset U\cap U_1\cap\cdots\cap U_n\]
-依此可以得到一列开集$\{V_n\}$使得$\{\bar{V}_n\}$是单调递减的紧集列,故\[\bigcap_{n\geq 1}\bar{V}_n\neq\varnothing\]
-所以\[D\cap U=\left(\bigcap_{n\geq 1}U_n\right)\cap U\neq\varnothing\]这就说明了$D$在$X$中稠密,因此$X$是Baire空间.
+  设$\{U_n\}_{n\geq 1}$是一列在$X$中稠密的开子集,且$D=\bigcap_{n\geq 1}U_n$,
+  设$U$是任一非空开集,需证$D\cap U\neq\varnothing$.
+  因为$U\cap U_1$是非空开集,所以存在非空开集$V_1$,使得$\bar{V}_1$紧且
+  \[\bar{V}_1\subset U\cap U_1.\]
+  因为$V_1\cap U_2$是非空开集,所以存在非空开集$V_2$,使得$\bar{V}_2$紧且\[\bar{V}_2\subset V_1\cap U_2\subset U\cap U_1\cap U_2.\]
+
+  因为$V_{n-1}\cap U_n$是非空开集, 所以存在非空开集$V_n$, 使得$\bar{V}_n$紧且\[\bar{V}_n\subset V_{n-1}\cap U_n\subset U\cap U_1\cap\cdots\cap U_n\]
+  依此可以得到一列开集$\{V_n\}$使得$\{\bar{V}_n\}$是单调递减的紧集列,故
+  \[\bigcap_{n\geq 1}\bar{V}_n\neq\varnothing\]
+  所以
+  \[D\cap U=\left(\bigcap_{n\geq 1}U_n\right)\cap U\neq\varnothing\]这就说明了$D$在$X$中稠密,因此$X$是Baire空间.
 \end{proof}
 
 
@@ -133,10 +114,43 @@ $\cdots$\\
     证明: 完备度量空间中的任何一个可数子集至少含有一个孤立点.
 \end{exercise}
 
+\begin{proof}
+  Suppose that $(X,d)$ is a complete metric space.
+  Without loss of generality, we may assume that $X$ is countable, i.e., $X = \{x_n\}_{n\geq 1}$.
+
+  To prove that $X$ has at least one isolated point, we proceed by contradiction.
+  Suppose that $X$ has no isolated point. Let $O_n = X\setminus \{x_n\}$.
+  On the one hand, $O_n$ is open since $\{x_n\}$ is closed.
+  On the other hand, $O_n$ is dense in $X$ since $\{x_n\}$ is not an isolated point.
+  By Baire's theorem we have
+  $\bigcap_{n=1}^\infty O_n$ is dense in $X$.
+  However,
+  \[\bigcap_{n=1}^\infty O_n = \bigcap_{n=1}^\infty X\setminus\{x_n\} = \emptyset,\]
+  which is a contradiction.
+\end{proof}
 
 
+\begin{exercise}
+  (...)
+\end{exercise}
 
-\begin{exercise}[5]
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item For any $f\in B$, by the definition of $B$ we know that $f$ is differentiable
+      at at least one point $x\in [0,1]$. Hence,
+      \[\lim_{y\to x} \biggl|\frac{f(y)-f(x)}{y-x}\biggr| = |f'(x)|.\]
+      There exists some $\delta>0$ such that
+      \[\biggl|\frac{f(y)-f(x)}{y-x}\biggr| \leq |f'(x)| + 1\]
+      when $|y - x| < \delta$.
+
+      Let $M := \max_{x\in [0,1]} |f|$ and choose $n$ large enough such that
+      \[n > \max\biggl(|f'(x)|+1, \frac{2M}{\delta}\biggr).\]
+      Then $|f(y)-f(x)| \leq n |y-x|$ for all $y\in [0,1]$, so $f\in F_n$.
+  \end{enumerate}
+\end{proof}
+
+
+\begin{exercise}[6]
     设 $E$ 和 $F$ 都是 Banach 空间, $(u_n)$ 是 $\mathcal{B}(E,F)$ 的序列.
     证明下列命题等价:
 
