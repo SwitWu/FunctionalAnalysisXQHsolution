@@ -188,7 +188,7 @@
 \end{proof}
 
 
-\begin{exercise}[6]
+\begin{exercise}
   设 $E$ 和 $F$ 都是 Banach 空间, $(u_n)$ 是 $\mathcal{B}(E,F)$ 的序列.
   证明下列命题等价:
   \begin{enumerate}[(a)]
@@ -220,29 +220,50 @@
 \end{proof}
 
 
+\begin{exercise}
+  (...)
+\end{exercise}
 
-% 7.\textit{Proof}:因为$f$是Lipschitx函数,所以存在正常数$C$使得对任意$x,y\in [0,1]$,有$|f(x)-f(y)|\leq C|x-y|$,则
-% \[\begin{split}
-% \left|\frac{u_n(f)}{n}\right|&=\left|\int_0^1f(t)dt-\frac{1}{n}\sum_{k=1}^nf\left(\frac{k}{n}\right)\right|\\
-% &=\left|\sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}}f(t)dt-\frac{1}{n}\sum_{k=1}^nf\left(\frac{k}{n}\right)\right|\\
-% &\leq\frac{1}{n}\sum_{k=1}^n\left|f(\xi_k)-f\left(\frac{k}{n}\right)\right|\left(\xi_k\in\left(\frac{k-1}{n},\frac{k}{n}\right)\right)\\
-% &\leq\frac{1}{n}\sum_{k=1}^nC\left|\xi_k-\frac{k}{n}\right|\\
-% &\leq\frac{1}{n}\sum_{k=1}^nC\cdot\frac{1}{n}=\frac{C}{n}
-% \end{split}\]
-% 因此\[\frac{u_n(f)}{n}=O\left(\frac{1}{n}\right)(n\to\infty)\]
-% (b)我们有\[\begin{split}
-% \|u_n(f)\|&=\left|n\int_0^1f(t)\diff t-\sum_{k=1}^nf\left(\frac{k}{n}\right)\right|\\
-% &\leq n\int_0^1|f(t)|\diff t+\sum_{k=1}^n\left|f\left(\frac{k}{n}\right)\right|\\
-% &\leq n\|f\|_{\infty}+n\|f\|_{\infty}\\
-% &=2n\|f\|_{\infty}
-% \end{split}\]
-% 构造类似于锯齿状函数:\[f_{m,n}(x)=\begin{cases}-mx+\frac{km}{n}-1\left(\frac{k}{n}-\frac{2}{m}\leq x\leq\frac{k}{n}\right)(k=1,2,\cdots,n)\\ mx-\frac{km}{n}-1\left(\frac{k}{n}\leq x\leq\frac{k}{n}+\frac{2}{m}\right)(k=1,2,\cdots,n-1)\\1,\mbox{其它点处}\end{cases}\]
-% 显然$f_{m,n}\in E$,且$||f_{m,n}||_{\infty}=1$,在点$x=\frac{k}{n}(k=1,2,\cdots,n)$处,$f_{m,n}(x)=-1$\\
-% 因此对每个固定的$n$,有
-% \[|u_n(f_{m,n})|=\left|n\int_0^1f_{m,n}(t)dt-\sum_{k=1}^nf_{m,n}\left(\frac{k}{n}\right)\right|=\left|2n-\frac{2n(2n-1)}{m}\right|\to 2n(m\to\infty)\]所以$\|u_n\|=2n$\\
-% (c)因为$E$是Banach空间且$\sup_{n\geq 1}\|u_n\|=\infty$,所以由定理6.2.4知
-% \[G=\left\{f\in E:\sup_{n\geq 1}|u_n(f)|=+\infty\right\}\mbox{是}C([0,1])\mbox{中稠密的}\mathcal{G}_{\delta}\mbox{集}\]换个说法也即
-% \[G=\left\{f\in E:\frac{u_n(f)}{n}\neq O\left(\frac{1}{n}\right)\right\}\mbox{是}C([0,1])\mbox{中稠密的}\mathcal{G}_{\delta}\mbox{集}\]
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item Since $f$ is Lipschitz function, there exists some positive constant $C>0$
+      such that $|f(x)-f(y)|\leq C|x-y|$ for all $x,y\in [0,1]$ and thus
+      \begin{align*}
+        \left|\frac{u_n(f)}{n}\right|
+        & = \left|\int_0^1 f(t) \diff t-\frac{1}{n}\sum_{k=1}^nf\left(\frac{k}{n}\right)\right| \\
+        & = \left|\sum_{k=1}^n\int_{\frac{k-1}{n}}^{\frac{k}{n}} f(t) \diff t
+            - \frac{1}{n}\sum_{k=1}^nf\left(\frac{k}{n}\right)\right| \\
+        & \leq \frac{1}{n}\sum_{k=1}^n\left|f(\xi_k)-f\left(\frac{k}{n}\right)\right|
+            \qquad \text{for some } \xi_k\in\left(\frac{k-1}{n},\frac{k}{n}\right) \\
+        & \leq \frac{1}{n}\sum_{k=1}^nC\left|\xi_k-\frac{k}{n}\right| \\
+        & \leq \frac{1}{n}\sum_{k=1}^nC\cdot\frac{1}{n}=\frac{C}{n},
+      \end{align*}
+      Therefore
+      \[\frac{u_n(f)}{n}=O\left(\frac{1}{n}\right)\quad\text{as } n\to\infty.\]
+    \item Note here we should regard $n$ as a fixed integer. One the one hand,
+      \begin{align*}
+        |u_n(f)|
+        & = \left|n\int_0^1f(t)\diff t-\sum_{k=1}^nf\left(\frac{k}{n}\right)\right| \\
+        & \leq n\int_0^1|f(t)|\diff t+\sum_{k=1}^n\left|f\left(\frac{k}{n}\right)\right| \\
+        & \leq n\|f\|_{\infty}+n\|f\|_{\infty} = 2n\|f\|_{\infty}.
+      \end{align*}
+      On the other hand, construct a sequence of functions $(f_m)$ as follows:
+      \[f_m = \begin{cases}
+        -mx+\frac{km}{n}-1, & \text{for } \frac{k}{n}-\frac{2}{m}\leq x\leq\frac{k}{n},\, 1\leq k\leq n \\
+        mx-\frac{km}{n}-1,  & \text{for } \frac{k}{n}\leq x\leq\frac{k}{n}+\frac{2}{m},\, 1\leq k\leq n-1.
+      \end{cases}\]
+      Then $f_m\in E$, $\|f_m\|_\infty = 1$ and $f_m(x) = -1$ at $x = \frac{k}{n}$
+      for $1\leq k\leq n$. By the construction of $f_m$ we obtain that
+      \[|u_n(f_{m})| = \left|n\int_0^1 f_m(t) \diff t
+        - \sum_{k=1}^n f_{m}\left(\frac{k}{n}\right)\right|
+        = \left|2n-\frac{2n(2n-1)}{m}\right|\to 2n,\]
+      as $m\to\infty$.
+    \item Since $E$ is a Banach space and $\sup_{n\geq 1} \|u_n\| = \infty$,
+     we have by Theorem 6.2.4 that
+     \[G=\Bigl\{f\in E:\sup_{n\geq 1}|u_n(f)|=+\infty\Bigr\}\]
+     is a dense $\mathcal{G}_\delta$ set in $C([0,1])$. \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{exercise}[8]
