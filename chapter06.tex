@@ -295,6 +295,18 @@
 \end{proof}
 
 
+\begin{exercise}
+  Assume $E$ is Banach space and $u,v\in\mathcal{B}(E)$. Prove that
+  if $u(E)\subset v(E)$, then there exists some constant $k\geq 0$
+  such that for all $x\in E$, there exists $y\in E$ such that
+  $\|y\|\leq k\|x\|$ and $u(x) = v(y)$.
+\end{exercise}
+
+\begin{proof}
+  Since $u(E)\subset v(E)$, for any $x\in E$, $u(x)\in v(E)$. Thus
+  there exists some $y\in E$ such that $u(x) = v(y)$.
+\end{proof}
+
 
 \begin{exercise}[10]
     设 $E,F$ 都是 Banach 空间, $u\in\mathcal{B}(E,F)$ 并满足 $u(B_E)$ 在 $B_F$ 中稠密.
@@ -390,50 +402,112 @@
     \]
     由以上两式立即得到 $\|v\|=\|v^{-1}\|=1$. 故 $v$ 是从 $E/\ker u$ 到 $F$ 上的等距同构映射.
 \end{proof}
-% 11.\textit{Proof}:(a)
-% \[\|q(g)-f\|_{\infty}=\sup_{y\in Y}|q(g)(y)-f(y)|=\sup_{y\in Y}\left|\frac{d(y,B)-d(y,A)}{3[d(y,B)+d(y,A)]}-f(y)\right|\]
-% 下面分三种情况讨论:
-% \begin{enumerate}[(i)]
-% \item $y\in A$时,\[\|q(g)-f\|_{\infty}=\sup_{y\in A}\left|\frac{d(y,B)}{3d(y,B)}-f(y)\right|=\sup_{y\in A}\left|\frac{1}{3}-f(y)\right|\leq\frac{2}{3}\]
-% \item $y\in B$时,\[\|q(g)-f\|_{\infty}=\sup_{y\in B}\left|\frac{-d(y,A)}{3d(y,A)}-f(y)\right|=\sup_{y\in B}\left|-\frac{1}{3}-f(y)\right|\leq\frac{2}{3}\]
-% \item $y\in Y\backslash(A\cup B)$时,因为
-% \[-\frac{1}{3}<f(y)<\frac{1}{3}\mbox{且}-\frac{1}{3}<\frac{d(y,B)-d(y,A)}{3[d(y,B)+d(y,A)]}<\frac{1}{3}\]
-% 所以\[\|q(g)-f\|_{\infty}<\frac{2}{3}\]
-% \end{enumerate}
-% 注意到上面的讨论蕴含$A$和$B$为空集的情形,所以得证$\|q(g)-f\|_{\infty}\leq\frac{2}{3}$\\
-% (b)对于任意$f\in F$,令
-% \[C=\left\{y\in Y:f(y)\geq\frac{1}{3}\|f\|_{\infty}\right\},D=\left\{y\in Y:f(y)\leq-\frac{1}{3}\|f\|_{\infty}\right\}\]
-% 定义函数\[g(x)=\frac{d(x,D)-d(x,C)}{3[d(x,D)+d(x,C)]}\cdot\|f\|_{\infty}\]
-% 则显然成立$\|g\|_{\infty}\leq\frac{1}{3}\|f\|_{\infty}$,且同$(a)$的证明过程可知
-% $\|q(g)-f\|_{\infty}\leq\frac{2}{3}\|f\|_{\infty}$\\
-% (c)对于满足(b)中两式的$f\in F$和$g\in E$,有
-% \[\frac{2}{3}\|f\|_{\infty}\leq\|f\|_{\infty}-\|g\|_{\infty}\leq\|f\|_{\infty}-\|q(g)\|_{\infty}\leq\|f-q(g)\|_{\infty}\leq\frac{2}{3}\|f\|_{\infty}\]
-% 故\[\|g\|_{\infty}=\frac{1}{3}\|f\|_{\infty}\mbox{且}\|f-q(g)\|_{\infty}=\frac{2}{3}\|f\|_{\infty}\]
-% 然后进行如下程序:对于任意$f\in F$\\
-% 存在$g_1\in E$,使得\[\begin{split}&\|g_1\|_{\infty}=\frac{1}{3}\|f\|_{\infty}\\&\|f-q(g_1)\|_{\infty}=\frac{2}{3}\|f\|_{\infty}\end{split}\]
-% 存在$g_2\in E$,使得\[\begin{split}&\|g_2\|_{\infty}=\frac{1}{3}\|f-q(g_1)\|_{\infty}=\frac{1}{3}\cdot\frac{2}{3}\|f\|_{\infty}\\&\|f-q(g_1)-q(g_2)\|_{\infty}=\frac{2}{3}\|f-q(g_1)\|_{\infty}=\left(\frac{2}{3}\right)^2\|f\|_{\infty}\end{split}\]
-% $\cdots\cdots$\\
-% 存在$g_n\in E$,使得\[\begin{split}&\|g_n\|_{\infty}=\frac{1}{3}\left\|f-\sum_{k=1}^{n-1}q(g_k)\right\|_{\infty}=\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}\\&\left\|f-\sum_{k=1}^nq(g_k)\right\|_{\infty}=\frac{2}{3}\left\|f-\sum_{k=1}^{n-1}q(g_k)\right\|_{\infty}=\left(\frac{2}{3}\right)^n\|f\|_{\infty}\end{split}\]
-% 这样就得到一列$(g_n)_{n\geq 1}\subset E$满足下面两个性质:\\
-% \[(i)\|g_n\|_{\infty}=\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}\mbox{和}(ii)\left\|f-\sum_{k=1}^nq(g_k)\right\|_{\infty}=\left(\frac{2}{3}\right)^n\|f\|_{\infty}\]
-% 由性质$(i)$:因为$\sum_{n=1}^{\infty}\|g_n\|_{\infty}$收敛且$E$是Banach空间,所以$\sum_{n=1}^{\infty}g_n\to g\in E$\\
-% 由性质$(ii)$:知$\sum_{n=1}^{\infty}q(g_n)$一致收敛到$f$\\
-% 因为$q$是Lipschitx映射,所以$q$连续,故\[\sum_{n=1}^{\infty}q(g_n)=q\left(\sum_{n=1}^{\infty}g_n\right)\to q(g)\]由极限的唯一性知$f=q(g)$\\
-% 因为\[\|g\|_{\infty}=\left\|\sum_{n=1}^{\infty}g_n\right\|\leq\sum_{n=1}^{\infty}\|g_n\|_{\infty}=\sum_{n=1}^{\infty}\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}=\|f\|_{\infty}\]
-% 并且$\|f\|_{\infty}=\|q(g)\|_{\infty}\leq\|g\|_{\infty}$,所以$\|g\|_{\infty}=\|f\|_{\infty}$\\
-% (d)由(c)中结论知此问显然成立\\
-% (e)任取$f\in C(Y,\FR)$:
-% \begin{itemixe}
-% \item 若$f$有界,则由(c)知存在$g\in C(X,\FR)$使得$q(g)=f$
-% \item 若$f$无界,令$f_1=\arctan f$,则$f_1\in F$,故存在$g_1\in E$使得$q(g_1)=f_1$,令$g=\tan g_1$,则
-% \[q(g)=q(\tan g_1)=\tan(q(g_1))=\tan(f_1)=f\]\end{itemixe}
-% 13.\textit{Proof}:(a)假设$F$在$E$中的内部不是空集,则存在$x\in F,r>0$使得$B(x,r)\subset F$,这里的$B(x,r)$是$E$中的开球,由$F$是向量子空间可得$B(0,r)\subset F\Rightarrow B(0,n)\subset F(\forall n)$,从而
-% \[E=\bigcup_{n\geq 1}B(0,n)\subset F\Rightarrow E=F\]
-% 矛盾,故假设不成立,即证$F$在$E$中的内部为空集\\
-% (b)记所有多项式构成的空间为$\mathcal{P}$,所有次数不超过$n$的多项式构成的空间为$\mathcal{P}_n$,则
-% \[\mathcal{P}=\bigcup_{n\geq 1}\mathcal{P}_n\]
-% 假设$\mathcal{P}$上有完备范数,由(a)知$\mathcal{P}_n^{\circ}=\emptyset$,由Baire定理知$\mathcal{P}^{\circ}=\emptyset$,矛盾,故假设不成立,所以$\mathcal{P}$不能赋予完备范数\\\\
 
+
+\begin{exercise}
+  (...)
+\end{exercise}
+
+\begin{proof}
+\begin{enumerate}[(a)]
+  \item By definition
+    \[\|q(g)-f\|_{\infty}=\sup_{y\in Y}|q(g)(y)-f(y)|
+      = \sup_{y\in Y}\left|\frac{d(y,B)-d(y,A)}{3[d(y,B)+d(y,A)]}-f(y)\right|.\]
+    We proceed in three cases as follows:
+    \begin{enumerate}[(i)]
+      \item For $y\in A$,
+        \[\|q(g)-f\|_{\infty}=\sup_{y\in A}\left|\frac{d(y,B)}{3d(y,B)}-f(y)\right|=\sup_{y\in A}\left|\frac{1}{3}-f(y)\right|\leq\frac{2}{3}.\]
+      \item For $y\in B$,
+        \[\|q(g)-f\|_{\infty}=\sup_{y\in B}\left|\frac{-d(y,A)}{3d(y,A)}-f(y)\right|=\sup_{y\in B}\left|-\frac{1}{3}-f(y)\right|\leq\frac{2}{3}.\]
+      \item For $y\in Y\setminus (A\cup B)$, since
+        \[-\frac{1}{3}<f(y)<\frac{1}{3}
+          \quad\text{and}\quad -\frac{1}{3}<\frac{d(y,B)-d(y,A)}{3[d(y,B)+d(y,A)]}<\frac{1}{3}.\]
+        It follows that
+        \[\|q(g)-f\|_{\infty} < 2/3.\]
+    \end{enumerate}
+    Note that the above discussions involve the special cases when $A$ or $B$
+    is emptyset.
+  \item For any $f\in F$, let
+    \[C = \biggl\{y\in Y:f(y)\geq\frac{1}{3}\|f\|_{\infty}\biggr\},\quad 
+      D = \left\{y\in Y:f(y)\leq-\frac{1}{3}\|f\|_{\infty}\right\}.\]
+    Define
+    \[g(x) := \frac{d(x,D)-d(x,C)}{3[d(x,D)+d(x,C)]}\cdot\|f\|_{\infty}.\]
+    Then $\|g\|_{\infty}\leq\frac{1}{3}\|f\|_{\infty}$ and from (a) we have that
+    $\|q(g)-f\|_{\infty}\leq\frac{2}{3}\|f\|_{\infty}$.
+  \item For the $f$ and $g$ that satisfy the conditions in (b), we have
+    \[\frac{2}{3}\|f\|_{\infty}\leq\|f\|_{\infty}-\|g\|_{\infty}
+      \leq\|f\|_{\infty}-\|q(g)\|_{\infty}\leq\|f-q(g)\|_{\infty}\leq\frac{2}{3}\|f\|_{\infty}.\]
+    Thus
+    \[\|g\|_{\infty} = \frac{1}{3}\|f\|_{\infty}
+      \text{ and }
+      \|f-q(g)\|_{\infty } =\frac{2}{3}\|f\|_{\infty}.\]
+    We use the induction method to generate a sequence of functions $(g_n)$ as follows:
+
+    There exists some $g_1\in E$ such that
+    \begin{align*}
+      \|g_1\|_{\infty} & = \frac{1}{3}\|f\|_{\infty}, \\
+      \|f-q(g_1)\|_{\infty} & = \frac{2}{3}\|f\|_{\infty}.
+    \end{align*}
+
+    There exists some $g_2\in E$ such that
+    \begin{align*}
+      \|g_2\|_{\infty}=\frac{1}{3}\|f-q(g_1)\|_{\infty}
+        & = \frac{1}{3}\cdot\frac{2}{3}\|f\|_{\infty}, \\
+      \|f-q(g_1)-q(g_2)\|_{\infty}=\frac{2}{3}\|f-q(g_1)\|_{\infty}
+        & = \left(\frac{2}{3}\right)^2\|f\|_{\infty}.
+    \end{align*}
+
+    At the $n$-th step, there exists some $g_n\in E$ such that
+    \begin{align*}
+      \|g_n\|_{\infty}
+        & = \frac{1}{3}\left\|f-\sum_{k=1}^{n-1}q(g_k)\right\|_{\infty}=\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}, \\
+      \left\|f-\sum_{k=1}^nq(g_k)\right\|_{\infty}
+        & = \frac{2}{3}\left\|f-\sum_{k=1}^{n-1}q(g_k)\right\|_{\infty}=\left(\frac{2}{3}\right)^n\|f\|_{\infty}.
+    \end{align*}
+    So we obtain a sequence $(g_n)_{n\geq 1}\subset E$ which satisfies two properties:
+    \[\text{(i) } \|g_n\|_{\infty}=\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}
+      \quad\text{and}\quad
+      \text{(ii) } \left\|f-\sum_{k=1}^nq(g_k)\right\|_{\infty}=\left(\frac{2}{3}\right)^n\|f\|_{\infty}.\]
+    From property (i) we know that $\sum_{n=1}^{\infty}\|g_n\|_{\infty}$ converges,
+    so $\sum_{n=1}^{\infty}g_n$ converges to some $g\in E$ since $E$ is complete.
+
+    From property (ii) we know that $\sum_{n=1}^{\infty}q(g_n)$ converges uniformly to $f$.
+
+    Since $q$ is continuous, we have
+    \[\sum_{n=1}^{\infty}q(g_n)=q\left(\sum_{n=1}^{\infty}g_n\right)\to q(g),\]
+    and hence $f = q(g)$. Finally we prove that $\|f\|_\infty = \|g\|_\infty$.
+    To this end, note that
+    \[\|g\|_{\infty}=\left\|\sum_{n=1}^{\infty}g_n\right\|
+      \leq \sum_{n=1}^{\infty}\|g_n\|_{\infty}
+      = \sum_{n=1}^{\infty}\frac{1}{3}\left(\frac{2}{3}\right)^{n-1}\|f\|_{\infty}
+      = \|f\|_{\infty},\]
+    and $\|f\|_{\infty}=\|q(g)\|_{\infty}\leq\|g\|_{\infty}$.
+  \item Obvious from (c).
+  \item Choose arbitrarily $f\in C(Y,\FR)$,
+    \begin{itemize}
+      \item If $f$ is bounded, by (c) there exists some $g\in C(X,\FR)$ such that $q(g)=f$.
+      \item If $f$ is unbounded, let $f_1 = \arctan f\in F$.
+        There exists some $g_1\in E$ such that $q(g_1) = f_1$.
+        Let $g = \tan g_1$, then
+        \[q(g)=q(\tan g_1)=\tan(q(g_1))=\tan(f_1) = f.\qedhere\]
+    \end{itemize}
+\end{enumerate}
+\end{proof}
+
+\begin{exercise}[13]
+  (...)
+\end{exercise}
+
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item 假设$F$在$E$中的内部不是空集,则存在$x\in F,r>0$使得$B(x,r)\subset F$,这里的$B(x,r)$是$E$中的开球,由$F$是向量子空间可得$B(0,r)\subset F\Rightarrow B(0,n)\subset F$ $(\forall n)$, 从而
+    \[E=\bigcup_{n\geq 1}B(0,n)\subset F\Rightarrow E=F\]
+    矛盾,故假设不成立,即证$F$在$E$中的内部为空集.
+    \item 记所有多项式构成的空间为$\mathcal{P}$,所有次数不超过$n$的多项式构成的空间为$\mathcal{P}_n$,则
+    \[\mathcal{P}=\bigcup_{n\geq 1}\mathcal{P}_n.\]
+    假设$\mathcal{P}$上有完备范数,由(a)知$\mathcal{P}_n^{\circ}=\emptyset$,由Baire定理知$\mathcal{P}^{\circ}=\emptyset$,矛盾,故假设不成立,所以$\mathcal{P}$不能赋予完备范数. \qedhere
+  \end{enumerate}
+\end{proof}
 
 
 \begin{exercise}[14]
