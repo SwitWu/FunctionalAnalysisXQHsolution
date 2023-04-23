@@ -303,8 +303,18 @@
 \end{exercise}
 
 \begin{proof}
-  Since $u(E)\subset v(E)$, for any $x\in E$, $u(x)\in v(E)$. Thus
-  there exists some $y\in E$ such that $u(x) = v(y)$.
+  The space
+  \[X=\{(y,z)\in E\times E: u(y)=v(z)\}\]
+  is again a Banach space as a closed (by the continuity of $u$ and $v$) 
+  subspace of $E\times E$ endowed, e.g., with the norm $\|(y,z)\|=\max\{\|y\|,\|z\|\}$
+  (in category theory, $X$ is called a \emph{pullback} of $u$ and $v$).
+  The assumption implies that the first projection
+  \[\pi:X\to E,\, (y,z)\mapsto y\]
+  is surjective and hence open. By the open mapping theorem,
+  there is a constant $k\geq 0$ such that,
+  for every $x\in E$, there is $(y,z)\in X$ with $\|(y,z)\|\le k\|x\|$ and $\pi(y,z)=x$.
+  This means $y=x$ and $z\in E$ satisfies $\|z\|\le\|(y,z)\|\le k\|x\|$
+  as well as $u(x)=u(y)=v(z)$.
 \end{proof}
 
 
