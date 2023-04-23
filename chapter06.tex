@@ -137,27 +137,65 @@
 \begin{proof}
   \begin{enumerate}[(a)]
     \item For any $f\in B$, by the definition of $B$ we know that $f$ is differentiable
-      at at least one point $x\in [0,1]$. Hence,
+      at at least one point $x\in [0,1]$ and thus
       \[\lim_{y\to x} \biggl|\frac{f(y)-f(x)}{y-x}\biggr| = |f'(x)|.\]
-      There exists some $\delta>0$ such that
+      Hence there exists some $\delta>0$ such that
       \[\biggl|\frac{f(y)-f(x)}{y-x}\biggr| \leq |f'(x)| + 1\]
       when $|y - x| < \delta$.
-
       Let $M := \max_{x\in [0,1]} |f|$ and choose $n$ large enough such that
       \[n > \max\biggl(|f'(x)|+1, \frac{2M}{\delta}\biggr).\]
       Then $|f(y)-f(x)| \leq n |y-x|$ for all $y\in [0,1]$, so $f\in F_n$.
+    \item Assume that $(f_k)_{k\geq 1}$ is a sequence in $F_n$ and $f_k\to f$.
+      We need to prove that $f\in F_n$. For any $f_k$, there exists some $x_k\in [0,1]$
+      such that $f_k$ satisfies the $n$-Lipschitz condition at $x_k$.
+      By Bolzano-Weierstrass theorem, we may assume that $x_k\to x$
+      (upon extracting a subsequence) and next we show that $f$ satisfies the
+      $n$-Lipschitz condition at $x$. Indeed, for any $y\in [0,1]$,
+      we obtain by the triangle inequality
+      \begin{align*}
+        |f(x)-f(y)|
+        & \leq |f(x)-f_k(x)| + |f_k(x)-f_k(x_k)| + |f_k(x_k)-f_k(y)| + |f_k(y)-f(y)| \\
+        & \leq 2\|f-f_k\|_\infty + n|x-x_k| + n|y-x_k|.
+      \end{align*}
+      Letting $k\to\infty$, we have
+      \[|f(x)-f(y)| \leq n|x-y|\quad \forall y\in [0,1].\]
+    \item 
+      \begin{enumerate}[(i)]
+        \item This can be guaranteed by the Bernstein theorem (see Exercise~14 in Chapter~5).
+        \item Since $h = P + g$, we have
+          \[\|f - h\|_\infty \leq \|f - P\|_\infty + \|g\|_\infty \leq \frac{r}{2} + \frac{r}{4}
+            < r.\]
+          Hence $h\in B(f,r)$. Now we prove that $h\notin F_n$.
+          Suppose by contradiction that $h\in F_n$, then there exists some $x_0\in [0,1]$
+          such that $|h(x_0)-h(y)| \leq n|x_0-y|$ for all $y\in [0,1]$, i.e.,
+          \[|P(x_0) - P(y) + g(x_0) - g(y)| \leq n|x_0-y| \quad \forall y\in [0,1].\]
+          So
+          \[\biggl|\frac{g(x_0)-g(y)}{x_0-y}\biggr| \leq
+            \biggl|\frac{P(x_0)-P(y)}{x_0-y}\biggr| + n\]
+          for all $y\in [0,1]$. Let $y\to x_0+$, we obtain that
+          \[\lim_{y\to x_0+} \biggl|\frac{g(x_0)-g(y)}{x_0-y}\biggr| \leq M+n\]
+          since $M = \|P'\|_\infty$. However, by the definition of $g$, we have
+          \[\lim_{y\to x_0+} \biggl|\frac{g(x_0)-g(y)}{x_0-y}\biggr|
+            = \frac{r/4}{1/2N} = \frac{rN}{2} > M + n + 1,\]
+          a contradiction.
+        \item From (i)--(ii) we know that $F_n$ has empty interior.
+      \end{enumerate}
+    \item Since $B = E\setminus A \subset \bigcup_{n\geq 1} F_n$, we obtain
+      \[A \supset \bigcap_{n\geq 1} F_n^c,\]
+      the right-hand side of which is a dense $\mathcal{G}_\delta$ set according to
+      Baire's theorem. \qedhere
   \end{enumerate}
 \end{proof}
 
 
 \begin{exercise}[6]
-    设 $E$ 和 $F$ 都是 Banach 空间, $(u_n)$ 是 $\mathcal{B}(E,F)$ 的序列.
-    证明下列命题等价:
-
-    (a) $(u_n(x))$ 在每个 $x\in E$ 处收敛.
-
-    (b) $A\subset E$ 且 $\Span(A)$ 在 $E$ 中稠密, $(u_n(a))$ 在每个 $a\in A$ 处收敛,
+  设 $E$ 和 $F$ 都是 Banach 空间, $(u_n)$ 是 $\mathcal{B}(E,F)$ 的序列.
+  证明下列命题等价:
+  \begin{enumerate}[(a)]
+    \item $(u_n(x))$ 在每个 $x\in E$ 处收敛.
+    \item $A\subset E$ 且 $\Span(A)$ 在 $E$ 中稠密, $(u_n(a))$ 在每个 $a\in A$ 处收敛,
     且 $(u_n)$ 有界.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
