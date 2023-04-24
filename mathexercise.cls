@@ -41,7 +41,7 @@
 \RequirePackage{extarrows}
 \RequirePackage{xcolor}
 \RequirePackage{tcolorbox}
-\RequirePackage[width=16cm]{geometry}
+\RequirePackage[width=15cm]{geometry}
 \RequirePackage{tikz}
 
 \setlist[enumerate,1]{%
@@ -68,7 +68,7 @@
   {.5em}{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \if@chinesesupport
-  \RequirePackage[heading=true, fontset = fandol]{ctex}
+  \RequirePackage[heading=true,fontset=fandol]{ctex}
   \ctexset {
     chapter = {
       beforeskip = 0pt,
@@ -175,9 +175,9 @@
       {\stepcounter{exercounter}}
       {\setcounter{exercounter}{#1}}
     \par\textbf{\theexercounter.}\hspace{.333em}%
-\IfNoValueTF{#2}
-    {#3}
-    {\textbf{(#2)}\hspace{.333em}#3}
+    \IfNoValueTF{#2}
+      {#3}
+      {\textbf{(#2)}\hspace{.333em}#3}
   }
   {\ignorespacesafterend}
 \setlist{nosep,left=\parindent}

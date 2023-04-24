@@ -232,39 +232,33 @@
 
 
 \begin{exercise}[16]
-    令 $0<p<1$, 考虑空间 $L_p=L_p(0,1)$, 并在 $L_p$ 上赋予距离 $d_{p}(f, g)=\|f-g\|_p^p$. 
-    本习题的目标是证明 $L_p$ 不是局部凸的且没有非零线性泛函.
-
-    (a) 证明: $L_p$ 是拓扑向量空间.
-
-    接下来, 我们先考虑 $p=\frac{1}{2}$ 的情形, 用 $B(r)$ 表示中心在原点、半径为 $r$ 的 $L_{\frac{1}{2}}$ 中的闭单位球: 
-    $B(r)=\left\{f \in L_{\frac{1}{2}}\colon \|f\|_{\frac{1}{2}}^{\frac{1}{2}} \leqslant r\right\}$.
-
-    (b) 取 $f\in B(\sqrt{2}r)$. 证明: 存在 $t_0 \in(0,1)$, 使得
-    \[
-    \int_{0}^{t_0}|f(t)|^{\frac{1}{2}}\diff t=\frac{\|f\|_{\frac{1}{2}}^{\frac{1}{2}}}{2}.
-    \]
-
-    (c) 定义
-    \[g(t)=
-    \begin{cases}
-        2f(t), & 0\leqslant t\leqslant t_{0}, \\
-        0, & t_{0}<t\leqslant 1,
-    \end{cases}\quad\text{且}\quad 
-    h(t)=\begin{cases}
-        0, & 0 \leqslant t \leqslant t_{0}, \\
-        2f(t), & t_{0}<t \leqslant 1.
-    \end{cases}\]
-    证明:
-    \[g, h \in B(r) \quad \text{且} \quad f=\frac{g}{2}+\frac{h}{2}.\]
-
-    (d) 由此导出 $B(\sqrt{2} r)\subset\conv(B(r))$, 并有 $\conv(B(r))=L_{\frac{1}{2}}$.
-
-    (e) 得出 $L_{\frac{1}{2}}$ 是非局部凸的.
-
-    (f) 把以上结论推广到 $0<p<1$ 的情形.
-
-    (g) 证明: $L_{p}$ 上只有零线性泛函是连续的.
+  令 $0<p<1$, 考虑空间 $L_p=L_p(0,1)$, 并在 $L_p$ 上赋予距离 $d_{p}(f, g)=\|f-g\|_p^p$. 
+  本习题的目标是证明 $L_p$ 不是局部凸的且没有非零线性泛函.
+  \begin{enumerate}[(a)]
+    \item 证明: $L_p$ 是拓扑向量空间.
+      接下来, 我们先考虑 $p=\frac{1}{2}$ 的情形, 用 $B(r)$ 表示中心在原点、半径为 $r$ 的 $L_{\frac{1}{2}}$ 中的闭单位球: 
+      $B(r)=\left\{f \in L_{\frac{1}{2}}\colon \|f\|_{\frac{1}{2}}^{\frac{1}{2}} \leqslant r\right\}$.
+    \item 取 $f\in B(\sqrt{2}r)$. 证明: 存在 $t_0 \in(0,1)$, 使得
+      \[
+      \int_{0}^{t_0}|f(t)|^{\frac{1}{2}}\diff t=\frac{\|f\|_{\frac{1}{2}}^{\frac{1}{2}}}{2}.
+      \]
+    \item 定义
+      \[g(t)=
+      \begin{cases}
+          2f(t), & 0\leqslant t\leqslant t_{0}, \\
+          0, & t_{0}<t\leqslant 1,
+      \end{cases}\quad\text{且}\quad 
+      h(t)=\begin{cases}
+          0, & 0 \leqslant t \leqslant t_{0}, \\
+          2f(t), & t_{0}<t \leqslant 1.
+      \end{cases}\]
+      证明:
+      \[g, h \in B(r) \quad \text{且} \quad f=\frac{g}{2}+\frac{h}{2}.\]
+    \item 由此导出 $B(\sqrt{2} r)\subset\conv(B(r))$, 并有 $\conv(B(r))=L_{\frac{1}{2}}$.
+    \item 得出 $L_{\frac{1}{2}}$ 是非局部凸的.
+    \item 把以上结论推广到 $0<p<1$ 的情形.
+    \item 证明: $L_{p}$ 上只有零线性泛函是连续的.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}

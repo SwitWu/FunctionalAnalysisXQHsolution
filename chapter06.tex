@@ -570,6 +570,54 @@
       = \sup_{x\in \closure{B}_H}\langle u(x),u(x)\rangle < \infty.\]
     从而 $u$ 为有界算子, 亦即为连续算子.
 \end{proof}
+
+
+\begin{exercise}
+  Let $X = C^1([0,1],\FR)$ and $Y = C([0,1],\FR)$ both endowed with the uniform
+  norm $\|\cdot\|_\infty$. Define $u:X\to Y$, $u(f) = f'$. Prove that the graph $G(u)$
+  of $u$ is closed but $u$ is not continuous.
+\end{exercise}
+
+\begin{proof}
+  \begin{itemize}
+    \item The graph $G(u)$ of $u$ is closed. Just prove by definition,
+      take a sequence $(f_n,f_n')\in X\times Y$ and let $(f_n,f_n')\to (f,g)$.
+      Show that $(f,g)\in X\times Y$ and $f' = g$.
+    \item $u$ is not continuous. Take $f_n = x^n$, then $\|f_n\|_\infty = 1$
+      and $\|f_n'\|_\infty = n$.
+  \end{itemize}
+  The $C^1[0,1]$ functions are a dense subset of $C[0,1]$ in the sup norm.
+  However the inclusion is proper so the $C^1[0,1]$ functions are not a complete
+  subspace of $C[0,1]$.
+\end{proof}
+
+
+\begin{exercise}[18]
+  Let $E$ be a separable Banach and $E\neq \{0\}$.
+  Let $(x_n)_{n\geq 1}$ be a dense sequence in $B_E$.
+  \begin{enumerate}[(a)]
+    \item Prove that there exists $u\in \mathcal{B}(\ell_1, E)$ such that
+      \[u((a_n)_{n\geq 1}) = \sum_{n\geq 1} a_n x_n.\]
+    \item Prove that the image under $u$ of the open unit ball of $\ell_1$ is $B_E$.
+      What is the image under $u$ of the closed unit ball of $\ell_1$?
+    \item Let $1<p<\infty$.
+      \begin{enumerate}[(i)]
+        \item Prove there exists a continuous linear surjection $u: \ell_1\to \ell_p$.
+        \item Prove there does not exist a continuous linear map $v:\ell_p\to \ell_1$
+          such that $u\circ v$ is the identity map on $\ell_p$.
+        \item Prove there does not exist any closed subspace $F$ in $\ell_1$ such that
+          $F\oplus \ker u = \ell_1$.
+      \end{enumerate}
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item This question seems a little strange, we just need to verify that
+      $u$ is linear and bounded, which is straightforward.
+    \item 
+  \end{enumerate}
+\end{proof}
 % 18.\textit{Proof}:(a)显然$u$是线性的,且当$\|(a_n)_{n\geq 1}\|\leq 1$时,有$\|u((a_n)_{n\geq 1})\|=\|\sum_{n\geq 1}a_nx_n\|\leq\sum_{n\geq 1}|a_n|\cdot\|x_n\|\leq\sum_{n\geq 1}|a_n|\leq 1$
 % 因此$\|u\|\leq 1$,从而$u\in\mathcal{B}(\ell_1,E)$\\
 % (b)由(a)知$u(B_{\ell_1})\subset \closure{B_E}$\\

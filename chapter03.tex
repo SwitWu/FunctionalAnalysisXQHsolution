@@ -843,41 +843,39 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    在 $\mathbb{R}$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
-    \[F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.\]
-    本题的目标是证明 Hardy 不等式:
-    \begin{equation}
-    \|F\|_{p} \leq \frac{p}{p-1}\|f\|_{p}, \forall f \in L_{p}(0,+\infty). \tag{$\star$}
-    \end{equation}
+  在 $\mathbb{R}$ 上考虑 Borel $\sigma$-代数和 Lebesgue 测度. 设 $1<p<\infty$ 且 $f \in L_{p}(0,+\infty)$. 定义
+  \[F(x)=\frac{1}{x} \int_{0}^{x} f(t) \diff t, \quad \forall x>0.\]
+  本题的目标是证明 Hardy 不等式:
+  \begin{equation}
+    \|F\|_{p} \leq \frac{p}{p-1}\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty). \tag{$\star$}
+  \end{equation}
+  \begin{enumerate}[(a)]
+    \item 首先说明 $F$ 在 $(0,+\infty)$ 上的定义是合理的, 并且
+      \[|x_1 F(x_1)-x_2 F(x_2)| \leq|x_1-x_2|^{\frac{1}{q}}\|f\|_{p},
+        \quad \forall x_{1}, x_{2}>0.\]
+      这里 $q$ 是 $p$ 的共轭数. 并由此证明 $F$ 在 $(0,+\infty)$ 上连续, 故可测.
+    \item 假设 $f$ 是有紧支撑的连续函数且 $f \geq 0$. 证明 $F$ 在 $(0, \infty)$ 上连续可导且 有
+      \[(p-1)\int_{0}^{+\infty} F(x)^{p}\diff x = p\int_{0}^{+\infty} F(x)^{p-1}f(x)\diff x.\]
+      并由此导出公式 $(\star)$.
+    \item 证明公式 $(\star)$ 对所有的 $f \in L_{p}(0,+\infty)$ 成立.
+    \item 用反例说明当 $p=1$ 时, $(\star)$ 不成立, 即不存在任何常数 $C>0$, 使得
+      \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty).\]
+    \item 证明 $\frac{p}{p-1}$ 是使得 $(\star)$ 式成立的最优常数. 也就是说, 若有 $C>0$ 使得
+      \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty),\]
+      则 $C\geq\frac{p}{p-1}$.
 
-    (a) 首先说明 $F$ 在 $(0,+\infty)$ 上的定义是合理的, 并且
-    \[|x_1 F(x_1)-x_2 F(x_2)| \leq|x_1-x_2|^{\frac{1}{q}}\|f\|_{p},
-      \quad \forall x_{1}, x_{2}>0.\]
-    这里 $q$ 是 $p$ 的共轭数. 并由此证明 $F$ 在 $(0,+\infty)$ 上连续, 故可测.
-
-    (b) 假设 $f$ 是有紧支撑的连续函数且 $f \geq 0$. 证明 $F$ 在 $(0, \infty)$ 上连续可导且 有
-    \[(p-1)\int_{0}^{+\infty} F(x)^{p}\diff x = p\int_{0}^{+\infty} F(x)^{p-1}f(x)\diff x.\]
-    并由此导出公式 $(\star)$.
-
-    (c) 证明公式 $(\star)$ 对所有的 $f \in L_{p}(0,+\infty)$ 成立.
-
-    (d) 用反例说明当 $p=1$ 时, $(\star)$ 不成立, 即不存在任何常数 $C>0$, 使得
-    \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty).\]
-
-    (e) 证明 $\frac{p}{p-1}$ 是使得 $(\star)$ 式成立的最优常数. 也就是说, 若有 $C>0$ 使得
-    \[\|F\|_{p} \leq C\|f\|_{p}, \quad \forall f \in L_{p}(0,+\infty),\]
-    则 $C\geq\frac{p}{p-1}$.
-
-    提示: 考虑函数 $f(x)=x^{-\frac{1}{p}} \mathbbm{1}_{[1, n]}(x)$ 和极限
-    \[
-    \left\|F \mathbbm{1}_{[1, n]}(x)\right\|_{p} /\|f\|_{p}, n \rightarrow \infty.
-    \]
+      提示: 考虑函数 $f(x)=x^{-\frac{1}{p}} \mathbbm{1}_{[1, n]}(x)$ 和极限
+      \[
+        \left\|F \mathbbm{1}_{[1, n]}(x)\right\|_{p} /\|f\|_{p}, n \rightarrow \infty.
+      \]
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
-    (a) 不妨设 $x_1\leq x_2$, 则
+  \begin{enumerate}[(a)]
+    \item We may assume that $x_1\leq x_2$, then
     \begin{align*}
-        |x_1f(x_1)-x_2f(x_2)|
+        |x_1 F(x_1) - x_2 F(x_2)|
         & =\left|\int_0^{x_1}f(t)\diff t-\int_0^{x_2}f(t)\diff t\right| \\
         & =\left|\int_{x_1}^{x_2} f(t)\diff t\right| \\
         & \leq \int_{x_1}^{x_2}|f(t)|\diff t \\
@@ -885,16 +883,23 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
         & \leq |x_1-x_2|^{\frac{1}{q}}\|f\|_p.
     \end{align*}
 
-    (b) 注意到 $(xF(x))'=f(x)$, 故由分部积分得
+    \item Note that $(xF(x))'=f(x)$. Integration by parts yields that
     \begin{align*}
         p\int_0^{+\infty} F(x)^{p-1}f(x)\diff x
         & =p\int_0^{+\infty} F(x)^{p-1}\diff (xF(x)) \\
-        & =pxF(x)^p|_0^{+\infty}-p\int_0^{+\infty} xF(x)(p-1)F(x)^{p-2}\diff F(x) \\
+        & =pxF(x)^p\big|_0^{+\infty}-p\int_0^{+\infty} xF(x)(p-1)F(x)^{p-2}\diff F(x) \\
         & =-p(p-1)\int_0^{+\infty}xF(x)^{p-1}\diff F(x) \\
         & =-(p-1)\int_0^{+\infty}x\diff F(x)^p \\
-        & =-(p-1)xF(x)^p|_0^{+\infty}+(p-1)\int_0^{+\infty} F(x)^p\diff x \\
+        & =-(p-1)xF(x)^p\big|_0^{+\infty}+(p-1)\int_0^{+\infty} F(x)^p\diff x \\
         & =(p-1)\int_0^{+\infty}F(x)^p\diff x.
     \end{align*}
+    It follows that
+    \[\|F\|_p^p
+       = \frac{p}{p-1} \int_0^\infty F(x)^{p-1} f(x) \diff x
+       \leq \frac{p}{p-1} \|F\|_p^{p-1} \|f\|_p,\]
+    in which we have used the H\"older's inequality. Hence
+    \[\|F\|_p \leq \frac{p}{p-1} \|f\|_p.\]
+  \end{enumerate}
 \end{proof}
 
 

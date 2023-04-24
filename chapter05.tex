@@ -247,7 +247,7 @@
 
 
 
-\begin{exercise}
+\begin{exercise}[14]
     本习题的目的是证明 Bernstein 定理: 令 $f\in C([0,1], \FK)$, 并设
     \[
     B_{n}(f)(x)=\sum_{k=0}^{n} \mathrm{C}_{n}^{k} f\left(\frac{k}{n}\right) x^{k}(1-x)^{n-k}.
@@ -316,25 +316,41 @@
 \end{proof}
 
 
-    % 15.\textit{Proof}:\\\\
-    % 16.\textit{Proof}:(a)首先显然$F(x)$是连续的,又因为$\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi}f(\theta)\diff\theta=0$,所以
-    % \[F(x+2\pi)=\int_0^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t+\int_x^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t=F(x)\]
-    % 故$F\in C_{2\pi}$,并且\\
-    % \[\begin{split}\hat{F}(n)&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)e^{-in\theta}\diff\theta\\
-    % &=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\frac{1}{-in}\diff(e^{-in\theta})\\
-    % &=\frac{1}{2\pi}\left(\frac{i}{n}e^{-in\theta}F(\theta)\right)\bigg|_0^{2\pi}-\frac{1}{2\pi}\int_0^{2\pi}\frac{i}{n}e^{-in\theta}f(\theta)\diff\theta\\
-    % &=-\frac{i}{2\pi n}\int_0^{2\pi}e^{-in\theta}f(\theta)\diff\theta\\
-    % &=-\frac{i}{n}\hat{f}(n)=\begin{cases}-\frac{i}{|n|}\hat{f}(|n|)=-\frac{i}{|n|}\frac{a_{|n|}}{2i}=-\frac{a_{|n|}}{2|n|}&n>0\mbox{时}\\\frac{i}{|n|}\hat{f}(-|n|)=\frac{i}{|n|}\left(-\frac{a_{|n|}}{2i}\right)=-\frac{a_{|n|}}{2|n|}&n<0\mbox{时}\end{cases}\\
-    % &=-\frac{a_{|n|}}{2|n|}\end{split}\]
-    % 由上面结果知对任意$n\geq 1$,有\[\begin{split}\frac{a_n}{n}&=-(\hat{F}(n)+\hat{F}(-n))\\&=-\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\left(e^{-in\theta}+e^{in\theta}\right)\diff\theta\\
-    % &=-\frac{1}{\pi}\int_0^{2\pi}F(\theta)\cos(n\theta)\diff\theta\\&=-\frac{1}{\pi}\int_0^{2\pi}\frac{F(\theta)}{n}\diff\sin(n\theta)\\
-    % &=-\frac{F(\theta)\sin(n\theta)}{n\pi}\bigg|_0^{2\pi}+\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\\
-    % &=\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\end{split}\]
-    % 故\[\sum_{n\geq 1}\frac{a_n}{n}=\frac{1}{\pi}\int_0^{2\pi}\sum_{n\geq 1}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\]
-    % 由级数$\sum_{n\geq 1}\frac{\sin(n\theta)}{n}$收敛及$f\in L_{2\pi}^1$知$\sum_{n\geq 1}\frac{a_n}{n}$收敛\\
-    % (b)假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是Fourier级数,则由(a)中结论知级数
-    % \[\sum_{n\geq 2}\frac{1}{n\log n}\mbox{收敛}\]
-    % 显然矛盾,因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$不是Fourier级数\\\\
+\begin{exercise}[15]
+  Let $f\in L_{2\pi}^1$ and define its Fourier series as
+  \[f \sim \sum_{n=-\infty}^\infty \widehat{f}(n) \e^{\upi nt}.\]
+  and the corresponding $n$-partial sum as
+  \[S_n(f)(t) = \sum_{k=-n}^n \widehat{f}(k) \e^{\upi kt}.\]
+  In this exercise, we assume that $f$ is a piecewise $C^1$ function, i.e.,
+  $f\in C_{2\pi}$ and there exists a partition $0<a_0<a_1<\cdots<a_k=2\pi$
+  such that $f$ is $C^1$ in each subinterval $(a_j,a_{j+1})$
+  and the limits $\lim_{x\to a_j+} f'$ and $\lim_{x\to a_{j+1}-} f'$ exist.
+  Prove that the Fourier series of $f$ converges to $f$ in the $\|\cdot\|_\infty$ norm and
+  \[\|f - S_N(f)\|_\infty \leq \sqrt{\frac{2}{N}} \|f'\|_2,\quad \forall N\geq 1.\]
+\end{exercise}
+
+\begin{exercise}
+  (...)
+\end{exercise}
+
+(a)首先显然$F(x)$是连续的,又因为$\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi}f(\theta)\diff\theta=0$,所以
+\[F(x+2\pi)=\int_0^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t+\int_x^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t=F(x)\]
+故$F\in C_{2\pi}$,并且\\
+\[\begin{split}\hat{F}(n)&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)e^{-in\theta}\diff\theta\\
+&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\frac{1}{-in}\diff(e^{-in\theta})\\
+&=\frac{1}{2\pi}\left(\frac{i}{n}e^{-in\theta}F(\theta)\right)\bigg|_0^{2\pi}-\frac{1}{2\pi}\int_0^{2\pi}\frac{i}{n}e^{-in\theta}f(\theta)\diff\theta\\
+&=-\frac{i}{2\pi n}\int_0^{2\pi}e^{-in\theta}f(\theta)\diff\theta\\
+&=-\frac{i}{n}\hat{f}(n)=\begin{cases}-\frac{i}{|n|}\hat{f}(|n|)=-\frac{i}{|n|}\frac{a_{|n|}}{2i}=-\frac{a_{|n|}}{2|n|}&n>0\mbox{时}\\\frac{i}{|n|}\hat{f}(-|n|)=\frac{i}{|n|}\left(-\frac{a_{|n|}}{2i}\right)=-\frac{a_{|n|}}{2|n|}&n<0\mbox{时}\end{cases}\\
+&=-\frac{a_{|n|}}{2|n|}\end{split}\]
+由上面结果知对任意$n\geq 1$,有\[\begin{split}\frac{a_n}{n}&=-(\hat{F}(n)+\hat{F}(-n))\\&=-\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\left(e^{-in\theta}+e^{in\theta}\right)\diff\theta\\
+&=-\frac{1}{\pi}\int_0^{2\pi}F(\theta)\cos(n\theta)\diff\theta\\&=-\frac{1}{\pi}\int_0^{2\pi}\frac{F(\theta)}{n}\diff\sin(n\theta)\\
+&=-\frac{F(\theta)\sin(n\theta)}{n\pi}\bigg|_0^{2\pi}+\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\\
+&=\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\end{split}\]
+故\[\sum_{n\geq 1}\frac{a_n}{n}=\frac{1}{\pi}\int_0^{2\pi}\sum_{n\geq 1}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\]
+由级数$\sum_{n\geq 1}\frac{\sin(n\theta)}{n}$收敛及$f\in L_{2\pi}^1$知$\sum_{n\geq 1}\frac{a_n}{n}$收敛\\
+(b)假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是Fourier级数,则由(a)中结论知级数
+\[\sum_{n\geq 2}\frac{1}{n\log n}\mbox{收敛}\]
+显然矛盾,因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$不是Fourier级数\\\\
 
 \begin{exercise}[17]
   对任意 $a\in\mathbb{R}$, 相应的平移变换 $\tau_a(f)(x) = f(x-a)$.
