@@ -149,24 +149,41 @@
 \end{proof}
 
 
+\begin{exercise}[7]
+  (...)
+\end{exercise}
 
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item 对于任意 $m\geq 1$, 有 $K = \bigcup_{x\in K} B(x,1/m)$, 因为 $K$ 是紧的,
+      所以存在有限子集 $D_m$, 使得
+      \[K = \bigcup_{x\in D_m} B(x,1/m).\]
+      令
+      \[D = \bigcup_{m\geq 1} D_m.\]
+      显然 $D$ 是 $K$ 的可数稠密子集.
+    \item 因为 $D$ 可数, 故可记 $D=\{x_1,x_2,\cdots\}$.
+      
+      $\{f_n(x_1):n\geq 1\}$ 相对紧, 故有收敛子列 $\{f_{n_{1k}}(x_1):k\geq 1\}$;
 
-% 7.Proof:(a)对于任意$m\geq 1$,有$K=\bigcup_{x\in K}B(x,1/m)$,因为$K$是紧的,所以存在有限子集$D_m$,使得
-% \[K=\bigcup_{x\in D_m}B(x,1/m)\]
-% 令\[D=\bigcup_{m\geq 1}D_m\]
-% 显然$D$是$K$的可数稠密子集\\
-% (b)因为$D$可数,故可记$D=\{x_1,x_2,\cdots\}$\\
-% $\{f_n(x_1):n\geq 1\}$相对紧:有收敛子列$\{f_{n_{1k}}(x_1):k\geq 1\}$\\
-% $\{f_n(x_2):n\geq 1\}$相对紧:$\{f_{n_{1k}}(x_2):k\geq 1\}$有收敛子列$\{f_{n_{2k}}(x_2):k\geq 1\}$\\
-% $\cdots$\\
-% $\{f_n(x_l):n\geq 1\}$相对紧:$\{f_{n_{(l-1)k}}(x_l):k\geq 1\}$有收敛子列$\{f_{n_{lk}}(x_l):k\geq 1\}$\\
-% $\cdots$\\
-% 如此进行下去,利用对角线法,可挑选出一列$(f_{n_{kk}})_{k\geq 1}$,使得对任意的$x\in D$,$(f_{n_{kk}}(x))_{k\geq 1}$收敛\\
-% (c)对任意$x\in K$,存在$(x_m)\subset D$使得$x_m\to x$,故$\forall\varepsilon>0$,有:
-% \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))\leq d(f_{n_{kk}}(x),f_{n_{kk}}(x_m))+d(f_{n_{kk}}(x_m),f_{n_{qq}}(x_m))+d(f_{n_{qq}}(x_m),f_{n_{qq}}(x))\]由$(f_n)$等度连续及(b)中结论知当指标$m,k,q$都取得足够大时,有
-% \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))<\varepsilon\]因此$(f_{n_{kk}}(x))$是Cauchy序列\\
-% 由$\Delta(f_{n_{kk}},f_{n_{qq}})=sup_{x\in K}d((f_{n_{kk}}(x)),(f_{n_{qq}}(x)))$知$(f_{n_{kk}})$是Cauchy序列,故其在$C(K,E)$中收敛\\\\
+      $\{f_n(x_2):n\geq 1\}$ 相对紧, 故 $\{f_{n_{1k}}(x_2):k\geq 1\}$有收敛子列$\{f_{n_{2k}}(x_2):k\geq 1\}$;
 
+      $\cdots$
+
+      $\{f_n(x_l):n\geq 1\}$相对紧, 故 $\{f_{n_{(l-1)k}}(x_l):k\geq 1\}$有收敛子列$\{f_{n_{lk}}(x_l):k\geq 1\}$
+
+      $\cdots$
+
+      如此进行下去,利用对角线法,可挑选出一列$(f_{n_{kk}})_{k\geq 1}$,使得对任意的$x\in D$,$(f_{n_{kk}}(x))_{k\geq 1}$收敛.
+    \item 对任意$x\in K$,存在$(x_m)\subset D$使得$x_m\to x$,故$\forall\varepsilon>0$,有:
+    \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))\leq d(f_{n_{kk}}(x),f_{n_{kk}}(x_m))+d(f_{n_{kk}}(x_m),f_{n_{qq}}(x_m))+d(f_{n_{qq}}(x_m),f_{n_{qq}}(x))\]
+    由$(f_n)$等度连续及(b)中结论知当指标$m,k,q$都取得足够大时,有
+    \[d(f_{n_{kk}}(x),f_{n_{qq}}(x))<\varepsilon\]
+    因此 $(f_{n_{kk}}(x))$ 是 Cauchy 序列.
+    由 $\Delta(f_{n_{kk}},f_{n_{qq}}) = \sup_{x\in K}d((f_{n_{kk}}(x)),(f_{n_{qq}}(x)))$
+    知 $(f_{n_{kk}})$ 是 Cauchy 序列, 故其在$C(K,E)$中收敛. \qedhere
+  \end{enumerate}
+  
+\end{proof}
 
 \begin{exercise}[10]
     设 $(K,d)$ 是紧度量空间. 证明所有从 $K$ 到 $\mathbb{R}$ 的 Lipschitz 函数构成的集合在 $(C(K,\mathbb{R}),\|\cdot\|_{\infty})$ 中稠密.
@@ -333,24 +350,52 @@
   (...)
 \end{exercise}
 
-(a)首先显然$F(x)$是连续的,又因为$\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi}f(\theta)\diff\theta=0$,所以
-\[F(x+2\pi)=\int_0^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t+\int_x^{x+2\pi}f(t)\diff t=\int_0^xf(t)\diff t=F(x)\]
-故$F\in C_{2\pi}$,并且\\
-\[\begin{split}\hat{F}(n)&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)e^{-in\theta}\diff\theta\\
-&=\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\frac{1}{-in}\diff(e^{-in\theta})\\
-&=\frac{1}{2\pi}\left(\frac{i}{n}e^{-in\theta}F(\theta)\right)\bigg|_0^{2\pi}-\frac{1}{2\pi}\int_0^{2\pi}\frac{i}{n}e^{-in\theta}f(\theta)\diff\theta\\
-&=-\frac{i}{2\pi n}\int_0^{2\pi}e^{-in\theta}f(\theta)\diff\theta\\
-&=-\frac{i}{n}\hat{f}(n)=\begin{cases}-\frac{i}{|n|}\hat{f}(|n|)=-\frac{i}{|n|}\frac{a_{|n|}}{2i}=-\frac{a_{|n|}}{2|n|}&n>0\mbox{时}\\\frac{i}{|n|}\hat{f}(-|n|)=\frac{i}{|n|}\left(-\frac{a_{|n|}}{2i}\right)=-\frac{a_{|n|}}{2|n|}&n<0\mbox{时}\end{cases}\\
-&=-\frac{a_{|n|}}{2|n|}\end{split}\]
-由上面结果知对任意$n\geq 1$,有\[\begin{split}\frac{a_n}{n}&=-(\hat{F}(n)+\hat{F}(-n))\\&=-\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\left(e^{-in\theta}+e^{in\theta}\right)\diff\theta\\
-&=-\frac{1}{\pi}\int_0^{2\pi}F(\theta)\cos(n\theta)\diff\theta\\&=-\frac{1}{\pi}\int_0^{2\pi}\frac{F(\theta)}{n}\diff\sin(n\theta)\\
-&=-\frac{F(\theta)\sin(n\theta)}{n\pi}\bigg|_0^{2\pi}+\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\\
-&=\frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\end{split}\]
-故\[\sum_{n\geq 1}\frac{a_n}{n}=\frac{1}{\pi}\int_0^{2\pi}\sum_{n\geq 1}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta\]
-由级数$\sum_{n\geq 1}\frac{\sin(n\theta)}{n}$收敛及$f\in L_{2\pi}^1$知$\sum_{n\geq 1}\frac{a_n}{n}$收敛\\
-(b)假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是Fourier级数,则由(a)中结论知级数
-\[\sum_{n\geq 2}\frac{1}{n\log n}\mbox{收敛}\]
-显然矛盾,因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$不是Fourier级数\\\\
+\begin{proof}
+  \begin{enumerate}[(a)]
+      \item 首先显然 $F(x)$ 是连续的, 又因为 $\hat{f}(0)=\frac{1}{2\pi}\int_0^{2\pi}f(\theta)\diff\theta=0$, 所以
+      \[F(x+2\pi) = \int_0^{x+2\pi}f(t)\diff t
+        = \int_0^xf(t)\diff t+\int_x^{x+2\pi}f(t)\diff t = \int_0^xf(t)\diff t = F(x).\]
+      故 $F\in C_{2\pi}$, 并且
+      \[\begin{split}
+        \hat{F}(n)
+        & = \frac{1}{2\pi}\int_0^{2\pi}F(\theta)e^{-in\theta}\diff\theta \\
+        & = \frac{1}{2\pi}\int_0^{2\pi}F(\theta)\frac{1}{-in}\diff(e^{-in\theta}) \\
+        & = \frac{1}{2\pi}\left(\frac{i}{n}e^{-in\theta}F(\theta)\right)
+            \bigg|_0^{2\pi}-\frac{1}{2\pi}\int_0^{2\pi}\frac{i}{n}e^{-in\theta}f(\theta)\diff\theta\\
+        & = -\frac{i}{2\pi n}\int_0^{2\pi}e^{-in\theta}f(\theta)\diff\theta \\
+        & = -\frac{i}{n}\hat{f}(n)
+          = \begin{cases}
+            -\frac{i}{|n|}\hat{f}(|n|)
+              = -\frac{i}{|n|}\frac{a_{|n|}}{2i} = -\frac{a_{|n|}}{2|n|},
+            & \text{if } n>0, \\
+            \frac{i}{|n|}\hat{f}(-|n|)=\frac{i}{|n|}\left(-\frac{a_{|n|}}{2i}\right)
+              = -\frac{a_{|n|}}{2|n|},
+            & \text{if } n<0
+            \end{cases} \\
+        & = -\frac{a_{|n|}}{2|n|}.
+      \end{split}\]
+      由上面结果知对任意 $n\geq 1$, 有
+      \[\begin{split}
+        \frac{a_n}{n}
+        & = -(\hat{F}(n)+\hat{F}(-n)) \\
+        & = -\frac{1}{2\pi}\int_0^{2\pi}F(\theta)\left(e^{-in\theta}+e^{in\theta}\right)\diff\theta\\
+        & = -\frac{1}{\pi}\int_0^{2\pi}F(\theta)\cos(n\theta)\diff\theta \\
+        & = -\frac{1}{\pi}\int_0^{2\pi}\frac{F(\theta)}{n}\diff\sin(n\theta) \\
+        & = -\frac{F(\theta)\sin(n\theta)}{n\pi}\bigg|_0^{2\pi}
+            + \frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta \\
+        & = \frac{1}{\pi}\int_0^{2\pi}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta
+      \end{split}\]
+      故
+      \[\sum_{n\geq 1}\frac{a_n}{n}
+        = \frac{1}{\pi}\int_0^{2\pi}\sum_{n\geq 1}\frac{\sin(n\theta)}{n}f(\theta)\diff\theta.\]
+      由级数 $\sum_{n\geq 1}\frac{\sin(n\theta)}{n}$ 收敛及 $f\in L_{2\pi}^1$
+      知 $\sum_{n\geq 1}\frac{a_n}{n}$ 收敛.
+    \item 假设级数$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$是 Fourier 级数, 则由(a)中结论知级数
+      \[\sum_{n\geq 2}\frac{1}{n\log n} \text{ 收敛}.\]
+      显然矛盾, 因此$\sum_{n\geq 2}\frac{\sin(nx)}{\log n}$ 不是 Fourier 级数.
+  \end{enumerate}
+\end{proof}
+
 
 \begin{exercise}[17]
   对任意 $a\in\mathbb{R}$, 相应的平移变换 $\tau_a(f)(x) = f(x-a)$.
