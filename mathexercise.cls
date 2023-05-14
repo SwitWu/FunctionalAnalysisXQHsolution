@@ -47,7 +47,7 @@
 \setlist[enumerate,1]{%
   itemindent = 0pt,
   labelwidth = 1em,
-  leftmargin = 5em,
+  leftmargin = 2em,
   labelsep = 5pt,
   labelindent = *}
 \setlist[enumerate,2]{%
@@ -152,7 +152,7 @@
   \pushQED{\qed}
   \normalfont\topsep1\p@\@plus6\p@\relax
   \trivlist\item\relax
-{\hspace*{\parindent}{\proofnamestyle #1}\@addpunct{\proofpunct}}
+{{\proofnamestyle #1}\@addpunct{\proofpunct}}
   \hspace\labelsep\ignorespaces
 }{%
 \popQED\endtrivlist\@endpefalse
@@ -162,24 +162,30 @@
 \pushQED{\qed}%
   \normalfont\topsep1\p@\@plus6\p@\relax
   \trivlist\item\relax
-{\hspace*{\parindent}{\proofnamestyle #1}\@addpunct{\proofpunct}}%
+{{\proofnamestyle #1}\@addpunct{\proofpunct}}%
   \hspace\labelsep\ignorespaces
 }{%
 \popQED\endtrivlist\@endpefalse
 }
-\newcounter{exercounter}
-\counterwithin*{exercounter}{\exercounter@within}
-\NewDocumentEnvironment{exercise}{o d<> +b}
-  {%
-    \IfNoValueTF{#1}
-      {\stepcounter{exercounter}}
-      {\setcounter{exercounter}{#1}}
-    \par\textbf{\theexercounter.}\hspace{.333em}%
-    \IfNoValueTF{#2}
-      {#3}
-      {\textbf{(#2)}\hspace{.333em}#3}
-  }
-  {\ignorespacesafterend}
+\newcounter{exercise}
+\counterwithin*{exercise}{\exercounter@within}
+\NewDocumentEnvironment{exercise}{ o d<>}{%
+  \IfNoValueTF{#1}%
+              {\stepcounter{exercise}}%
+              {\setcounter{exercise}{#1}}%
+  \list{\textbf{\theexercise.}}{%
+    % \renewcommand{\makelabel}[1]{##1\hfil}%
+    \setlength{\labelwidth}{1.5em}%
+    \setlength{\labelsep}{0.3em}%
+    \setlength{\leftmargin}{1.8em}%
+    \setlength{\itemindent}{0em}%
+  }%
+  \item 
+  \IfNoValueTF{#2}{}{\textbf{(#2)}\space\ignorespaces}
+}%
+{%
+  \endlist
+}
 \setlist{nosep,left=\parindent}
 \RequirePackage{tasks}
 \settasks{after-item-skip=0.5ex plus 0.5ex minus 1ex}
