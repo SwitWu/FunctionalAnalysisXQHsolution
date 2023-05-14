@@ -114,13 +114,13 @@
 
 
 \begin{exercise}
-    考虑函数序列 $(f_{n})$, 这里 $f_{n}(t)=\sin\left(\sqrt{t+4(n\pi)^2}\right)$, $t\in[0,\infty)$.
-
-    (a) 证明 $(f_{n})$ 等度连续并且逐点收敛到 $0$ 函数.
-
-    (b) $C_{b}([0,\infty),\mathbb{R})$ 表示 $[0, \infty)$ 上所有有界连续实函数构成的空间, 并赋予范数
+  考虑函数序列 $(f_{n})$, 这里 $f_{n}(t)=\sin\left(\sqrt{t+4(n\pi)^2}\right)$, $t\in[0,\infty)$.
+  \begin{enumerate}[(a)]
+    \item 证明 $(f_{n})$ 等度连续并且逐点收敛到 $0$ 函数.
+    \item $C_{b}([0,\infty),\mathbb{R})$ 表示 $[0, \infty)$ 上所有有界连续实函数构成的空间, 并赋予范数
     \[\|f\|_{\infty}=\sup_{t\geq 0}|f(t)|.\]
     $(f_n)$ 在 $C_b([0,\infty),\mathbb{R})$ 中是否相对紧?
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -265,37 +265,28 @@
 
 
 \begin{exercise}[14]
-    本习题的目的是证明 Bernstein 定理: 令 $f\in C([0,1], \FK)$, 并设
-    \[
-    B_{n}(f)(x)=\sum_{k=0}^{n} \mathrm{C}_{n}^{k} f\left(\frac{k}{n}\right) x^{k}(1-x)^{n-k}.
-    \]
-    则 $B_{n}$ 在 $[0,1]$ 上一致收敛到 $f$.
-
-    (a) 首先导出对任一正整数 $n$, 有公式
-    \[
-    \sum_{k=0}^{n} \mathrm{C}_{n}^{k} k x^{k}(1-x)^{n-k}=nx \quad\text{和}\quad\sum_{k=0}^{n} \mathrm{C}_{n}^{k} k^2 x^k(1-x)^{n-k}=nx+n(n-1)x.
-    \]
-    并由此证明
-    \[
-    \sum_{k=0}^{n} \mathrm{C}_{n}^{k}(k-nx)^2 x^k (1-x)^{n-k}=nx(1-x).
-    \]
-
-    (b) 对任意 $\varepsilon>0$, 选择适当的 $\delta>0$, 使得
-    \[
-    x, y \in[0,1],|x-y|<\delta \Rightarrow|f(x)-f(y)|<\varepsilon.
-    \]
-    对任意固定的 $x\in [0,1]$, 令 $I=\{k:|x-\frac{k}{n}|<\delta\}$
-    及 $J=\{k:|x-\frac{k}{n}|>\delta\}$. 证明
-    \begin{align*}
-        |f(x)-B_n(f)(x)|<{}
-        & \varepsilon\sum_{k\in I}\mathrm{C}_n^k x^k(1-x)^{n-k} \\
-        & +\frac{2\|f\|_{\infty}}{\delta^2}\sum_{k\in J}\mathrm{C}_n^k \biggl(x-\frac{k}{n}\biggr)^2x^k(1-x)^{n-k}.
-    \end{align*}
-    从而导出
-    \[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta}\frac{x(1-x)}{n}.\]
-
-    (c) 得出结论
-    \[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0.\]
+  本习题的目的是证明 Bernstein 定理: 令 $f\in C([0,1], \FK)$, 并设
+  \[ B_{n}(f)(x)=\sum_{k=0}^{n} \mathrm{C}_{n}^{k} f\left(\frac{k}{n}\right) x^{k}(1-x)^{n-k}.\]
+  则 $B_{n}$ 在 $[0,1]$ 上一致收敛到 $f$.
+  \begin{enumerate}[(a)]
+    \item 首先导出对任一正整数 $n$, 有公式
+      \[\sum_{k=0}^{n} \mathrm{C}_{n}^{k} k x^{k}(1-x)^{n-k}=nx \quad\text{和}\quad\sum_{k=0}^{n} \mathrm{C}_{n}^{k} k^2 x^k(1-x)^{n-k}=nx+n(n-1)x.\]
+      并由此证明
+      \[\sum_{k=0}^{n} \mathrm{C}_{n}^{k}(k-nx)^2 x^k (1-x)^{n-k}=nx(1-x).\]
+    \item 对任意 $\varepsilon>0$, 选择适当的 $\delta>0$, 使得
+      \[x, y \in[0,1],|x-y|<\delta \Rightarrow|f(x)-f(y)|<\varepsilon.\]
+      对任意固定的 $x\in [0,1]$, 令 $I=\{k:|x-\frac{k}{n}|<\delta\}$
+      及 $J=\{k:|x-\frac{k}{n}|>\delta\}$. 证明
+      \begin{align*}
+          |f(x)-B_n(f)(x)|<{}
+          & \varepsilon\sum_{k\in I}\mathrm{C}_n^k x^k(1-x)^{n-k} \\
+          & +\frac{2\|f\|_{\infty}}{\delta^2}\sum_{k\in J}\mathrm{C}_n^k \biggl(x-\frac{k}{n}\biggr)^2x^k(1-x)^{n-k}.
+      \end{align*}
+      从而导出
+      \[|f(x)-B_n(f)(x)|<\varepsilon+\frac{2\|f\|_{\infty}}{\delta}\frac{x(1-x)}{n}.\]
+    \item 得出结论
+      \[\lim_{n\to\infty}\|f-B_n(f)\|_{\infty}=0.\]
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}

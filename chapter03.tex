@@ -590,7 +590,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 
-\begin{exercise}(插值不等式)
+\begin{exercise}<插值不等式>
     设 $0<p<q\leq\infty$, $0\leq\theta\leq 1$. 并令
     \[\frac{1}{s}=\frac{\theta}{p}+\frac{1-\theta}{q}.\]
     证明若 $f\in L_p(\varOmega)\cap L_q(\varOmega)$, 则
@@ -605,8 +605,6 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
     $f=f^{\theta}f^{1-\theta}\in L_s(\varOmega)$ 且
     \[\|f\|_s\leq\|f^{\theta}\|_{\frac{p}{\theta}} \|f^{1-\theta}\|_{\frac{q}{1-\theta}}=\|f\|_p^{\theta} \|f\|_q^{1-\theta}.\qedhere\]
 \end{proof}
-
-
 
 
 \begin{exercise}(广义 Minkowski 不等式) 
@@ -725,16 +723,17 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    (a) 证明: 若 $(E,d)$ 是可分的度量空间, $F\subset E$,
-    则 $(F,d)$ 也是可分的度量空间.
-
-    (b) 证明: $\mathbb{R}^{n}, c_{0}, \ell_{p}, 1 \leq p<\infty, C([a, b], \mathbb{R}), C_{0}(\mathbb{R}, \mathbb{R})$ 
-    和 $L_{p}(0,1), 1 \leq p<\infty$, 都是可分的.
-
-    (c) 设 $C=\{-1,1\}^{\mathbb{N}}$ 是 $\ell_{\infty}$ 的子集, 
-    它由所有的每项是 $1$ 或 $-1$ 的序列构成. 首先验证若 $x$ 和 $y$ 是 $C$ 中两个不同序列, 
-    则 $\|x-y\|_{\infty}=2$. 再证明 $C$ 不可数, 由此导出 $\ell_{\infty}$ 不可分.
-    类似证明 $L_{\infty}(0,1)$ 不可分.
+  \begin{enumerate}[(a)]
+    \item 证明: 若 $(E,d)$ 是可分的度量空间, $F\subset E$,
+      则 $(F,d)$ 也是可分的度量空间.
+    \item 证明: $\mathbb{R}^{n}$, $c_0$, $\ell_{p}$, $1 \leq p<\infty$, $C([a, b],\mathbb{R})$,
+      $C_{0}(\mathbb{R}, \mathbb{R})$ 
+      和 $L_{p}(0,1), 1 \leq p<\infty$, 都是可分的.
+    \item 设 $C=\{-1,1\}^{\mathbb{N}}$ 是 $\ell_{\infty}$ 的子集, 
+      它由所有的每项是 $1$ 或 $-1$ 的序列构成. 首先验证若 $x$ 和 $y$ 是 $C$ 中两个不同序列, 
+      则 $\|x-y\|_{\infty}=2$. 再证明 $C$ 不可数, 由此导出 $\ell_{\infty}$ 不可分.
+      类似证明 $L_{\infty}(0,1)$ 不可分.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -905,49 +904,36 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    令 $2 \leq p<\infty$, 在本题中 $L_{p}(\mathbb{R})$ 简单记作 $L_{p}$.
-
-    (a) 我们的第一个目标是证明 \textbf{Clarkson 不等式}:
-    \[
-    \left\|\frac{f+g}{2}\right\|_{p}^{p}+\left\|\frac{f-g}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left(\|f\|_{p}^{p}+\|g\|_{p}^{p}\right), \quad \forall f, g \in L_{p}.
-    \]
-    \begin{enumerate}[(i)]
+  令 $2 \leq p<\infty$, 在本题中 $L_{p}(\mathbb{R})$ 简单记作 $L_{p}$.
+  \begin{enumerate}[(a)]
+    \item 我们的第一个目标是证明 \textbf{Clarkson 不等式}:
+      \[ \left\|\frac{f+g}{2}\right\|_{p}^{p}+\left\|\frac{f-g}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left(\|f\|_{p}^{p}+\|g\|_{p}^{p}\right), \quad \forall f, g \in L_{p}. \]
+      \begin{enumerate}[(i)]
         \item 任取 $s, t \in[0,+\infty)$, 证明 $s^{p}+t^{p} \leq\left(s^{2}+t^{2}\right)^{\frac{p}{2}}$.
         \item 任取 $a, b \in \mathbb{R}$, 证明
-        \[
-        \left|\frac{a+b}{2}\right|^{p}+\left|\frac{a-b}{2}\right|^{p} \leq \frac{1}{2}\left(|a|^{p}+|b|^{p}\right).
-        \]
+        \[\left|\frac{a+b}{2}\right|^{p}+\left|\frac{a-b}{2}\right|^{p} \leq \frac{1}{2}\left(|a|^{p}+|b|^{p}\right).\]
         \item 导出 Clarkson 不等式.
-    \end{enumerate}
-
-    (b) 设 $C$ 是 $L_{p}$ 空间中的非空闭凸集, 
-    且 $f \in L_{p}$, 并记 $d=d(f, C)$. 我们的第二个目标是证明: 
-    存在唯一的函数 $g_{0} \in C$, 使得 $d=\left\|f-g_{0}\right\|_{p}$.
-    \begin{enumerate}[(i)]
-        \item 解释为什么存在 $C$ 中的序列 $\left(g_{n}\right)_{n \geq 1}$, 使得
-        \[
-        \left\|f-g_{n}\right\|_{p}^{p} \leq d^{p}+\frac{1}{n}, \quad \forall n \in \mathbb{N}^{*}.
-        \]
-        \item 运用 Clarkson 不等式证明
-        \[
-        \left\|\frac{g_{n}-g_{m}}{2}\right\|_{p}^{p} \leq \frac{1}{2n}+\frac{1}{2m}, \quad \forall n, m \in \mathbb{N}^{*}.
-        \]
-        \item 导出: 存在函数 $g_{0} \in C$, 使得 $d(f, C)=\left\|f-g_{0}\right\|_{p}$.
-        \item 证明这样的函数 $g_{0} \in C$ 是唯一的. 当证明了该命题后, 将 $g_{0}$ 记为 $P_{C}(f)$.
-    \end{enumerate}
-
-    (c) 最后我们的目标是证明映射 $P_{C}: L_{p} \rightarrow C$ 的连续性.
-    \begin{enumerate}[(i)]
-        \item 证明
-        \[
-        \left\|g-P_{C}(g)\right\|_{p} \leq\|f-g\|_{p}+\left\|f-P_{C}(f)\right\|_{p}, \quad \forall f, g \in L_{p}.
-        \]
-        \item 运用 Clarkson 不等式, 证明
-        \[
-        \left\|\frac{P_{C}(f)-P_{C}(g)}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left\|f-P_{C}(g)\right\|_{p}^{p}-\frac{1}{2}\left\|f-P_{C}(f)\right\|_{p}^{p}, \quad \forall f, g \in L_{p}.
-        \]
-        \item 最后导出 $P_{C}$ 的连续性.
-    \end{enumerate}
+      \end{enumerate}
+    \item 设 $C$ 是 $L_{p}$ 空间中的非空闭凸集, 
+      且 $f \in L_{p}$, 并记 $d=d(f, C)$. 我们的第二个目标是证明: 
+      存在唯一的函数 $g_{0} \in C$, 使得 $d=\left\|f-g_{0}\right\|_{p}$.
+      \begin{enumerate}[(i)]
+          \item 解释为什么存在 $C$ 中的序列 $\left(g_{n}\right)_{n \geq 1}$, 使得
+          \[\left\|f-g_{n}\right\|_{p}^{p} \leq d^{p}+\frac{1}{n}, \quad \forall n \in \mathbb{N}^{*}.\]
+          \item 运用 Clarkson 不等式证明
+          \[\left\|\frac{g_{n}-g_{m}}{2}\right\|_{p}^{p} \leq \frac{1}{2n}+\frac{1}{2m}, \quad \forall n, m \in \mathbb{N}^{*}.\]
+          \item 导出: 存在函数 $g_{0} \in C$, 使得 $d(f, C)=\left\|f-g_{0}\right\|_{p}$.
+          \item 证明这样的函数 $g_{0} \in C$ 是唯一的. 当证明了该命题后, 将 $g_{0}$ 记为 $P_{C}(f)$.
+      \end{enumerate}
+    \item 最后我们的目标是证明映射 $P_{C}: L_{p} \rightarrow C$ 的连续性.
+      \begin{enumerate}[(i)]
+          \item 证明
+          \[\left\|g-P_{C}(g)\right\|_{p} \leq\|f-g\|_{p}+\left\|f-P_{C}(f)\right\|_{p}, \quad \forall f, g \in L_{p}.\]
+          \item 运用 Clarkson 不等式, 证明
+          \[\left\|\frac{P_{C}(f)-P_{C}(g)}{2}\right\|_{p}^{p} \leq \frac{1}{2}\left\|f-P_{C}(g)\right\|_{p}^{p}-\frac{1}{2}\left\|f-P_{C}(f)\right\|_{p}^{p}, \quad \forall f, g \in L_{p}.\]
+          \item 最后导出 $P_{C}$ 的连续性.
+      \end{enumerate}
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}

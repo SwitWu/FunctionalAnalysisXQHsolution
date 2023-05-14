@@ -4,15 +4,15 @@
 
 
 \begin{exercise}
-    (a) 证明: $\FR\setminus\FQ$ 是 $\FR$ 上的 $\mathcal{G}_{\delta}$ 集.
-    并导出 $\FQ$ 不是 $\mathcal{G}_{\delta}$ 集, 且不存在函数 $f:\FR\to\FR$ 使得 $\cont{f}=\FQ$.
-
-    (b) 定义函数 $f:\FR\to\FR$: 当 $x\in\FR\setminus\FQ$ 时, 令 $f(x)=0$; $f(0)=1$;
-    若 $x$ 是非零的有理数 $\frac{p}{q}$, 这里 $\frac{p}{q}$ 是 $x$ 的不可约形式, $p\in\FZ$,
-    $q\in\FN$, 令 $f(x)=\frac{1}{q}$. 证明: $\cont{f}=\FR\setminus\FQ$.
-
-    (c) 设 $f=\mathbbm{1}_{\FQ}$. 证明: $f$ 不是第一纲的 (即不是任一函数列的极限函数),
-    但是存在一列第一纲的函数逐点收敛到 $f$.
+  \begin{enumerate}[(a)]
+    \item 证明: $\FR\setminus\FQ$ 是 $\FR$ 上的 $\mathcal{G}_{\delta}$ 集.
+      并导出 $\FQ$ 不是 $\mathcal{G}_{\delta}$ 集, 且不存在函数 $f:\FR\to\FR$ 使得 $\cont{f}=\FQ$.
+    \item 定义函数 $f:\FR\to\FR$: 当 $x\in\FR\setminus\FQ$ 时, 令 $f(x)=0$; $f(0)=1$;
+      若 $x$ 是非零的有理数 $\frac{p}{q}$, 这里 $\frac{p}{q}$ 是 $x$ 的不可约形式, $p\in\FZ$,
+      $q\in\FN$, 令 $f(x)=\frac{1}{q}$. 证明: $\cont{f}=\FR\setminus\FQ$.
+    \item 设 $f=\mathbbm{1}_{\FQ}$. 证明: $f$ 不是第一纲的 (即不是任一函数列的极限函数),
+      但是存在一列第一纲的函数逐点收敛到 $f$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -31,7 +31,6 @@
       矛盾, 从而假设不成立, 说明 $\FQ$ 不是 $\mathcal{G}_{\delta}$集,
       由于任一映射的连续点集都是 $\mathcal{G}_{\delta}$ 集,
       所以不存在函数 $f:\FR\to\FR$使得$\textrm{Cont}(f)=\FQ$.
-
     \item 容易验证该函数是周期为 $1$ 的函数, 因此只需要考虑该函数在区间 $[0,1]$ 上的情况:
    
       首先, $f$在无理数点处连续: 任意取定 $x_0\in\FR\setminus\FQ$,
@@ -39,13 +38,8 @@
       使得 $f(\frac{p}{q})=\frac{1}{q}\geq\varepsilon$, 取 $\delta>0$, 
       使得 $U(x_0,\delta)$ 不包含上述有限个有理数(这样的 $\delta$ 显然是可以取到的), 则当 $x\in U(x_0,\delta)$ 时,
       \[|f(x)-f(x_0)|=|f(x)|<\varepsilon.\]
-
-      其次, $f$ 在有理数点处不连续: 同理可证.
-
-      因此 $\cont{f}=\FR\setminus\FQ$.
-
+      其次, $f$ 在有理数点处不连续: 同理可证. 因此 $\cont{f}=\FR\setminus\FQ$.
     \item 见 Hirsch-Lacombe \cite[Page 65]{hirsch2012elements}.
-
       假设 $f=\mathbbm{1}_{\FQ}$ 是第一纲的, 则由定理6.1.7知 $\cont{f}$ 是
       $\FR$ 中稠密的 $\mathcal{G}_{\delta}$ 集, 但是 $f$ 在任意点处都不连续, 
       从而矛盾, 故 $f=\mathbbm{1}_{\FQ}$ 不是第一纲的. 取
@@ -59,7 +53,6 @@
       综上知 $\lim_{m\to\infty}f_m=\mathbbm{1}_{\FQ}$. \qedhere
     \end{enumerate}
 \end{proof}
-
 
 
 \begin{exercise}

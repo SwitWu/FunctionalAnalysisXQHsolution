@@ -380,22 +380,22 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 
 
 \begin{exercise}
-    (a) 设 $H$ 是 Hilbert 空间, $D_{n}=\{-1,1\}^{n}$. 证明
-    \[
-    \frac{1}{2^{n}} \sum_{(\varepsilon_{k}) \in D_{n}}\left\|\varepsilon_{1} x_{1}+\cdots+\varepsilon_{n} x_{n}\right\|^{2}=\left\|x_{1}\right\|^{2}+\cdots+\left\|x_{n}\right\|^{2}, \quad \forall x_1,\cdots,x_n \in H.
-    \]
-
-    (b) 设 $(X,\|\cdot\|)$ 是 Banach 空间, 并假设有一个 $X$ 上的内积范数 $|\cdot|$ 
-    等价于 $\|\cdot\|$. 证明存在正常数 $a$ 和 $b$, 使得
-    \[
-      a\sum_{k=1}^{n}\left\|x_{k}\right\|^{2}
-      \leq\frac{1}{2^{n}} \sum_{\left(\varepsilon_{k}\right) \in D_{n}}
-        \left\|\sum_{k=1}^{n} \varepsilon_{k} x_{k}\right\|^{2}
-      \leq b \sum_{k=1}^{n}\left\|x_{k}\right\|^{2}, \quad \forall x_{1}, \cdots, x_{n} \in X.
-    \]
-
-    (c) 设 $1 \leq p \neq 2 \leq \infty$, 证明空间 $c_{0}$, $\ell_{p}$ 和 $L_{p}(0,1)$
-    没有等价的内积范数.
+  \begin{enumerate}[(a)]
+    \item 设 $H$ 是 Hilbert 空间, $D_{n}=\{-1,1\}^{n}$. 证明
+      \[
+      \frac{1}{2^{n}} \sum_{(\varepsilon_{k}) \in D_{n}}\left\|\varepsilon_{1} x_{1}+\cdots+\varepsilon_{n} x_{n}\right\|^{2}=\left\|x_{1}\right\|^{2}+\cdots+\left\|x_{n}\right\|^{2}, \quad \forall x_1,\cdots,x_n \in H.
+      \]
+    \item 设 $(X,\|\cdot\|)$ 是 Banach 空间, 并假设有一个 $X$ 上的内积范数 $|\cdot|$ 
+      等价于 $\|\cdot\|$. 证明存在正常数 $a$ 和 $b$, 使得
+      \[
+        a\sum_{k=1}^{n}\left\|x_{k}\right\|^{2}
+        \leq\frac{1}{2^{n}} \sum_{\left(\varepsilon_{k}\right) \in D_{n}}
+          \left\|\sum_{k=1}^{n} \varepsilon_{k} x_{k}\right\|^{2}
+        \leq b \sum_{k=1}^{n}\left\|x_{k}\right\|^{2}, \quad \forall x_{1}, \cdots, x_{n} \in X.
+      \]
+    \item 设 $1 \leq p \neq 2 \leq \infty$, 证明空间 $c_{0}$, $\ell_{p}$ 和 $L_{p}(0,1)$
+      没有等价的内积范数.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -436,16 +436,14 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 
 \begin{exercise}
     设 $\left(C_{n}\right)$ 是 Hilbert 空间 $H$ 中的一个递增的非空闭凸子集列, $C$ 是所有 $C_n$ 的并集的闭包. 证明
-    \[
-    P_{C}(x)=\lim_{n\to\infty} P_{C_n}(x), \quad \forall x \in H.
-    \]
+    \[P_{C}(x)=\lim_{n\to\infty} P_{C_n}(x), \quad \forall x \in H.\]
 \end{exercise}
 
 \begin{proof}
     首先容易验证 $C$ 是闭凸集, 从而 $P_C(x)$ 是有定义的, 
     接下来证明 $P_C(x)=\lim_{n\to\infty}P_{C_n}(x)$ $(\forall x\in H)$, 分几步进行:
 
-    $d(x,C)=\lim_{n\to\infty}d(x,C_n)$:
+    第一步证明 $d(x,C)=\lim_{n\to\infty}d(x,C_n)$.
     因为对于每个 $n$, $d(x,C)\leq d(x,C_n)$,
     故 $d(x,C)\leq \lim_{n\to\infty}d(x,C_n)$,
     假设 $d(x,C)<\lim_{n\to\infty}d(x,C_n)$,
@@ -453,7 +451,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     不妨设 $y\in\bigcup_{n=1}^{\infty}C_n$, 也就是说存在 $n_0$ 使得 $y\in C_{n_0}$,
     从而 $d(x,y)\geq d(x,C_{n_0})\geq\lim_{n\to\infty}d(x,C_n)$, 矛盾, 故 $d(x,C)=\lim_{n\to\infty}d(x,C_n)$.
     
-    $(P_{C_n}(x))_{n\geq 1}$收敛:
+    第二步证明 $(P_{C_n}(x))_{n\geq 1}$ 收敛.
     因为 $(d(x,C_n))_{n\geq 1}$ 单调递减趋于 $d(x,C)$,
     故对 $\forall\varepsilon>0$, 存在 $N\geq 1$,
     使得当 $n>N$ 时, $d(x,C_n)<d(x,C)+\varepsilon$,
@@ -468,7 +466,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     由 $C$ 的完备性知其在 $C$ 中收敛, 记为
     \[\lim_{n\to\infty}P_{C_n}(x)=y\in C.\]
     
-    $y=P_C(x)$: 
+    第三步证明 $y=P_C(x)$.
     对于任意 $\forall\varepsilon>0$,
     存在 $N\geq 1$, 使得对 $\forall n>N$,
     有 $d(y,P_{C_n}(x))<\varepsilon$, $d(x,C_n)<d(x,C)+\varepsilon$, 故
@@ -563,33 +561,26 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
           \end{vmatrix}. \\
       & =: A + B.
     \end{align*}
-    注意到 $(x_i,x-y) = 0$ $\forall 1\leq i\leq n$ 且 $(x,x-y) = \|x-y\|^2 = d(x,E)^2$,
-    故 $A = d(x,E)^2\det G(x_1,\ldots,x_n)$.
+    注意到 $(x_i,x-y) = 0$ $\forall 1\leq i\leq n$ 且 $(x,x-y) = \|x-y\|^2 = d(x,E)^2$, 故
+    \[A = d(x,E)^2\det G(x_1,\ldots,x_n).\]
     又由于 $y,x_1,\ldots,x_p$ 线性相关, 故 $B = 0$.
 \end{proof}
 
 
-
-
 \begin{exercise}
-    设 $E=C([0,1])$ 上装备有如下的内积
-    \[
-    \innerp{f}{g}=\int_{0}^{1} f(t) \overline{g(t)}\diff t.
-    \]
-    并设 $E_{0}$ 表示在 $[0,1]$ 上积分为 $0$ 的函数组成的 $E$ 的向量子空间. 考虑 $E$ 的 向量子空间:
-    \[
-    H=\{f \in E: f(1)=0\} \text {\ 且\ } H_{0}=E_{0} \cap H.
-    \]
-
-    (a) 验证 $H_{0}$ 是 $H$ 的闭的真向量子空间.
-
-    (b) 设 $h(t)=t-\frac{1}{2}, t \in[0,1]$. 证明
-    \begin{enumerate}[(i)]
-    \item $E=\operatorname{span}(H, h)$ 且有 $E_{0}=\operatorname{span}\left(H_{0}, h\right)$;
-    \item $h$ 属于 $H_{0}$ 在 $E$ 中的闭包.
-    \end{enumerate}
-
-    (c) 证明 $H_{0}^{\perp}=\{0\}$. 解释所得结果蕴含的意义.
+  设 $E=C([0,1])$ 上装备有如下的内积
+  \[\innerp{f}{g}=\int_{0}^{1} f(t) \overline{g(t)}\diff t.\]
+  并设 $E_{0}$ 表示在 $[0,1]$ 上积分为 $0$ 的函数组成的 $E$ 的向量子空间. 考虑 $E$ 的 向量子空间:
+  \[H=\{f \in E: f(1)=0\} \text {\ 且\ } H_{0}=E_{0} \cap H.\]
+  \begin{enumerate}[(a)]
+    \item 验证 $H_{0}$ 是 $H$ 的闭的真向量子空间.
+    \item 设 $h(t)=t-\frac{1}{2}, t \in[0,1]$. 证明
+      \begin{enumerate}[(i)]
+      \item $E=\operatorname{span}(H, h)$ 且有 $E_{0}=\operatorname{span}\left(H_{0}, h\right)$;
+      \item $h$ 属于 $H_{0}$ 在 $E$ 中的闭包.
+      \end{enumerate}
+    \item 证明 $H_{0}^{\perp}=\{0\}$. 解释所得结果蕴含的意义.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -615,14 +606,12 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 
 
 \begin{exercise}
-    仍设 $E$ 为上一习题中的内积空间, 并令 $0<c<1$. 记
-\[
-F=\left\{f \in E:f|_{[0, c]}=0\right\}.
-\]
-
-(a) 验证 $F$ 是 $E$ 的闭的真向量子空间.
-
-(b) 证明 $F \oplus F^{\perp} \neq E$. 解释所得结果蕴含的意义.
+  仍设 $E$ 为上一习题中的内积空间, 并令 $0<c<1$. 记
+  \[F=\left\{f \in E:f|_{[0, c]}=0\right\}.\]
+  \begin{enumerate}[(a)]
+    \item 验证 $F$ 是 $E$ 的闭的真向量子空间.
+    \item 证明 $F \oplus F^{\perp} \neq E$. 解释所得结果蕴含的意义.
+  \end{enumerate}
 \end{exercise}
 % 14.
 % \begin{proof}
@@ -645,12 +634,14 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
 
 
 \begin{exercise}
-    (a) 设 $E$ 和 $F$ 是 Hilbert 空间 $H$ 的两个正交向量子空间. 证明 $E+F$ 是闭的当且仅当 $E$ 和 $F$ 都是闭的.
-    
-    (b) $(e_{n})$ 表示 $\ell_{2}$ 中的标准正交基. 
-    设 $E$ 是 $\left\{e_{2 n}: n \geq 1\right\}$ 的线性扩张的闭包, 
-    而 $F$ 是 $\left\{e_{2 n}+\frac{1}{n} e_{2 n+1}: n \geq 1\right\}$ 的线性扩张的闭包. 
-    证明 $E\cap F=\{0\}$ 并 且 $E+F$ 在 $\ell_{2}$ 中不是闭的.
+  \begin{enumerate}[(a)]
+    \item 设 $E$ 和 $F$ 是 Hilbert 空间 $H$ 的两个正交向量子空间.
+      证明 $E+F$ 是闭的当且仅当 $E$ 和 $F$ 都是闭的.
+    \item $(e_{n})$ 表示 $\ell_{2}$ 中的标准正交基. 
+      设 $E$ 是 $\left\{e_{2 n}: n \geq 1\right\}$ 的线性扩张的闭包, 
+      而 $F$ 是 $\left\{e_{2 n}+\frac{1}{n} e_{2 n+1}: n \geq 1\right\}$ 的线性扩张的闭包. 
+      证明 $E\cap F=\{0\}$ 并 且 $E+F$ 在 $\ell_{2}$ 中不是闭的.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -710,14 +701,13 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
 
 
 \begin{exercise}
-    设 $H$ 是 Hilbert 空间, $E$ 是 $H$ 的非零的闭向量子空间. 
-    设 $P$ 是 $H$ 到 $E$ 的投 影 (投影意味着 $P$ 是 $H$ 上的线性算子且满足 $P^{2}=P$ ). 证明以下命题等价:
-    
-    (a) $P=P_{E}$.
-    
-    (b) $\|P\|=1$.
-    
-    (c) $|\langle x, P(x)\rangle| \leq\|x\|^{2}, \forall x \in H$.
+  设 $H$ 是 Hilbert 空间, $E$ 是 $H$ 的非零的闭向量子空间. 
+  设 $P$ 是 $H$ 到 $E$ 的投 影 (投影意味着 $P$ 是 $H$ 上的线性算子且满足 $P^{2}=P$ ). 证明以下命题等价:
+  \begin{enumerate}[(a)]
+    \item $P=P_{E}$.
+    \item $\|P\|=1$.
+    \item $|\langle x, P(x)\rangle| \leq\|x\|^{2}, \forall x \in H$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -941,13 +931,12 @@ F=\left\{f \in E:f|_{[0, c]}=0\right\}.
 
 
 \begin{exercise}
-    设 $H$ 是一个 Hilbert 空间, 并设 $T\in\mathcal{B}(H)$ 且 $\|T\|\leq 1$. 证明:
-
-    (a) $T(x)=x$ 当且仅当 $T^*(x)=x$, $x\in H$.
-
-    (b) $\ker(I-T)=\ker(I-T^*)$.
-
-    (c) $H=\ker(I-T)\oplus\closure{(I-T)(H)}$.
+  设 $H$ 是一个 Hilbert 空间, 并设 $T\in\mathcal{B}(H)$ 且 $\|T\|\leq 1$. 证明:
+  \begin{enumerate}[(a)]
+    \item $T(x)=x$ 当且仅当 $T^*(x)=x$, $x\in H$.
+    \item $\ker(I-T)=\ker(I-T^*)$.
+    \item $H=\ker(I-T)\oplus\closure{(I-T)(H)}$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
