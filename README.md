@@ -6,4 +6,4 @@
 ## PDF 文件
 
 + 方法一：在 [Releases](https://github.com/SwitWu/FunctionalAnalysisXQHsolution/releases) 中下载最新版本。
-+ 方法二：直接去我的[个人主页](https://switwu.github.io)下载。
++ 方法二：直接去我的[个人主页](https://switwu.github.io)下载（存在版本滞后的可能，以方法一为准）。
