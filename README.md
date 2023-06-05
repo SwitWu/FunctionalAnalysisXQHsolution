@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/Compile-XeLaTeX-red)
+![](https://badgen.net/github/stars/SwitWu/FunctionalAnalysisXQHsolution)
+![](https://badgen.net/github/release/SwitWu/FunctionalAnalysisXQHsolution/stable)
 ## 介绍
 
 泛函分析讲义（许全华、马涛、尹智编著）课后习题参考解答，
