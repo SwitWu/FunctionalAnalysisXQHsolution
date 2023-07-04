@@ -101,16 +101,18 @@
 \end{exercise}
 
 \begin{proof}
-记所有使得$(f_n(x))$是Cauchy序列的点$x$构成的集合为$B$,要证明$B$为闭集,只需证明其任意收敛序列的极限点仍在其中
-设$(x_k)_{k\geq 1}$是$B$中任意一个收敛的序列,且$x_k\to x$.
+  记所有使得 $(f_n(x))$ 是 Cauchy 序列的点 $x$ 构成的集合为 $B$,
+  要证明 $B$ 为闭集, 只需证明其任意收敛序列的极限点仍在其中
+  设 $(x_k)_{k\geq 1}$ 是 $B$ 中任意一个收敛的序列, 且 $x_k\to x$.
 
-因为$f_n\in C(K,E)$,所以$\forall\varepsilon>0,\exists K,\forall k>K,d(f_n(x_k),f_n(x))<\varepsilon$\\
-又$x_k\in B$,所以$(f_n(x_k))_{n\geq 1}$是Cauchy序列,故对于上述$\varepsilon>0,\exists N,\forall m,n>N$,有
-\[d(f_n(x_k),f_m(x_k))<\varepsilon\]
-从而\[d(f_n(x),f_m(x))\leq d(f_n(x),f_n(x_k))+d(f_n(x_k),f_m(x_k))+d(f_m(x_k),f_m(x))<3\varepsilon\]
-这说明$(f_n(x))_{n\geq 1}$是Cauchy序列,故$x\in B$,所以$B$是闭集.
+  因为$f_n\in C(K,E)$, 所以 $\forall\varepsilon>0,\exists K,\forall k>K,d(f_n(x_k),f_n(x))<\varepsilon$.
+  又 $x_k\in B$, 所以 $(f_n(x_k))_{n\geq 1}$ 是 Cauchy 序列,
+  故对于上述 $\varepsilon>0$, $\exists N$, $\forall m,n>N$,有
+  \[d(f_n(x_k),f_m(x_k))<\varepsilon.\]
+  从而
+  \[d(f_n(x),f_m(x))\leq d(f_n(x),f_n(x_k))+d(f_n(x_k),f_m(x_k))+d(f_m(x_k),f_m(x))<3\varepsilon.\]
+  这说明 $(f_n(x))_{n\geq 1}$ 是 Cauchy 序列, 故 $x\in B$, 所以 $B$ 是闭集.
 \end{proof}
-
 
 
 \begin{exercise}
@@ -229,20 +231,33 @@
 \end{exercise}
 
 \begin{proof}
-    \begin{enumerate}[(i)]
-    \item $K_1\times K_2$是紧的Hausdorff空间
-    \item $\mathcal{A}$是$C(K_1\times K_2,\FC)$的子代数:容易验证$\mathcal{A}$是向量子空间,下证$\mathcal{A}$关于乘法封闭:\\
-    任意$\ell_1,\ell_2\in\mathcal{A}$,记$\ell_1=\sum_{i\in I}a_if_{1i}\otimes g_{1i},\ell_2=\sum_{j\in J}b_jf_{2j}\otimes g_{2j}$,其中$I,J$都为有限指标集,对任意$(x_1,x_2)\in K_1\times K_2$,有\[\begin{split}\ell_1(x_1,x_2)\cdot\ell_2(x_1,x_2)&=\left(\sum_{i\in I}a_if_{1i}(x_1)g_{1i}(x_2)\right)\left(\sum_{j\in J}b_jf_{2j}(x_1)g_{2j}(x_2)\right)\\&=\sum_{i\in I}\sum_{j\in J}a_ib_j(f_{1i}f_{2j})(x_1)\cdot(g_{1i}g_{2j})(x_2)\\&=\sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right)(x_1,x_2)\end{split}\]
-    因此\[\ell_1\cdot\ell_2=\sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right)\]
-    上式仍为有限和,结合$C(K_1,\FC),C(K_2,\FC)$都为代数知$\mathcal{A}$关于乘法封闭
-    \item 常值函数$1\in\mathcal{A}$
-    \item 可分点:设$x=(x_1,x_2),y=(y_1,y_2)\in K_1\times K_2$且$x\neq y$,不妨设$x_1\neq y_1$,因为$K_1$是紧Hausdorff空间,所以由Urysohn引理知存在$f\in C(K_1,[0,1])\subset C(K_1,\FC)$使得$f(x_1)=0,f(y_1)=1$,令$g(x)\equiv1(\forall x\in K_2)$,则
-    \[f\otimes g(x)=f\otimes g(x_1,x_2)=0\]
-    \[f\otimes g(y)=f\otimes g(y_1,y_2)=1\]
-    因此$\mathcal{A}$是可分点的
+  \begin{enumerate}[(i)]
+    \item $K_1\times K_2$是紧的Hausdorff空间;
+    \item $\mathcal{A}$ 是 $C(K_1\times K_2,\FC)$ 的子代数:容易验证$\mathcal{A}$是向量子空间,下证$\mathcal{A}$关于乘法封闭:\\
+    任意 $\ell_1,\ell_2\in\mathcal{A}$, 记 $\ell_1=\sum_{i\in I}a_if_{1i}\otimes g_{1i}$,
+    $\ell_2=\sum_{j\in J}b_jf_{2j}\otimes g_{2j}$, 其中 $I,J$ 都为有限指标集,
+    对任意 $(x_1,x_2)\in K_1\times K_2$, 有
+    \[\begin{split}
+      \ell_1(x_1,x_2)\cdot\ell_2(x_1,x_2)
+      & = \left(\sum_{i\in I}a_if_{1i}(x_1)g_{1i}(x_2)\right)
+          \left(\sum_{j\in J}b_jf_{2j}(x_1)g_{2j}(x_2)\right) \\
+      & = \sum_{i\in I}\sum_{j\in J}a_ib_j(f_{1i}f_{2j})(x_1)\cdot(g_{1i}g_{2j})(x_2) \\
+      & = \sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right)(x_1,x_2).
+    \end{split}\]
+    因此
+    \[\ell_1\cdot\ell_2
+      = \sum_{i\in I}\sum_{j\in J}a_ib_j\left((f_{1i}f_{2j})\otimes(g_{1i}g_{2j})\right).\]
+    上式仍为有限和, 结合 $C(K_1,\FC),C(K_2,\FC)$ 都为代数知 $\mathcal{A}$ 关于乘法封闭;
+    \item 常值函数 $1\in\mathcal{A}$
+    \item 可分点: 设 $x=(x_1,x_2),y=(y_1,y_2)\in K_1\times K_2$ 且$x\neq y$, 不妨设$x_1\neq y_1$,
+      因为 $K_1$ 是紧 Hausdorff 空间, 所以由 Urysohn 引理知存在 $f\in C(K_1,[0,1])\subset C(K_1,\FC)$
+      使得 $f(x_1)=0$, $f(y_1)=1$, 令 $g(x)\equiv1(\forall x\in K_2)$, 则
+      \[f\otimes g(x)=f\otimes g(x_1,x_2)=0,\]
+      \[f\otimes g(y)=f\otimes g(y_1,y_2)=1.\]
+      因此$\mathcal{A}$是可分点的
     \item $\mathcal{A}$是自伴的
-    \end{enumerate}
-    综上知$\mathcal{A}$在$C(K_1\times K_2,\mathbb{R})$中稠密.
+  \end{enumerate}
+  综上知$\mathcal{A}$在$C(K_1\times K_2,\mathbb{R})$中稠密.
 \end{proof}
 
 

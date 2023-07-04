@@ -99,7 +99,8 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 因此 $0\leq a\leq 1$.
 
 综上得证: $L_a$ 连续 $\Leftrightarrow a\in [0,1]$, 且
-\[\|L_a\|=\sup\limits_{p\in E,P\neq 0}\frac{|P(a)|}{\max_{0\leq x\leq 1}|P(x)|}=1(P\equiv 1\;\text{时可取到最大值}).\]
+\[\|L_a\|=\sup\limits_{p\in E,P\neq 0}\frac{|P(a)|}{\max_{0\leq x\leq 1}|P(x)|}=1
+  \quad (P\equiv 1\;\text{时可取到最大值}).\]
 
 (c) $L_{a,b}$连续的充要条件是$0\leq a<b\leq 1$, 理由如下:
 
@@ -221,7 +222,7 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 知 $N$ 是 $E$ 上的范数, $N\leq\|\cdot\|_1$是显然的.
 
 (b) 因
-\[N(f_n)=\int_0^{\frac{1}{n}}x(n-n^2x)\diff x=\frac{1}{6n}\rightarrow 0(n\to\infty),\]
+\[N(f_n)=\int_0^{\frac{1}{n}}x(n-n^2x)\diff x=\frac{1}{6n}\rightarrow 0\quad (n\to\infty),\]
 故 $(f_n)_{n\geq 1}$ 在 $(E,N)$ 中收敛到 $0$. 
 假设函数列在 $(E,\|\cdot\|_1)$ 中收敛, 即存在 $g(x)\in E$ 使得
 \[\lim_{n\to\infty}\int_0^1|f_n(x)-g(x)|\diff x=0\Rightarrow f_n(x)-g(x)=0\text{ a.e. }(n\to\infty).\]
@@ -240,8 +241,8 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 假设$B_{d_1}(0,\frac{1}{3})\in\tau_2$. 因为 $0\in B_{d_1}(0,\frac{1}{3})$, 
 所以 $\exists\delta>0,s.t.B_{d_2}(0,\delta)\subset B_{d_1}(0,\frac{1}{3})$.
 取前面给出的 $(f_n)_{n\geq 1}$, 由$d_2(f_n,0)\to 0(n\to\infty)$ 知
-\[\exists M>0,s.t.f_M\in B_{d_2}(0,\delta)\subset B_{d_1}(0,\frac{1}{3})\]
-但是 $d_1(f_M,0)=\frac{1}{2}>\frac{1}{3}$, 矛盾, 故假设不成立, 即$B_{d_1}(0,\frac{1}{3})\notin\tau_2$.
+\[\exists M>0,\text{such that } f_M\in B_{d_2}(0,\delta)\subset B_{d_1}(0,1/3).\]
+但是 $d_1(f_M,0)=\frac{1}{2}>\frac{1}{3}$, 矛盾, 故假设不成立, 即$B_{d_1}(0,1/3)\notin\tau_2$.
 
 (c) 对于 $\forall f\in B$, 有 
 \begin{align*}
@@ -382,25 +383,25 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
 
 \begin{exercise}
-    设 $E$ 为数域 $\FK$ 上有限维向量空间, 其维数 $\dim E=n$.
-    $\{e_{1},\cdots,e_{n}\}$ 表示 $E$ 上的一组基, 任取 $u\in\mathcal{L}(E)$, 令 $[u]$ 表示 $u$ 在这组基下对应的矩阵.
-
-    (a) 证明映射 $u \mapsto[u]$ 建立了从 $\mathcal{L}(E)$ 到所有 $n \times n$ 矩阵构成的向量空间 
-    $\mathbb{M}_{n}(\FK)$ 之间的同构映射.
-
-    (b) 假设 $E=\mathbb{K}^{n}$ 且 $\{e_1,\cdots,e_n\}$ 是经典基 
-    (即 $e_{k}=(0, \cdots, 0,1,0, \cdots, 0)$, 对应于第 $k$ 个向量, 
-    它仅在第 $k$ 个位置取 1 , 其他位置取 $0$). 
-    并约定 $E=\mathbb{K}^{n}$ 赋予欧氏范数. 证明若 $u$ (或等价地 $[u]$) 可对角化, 
-    则 $\|u\|=\max\{|\lambda_{1}|,\cdots,|\lambda_{n}|\}$, 这里 $\lambda_{1}, \cdots, \lambda_{n}$ 是 $u$ 的特征值.
-
-    (c) $\{e_{1}, \cdots, e_{n}\}$ 如上, 试由 $[u]$ 中的元素分别确定在 $p=1$ 和 $p=\infty$ 时的
-    范数 $\left\|u:\left(\mathbb{K}^{n},\|\cdot\|_{p}\right)\rightarrow\left(\mathbb{K}^{n},\|\cdot\|_{p}\right)\right\|$.
+  设 $E$ 为数域 $\FK$ 上有限维向量空间, 其维数 $\dim E=n$.
+  $\{e_{1},\cdots,e_{n}\}$ 表示 $E$ 上的一组基, 任取 $u\in\mathcal{L}(E)$,
+  令 $[u]$ 表示 $u$ 在这组基下对应的矩阵.
+  \begin{enumerate}[(a)]
+    \item 证明映射 $u \mapsto[u]$ 建立了从 $\mathcal{L}(E)$ 到所有 $n \times n$ 矩阵构成的向量空间 
+      $\mathbb{M}_{n}(\FK)$ 之间的同构映射.
+    \item 假设 $E=\mathbb{K}^{n}$ 且 $\{e_1,\cdots,e_n\}$ 是经典基 
+      (即 $e_{k}=(0, \cdots, 0,1,0, \cdots, 0)$, 对应于第 $k$ 个向量, 
+      它仅在第 $k$ 个位置取 1 , 其他位置取 $0$). 
+      并约定 $E=\mathbb{K}^{n}$ 赋予欧氏范数. 证明若 $u$ (或等价地 $[u]$) 可对角化, 
+      则 $\|u\|=\max\{|\lambda_{1}|,\cdots,|\lambda_{n}|\}$, 这里 $\lambda_{1}, \cdots, \lambda_{n}$ 是 $u$ 的特征值.
+    \item $\{e_{1}, \cdots, e_{n}\}$ 如上, 试由 $[u]$ 中的元素分别确定在 $p=1$ 和 $p=\infty$ 时的
+      范数 $\|u:(\mathbb{K}^{n},\|\cdot\|_{p})\rightarrow(\mathbb{K}^{n},\|\cdot\|_{p})\|$.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
 (a)记
-\[u(e_k)=\sum_{m=1}^n u_{mk}e_m,\quad k=1,\cdots,n\]
+\[u(e_k)=\sum_{m=1}^n u_{mk}e_m,\quad k=1,\cdots,n.\]
 并记矩阵 $[u]=(u_{mk})\in\mathbb{M}_n(\mathbb{K})$,
 则 $(u(e_1),\cdots,u(e_n))=(e_1,\cdots,e_n)[u]$.
 任取 $x\in E$, 存在唯一的一组数 $x_1,\cdots,x_n$ 使得 $x=\sum_{k=1}^n x_ke_k$. 则
@@ -453,13 +454,12 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 \end{proof}
 
 
-
-
 \begin{exercise}
     设 $E$ 是 Banach 空间.
     \begin{enumerate}[(a)]
     \item 设 $u\in\mathcal{B}(E)$ 且 $\|u\|<1$. 证明 $I_E-u$ 在 $\mathcal{B}(E)$ 中可逆.
-    \item 设 $GL(E)$ 表示 $\mathcal{B}(E)$ 中可逆元构成的集合. 证明 $GL(E)$ 关于复合运算构成一个群且是 $\mathcal{B}(E)$ 中的开集.
+    \item 设 $GL(E)$ 表示 $\mathcal{B}(E)$ 中可逆元构成的集合.
+      证明 $GL(E)$ 关于复合运算构成一个群且是 $\mathcal{B}(E)$ 中的开集.
     \item 证明 $u\to u^{-1}$ 是 $GL(E)$ 上的同胚映射.
     \end{enumerate}
 \end{exercise}
@@ -473,9 +473,9 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 同理可证 $v(I_E-u)=I_E$, 因此 $I_E-u$ 在 $\mathcal{B}(E)$ 中可逆.
 
 (b)\begin{itemize}
-\item $(uv)w=u(vw)$,即满足结合律
-\item 恒等映射 $id$ 即为单位元
-\item 任意元 $u$ 都存在 $u^{-1}\in GL(E),s.t.u\circ u^{-1}=id$
+\item $(uv)w=u(vw)$,即满足结合律;
+\item 恒等映射 $id$ 即为单位元;
+\item 任意元 $u$ 都存在 $u^{-1}\in GL(E)$, 使得 $u\circ u^{-1}=id$,
 \end{itemize}
 故 $GL(E)$ 关于复合运算构成一个群, 
 下证 $GL(E)$ 是 $\mathcal{B}(E)$ 中的开集: 

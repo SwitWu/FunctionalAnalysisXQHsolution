@@ -305,7 +305,8 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
   因此对任意 $y\in H,\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 存在, 而且
   \[\left|\lim_{k\to\infty}\langle y,x_{n_k}\rangle\right|\leq\limsup_{k\to\infty}|\langle y,x_{n_k}\rangle|\leq M\|y\|.\]
   因此 $y\mapsto\lim_{k\to\infty}\langle y,x_{n_k}\rangle$ 是连续线性泛函, 
-  由 Riesz 表示定理知存在 $x\in H$ 使得 $\lim_{k\to\infty}\langle y,x_{n_k}\rangle=\langle y,x\rangle(\forall y\in H)$.
+  由 Riesz 表示定理知存在 $x\in H$ 使得
+  \[\lim_{k\to\infty}\langle y,x_{n_k}\rangle=\langle y,x\rangle \quad (\forall y\in H). \qedhere\]
 \end{proof}
 
 
@@ -586,7 +587,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 \begin{proof}
     (a) 任取一列 $(f_n)\subset E_0$ 且 $f_n\rightarrow f$,
     则 $\int_0^1 f_n(t)\diff t=0$, $\int_0^1|f_n(t)-f(t)|^2\diff t\rightarrow0$,
-    故 $f_n(t)-f(t)=0$ a.e. $(n\to\infty)$,
+    故 $f_n(t)-f(t)=0$ a.e.~$(n\to\infty)$,
     因此 $\int_0^1 f(t)\diff t=0$, 也即 $f\in E_0$,
     从而说明 $E_0$ 是闭子空间, 故 $H_0=E_0\cap H$ 是 $H$ 的闭子空间.
     取 $f(t)=1-t$, 显然 $f(t)\in H$, 但是 $f(t)\notin H_0$, 故 $H_0$ 是 $H$ 的真子空间.
@@ -851,7 +852,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     \[T^{*}=T_K^{*}=T_{\widetilde{K}}=T_K=T.\]
     因为 $T^{*}=T$, 所以 $T$ 的特征值全部都为实数, 
     任取两个特征值 $\lambda,\mu\in\mathbb{R}$, 任取两个相应的特征向量 $f,g\in H$, 
-    即$T(f)=\lambda f,T(g)=\mu g$,则:
+    即 $T(f)=\lambda f$, $T(g)=\mu g$, 则:
     \[\mu\langle f,g\rangle=\langle f,\mu g\rangle=\langle f,T(g)\rangle=\langle T(f),g\rangle=\lambda\langle f,g\rangle.\]
     从而
     \[(\mu-\lambda)\langle f,g\rangle=0.\]
@@ -873,7 +874,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
     由 $f(0)=0$, 得 $f(x)=C_2\sin\frac{x}{\lambda}$, 再由 $\lambda f(1)=\int_0^1 f(x)\diff x$ 得
     \[\lambda C_2\sin\frac{1}{\lambda}=\int_0^1 C_2\sin\frac{x}{\lambda}\diff x.\]
     由上式直接解得 $\sin\frac{1}{\lambda}+\cos\frac{1}{\lambda}=1$,
-    故 $\lambda=\frac{1}{2k\pi}$ ($k\in\FZ,k\neq 0$) 或 $\frac{1}{\frac{\pi}{2}+2k\pi}$ ($k\in\FZ$).
+    故 $\lambda=(2k\pi)^{-1}$ ($k\in\FZ,k\neq 0$) 或 $(\frac{\pi}{2}+2k\pi)^{-1}$ ($k\in\FZ$).
 \end{proof}
 
 % \begin{remark}
@@ -884,9 +885,7 @@ $|\innerp{x}{y}|=\alpha \|x\|\cdot\|y\|$ $(\forall x\in E,y\in F)$.
 \begin{exercise}
     和上一习题一样, 令 $H=L_{2}(0,1)$; 并设 $\left(e_{n}\right)_{n \geq 1}$ 是 $H$ 中的规范正交集. 
     证明: $\left(e_{n}\right)_{n \geq 1}$ 是 $H$ 上的规范正交基的充分必要条件是
-    \[
-    \sum_{n\geq 1}\left|\int_{0}^{x} e_{n}(t)\diff t\right|^{2}=x, \quad \forall x \in[0,1].
-    \]
+    \[ \sum_{n\geq 1}\left|\int_{0}^{x} e_{n}(t)\diff t\right|^{2}=x, \quad \forall x \in[0,1]. \]
 \end{exercise}
 
 \begin{proof}
