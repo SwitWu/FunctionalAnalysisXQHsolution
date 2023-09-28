@@ -332,28 +332,43 @@
 \begin{proof}
   \begin{enumerate}[(a)]
     \item 将距离 $d$ 诱导的拓扑记为 $\tau _d$.
-    \[\begin{split}U\in\tau&\Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y>0\mid|y-x|<r\}\subset U\\&\Rightarrow\forall x\in U,\exists r^{*}=\ln\left(\frac{r}{x}+1\right)>0,s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r^{*}\}\subset U\\&\Rightarrow U\in\tau _d\end{split}\]
-    \[\begin{split}U\in\tau_d&\Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r\}\subset U\\&\Rightarrow\forall x\in U,\exists r^{*}=x(1-e^{-r})>0,s.t.\{y>0\mid|y-x|<r^{*}\}\subset U\\&\Rightarrow U\in\tau\end{split}\]\\
-    因而$\tau$可由距离$d$诱导,下面证明距离$d$是完备的:
+      \begin{align*}
+          U\in\tau
+        & \Leftrightarrow\forall x\in U,\exists r>0,s.t.\{y>0\mid|y-x|<r\}\subset U \\
+        & \Rightarrow\forall x\in U,\exists r^{*}=\ln\left(\frac{r}{x}+1\right)>0,s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r^{*}\}\subset U \\
+        & \Rightarrow U\in\tau _d
+      \end{align*}
+      \begin{align*}
+        U\in\tau_d
+        & \Leftrightarrow\forall x\in U,\exists r>0,
+          s.t.\{y>0\mid|\textrm{log}y-\textrm{log}x|<r\}\subset U \\
+        & \Rightarrow\forall x\in U,\exists r^{*}=x(1-e^{-r})>0,
+          s.t.\{y>0\mid|y-x|<r^{*}\}\subset U \\
+        & \Rightarrow U\in\tau
+      \end{align*}
+      因而 $\tau$ 可由距离 $d$ 诱导, 下面证明距离 $d$ 是完备的:
 
-    任取$(I,d)$中的Cauchy序列$(x_n)_{n\geq 1}$,记$y_n=\log x_n\in\mathbb{R}$,则
-    \[\forall\varepsilon >0,\exists N,\forall m,n>N,|\log x_m-\log x_n|<\varepsilon\]
-    也即
-    \[\forall\varepsilon >0,\exists N,\forall m,n>N,|y_m-y_n|<\varepsilon\]
-    故$(y_n)_{n\geq 1}$是$(\mathbb{R},d_{\mathbb{R}})$中的Cauchy序列($d_{\mathbb{R}}$表示自然距离),由$(\mathbb{R},d_{\mathbb{R}})$的完备性知\[\exists y\in\mathbb{R},s.t.y_n\rightarrow y\]
-    令$x=e^y\in I$,则有$d(x_n,x)=|\log x_n-\log x|=|y_n-y|\rightarrow 0$,从而说明$(I,d)$完备.
+      任取 $(I,d)$ 中的 Cauchy 序列 $(x_n)_{n\geq 1}$, 记 $y_n=\log x_n\in\mathbb{R}$,则
+      \[\forall\varepsilon >0,\exists N,\forall m,n>N,|\log x_m-\log x_n|<\varepsilon\]
+      也即
+      \[\forall\varepsilon >0,\exists N,\forall m,n>N,|y_m-y_n|<\varepsilon\]
+      故 $(y_n)_{n\geq 1}$ 是 $(\mathbb{R},d_{\mathbb{R}})$ 中的Cauchy序列 ($d_{\mathbb{R}}$ 表示自然距离),
+      由 $(\mathbb{R},d_{\mathbb{R}})$ 的完备性知
+      \[\exists y\in\mathbb{R} \ \text{such that}\  y_n\rightarrow y.\]
+      令 $x=e^y\in I$, 则有 $d(x_n,x)=|\log x_n-\log x|=|y_n-y|\rightarrow 0$,
+      从而说明 $(I,d)$ 完备.
     \item 首先, 应该声明 $f$ 恒大于零, 否则, 取 $f\equiv 0$, 此时 $f$ 满足题目条件
-    但是显然 $f$ 没有不动点.
-    在度量空间 $(I,d)$ 中, $f$ 的导数为:
-    \begin{align*}
-        \forall x_0\in I,f^{(1)}(x_0)
-        & =\lim_{x\to x_0}\frac{d(f(x),f(x_0))}{d(x,x_0)}=\lim_{x\to x_0}\frac{|\log f(x)-\log f(x_0)|}{|\log x-\log x_0|}\\
-        & =\lim_{x\to x_0}\frac{\left|\frac{\log f(x)-\log f(x_0)}{x-x_0}\right|}{\left|\frac{\log x-\log x_0}{x-x_0}\right|}=\frac{x_0|f^{\prime}(x_0)|}{f(x_0)}.
-    \end{align*}
-    结合题目条件 $x|f^{\prime}(x)|\leq\lambda f(x)$
-    知对 $\forall x\in I$, 有 $|f^{(1)}(x)|\leq\lambda<1$, 
-    这表明 $f$ 在度量空间 $(I,d)$ 中为压缩映射.
-    又因为 $(I,d)$ 是完备度量空间, 因此 $f$ 在 $I$ 上存在唯一的不动点.
+      但是显然 $f$ 没有不动点.
+      在度量空间 $(I,d)$ 中, $f$ 的导数为:
+      \begin{align*}
+          \forall x_0\in I,f^{(1)}(x_0)
+          & =\lim_{x\to x_0}\frac{d(f(x),f(x_0))}{d(x,x_0)}=\lim_{x\to x_0}\frac{|\log f(x)-\log f(x_0)|}{|\log x-\log x_0|}\\
+          & =\lim_{x\to x_0}\frac{\left|\frac{\log f(x)-\log f(x_0)}{x-x_0}\right|}{\left|\frac{\log x-\log x_0}{x-x_0}\right|}=\frac{x_0|f^{\prime}(x_0)|}{f(x_0)}.
+      \end{align*}
+      结合题目条件 $x|f^{\prime}(x)|\leq\lambda f(x)$
+      知对 $\forall x\in I$, 有 $|f^{(1)}(x)|\leq\lambda<1$, 
+      这表明 $f$ 在度量空间 $(I,d)$ 中为压缩映射.
+      又因为 $(I,d)$ 是完备度量空间, 因此 $f$ 在 $I$ 上存在唯一的不动点.
   \end{enumerate}
 \end{proof}
 
@@ -395,11 +410,12 @@
 \end{exercise}
 
 \begin{proof}
-    (a) 任取 $y\in f(A_R)$, 存在 $x\in A_R$, 使得 $y=f(x)$, 则
+  \begin{enumerate}[(a)]
+    \item 任取 $y\in f(A_R)$, 存在 $x\in A_R$, 使得 $y=f(x)$, 则
     \[d(y,f(y))=d(f(x),f(f(x)))\leq\lambda d(x,f(x))\leq\lambda R,\]
     故 $y\in  A_{\lambda R}$, 因此 $f(A_R)\subset A_{\lambda R}$.
 
-    (b) 先证明 $A_R$ 非空. 取定某 $x_0\in E$, 若 $x_0=f(x_0)$, 则 $x_0\in A_R$;
+    \item 先证明 $A_R$ 非空. 取定某 $x_0\in E$, 若 $x_0=f(x_0)$, 则 $x_0\in A_R$;
     若 $x_0\neq f(x_0)$, 则 $d(x_0,f(x_0))>0$, 取正整数 $N\geq\log_{\lambda}\frac{R}{d(x_0,f(x_0))}$.
     通过 $x_{n+1}=f(x_n)$ ($n\geq 0$) 构造序列 $(x_n)_{n\geq 0}$, 则
     \[d(x_1,f(x_1))=d(f(x_0),f(f(x_0)))\leq\lambda d(x_0,f(x_0)),\]
@@ -413,7 +429,7 @@
     令 $n\to\infty$, 由度量的连续性以及 $f$ 的连续性得 $d(x,f(x))\leq R$,
     即得 $x\in A_R$, 因此 $A_R$ 为闭集.
 
-    (c) 任取 $x,y\in A_R$, 由度量的三角不等式得
+    \item 任取 $x,y\in A_R$, 由度量的三角不等式得
     \begin{align*}
         d(x,y)
         &\leq d(x,f(x))+d(f(x),f(y))+d(f(y),y) \\
@@ -422,9 +438,10 @@
     于是 $d(x,y)\leq 2R+\lambda d(x,y)$, 即 $d(x,y)\leq 2R/(1-\lambda)$.
     关于 $x,y\in A_R$ 取上确界即得 $\diam(A_R)\leq 2R/(1-\lambda)$.
 
-    (d) 取 $R_n=\frac{1}{n}$, 则 $(A_{R_n})_{n\geq 1}$ 为单调下降的非空闭集列且
-    $\lim\limits_{n\to\infty}\diam(A_{R_n})=0$, 由\textbf{定理 2.2.6} 知 $A_0=\bigcap\limits_{n\geq 1}A_{R_n}$
-    为单点集.
+    \item 取 $R_n=\frac{1}{n}$, 则 $(A_{R_n})_{n\geq 1}$ 为单调下降的非空闭集列且
+    $\lim\limits_{n\to\infty}\diam(A_{R_n})=0$, 由教材定理 2.2.6
+    知 $A_0=\bigcap\limits_{n\geq 1}A_{R_n}$ 为单点集.
+  \end{enumerate}
 \end{proof}
 
 
@@ -441,7 +458,6 @@
     从而 $g(x)$ 也是 $f$ 的不动点, 而由不动点唯一性知 $g(x)=x$,
     这说明 $x$ 也为 $g$ 的不动点.
 \end{proof}
-
 
 
 \begin{exercise}
