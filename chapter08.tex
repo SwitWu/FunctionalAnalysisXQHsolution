@@ -3,7 +3,6 @@
 \thispagestyle{empty}
 
 
-
 \begin{exercise}
     设 $1\leq p\leq\infty$, 考虑 $\FR^2$ 上的 $p$ 范数:
     \[\|(x_1,x_2)\|_p=\bigl(|x_1|^p+|x_2|^p\bigr)^{\frac{1}{p}},\;p<\infty;\quad \|(x_1,x_2)\|_{\infty}=\max\{|x_1|,|x_2|\}.\]
@@ -160,15 +159,14 @@
 
 
 \begin{exercise}
-    设 $E$ 是数域 $\FK$ 上的拓扑向量空间. 称 $E$ 的向量子空间 $H$ 是超平面,
-    若有某个 $x_0\in E\setminus H$, 使得 $E=H+\FK x_0$.
-
-    (a) 证明: 若 $H$ 是超平面, 则对任意的 $x_0\in E\setminus H$, $E=H+\FK x_0$ 成立.
-
-    (b) 证明: 一个超平面或者是 $E$ 的稠密集, 或者是闭集.
-
-    (c) 证明: $H$ 是超平面当且仅当存在 $E$ 上的一个非零线性泛函 $f$,
-    使得 $H=\ker f$. 因而 $H$ 是闭的等价于 $f$ 是连续的.
+  设 $E$ 是数域 $\FK$ 上的拓扑向量空间. 称 $E$ 的向量子空间 $H$ 是超平面,
+  若有某个 $x_0\in E\setminus H$, 使得 $E = H + \FK x_0$.
+  \begin{enumerate}[(a)]
+    \item 证明: 若 $H$ 是超平面, 则对任意的 $x_0\in E\setminus H$, $E=H+\FK x_0$ 成立.
+    \item 证明: 一个超平面或者是 $E$ 的稠密集, 或者是闭集.
+    \item 证明: $H$ 是超平面当且仅当存在 $E$ 上的一个非零线性泛函 $f$, 使得 $H=\ker f$.
+      因而 $H$ 是闭的等价于 $f$ 是连续的.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -200,23 +198,22 @@
 
 
 \begin{exercise}
-    设 $(X,\|\cdot\|_X)$ 是实赋范空间, $\closure{B}_X$ 表示该空间中的闭单位球.
-    假设 $K\geq 1$, $C$ 是 $X$ 中闭凸对称子集 ($C$ 对称是指 $x\in C\Rightarrow -x\in C$), 且满足
-    \[B_X\subset C\subset K\closure{B}_X.\]
-    定义
-    \[p(x)=\inf\Bigl\{\lambda>0\colon\frac{x}{\lambda}\in C\Bigr\},\;\forall x\in X.\]
-
-    (a) 证明: $p$ 是 $X$ 上和 $\|\cdot\|_X$ 等价的范数. 更确切地说, 证明:
-    \[\frac{1}{K}\|x\|\leq p(x)\leq\|x\|,\;\forall x\in X.\]
-
-    (b) 设 $x\in X$. 证明:
-    \begin{enumerate}[(i)]
-        \item $x\in X\setminus C\Longleftrightarrow p(x)>1$.
-        \item $x\in\mathring{C}\Longleftrightarrow p(x)<1$.
-        \item $x\in\partial C\Longleftrightarrow p(x)=1$.
+  设 $(X,\|\cdot\|_X)$ 是实赋范空间, $\closure{B}_X$ 表示该空间中的闭单位球.
+  假设 $K\geq 1$, $C$ 是 $X$ 中闭凸对称子集 ($C$ 对称是指 $x\in C\Rightarrow -x\in C$), 且满足
+  \[B_X\subset C\subset K\closure{B}_X.\]
+  定义
+  \[p(x) = \inf\Bigl\{\lambda>0\colon\frac{x}{\lambda}\in C\Bigr\},\;\forall x\in X.\]
+  \begin{enumerate}[(a)]
+    \item 证明: $p$ 是 $X$ 上和 $\|\cdot\|_X$ 等价的范数. 更确切地说, 证明:
+      \[\frac{1}{K}\|x\|\leq p(x)\leq\|x\|,\;\forall x\in X.\]
+    \item 设 $x\in X$. 证明:
+      \begin{enumerate}[(i)]
+          \item $x\in X\setminus C\Longleftrightarrow p(x)>1$.
+          \item $x\in\mathring{C}\Longleftrightarrow p(x)<1$.
+          \item $x\in\partial C\Longleftrightarrow p(x)=1$.
+      \end{enumerate}
+    \item 任取 $x\in\partial C$. 证明: 存在 $X$ 上的连续线性泛函 $f$, 使得 $f(x)=1$ 且在集合 $C$ 上, $|f|\leq 1$.
     \end{enumerate}
-
-    (c) 任取 $x\in\partial C$. 证明: 存在 $X$ 上的连续线性泛函 $f$, 使得 $f(x)=1$ 且在集合 $C$ 上, $|f|\leq 1$.
 \end{exercise}
 
 \begin{proof}
