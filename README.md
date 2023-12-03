@@ -10,3 +10,8 @@
 
 + 方法一：在 [Releases](https://github.com/SwitWu/FunctionalAnalysisXQHsolution/releases) 中下载最新版本。
 + 方法二：直接去我的[个人主页](https://switwu.github.io)下载（存在版本滞后的可能，以方法一为准）。
+
+## 参与贡献
+
+如果你在阅读的时候发现已有解答存在问题，
+或者你想参与贡献、完善未解答的题目，请通过仓库的 Issues 和 Pull requests 功能区进行反馈与操作。
