@@ -109,16 +109,18 @@
     \[d(x_n,y)\leq d(x_n,A)+\inf_{x\in A}d(x,y)=d(x_n,A),\]
     上述不等式再关于 $y\in\overline{A}$ 取下确界得
     \[d(x_n,\overline{A})\leq d(x_n,A).\]
-    令 $n\to\infty$ 即得 $\lim_{n\to\infty}d(x_n,\bar{A})=0$.
+    令 $n\to\infty$ 即得 $\lim_{n\to\infty}d(x_n,\overline{A})=0$.
 
-    令 $(y_n)_{n\geq 1}$ 为 $\overline{A}$ 中满足 $d(x_n,y_n)=d(x_n,\overline{A})$ 的序列, 
-    由 $\lim\limits_{n\to\infty}d(x_n,y_n)=0$ 及 $(x_n)_{n\geq 1}$ 是 Cauchy 序列有
-    \[\forall\varepsilon>0,\exists N>0,\forall m,n>N,d(x_n,y_n)<\varepsilon/3,d(x_n,x_m)<\varepsilon/3.\]
-    故
-    \[d(y_n,y_m)\leq d(y_n,x_n)+d(x_n,x_m)+d(x_m,y_m)<\varepsilon.\]
-    从而 $(y_n)_{n\geq 1}$ 是 Cauchy 序列, 由 $\overline{A}$ 的完备性知 $(y_n)_{n\geq 1}$ 收敛, 记为 $y_n\to y$, 故
-    \[\forall\varepsilon>0,\exists M>0,\forall n>M,d(y_n,y)<\varepsilon/2,d(x_n,y_n)<\varepsilon/2.\]
-    因此 $d(x_n,y)\leq d(x_n,y_n)+d(y_n,y)<\varepsilon$, 从而说明 $x_n\to y$.
+    对任意的 $\varepsilon>0$ 和任意的 $n\geq 1$, 存在 $y_n\in\overline{A}$ 使得
+    \[ d(x_n,y_n) < d(x_n, \overline{A}) + \varepsilon. \]
+    由于 $(x_n)_{n\geq 1}$ 为 Cauchy 序列且 $\lim_{n\to\infty} d(x_n,\overline{A}) = 0$,
+    故对于上述 $\varepsilon>0$, 存在 $N\geq 1$, 使得当 $m,n\geq N$ 时有
+    \[ d(x_m,\overline{A})<\varepsilon, \quad d(x_n,\overline{A})<\varepsilon,
+        \quad d(x_m,x_n) < \varepsilon. \]
+    因此
+    \[ d(y_m,y_n) \leq d(y_m,x_m) + d(x_m,x_n) + d(x_n,y_n) \leq 5\varepsilon. \]
+    这说明 $(y_n)_{n\geq 1}$ 是 Cauchy 序列, 由 $\overline{A}$ 的完备性知 $(y_n)_{n\geq 1}$
+    收敛, 记为 $y_n \to y$, 从而 $x_n\to y$.
 \end{proof}
 
 
