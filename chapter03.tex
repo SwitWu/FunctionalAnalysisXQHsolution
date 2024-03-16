@@ -995,3 +995,127 @@ n\left(x-\frac{1}{2}+\frac{1}{n}\right), & \frac{1}{2}-\frac{1}{n}\leq x\leq\fra
 
      (iii) 
 \end{proof}
+
+
+% Exercise 19
+\begin{exercise}
+  设 $A = (a_{ij})_{i,j\geq 1}$ 是元素在 $\mathbb{K}$ 中的无穷矩阵,
+  定义对任意有穷序列 $x = (x_j)_{j\geq 1}\subset \mathbb{K}$,
+  即 $x_j$ 仅有有限多个非零,
+  \[ A(x) = \biggl(\sum_{j\geq 1} a_{ij} x_j\biggr)_{i\geq 1}. \]
+  \begin{enumerate}[(a)]
+    \item 证明 $A$ 可以拓展成 $c_0$ 上的有界线性映射当且仅当
+      \[ \|A\|_\infty = \sup_{i\geq 1} \sum_{j\geq 1} |a_{ij}| < \infty. \]
+      在此情形下, 我们有
+      \[ \|A\|_{\mathcal{B}(c_0)} = \|A\|_{\infty}. \]
+      并且, 当 $\|A\|_{\infty} < \infty$ 时, $A$ 也定义了在 $\ell_{\infty}$ 上的线性映射.
+    \item 证明 $A$ 可以拓展成 $\ell_1$ 上的有界线性映射当且仅当
+      \[ \|A\|_1 = \sup_{j\geq 1} \sum_{i\geq 1} |a_{ij}| < \infty. \]
+      在此情形下, 我们有
+      \[ \|A\|_{\mathcal{B}(\ell_1)} = \|A\|_1. \]
+    \item 假设 $\|A\|_\infty$ 和 $\|A\|_1$ 都有限. 证明 $A$ 可以拓展成 $\ell_2$
+      上的有界线性映射且
+      \[ \|A\|_{\mathcal{B}(\ell_2)} \leq \|A\|_{\infty}^{\frac12} \|A\|_1^{\frac12}. \]
+    \item 在上面 (c) 的条件下, $A$ 是否能对任意 $1<p<\infty$ 扩展成
+      $\ell_p$ 上的有界线性映射?
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  第一问题目有问题，取 $a_{ij} = 1/j^2$, 则
+  \[ \|A\|_\infty = \sup_{i\geq 1} \sum_{j\geq 1} \frac{1}{j^2} < \infty. \]
+  再取 $x = (\frac1j)_{j\geq 1} \in c_0$, 但是
+  \[ A(x) = \biggl(\sum_{j\geq 1} a_{ij} x_j\biggr)_{i\geq 1}
+      = \biggl(\sum_{j\geq 1} \frac{1}{j^3}\biggr)_{i\geq 1} \notin c_0. \]
+  因此 $A$ 不是 $c_0$ 上的线性映射, 只能看作从 $c_0$ 到 $\ell_\infty$ 的线性映射.
+  \begin{enumerate}[(a)]
+    \item % (a)
+      若 $\|A\|_\infty < \infty$, 则
+      \begin{align*}
+        \|A(x)\|_{\ell_\infty}
+        & = \sup_{i\geq 1} \biggl|\sum_{j\geq 1} a_{ij} x_j\biggr| \\
+        & \leq \sup_{i\geq 1} \sum_{j\geq 1} |a_{ij}| |x_j| \\
+        & \leq \|A\|_\infty \|x\|_{c_0} < \infty,
+      \end{align*}
+      因此 $A$ 可以拓展为从 $c_0$ 到 $\ell_\infty$ 的有界线性映射.
+
+      若 $\|A\|=\infty$, 则对任意的 $C>0$, 存在 $i_0$ 使得 $\sum_{j\geq 1} |a_{i_0j}| > 2C$,
+      故而存在某个 $N$ 使得 $\sum_{j=1}^N |a_{i_0j}| > C$.
+      选取 $x = (x_j)_{j\geq 1}$ 满足 $x_j = \overline{a_{i_0j}}/|a_{i_0j}|$, 当 $1\leq j\leq N$;
+      $x_j = 0$, 当 $j>N$. 则 $x\in c_0$, $\|x\|_{c_0}=1$ 且 $A(x)$ 的第 $i_0$ 个分量为
+      $\sum_{j\geq 1} a_{i_0j} x_j = \sum_{j=1}^N |a_{i_0j}|>C$.
+      故 $\|A(x)\|_{\ell_\infty}>C$, 结合 $C$ 的任意性知 $A\notin \mathcal{B}(c_0,\ell_\infty)$.
+
+      最后求范数, 对任意 $\varepsilon>0$, 存在 $i_0$, 使得 $\sum_{j\geq 1} |a_{i_0j}| > \|A\|_\infty - \varepsilon/2$,
+      故存在某个 $N$ 使得 $\sum_{j=1}^N |a_{i_0j}| > \|A\|_\infty - \varepsilon$.
+      接下来的步骤与上面类似, 省略, 最终得 $\|A\|_{\mathcal{B}(c_0,\ell_\infty)} > \|A\|_\infty - \varepsilon$.
+      由 $\varepsilon$ 的任意性知 $\|A\|_{\mathcal{B}(c_0,\ell_\infty)} = \|A\|_\infty$.
+    \item % (b)
+      若 $\|A\|_1<\infty$, 则
+      \begin{align*}
+        \|A(x)\|_{\ell_1}
+        & = \sum_{i\geq 1} \biggl|\sum_{j\geq 1} a_{ij}x_j\biggr|
+          \leq \sum_{i\geq 1} \sum_{j\geq 1} |a_{ij}| |x_j| \\
+        & = \sum_{j\geq 1} |x_j| \sum_{i\geq 1} |a_{ij}|
+          \leq \|A\|_1 \|x\|_{\ell_1},
+      \end{align*}
+      故 $A$ 为 $\ell_1$ 上的有界线性映射且 $\|A\|_{\mathcal{B}(\ell_1)} \leq \|A\|_1$.
+
+      若 $\|A\|_1=\infty$, 则对任意的 $C>0$, 存在 $j_0$, 使得 $\sum_{i\geq 1} |a_{ij_0}|>C$.
+      取 $x = (0,\ldots,0,1,0,\ldots)$, 其中只有第 $j_0$ 个位置为 $1$, 则 $\|x\|_{\ell_1}=1$ 且
+      \[ \|A(x)\|_{\ell_1} = \sum_{i\geq 1} |a_{ij_0}| > C. \]
+      结合 $C$ 的任意性知 $A\notin \mathcal{B}(\ell_1)$.
+
+      最后求范数, 对任意 $\varepsilon>0$, 存在 $j_0$ 使得 $\sum_{i\geq 1} |a_{ij_0}| > \|A\|_1 - \varepsilon$.
+      取 $x = (0,\ldots,0,1,0,\ldots)$, 其中只有第 $j_0$ 个位置为 $1$, 则 $\|x\|_{\ell_1}=1$ 且
+      \[ \|A(x)\|_{\ell_1} = \sum_{i\geq 1} |a_{ij_0}| > \|A\|_{1} - \varepsilon. \]
+      因此 $\|A\|_{\mathcal{B}(\ell_1)} = \|A\|_1$.
+    \item % (c)
+      由定义
+      \begin{align*}
+        \|A(x)\|_{\ell_2}^2
+        & = \sum_{i\geq 1} \biggl(\sum_{j\geq 1} a_{ij} x_j\biggr)^2 \\
+        & = \sum_{i\geq 1} \sum_{j\geq 1} a_{ij} x_j \sum_{k\geq 1} a_{ik} x_k \\
+        & =: \sum_{i\geq 1} \sum_{j\geq 1} a_{ij} x_j y_i 
+              \qquad (\text{in which } y_i = \sum_k a_{ik} x_k) \\
+        & = \sum_{j\geq 1} x_j \sum_{i\geq 1} |a_{ij}|^{1/2} |y_i| \cdot |a_{ij}|^{1/2} \qquad (\text{Cauchy-Schwarz}) \\
+        & \leq \sum_{j\geq 1} x_j \biggl(\sum_{i\geq 1} |a_{ij}| y_i^2\biggr)^{1/2}
+            \biggl(\sum_{i\geq 1} |a_{ij}|\biggr)^{1/2} \qquad (\text{Cauchy-Schwarz}) \\
+        & \leq \biggl(\sum_{j\geq 1} x_j^2 \sum_{i\geq 1} |a_{ij}|\biggr)^{1/2}
+            \biggl(\sum_{j\geq 1} \sum_{i\geq 1} |a_{ij}| y_i^2\biggr)^{1/2} \qquad (\text{by definition of }\|A\|_1)\\
+        & \leq \|x\|_{\ell_2} \|A\|_1^{1/2} \biggl(\sum_{i\geq 1} y_i^2 \sum_{j\geq 1} |a_{ij}|\biggr)^{1/2} 
+            \qquad (\text{by definition of }\|A\|_\infty) \\
+        & \leq \|x\|_{\ell_2} \|A\|_1^{1/2} \|A\|_\infty^{1/2}
+            \biggl(\sum_{i\geq 1} \biggl(\sum_{k\geq 1} a_{ik}x_k\biggr)^2\biggr)^{1/2} \\
+        & = \|x\|_{\ell_2} \|A\|_1^{1/2} \|A\|_\infty^{1/2} \|A(x)\|_{\ell_2}.
+      \end{align*}
+      故
+      \[ \|A(x)\|_{\ell_2} \leq \|x\|_{\ell_2} \|A\|_1^{1/2} \|A\|_\infty^{1/2}. \]
+      这说明 $A$ 可以拓展为 $\ell_2$ 上的有界线性映射且
+      \[ \|A\|_{\mathcal{B}(\ell_2)} \leq \|A\|_1^{1/2} \|A\|_\infty^{1/2}. \]
+    \item % (d)
+      $A$ 可以拓展成 $\ell_p$ 上的有界线性映射, 证明方法类似于 (c).
+      记 $q$ 为 $p$ 的共轭数, 则
+      \begin{align*}
+        \|A(x)\|_{\ell_p}^p
+        & = \sum_{i\geq 1} \biggl|\sum_{j\geq 1} a_{ij} x_j\biggr|^p \\
+        & = \sum_{i\geq 1} \biggl|\sum_{j\geq 1} a_{ij} x_j\biggr|\cdot
+            \biggl|\sum_{j\geq 1} a_{ij} x_j\biggr|^{p-1} \\
+        & \leq \sum_{i\geq 1} \sum_{j\geq 1} |a_{ij}|^{\frac{1}{p}} \cdot |a_{ij}|^{\frac{1}{q}}
+            |x_j| |y_i| \qquad (\text{in which } y_i = \biggl|\sum_{j} a_{ij}x_j\biggr|^{p-1}) \\
+        & = \sum_{j\geq 1} |x_j| \sum_{i\geq 1} |a_{ij}|^{\frac{1}{p}} \cdot
+            |a_{ij}|^{\frac{1}{q}} |y_i| \qquad (\text{Cauchy-Schwarz}) \\
+        & \leq \sum_{j\geq 1} |x_j| \biggl(\sum_{i\geq 1} |a_{ij}|\biggr)^{\frac{1}{p}}
+            \biggl(\sum_{i\geq 1} |a_{ij}| |y_i|^q\biggr)^{\frac{1}{q}} \qquad (\text{Cauchy-Schwarz}) \\
+        & \leq \biggl(\sum_{j\geq 1} |x_j|^p \sum_{i\geq 1} |a_{ij}|\biggr)^{\frac{1}{p}}
+            \biggl(\sum_{j\geq 1} \sum_{i\geq 1} |a_{ij}| |y_i|^q\biggr)^{\frac{1}{q}} \\
+        & \leq \|A\|_1^{\frac{1}{p}} \|x\|_{\ell_p}
+            \biggl(\sum_{i\geq 1} |y_i|^q \sum_{j\geq 1} |a_{ij}|\biggr)^{\frac{1}{q}} \\
+        & \leq \|A\|_1^{\frac{1}{p}} \|x\|_{\ell_p} \|A\|_\infty^{\frac{1}{q}}
+            \biggl(\sum_{i\geq 1} \biggl|\sum_{j\geq 1} a_{ij} x_j\biggr|^p\biggr)^{\frac{p-1}{p}} \\
+        & = \|A\|_1^{\frac{1}{p}} \|x\|_{\ell_p} \|A\|_\infty^{\frac{1}{q}}
+            \|A(x)\|_{\ell_p}^{p-1},
+      \end{align*}
+    因此 $\|A\|_{\mathcal{B}(\ell_p)} \leq \|A\|_1^{\frac{1}{p}} \|A\|_\infty^{\frac{1}{q}}$. \qedhere
+  \end{enumerate}
+\end{proof}
