@@ -15,3 +15,7 @@
 
 如果你在阅读的时候发现已有解答存在问题，
 或者你想参与贡献、完善未解答的题目，请通过仓库的 Issues 和 Pull requests 功能区进行反馈与操作。
+
+## License
+
+This work is openly licensed via [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
