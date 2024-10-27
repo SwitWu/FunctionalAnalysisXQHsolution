@@ -19,3 +19,7 @@
 ## License
 
 This work is openly licensed via [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=SwitWu/FunctionalAnalysisXQHsolution&type=Date)](https://star-history.com/#SwitWu/FunctionalAnalysisXQHsolution&Date)
